@@ -1,72 +1,144 @@
+"use client"
+
 import Link from "next/link"
-import { Search, MapPin, Menu } from "lucide-react"
+import { Search, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useState } from "react"
 
 export function NetworkHeader() {
-  return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4 sm:px-8 max-w-7xl mx-auto">
-        {/* Mobile Menu */}
-        <div className="flex items-center md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="-ml-2">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left">
-              <nav className="flex flex-col gap-4 mt-8">
-                <Link href="https://visitcastlerock.co" className="text-lg font-medium text-muted-foreground">Visit</Link>
-                <Link href="/" className="text-lg font-bold text-foreground">Dine Castle Rock</Link>
-                <Link href="https://shopcastlerock.co" className="text-lg font-medium text-muted-foreground">Shop</Link>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-        {/* Centered Network Navigation (Desktop) */}
-        <nav className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
-          <a
-            href="https://visitcastlerock.co"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Visit
-          </a>
+    return (
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+            <div className="container flex h-14 items-center justify-between px-4 max-w-7xl mx-auto">
+                {/* Logo - Always visible */}
+                <Link href="/" className="flex items-center gap-2">
+                    <span className="font-bold text-lg tracking-tight">Dine Castle Rock</span>
+                </Link>
 
-          <Link href="/" className="flex items-center px-2">
-            <span className="font-bold text-xl tracking-tight text-foreground">Dine Castle Rock</span>
-          </Link>
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center gap-1">
+                    <a
+                        href="https://visitcastlerock.co"
+                        className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                    >
+                        Visit
+                    </a>
+                    <Link
+                        href="/restaurants"
+                        className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                    >
+                        Restaurants
+                    </Link>
+                    <Link
+                        href="/bars-nightlife"
+                        className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                    >
+                        Bars
+                    </Link>
+                    <Link
+                        href="/coffee"
+                        className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                    >
+                        Coffee
+                    </Link>
+                    <Link
+                        href="/guides"
+                        className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+                    >
+                        Guides
+                    </Link>
+                </nav>
 
-          <a
-            href="https://shopcastlerock.co"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Shop
-          </a>
-        </nav>
+                {/* Right Actions */}
+                <div className="flex items-center gap-2">
+                    <Button variant="ghost" size="icon" className="h-9 w-9" asChild>
+                        <Link href="/restaurants" aria-label="Search">
+                            <Search className="h-4 w-4" />
+                        </Link>
+                    </Button>
+                    <Button size="sm" className="hidden sm:inline-flex h-9" asChild>
+                        <Link href="/add-listing">
+                            Add Listing
+                        </Link>
+                    </Button>
 
-        {/* Spacer for Flex Alignment on Desktop if needed, or just let Justify-Between handle the sides */}
-        {/* We have: Left(MobileMenu), Center(Nav), Right(Actions). 
-            On Desktop: Left is empty (hidden mobile menu), Center is absolute, Right is present.
-            This works with the existing justify-between.
-        */}
+                    {/* Mobile Menu Button */}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-9 w-9 md:hidden"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+                    </Button>
+                </div>
+            </div>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 md:gap-4">
-          <Button variant="ghost" size="icon" aria-label="Search" asChild>
-            <Link href="/restaurants">
-              <Search className="h-5 w-5" />
-            </Link>
-          </Button>
-          <Button size="sm" className="hidden sm:inline-flex rounded-full" asChild>
-            <Link href="/add-listing">
-              Add Listing
-            </Link>
-          </Button>
-        </div>
-      </div>
-    </header>
-  )
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+                <div className="md:hidden border-t bg-background">
+                    <nav className="container px-4 py-4 space-y-1 max-w-7xl mx-auto">
+                        <Link
+                            href="/restaurants"
+                            className="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Restaurants
+                        </Link>
+                        <Link
+                            href="/bars-nightlife"
+                            className="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Bars & Nightlife
+                        </Link>
+                        <Link
+                            href="/coffee"
+                            className="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Coffee
+                        </Link>
+                        <Link
+                            href="/breweries"
+                            className="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Breweries
+                        </Link>
+                        <Link
+                            href="/guides"
+                            className="block px-3 py-2.5 text-sm font-medium rounded-md hover:bg-accent transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Guides
+                        </Link>
+                        <div className="pt-2 border-t mt-2">
+                            <a
+                                href="https://visitcastlerock.co"
+                                className="block px-3 py-2.5 text-sm text-muted-foreground rounded-md hover:bg-accent transition-colors"
+                            >
+                                Visit Castle Rock
+                            </a>
+                            <a
+                                href="https://shopcastlerock.co"
+                                className="block px-3 py-2.5 text-sm text-muted-foreground rounded-md hover:bg-accent transition-colors"
+                            >
+                                Shop Castle Rock
+                            </a>
+                        </div>
+                        <div className="pt-2">
+                            <Button className="w-full" asChild>
+                                <Link href="/add-listing" onClick={() => setMobileMenuOpen(false)}>
+                                    Add Your Business
+                                </Link>
+                            </Button>
+                        </div>
+                    </nav>
+                </div>
+            )}
+        </header>
+    )
 }
