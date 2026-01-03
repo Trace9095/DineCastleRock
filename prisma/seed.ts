@@ -25,6 +25,18 @@ async function main() {
         create: { name: 'Bars & Nightlife', slug: 'bars' },
     })
 
+    const coffee = await prisma.category.upsert({
+        where: { slug: 'coffee' },
+        update: {},
+        create: { name: 'Coffee', slug: 'coffee' },
+    })
+
+    const dessert = await prisma.category.upsert({
+        where: { slug: 'dessert' },
+        update: {},
+        create: { name: 'Dessert', slug: 'dessert' },
+    })
+
     // Create Listings
     const tribe = await prisma.listing.upsert({
         where: { slug: 'tribe-riverwalk' },

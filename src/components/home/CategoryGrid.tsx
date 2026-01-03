@@ -4,9 +4,9 @@ import { UtensilsCrossed, Beer, Coffee, Pizza, IceCream, Truck } from "lucide-re
 const categories = [
     { name: "Restaurants", icon: UtensilsCrossed, href: "/restaurants", color: "bg-orange-100 text-orange-600" },
     { name: "Bars & Nightlife", icon: Beer, href: "/bars-nightlife", color: "bg-purple-100 text-purple-600" },
-    { name: "Coffee & Brunch", icon: Coffee, href: "/coffee-dessert", color: "bg-amber-100 text-amber-600" },
+    { name: "Coffee", icon: Coffee, href: "/coffee", color: "bg-amber-100 text-amber-600" },
     { name: "Takeout", icon: Pizza, href: "/takeout-delivery", color: "bg-green-100 text-green-600" },
-    { name: "Dessert", icon: IceCream, href: "/coffee-dessert", color: "bg-pink-100 text-pink-600" },
+    { name: "Dessert", icon: IceCream, href: "/dessert", color: "bg-pink-100 text-pink-600" },
     { name: "Food Trucks", icon: Truck, href: "/food-trucks", color: "bg-blue-100 text-blue-600" },
 ]
 

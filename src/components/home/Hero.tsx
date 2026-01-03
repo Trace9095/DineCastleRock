@@ -8,8 +8,8 @@ export function Hero() {
             {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0">
                 {/* Placeholder for now - normally this would be a high-quality Next.js Image */}
-                <div className="w-full h-full bg-zinc-900 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-80" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="w-full h-full bg-zinc-900 bg-[url('/images/home-hero.jpg')] bg-cover bg-center opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
             </div>
 
             {/* Content */}
@@ -39,7 +39,7 @@ export function Hero() {
                 {/* Quick Tags */}
                 <div className="flex flex-wrap justify-center gap-2 pt-2">
                     {["Date Night", "Happy Hour", "Family Friendly", "Quick Bite", "Coffee"].map((tag) => (
-                        <Button key={tag} variant="outline" size="sm" className="rounded-full bg-white/5 border-white/20 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm">
+                        <Button key={tag} variant="outline" size="sm" className="rounded-full bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm shadow-sm transition-all">
                             {tag}
                         </Button>
                     ))}

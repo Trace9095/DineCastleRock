@@ -27,9 +27,9 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         ],
         features: ["Outdoor Seating", "Happy Hour", "Reservations Recommended", "Full Bar"],
         images: [
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop"
+            "/images/listings/tribe-riverwalk-hero.jpg",
+            "/images/guides/date-night-hero.jpg",
+            "/images/guides/happy-hour-hero.jpg"
         ]
     }
 
