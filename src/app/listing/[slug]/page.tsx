@@ -7,6 +7,7 @@ import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCir
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { getListingBySlug, isOpenNow } from "@/lib/data"
+import { ReviewForm } from "@/components/listings/ReviewForm"
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -311,15 +312,35 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                 )}
                             </TabsContent>
 
-                            <TabsContent value="reviews" className="pt-6">
-                                <div className="p-8 border rounded-lg text-center bg-muted/20">
-                                    <p className="mb-2">
-                                        <span className="font-semibold text-lg">{listing.rating.toFixed(1)}</span>
-                                        <span className="text-muted-foreground"> average from </span>
-                                        <span className="font-semibold">{listing.reviewCount}</span>
-                                        <span className="text-muted-foreground"> reviews</span>
-                                    </p>
-                                    <p className="text-sm text-muted-foreground">Reviews aggregated from Google</p>
+                            <TabsContent value="reviews" className="pt-6 space-y-8">
+                                {/* Rating Summary */}
+                                <div className="p-6 border rounded-lg bg-muted/20">
+                                    <div className="flex items-center justify-center gap-4">
+                                        <div className="text-center">
+                                            <div className="text-4xl font-bold">{listing.rating.toFixed(1)}</div>
+                                            <div className="flex justify-center mt-1">
+                                                {[1, 2, 3, 4, 5].map((star) => (
+                                                    <Star
+                                                        key={star}
+                                                        className={`h-4 w-4 ${
+                                                            star <= Math.round(listing.rating)
+                                                                ? "fill-amber-400 text-amber-400"
+                                                                : "text-zinc-300"
+                                                        }`}
+                                                    />
+                                                ))}
+                                            </div>
+                                            <p className="text-sm text-muted-foreground mt-1">
+                                                {listing.reviewCount} reviews on Google
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Write a Review */}
+                                <div className="border rounded-lg p-6">
+                                    <h3 className="text-lg font-semibold mb-4">Write a Review</h3>
+                                    <ReviewForm listingName={listing.name} listingSlug={slug} />
                                 </div>
                             </TabsContent>
                         </Tabs>
