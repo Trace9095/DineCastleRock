@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Dine Castle Rock | Premium Dining Guide",
@@ -57,6 +58,7 @@ export default function RootLayout({
           {children}
         </main>
         <NetworkFooter />
+        <Analytics />
       </body>
     </html>
     // </ClerkProvider>
