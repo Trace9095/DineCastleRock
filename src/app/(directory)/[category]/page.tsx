@@ -59,9 +59,10 @@ const SAMPLE_LISTINGS = [
     },
 ]
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+    const { category } = await params
     // Simple mapping for display title
-    const categoryTitle = params.category
+    const categoryTitle = category
         .split("-")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ")
