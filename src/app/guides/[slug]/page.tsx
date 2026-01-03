@@ -2,11 +2,12 @@ import { ListingCard } from "@/components/listings/ListingCard"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
     // Mock Data
     const guide = {
         title: "The Ultimate Happy Hour Guide in Castle Rock",
-        slug: params.slug,
+        slug: slug,
         author: "Editorial Team",
         date: "October 10, 2025",
         heroImage: "/images/guides/happy-hour-hero.jpg",
