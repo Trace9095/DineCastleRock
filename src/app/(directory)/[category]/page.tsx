@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { SlidersHorizontal, Search } from "lucide-react"
 import { notFound } from "next/navigation"
 import { getListingsByCategory, searchListings, type Listing } from "@/lib/data"
+import { Suspense } from "react"
 
 // Valid categories that should render this page
 const VALID_CATEGORIES = [
@@ -158,7 +159,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Sidebar - Hidden on mobile mostly, or collapsible */}
                 <aside className="w-full md:w-64 shrink-0 hidden md:block">
-                    <FilterSidebar />
+                    <Suspense fallback={<div className="animate-pulse bg-muted h-96 rounded-lg" />}>
+                        <FilterSidebar />
+                    </Suspense>
                 </aside>
 
                 {/* Mobile Filter Trigger */}
