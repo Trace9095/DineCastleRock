@@ -1,5 +1,6 @@
 import { FilterSidebar } from "@/components/listings/FilterSidebar"
 import { ListingCard } from "@/components/listings/ListingCard"
+import { SortSelect } from "@/components/listings/SortSelect"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { SlidersHorizontal, Search } from "lucide-react"
@@ -111,8 +112,29 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
     const totalCount = listings.length
 
+    // Generate ItemList schema for SEO
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": `${categoryTitle} in Castle Rock, CO`,
+        "url": `https://dinecastlerock.co/${category}/`,
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": listings.slice(0, 20).map((listing, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "url": `https://dinecastlerock.co/listing/${listing.slug}`
+            }))
+        }
+    }
+
     return (
         <div className="container max-w-7xl mx-auto px-4 py-8">
+            {/* ItemList Schema for SEO */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+            />
             {/* Header */}
             <div className="mb-8 border-b pb-6">
                 <h1 className="text-4xl font-bold tracking-tight mb-2">{categoryTitle}</h1>
@@ -134,26 +156,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     <input type="hidden" name="sort" value={sort} />
                     {premium && <input type="hidden" name="premium" value={premium} />}
                 </form>
-                <div className="flex gap-2">
-                    <form className="contents">
-                        {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
-                        {premium && <input type="hidden" name="premium" value={premium} />}
-                        <select
-                            name="sort"
-                            defaultValue={sort}
-                            className="h-10 px-3 rounded-md border border-input bg-background text-sm min-w-[140px]"
-                            onChange={(e) => {
-                                const form = e.target.closest('form')
-                                if (form) form.submit()
-                            }}
-                        >
-                            <option value="rating">Top Rated</option>
-                            <option value="reviews">Most Reviewed</option>
-                            <option value="name">A to Z</option>
-                            <option value="newest">Newest</option>
-                        </select>
-                    </form>
-                </div>
+                <Suspense fallback={<div className="h-10 w-[140px] bg-muted rounded-md animate-pulse" />}>
+                    <SortSelect currentSort={sort} category={category} />
+                </Suspense>
             </div>
 
             <div className="flex flex-col md:flex-row gap-8">

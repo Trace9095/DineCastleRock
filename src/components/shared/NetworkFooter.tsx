@@ -22,7 +22,7 @@ export function NetworkFooter() {
                     </div>
 
                     <div>
-                        <h3 className="font-semibold mb-3">Community</h3>
+                        <h3 className="font-semibold mb-3">For Businesses</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link href="/add-listing" className="hover:text-foreground transition-colors">Add Business</Link></li>
                             <li><Link href="/advertise" className="hover:text-foreground transition-colors">Advertise</Link></li>
@@ -31,10 +31,11 @@ export function NetworkFooter() {
                     </div>
 
                     <div>
-                        <h3 className="font-semibold mb-3">Social</h3>
+                        <h3 className="font-semibold mb-3">Legal</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                            <li><a href="#" className="hover:text-foreground transition-colors">Instagram</a></li>
-                            <li><a href="#" className="hover:text-foreground transition-colors">Facebook</a></li>
+                            <li><Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
+                            <li><Link href="/editorial-policy" className="hover:text-foreground transition-colors">Editorial Policy</Link></li>
                         </ul>
                     </div>
                 </div>

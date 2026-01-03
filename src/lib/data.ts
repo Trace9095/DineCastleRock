@@ -79,7 +79,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: true,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '2',
@@ -110,7 +110,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '3',
@@ -141,7 +141,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: true,
         categorySlug: 'restaurants',
         deals: [{ id: 'd1', title: 'Happy Hour Specials', description: 'Discounted drinks and appetizers during happy hour' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '4',
@@ -175,7 +175,7 @@ export const LISTINGS: Listing[] = [
             { id: 'd2', title: 'Happy Hour', description: 'Daily 3-6 PM - specials on food and drinks' },
             { id: 'd3', title: 'Late Night Happy Hour', description: '9 PM to close, any day of the week' }
         ],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '5',
@@ -206,7 +206,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '6',
@@ -237,7 +237,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '7',
@@ -268,7 +268,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'bars-nightlife',
         deals: [{ id: 'd4', title: 'Happy Hour', description: 'Daily drink specials' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '8',
@@ -299,7 +299,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'bars-nightlife',
         deals: [{ id: 'd5', title: 'Weekday Happy Hour', description: '3-6 PM - specials on drinks and food' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '9',
@@ -330,7 +330,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '10',
@@ -361,7 +361,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '11',
@@ -392,7 +392,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '12',
@@ -423,7 +423,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'bars-nightlife',
         deals: [{ id: 'd6', title: 'Happy Hour Specials', description: 'Daily happy hour with discounted drinks and apps' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '13',
@@ -454,7 +454,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '14',
@@ -482,7 +482,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: true,
         categorySlug: 'bars-nightlife',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '15',
@@ -513,7 +513,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'breweries',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '16',
@@ -544,7 +544,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '17',
@@ -575,7 +575,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'bars-nightlife',
         deals: [{ id: 'd7', title: 'Weekday Happy Hour', description: '3pm-6pm every weekday' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '18',
@@ -606,7 +606,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [{ id: 'd8', title: 'Daily Happy Hour', description: '2-5 PM - specials on drinks' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '19',
@@ -637,7 +637,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '20',
@@ -668,7 +668,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'bars-nightlife',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     // Dessert & Bakery
     {
@@ -700,7 +700,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'dessert',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '22',
@@ -731,7 +731,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'dessert',
         deals: [{ id: 'd9', title: 'Weekly Flavor Drop', description: 'New flavors every Sunday night at 6 PM' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '23',
@@ -762,7 +762,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'dessert',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     // Food Trucks
     {
@@ -790,7 +790,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'food-trucks',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '25',
@@ -816,7 +816,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'food-trucks',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '26',
@@ -844,7 +844,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'food-trucks',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     // Takeout & Delivery
     {
@@ -876,7 +876,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'takeout-delivery',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '28',
@@ -907,7 +907,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'takeout-delivery',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '29',
@@ -938,7 +938,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'takeout-delivery',
         deals: [],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
     {
         id: '30',
@@ -969,7 +969,7 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'takeout-delivery',
         deals: [{ id: 'd10', title: 'Free Guac & Queso', description: 'No extra charge for guacamole or queso on any entree' }],
-        updatedAt: new Date('2025-01-01')
+        updatedAt: new Date('2026-01-03')
     },
 ]
 
