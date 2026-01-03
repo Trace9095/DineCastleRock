@@ -35,10 +35,26 @@ async function main() {
             isPremium: true,
             categoryId: restaurants.id,
             features: ['Patio', 'Happy Hour'],
+            image: '/images/guides/date-night-hero.jpg',
+            gallery: ['/images/guides/happy-hour-hero.jpg', '/images/guides/provision-bar.jpg'],
         },
     })
 
     console.log({ restaurants, breweries, tribe })
+
+    // Verification
+    console.log('\n--- VERIFICATION ---')
+    const allListings = await prisma.listing.findMany({
+        select: { name: true, image: true, gallery: true }
+    })
+    console.log(`Total listings: ${allListings.length}`)
+    allListings.forEach(l => {
+        const hasImage = !!l.image
+        const galleryCount = l.gallery.length
+        console.log(`- ${l.name}: Image=${hasImage ? 'YES' : 'NO'}, Gallery=${galleryCount}`)
+    })
+    console.log('--- END VERIFICATION ---\n')
+
     console.log('Seeding finished.')
 }
 

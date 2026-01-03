@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
@@ -6,7 +7,8 @@ import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle } from "l
 import { NetworkFooter } from "@/components/shared/NetworkFooter"
 // NetworkHeader is in layout
 
-export default function ListingPage({ params }: { params: { slug: string } }) {
+export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
     // Mock Data
     const listing = {
         name: "Tribe at Riverwalk",
@@ -160,7 +162,9 @@ export default function ListingPage({ params }: { params: { slug: string } }) {
                         <div className="p-6 border rounded-xl bg-zinc-900 text-white shadow-sm text-center space-y-3">
                             <h3 className="font-bold">Own this business?</h3>
                             <p className="text-sm text-zinc-300">Claim this listing to manage details, add photos, and post deals.</p>
-                            <Button variant="secondary" className="w-full">Claim Listing</Button>
+                            <Link href={`/listing/${slug}/claim`} className="w-full">
+                                <Button variant="secondary" className="w-full">Claim Listing</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
