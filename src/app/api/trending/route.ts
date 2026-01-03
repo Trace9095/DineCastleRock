@@ -1,10 +1,33 @@
 import { NextResponse } from 'next/server'
 import { getTrendingListings } from '@/lib/data'
+import { rateLimit, getClientId } from '@/lib/rate-limit'
 
 export async function GET(request: Request) {
+    // Rate limiting: 100 requests per minute per IP
+    const clientId = getClientId(request)
+    const rateLimitResult = rateLimit(`trending:${clientId}`, 100)
+
+    if (!rateLimitResult.success) {
+        return NextResponse.json(
+            { error: 'Too many requests. Please try again later.' },
+            {
+                status: 429,
+                headers: {
+                    'X-RateLimit-Limit': String(rateLimitResult.limit),
+                    'X-RateLimit-Remaining': '0',
+                    'X-RateLimit-Reset': String(rateLimitResult.reset),
+                    'Retry-After': String(Math.ceil((rateLimitResult.reset * 1000 - Date.now()) / 1000))
+                }
+            }
+        )
+    }
+
     const { searchParams } = new URL(request.url)
     const window = searchParams.get('window') || '7d'
-    const limit = parseInt(searchParams.get('limit') || '10')
+
+    // Input validation: clamp limit
+    const rawLimit = parseInt(searchParams.get('limit') || '10')
+    const limit = Math.min(Math.max(1, isNaN(rawLimit) ? 10 : rawLimit), 50) // Clamp 1-50
 
     const listings = getTrendingListings(limit)
 
@@ -26,13 +49,22 @@ export async function GET(request: Request) {
                 : 'Top rated'
     }))
 
-    return NextResponse.json({
-        data: formattedListings,
-        meta: {
-            window,
-            limit,
-            generated_at: new Date().toISOString(),
-            note: 'Trending is based on featured status, ratings, and deals. Real-time engagement tracking coming soon.'
+    return NextResponse.json(
+        {
+            data: formattedListings,
+            meta: {
+                window,
+                limit,
+                generated_at: new Date().toISOString(),
+                note: 'Trending is based on featured status, ratings, and deals. Real-time engagement tracking coming soon.'
+            }
+        },
+        {
+            headers: {
+                'X-RateLimit-Limit': String(rateLimitResult.limit),
+                'X-RateLimit-Remaining': String(rateLimitResult.remaining),
+                'X-RateLimit-Reset': String(rateLimitResult.reset)
+            }
         }
-    })
+    )
 }

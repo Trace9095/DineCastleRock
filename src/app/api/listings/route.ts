@@ -1,11 +1,35 @@
 import { NextResponse } from 'next/server'
 import { getAllListings, getListingsByCategory, isOpenNow } from '@/lib/data'
+import { rateLimit, getClientId } from '@/lib/rate-limit'
 
 export async function GET(request: Request) {
+    // Rate limiting: 100 requests per minute per IP
+    const clientId = getClientId(request)
+    const rateLimitResult = rateLimit(`listings:${clientId}`, 100)
+
+    if (!rateLimitResult.success) {
+        return NextResponse.json(
+            { error: 'Too many requests. Please try again later.' },
+            {
+                status: 429,
+                headers: {
+                    'X-RateLimit-Limit': String(rateLimitResult.limit),
+                    'X-RateLimit-Remaining': '0',
+                    'X-RateLimit-Reset': String(rateLimitResult.reset),
+                    'Retry-After': String(Math.ceil((rateLimitResult.reset * 1000 - Date.now()) / 1000))
+                }
+            }
+        )
+    }
+
     const { searchParams } = new URL(request.url)
     const category = searchParams.get('category')
-    const limit = parseInt(searchParams.get('limit') || '50')
-    const offset = parseInt(searchParams.get('offset') || '0')
+
+    // Input validation: sanitize and clamp values
+    const rawLimit = parseInt(searchParams.get('limit') || '50')
+    const rawOffset = parseInt(searchParams.get('offset') || '0')
+    const limit = Math.min(Math.max(1, isNaN(rawLimit) ? 50 : rawLimit), 100) // Clamp 1-100
+    const offset = Math.max(0, isNaN(rawOffset) ? 0 : rawOffset) // Min 0
 
     let listings = category
         ? getListingsByCategory(category)
@@ -59,13 +83,22 @@ export async function GET(request: Request) {
         updated_at: listing.updatedAt.toISOString()
     }))
 
-    return NextResponse.json({
-        data: formattedListings,
-        meta: {
-            total,
-            limit,
-            offset,
-            has_more: offset + listings.length < total
+    return NextResponse.json(
+        {
+            data: formattedListings,
+            meta: {
+                total,
+                limit,
+                offset,
+                has_more: offset + listings.length < total
+            }
+        },
+        {
+            headers: {
+                'X-RateLimit-Limit': String(rateLimitResult.limit),
+                'X-RateLimit-Remaining': String(rateLimitResult.remaining),
+                'X-RateLimit-Reset': String(rateLimitResult.reset)
+            }
         }
-    })
+    )
 }
