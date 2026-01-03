@@ -1,34 +1,75 @@
 import Link from "next/link"
-import { UtensilsCrossed, Beer, Coffee, Pizza, IceCream, Truck } from "lucide-react"
 
 const categories = [
-    { name: "Restaurants", icon: UtensilsCrossed, href: "/restaurants", color: "bg-orange-100 text-orange-600" },
-    { name: "Bars & Nightlife", icon: Beer, href: "/bars-nightlife", color: "bg-purple-100 text-purple-600" },
-    { name: "Coffee", icon: Coffee, href: "/coffee", color: "bg-amber-100 text-amber-600" },
-    { name: "Takeout", icon: Pizza, href: "/takeout-delivery", color: "bg-green-100 text-green-600" },
-    { name: "Dessert", icon: IceCream, href: "/dessert", color: "bg-pink-100 text-pink-600" },
-    { name: "Food Trucks", icon: Truck, href: "/food-trucks", color: "bg-blue-100 text-blue-600" },
+    {
+        name: "Restaurants",
+        href: "/restaurants",
+        description: "Fine dining to casual eats"
+    },
+    {
+        name: "Bars & Nightlife",
+        href: "/bars-nightlife",
+        description: "Cocktails, beer & entertainment"
+    },
+    {
+        name: "Coffee",
+        href: "/coffee",
+        description: "Local roasters & cafes"
+    },
+    {
+        name: "Breweries",
+        href: "/breweries",
+        description: "Craft beer & taprooms"
+    },
+    {
+        name: "Takeout",
+        href: "/takeout-delivery",
+        description: "Quick bites & delivery"
+    },
+    {
+        name: "Dessert",
+        href: "/dessert",
+        description: "Sweet treats & bakeries"
+    },
 ]
 
 export function CategoryGrid() {
     return (
-        <section className="py-20 container px-4 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-12">
-                <h2 className="text-3xl font-bold tracking-tight">Browse by Category</h2>
-                <Link href="/directory" className="text-sm font-medium hover:underline">View All</Link>
+        <section className="py-24 container px-4 max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+                <h2 className="text-4xl font-semibold tracking-tight mb-4">Explore Castle Rock</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Discover local favorites across every category
+                </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {categories.map((cat) => (
                     <Link
                         key={cat.name}
                         href={cat.href}
-                        className="group flex flex-col items-center justify-center gap-4 p-6 rounded-2xl bg-muted/40 hover:bg-muted transition-all hover:scale-105 border border-transparent hover:border-border duration-300"
+                        className="group relative overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-900 p-8 md:p-10 transition-all duration-500 hover:bg-zinc-200 dark:hover:bg-zinc-800"
                     >
-                        <div className={`p-4 rounded-full ${cat.color} group-hover:bg-opacity-80 transition-colors`}>
-                            <cat.icon className="h-6 w-6" />
+                        <div className="relative z-10">
+                            <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-2 group-hover:translate-x-1 transition-transform duration-300">
+                                {cat.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300">
+                                {cat.description}
+                            </p>
                         </div>
-                        <span className="font-semibold text-center text-sm">{cat.name}</span>
+
+                        {/* Subtle arrow indicator */}
+                        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300">
+                            <svg
+                                className="w-5 h-5 text-muted-foreground"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
                     </Link>
                 ))}
             </div>
