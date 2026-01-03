@@ -8,10 +8,10 @@ import { useState } from "react"
 import Link from "next/link"
 
 const QUICK_TAGS = [
-    { label: "Date Night", href: "/restaurants?cuisine=Italian,American&price=$$,$$$" },
+    { label: "Date Night", href: "/restaurants?premium=true" },
     { label: "Happy Hour", href: "/bars-nightlife?hasDeals=true" },
-    { label: "Family Friendly", href: "/restaurants?cuisine=American,Pizza,Mexican" },
-    { label: "Quick Bite", href: "/takeout-delivery?price=$,$$" },
+    { label: "Family Friendly", href: "/restaurants" },
+    { label: "Quick Bite", href: "/restaurants" },
     { label: "Coffee", href: "/coffee" },
 ]
 
