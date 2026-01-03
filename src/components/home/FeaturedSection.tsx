@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { ListingCard, ListingCardProps } from "@/components/listings/ListingCard"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,6 +9,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import { ReactNode } from "react"
+import Link from "next/link"
 
 interface FeaturedSectionProps {
     title: string
@@ -25,11 +26,13 @@ export function FeaturedSection({ title, subtitle, items, link, linkText }: Feat
                 <div className="flex items-end justify-between mb-8">
                     <div>
                         <h2 className="text-3xl font-bold tracking-tight mb-2">{title}</h2>
-                        {subtitle && <p className="text-muted-foreground">{subtitle}</p>}
+                        {subtitle && <div className="text-muted-foreground">{subtitle}</div>}
                     </div>
                     {link && (
-                        <Button variant="ghost" className="hidden sm:flex text-primary">
-                            {linkText || "View All"} <ChevronRight className="ml-1 h-4 w-4" />
+                        <Button variant="ghost" className="hidden sm:flex text-primary" asChild>
+                            <Link href={link}>
+                                {linkText || "View All"} <ChevronRight className="ml-1 h-4 w-4" />
+                            </Link>
                         </Button>
                     )}
                 </div>
@@ -58,8 +61,10 @@ export function FeaturedSection({ title, subtitle, items, link, linkText }: Feat
 
                 {link && (
                     <div className="mt-6 sm:hidden text-center">
-                        <Button variant="outline" className="w-full">
-                            {linkText || "View All"}
+                        <Button variant="outline" className="w-full" asChild>
+                            <Link href={link}>
+                                {linkText || "View All"}
+                            </Link>
                         </Button>
                     </div>
                 )}

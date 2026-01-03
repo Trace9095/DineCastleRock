@@ -1,8 +1,31 @@
+"use client"
+
 import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import Link from "next/link"
+
+const QUICK_TAGS = [
+    { label: "Date Night", href: "/restaurants?cuisine=Italian,American&price=$$,$$$" },
+    { label: "Happy Hour", href: "/bars-nightlife?hasDeals=true" },
+    { label: "Family Friendly", href: "/restaurants?cuisine=American,Pizza,Mexican" },
+    { label: "Quick Bite", href: "/takeout-delivery?price=$,$$" },
+    { label: "Coffee", href: "/coffee" },
+]
 
 export function Hero() {
+    const router = useRouter()
+    const [searchQuery, setSearchQuery] = useState("")
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (searchQuery.trim()) {
+            router.push(`/restaurants?q=${encodeURIComponent(searchQuery.trim())}`)
+        }
+    }
+
     return (
         <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
             {/* Background Image with Gradient Overlay */}
@@ -24,23 +47,37 @@ export function Hero() {
                 </div>
 
                 {/* Search Bar - Glassmorphism */}
-                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full max-w-2xl mx-auto flex items-center shadow-xl">
+                <form onSubmit={handleSearch} className="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full max-w-2xl mx-auto flex items-center shadow-xl">
                     <Search className="ml-4 h-5 w-5 text-white/70" />
                     <Input
                         type="text"
                         placeholder="Search cuisine, restaurant, or dish..."
                         className="border-0 bg-transparent text-white placeholder:text-white/70 focus-visible:ring-0 focus-visible:ring-offset-0 h-12 text-base"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <Button size="lg" className="rounded-full px-8 bg-white text-black hover:bg-zinc-200 border-0 font-semibold h-12">
-                        Find Table
+                    <Button
+                        type="submit"
+                        size="lg"
+                        className="rounded-full px-8 bg-white text-black hover:bg-zinc-200 border-0 font-semibold h-12"
+                    >
+                        Search
                     </Button>
-                </div>
+                </form>
 
                 {/* Quick Tags */}
                 <div className="flex flex-wrap justify-center gap-2 pt-2">
-                    {["Date Night", "Happy Hour", "Family Friendly", "Quick Bite", "Coffee"].map((tag) => (
-                        <Button key={tag} variant="outline" size="sm" className="rounded-full bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm shadow-sm transition-all">
-                            {tag}
+                    {QUICK_TAGS.map((tag) => (
+                        <Button
+                            key={tag.label}
+                            variant="outline"
+                            size="sm"
+                            className="rounded-full bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white backdrop-blur-sm shadow-sm transition-all"
+                            asChild
+                        >
+                            <Link href={tag.href}>
+                                {tag.label}
+                            </Link>
                         </Button>
                     ))}
                 </div>
