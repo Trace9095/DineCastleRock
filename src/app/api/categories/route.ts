@@ -1,36 +1,21 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/db'
+import { getAllCategories, getListingsByCategory } from '@/lib/data'
 
 export async function GET() {
-    try {
-        const categories = await prisma.category.findMany({
-            include: {
-                _count: {
-                    select: { listings: true }
-                }
-            },
-            orderBy: { name: 'asc' }
-        })
+    const categories = getAllCategories()
 
-        const formattedCategories = categories.map(cat => ({
-            id: cat.id,
-            name: cat.name,
-            slug: cat.slug,
-            listing_count: cat._count.listings,
-            url: `/${cat.slug}`
-        }))
+    const formattedCategories = categories.map(cat => ({
+        id: cat.id,
+        name: cat.name,
+        slug: cat.slug,
+        listing_count: getListingsByCategory(cat.slug).length,
+        url: `/${cat.slug}`
+    }))
 
-        return NextResponse.json({
-            data: formattedCategories,
-            meta: {
-                total: categories.length
-            }
-        })
-    } catch (error) {
-        console.error('Error fetching categories:', error)
-        return NextResponse.json(
-            { error: 'Failed to fetch categories' },
-            { status: 500 }
-        )
-    }
+    return NextResponse.json({
+        data: formattedCategories,
+        meta: {
+            total: categories.length
+        }
+    })
 }

@@ -3,9 +3,8 @@ import { ListingCard } from "@/components/listings/ListingCard"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { SlidersHorizontal, Search } from "lucide-react"
-import { prisma } from "@/lib/db"
 import { notFound } from "next/navigation"
-import { Prisma } from "@prisma/client"
+import { getListingsByCategory, searchListings, type Listing } from "@/lib/data"
 
 // Valid categories that should render this page
 const VALID_CATEGORIES = [
@@ -18,18 +17,6 @@ const VALID_CATEGORIES = [
     'food-trucks',
     'breweries'
 ]
-
-// Map URL slugs to database category slugs
-const CATEGORY_SLUG_MAP: Record<string, string[]> = {
-    'restaurants': ['restaurants'],
-    'bars-nightlife': ['bars', 'bars-nightlife'],
-    'bars': ['bars', 'bars-nightlife'],
-    'coffee': ['coffee'],
-    'takeout-delivery': ['takeout-delivery'],
-    'dessert': ['dessert'],
-    'food-trucks': ['food-trucks'],
-    'breweries': ['breweries']
-}
 
 interface PageProps {
     params: Promise<{ category: string }>
@@ -49,80 +36,35 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         notFound()
     }
 
-    // Get category slugs to query
-    const categorySlugs = CATEGORY_SLUG_MAP[category] || [category]
+    // Get listings for this category
+    let listings: Listing[]
 
-    // Build query
-    const where: Prisma.ListingWhereInput = {
-        OR: [
-            { category: { slug: { in: categorySlugs } } },
-            // Also include listings without a category if on restaurants page
-            ...(category === 'restaurants' ? [{ categoryId: null }] : [])
-        ]
-    }
-
-    // Add search filter if provided
     if (searchQuery) {
-        where.AND = [
-            {
-                OR: [
-                    { name: { contains: searchQuery, mode: 'insensitive' as const } },
-                    { cuisine: { contains: searchQuery, mode: 'insensitive' as const } },
-                    { description: { contains: searchQuery, mode: 'insensitive' as const } },
-                    { features: { hasSome: [searchQuery] } }
-                ]
-            }
-        ]
+        listings = searchListings(searchQuery, category)
+    } else {
+        listings = getListingsByCategory(category)
     }
 
-    // Add premium filter
+    // Apply premium filter
     if (premium === 'true') {
-        where.isPremium = true
+        listings = listings.filter(l => l.isPremium)
     }
 
-    // Build orderBy based on sort param
-    let orderBy: Prisma.ListingOrderByWithRelationInput = { rating: 'desc' }
+    // Sort listings
     switch (sort) {
         case 'rating':
-            orderBy = { rating: 'desc' }
+            listings = [...listings].sort((a, b) => b.rating - a.rating)
             break
         case 'reviews':
-            orderBy = { reviewCount: 'desc' }
+            listings = [...listings].sort((a, b) => b.reviewCount - a.reviewCount)
             break
         case 'name':
-            orderBy = { name: 'asc' }
+            listings = [...listings].sort((a, b) => a.name.localeCompare(b.name))
             break
         case 'newest':
-            orderBy = { createdAt: 'desc' }
+            listings = [...listings].sort((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())
             break
     }
-
-    // Fetch listings from database
-    let listings = await prisma.listing.findMany({
-        where,
-        include: {
-            category: true,
-            activeDeals: {
-                where: {
-                    OR: [
-                        { endDate: null },
-                        { endDate: { gte: new Date() } }
-                    ]
-                }
-            }
-        },
-        orderBy
-    })
-
-    // Deduplicate by slug (in case any duplicates exist)
-    const seenSlugs = new Set<string>()
-    listings = listings.filter(listing => {
-        if (seenSlugs.has(listing.slug)) {
-            return false
-        }
-        seenSlugs.add(listing.slug)
-        return true
-    })
 
     // Format title
     const categoryTitle = category
@@ -195,7 +137,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     {/* Results count */}
                     <div className="mb-4 text-sm text-muted-foreground">
                         Showing {listings.length} of {totalCount} {totalCount === 1 ? 'result' : 'results'}
-                        {searchQuery && <span> for "{searchQuery}"</span>}
+                        {searchQuery && <span> for &quot;{searchQuery}&quot;</span>}
                     </div>
 
                     {listings.length === 0 ? (
@@ -225,7 +167,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                                         address={listing.address || 'Castle Rock, CO'}
                                         isOpen={listing.isOpen}
                                         isPremium={listing.isPremium}
-                                        deal={listing.activeDeals.length > 0 ? listing.activeDeals[0].title : undefined}
+                                        deal={listing.deals.length > 0 ? listing.deals[0].title : undefined}
                                     />
                                 </div>
                             ))}
