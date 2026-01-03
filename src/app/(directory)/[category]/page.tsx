@@ -24,12 +24,24 @@ interface PageProps {
         q?: string
         sort?: string
         premium?: string
+        openNow?: string
+        hasDeals?: string
+        price?: string
+        cuisine?: string
     }>
 }
 
 export default async function CategoryPage({ params, searchParams }: PageProps) {
     const { category } = await params
-    const { q: searchQuery, sort = 'rating', premium } = await searchParams
+    const {
+        q: searchQuery,
+        sort = 'rating',
+        premium,
+        openNow,
+        hasDeals,
+        price,
+        cuisine
+    } = await searchParams
 
     // Only handle valid category routes
     if (!VALID_CATEGORIES.includes(category)) {
@@ -48,6 +60,30 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     // Apply premium filter
     if (premium === 'true') {
         listings = listings.filter(l => l.isPremium)
+    }
+
+    // Apply openNow filter
+    if (openNow === 'true') {
+        listings = listings.filter(l => l.isOpen)
+    }
+
+    // Apply hasDeals filter
+    if (hasDeals === 'true') {
+        listings = listings.filter(l => l.deals && l.deals.length > 0)
+    }
+
+    // Apply price filter (comma-separated values like "$,$$")
+    if (price) {
+        const priceFilters = price.split(',')
+        listings = listings.filter(l => priceFilters.includes(l.price || '$$'))
+    }
+
+    // Apply cuisine filter (comma-separated values)
+    if (cuisine) {
+        const cuisineFilters = cuisine.split(',').map(c => c.toLowerCase())
+        listings = listings.filter(l =>
+            cuisineFilters.includes((l.cuisine || '').toLowerCase())
+        )
     }
 
     // Sort listings

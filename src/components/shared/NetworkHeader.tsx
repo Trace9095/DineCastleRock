@@ -55,11 +55,15 @@ export function NetworkHeader() {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2 md:gap-4">
-          <Button variant="ghost" size="icon" aria-label="Search">
-            <Search className="h-5 w-5" />
+          <Button variant="ghost" size="icon" aria-label="Search" asChild>
+            <Link href="/restaurants">
+              <Search className="h-5 w-5" />
+            </Link>
           </Button>
-          <Button size="sm" className="hidden sm:inline-flex rounded-full">
-            Add Listing
+          <Button size="sm" className="hidden sm:inline-flex rounded-full" asChild>
+            <Link href="/add-listing">
+              Add Listing
+            </Link>
           </Button>
         </div>
       </div>
