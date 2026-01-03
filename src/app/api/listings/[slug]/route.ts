@@ -1,11 +1,40 @@
 import { NextResponse } from 'next/server'
 import { getListingBySlug, isOpenNow } from '@/lib/data'
+import { rateLimit, getClientId } from '@/lib/rate-limit'
 
 export async function GET(
     request: Request,
     { params }: { params: Promise<{ slug: string }> }
 ) {
+    // Rate limiting: 100 requests per minute per IP
+    const clientId = getClientId(request)
+    const rateLimitResult = rateLimit(`listing:${clientId}`, 100)
+
+    if (!rateLimitResult.success) {
+        return NextResponse.json(
+            { error: 'Too many requests. Please try again later.' },
+            {
+                status: 429,
+                headers: {
+                    'X-RateLimit-Limit': String(rateLimitResult.limit),
+                    'X-RateLimit-Remaining': '0',
+                    'X-RateLimit-Reset': String(rateLimitResult.reset),
+                    'Retry-After': String(Math.ceil((rateLimitResult.reset * 1000 - Date.now()) / 1000))
+                }
+            }
+        )
+    }
+
     const { slug } = await params
+
+    // Input validation: only allow alphanumeric and hyphens
+    if (!/^[a-z0-9-]+$/i.test(slug)) {
+        return NextResponse.json(
+            { error: 'Invalid slug format' },
+            { status: 400 }
+        )
+    }
+
     const listing = getListingBySlug(slug)
 
     if (!listing) {
@@ -59,5 +88,14 @@ export async function GET(
         updated_at: listing.updatedAt.toISOString()
     }
 
-    return NextResponse.json({ data: formattedListing })
+    return NextResponse.json(
+        { data: formattedListing },
+        {
+            headers: {
+                'X-RateLimit-Limit': String(rateLimitResult.limit),
+                'X-RateLimit-Remaining': String(rateLimitResult.remaining),
+                'X-RateLimit-Reset': String(rateLimitResult.reset)
+            }
+        }
+    )
 }
