@@ -24,7 +24,7 @@ export function ListingCard({
     name, slug, image, cuisine, price, rating, reviewCount, address, isOpen, deal, isPremium
 }: ListingCardProps) {
     return (
-        <Card className="overflow-hidden border-border hover:border-primary/50 transition-colors group h-full flex flex-col">
+        <Card className="relative overflow-hidden border-border hover:border-primary/50 transition-colors group h-full flex flex-col">
             {/* API Image Wrapper - normally using Next/Image */}
             <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                 {/* Badge Overlay */}

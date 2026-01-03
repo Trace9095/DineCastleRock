@@ -109,7 +109,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     return (
         <article className="min-h-screen pb-20">
             {/* Hero Section */}
-            <div className="h-[50vh] relative w-full overflow-hidden">
+            <div className="h-[50vh] relative z-0 w-full overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 z-10" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={guide.heroImage} alt={guide.title} className="w-full h-full object-cover" />

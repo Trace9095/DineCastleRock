@@ -136,7 +136,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             {/* Hero Gallery */}
-            <div className="h-[40vh] md:h-[50vh] grid grid-cols-1 md:grid-cols-4 gap-1 p-1">
+            <div className="relative z-0 h-[40vh] md:h-[50vh] grid grid-cols-1 md:grid-cols-4 gap-1 p-1">
                 <div className="md:col-span-2 relative h-full bg-zinc-100 overflow-hidden rounded-l-xl">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={displayImages[0]} alt={listing.name} className="w-full h-full object-cover" />
