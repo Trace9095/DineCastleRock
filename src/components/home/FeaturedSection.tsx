@@ -8,10 +8,11 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import { ReactNode } from "react"
 
 interface FeaturedSectionProps {
     title: string
-    subtitle?: string
+    subtitle?: ReactNode
     items: ListingCardProps[]
     link?: string
     linkText?: string
