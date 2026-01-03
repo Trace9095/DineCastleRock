@@ -4,17 +4,14 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar } from "lucide-react"
-import { prisma } from "@/lib/db"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
+import { getListingBySlug } from "@/lib/data"
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params
-    const listing = await prisma.listing.findUnique({
-        where: { slug },
-        select: { name: true, description: true, cuisine: true, address: true, image: true }
-    })
+    const listing = getListingBySlug(slug)
 
     if (!listing) {
         return { title: 'Listing Not Found | Dine Castle Rock' }
@@ -53,14 +50,14 @@ function isValidUrl(url: string | null | undefined): boolean {
 }
 
 // Format hours from JSON to display format
-function formatHours(hours: unknown): { day: string; time: string }[] {
+function formatHours(hours: Record<string, string>): { day: string; time: string }[] {
     if (!hours || typeof hours !== 'object') return []
 
     const formatted: { day: string; time: string }[] = []
     const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     for (const day of daysOrder) {
-        const time = (hours as Record<string, string>)[day]
+        const time = hours[day]
         if (time) {
             formatted.push({ day, time })
         }
@@ -72,21 +69,8 @@ function formatHours(hours: unknown): { day: string; time: string }[] {
 export default async function ListingPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
 
-    // Fetch listing from database
-    const listing = await prisma.listing.findUnique({
-        where: { slug },
-        include: {
-            category: true,
-            activeDeals: {
-                where: {
-                    OR: [
-                        { endDate: null },
-                        { endDate: { gte: new Date() } }
-                    ]
-                }
-            }
-        }
-    })
+    // Get listing from mock data
+    const listing = getListingBySlug(slug)
 
     if (!listing) {
         notFound()
@@ -101,7 +85,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
     // Build images array
     const images = [
         listing.image,
-        ...(listing.gallery || [])
+        ...listing.gallery
     ].filter(Boolean) as string[]
 
     // Fallback images if none exist
@@ -226,7 +210,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                         {hasValidWebsite && (
                             <div className="flex flex-wrap gap-4 py-4">
                                 <Button size="lg" asChild className="flex-1 md:flex-none">
-                                    <a href={listing.website!} target="_blank" rel="noopener noreferrer">
+                                    <a href={listing.website} target="_blank" rel="noopener noreferrer">
                                         Visit Website
                                     </a>
                                 </Button>
@@ -241,14 +225,14 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                         )}
 
                         {/* Active Deals */}
-                        {listing.activeDeals.length > 0 && (
+                        {listing.deals.length > 0 && (
                             <div className="bg-green-50 border border-green-200 rounded-xl p-4 space-y-3">
                                 <h3 className="font-semibold text-green-800 flex items-center gap-2">
                                     <Star className="h-4 w-4" />
                                     Current Deals
                                 </h3>
                                 <div className="space-y-2">
-                                    {listing.activeDeals.map((deal) => (
+                                    {listing.deals.map((deal) => (
                                         <div key={deal.id} className="bg-white rounded-lg p-3 shadow-sm">
                                             <p className="font-medium text-green-700">{deal.title}</p>
                                             <p className="text-sm text-muted-foreground">{deal.description}</p>
@@ -299,7 +283,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                         <>
                                             <p className="mb-4">View the menu on their website</p>
                                             <Button asChild>
-                                                <a href={listing.website!} target="_blank" rel="noopener noreferrer">
+                                                <a href={listing.website} target="_blank" rel="noopener noreferrer">
                                                     View Menu
                                                 </a>
                                             </Button>
@@ -370,7 +354,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                     <Globe className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                                     <div>
                                         <a
-                                            href={listing.website!}
+                                            href={listing.website}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="font-medium text-sm hover:underline"

@@ -1,31 +1,14 @@
 import { Hero } from "@/components/home/Hero"
 import { CategoryGrid } from "@/components/home/CategoryGrid"
 import { FeaturedSection } from "@/components/home/FeaturedSection"
-import { prisma } from "@/lib/db"
+import { getTrendingListings, getDateNightListings, getFeaturedListing } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { Star, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
-export default async function Home() {
-  // Fetch trending listings (premium/featured, top rated)
-  const trendingListings = await prisma.listing.findMany({
-    orderBy: [
-      { isPremium: 'desc' },
-      { rating: 'desc' },
-      { reviewCount: 'desc' }
-    ],
-    include: {
-      activeDeals: {
-        where: {
-          OR: [
-            { endDate: null },
-            { endDate: { gte: new Date() } }
-          ]
-        }
-      }
-    },
-    take: 8
-  })
+export default function Home() {
+  // Get trending listings
+  const trendingListings = getTrendingListings(8)
 
   // Format for FeaturedSection
   const formattedTrending = trendingListings.map(listing => ({
@@ -40,21 +23,11 @@ export default async function Home() {
     address: listing.address?.split(',')[0] || 'Castle Rock',
     isOpen: listing.isOpen,
     isPremium: listing.isPremium,
-    deal: listing.activeDeals.length > 0 ? listing.activeDeals[0].title : undefined
+    deal: listing.deals.length > 0 ? listing.deals[0].title : undefined
   }))
 
-  // Fetch date night spots (highly rated, premium)
-  const dateNightListings = await prisma.listing.findMany({
-    where: {
-      OR: [
-        { features: { hasSome: ['Date Night'] } },
-        { features: { hasSome: ['Craft Cocktails'] } },
-        { price: { in: ['$$$', '$$$$'] } }
-      ]
-    },
-    orderBy: { rating: 'desc' },
-    take: 8
-  })
+  // Get date night spots
+  const dateNightListings = getDateNightListings(8)
 
   const formattedDateNight = dateNightListings.map(listing => ({
     id: listing.id,
@@ -71,10 +44,7 @@ export default async function Home() {
   }))
 
   // Get a featured listing for the sponsored section
-  const sponsoredListing = await prisma.listing.findFirst({
-    where: { isPremium: true },
-    orderBy: { rating: 'desc' }
-  })
+  const sponsoredListing = getFeaturedListing()
 
   return (
     <div className="flex flex-col min-h-screen">
