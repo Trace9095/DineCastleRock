@@ -6,7 +6,7 @@ const GUIDES = [
         slug: "happy-hour",
         title: "The Ultimate Happy Hour Guide",
         excerpt: "Best deals on drinks and apps 3-6pm.",
-        image: "https://images.unsplash.com/photo-1572116469696-e1a56e303352?q=80&w=2000&auto=format&fit=crop",
+        image: "/images/guides/happy-hour-hero.jpg",
         author: "Editorial",
         date: "Oct 10"
     },
@@ -14,7 +14,7 @@ const GUIDES = [
         slug: "date-night",
         title: "Romantic Date Night Spots",
         excerpt: "Impress your significant other with these picks.",
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
+        image: "/images/guides/date-night-hero.jpg",
         author: "Sarah J.",
         date: "Sep 28"
     },
@@ -22,7 +22,7 @@ const GUIDES = [
         slug: "family-friendly",
         title: "Family Friendly Dining",
         excerpt: "Places where kids are welcome and parents can relax.",
-        image: "https://images.unsplash.com/photo-1621266850453-39d739d48259?q=80&w=2070&auto=format&fit=crop",
+        image: "/images/guides/family-dining-hero.jpg",
         author: "Mike T.",
         date: "Sep 15"
     }
