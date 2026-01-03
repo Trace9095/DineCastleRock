@@ -62,7 +62,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://scileppis.com',
         rating: 4.8,
         reviewCount: 624,
-        image: '/images/listings/scileppis-hero.jpg',
+        image: '/images/guides/date-night-hero.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Fine Dining', 'Date Night', 'Historic Building', 'Wine List', 'Reservations', 'Lunch', 'Dinner'],
         hours: {
@@ -124,7 +124,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://courtyardsocialcr.com',
         rating: 4.6,
         reviewCount: 328,
-        image: '/images/listings/courtyard-social-hero.jpg',
+        image: '/images/listings/tribe-riverwalk-hero.jpg',
         gallery: ['/images/guides/happy-hour-hero.jpg'],
         features: ['Craft Cocktails', 'Oysters', 'Patio', 'Happy Hour', 'Brunch', 'Family Friendly'],
         hours: {
@@ -155,7 +155,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://greatdividebreweryandroadhouse.com',
         rating: 4.6,
         reviewCount: 456,
-        image: '/images/listings/great-divide-hero.jpg',
+        image: '/images/guides/great-divide-brewery.jpg',
         gallery: ['/images/guides/happy-hour-hero.jpg'],
         features: ['Brewery', 'Patio', 'Riverwalk', 'Happy Hour', 'Brunch', 'Gluten-Free Options', 'Family Friendly', 'Reservations'],
         hours: {
@@ -189,7 +189,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://trestlescastlerock.com',
         rating: 4.7,
         reviewCount: 326,
-        image: '/images/listings/trestles-hero.jpg',
+        image: '/images/guides/date-night-hero.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Seafood', 'Fine Dining', 'Date Night', 'Brunch', 'Business Casual', 'Reservations'],
         hours: {
@@ -220,7 +220,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://savinasmexicankitchen.com',
         rating: 4.5,
         reviewCount: 904,
-        image: '/images/listings/savinas-hero.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Mexican', 'Tex-Mex', 'Mountain Views', 'Margaritas', 'Family Friendly', 'Lunch', 'Dinner'],
         hours: {
@@ -251,7 +251,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://hideawaybarandgrill.com',
         rating: 4.4,
         reviewCount: 345,
-        image: '/images/listings/hideaway-hero.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Sports Bar', 'Happy Hour', 'Family Friendly', 'Draft Beer', 'Lunch', 'Dinner'],
         hours: {
@@ -282,7 +282,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.3,
         reviewCount: 210,
-        image: '/images/listings/whiskey-lodge-hero.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Whiskey Bar', 'Sports', 'Happy Hour', 'Craft Cocktails', 'Late Night'],
         hours: {
@@ -313,7 +313,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://lostcoffee.com',
         rating: 4.7,
         reviewCount: 280,
-        image: '/images/listings/lost-coffee-hero.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Coffee', 'WiFi', 'Local Roasters', 'Pastries', 'Cozy Atmosphere'],
         hours: {
@@ -344,7 +344,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://crowfootvalleycoffee.com',
         rating: 4.6,
         reviewCount: 320,
-        image: '/images/listings/crowfoot-coffee-hero.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'WiFi', 'Live Music', 'The Crowbar', 'Food', 'Local Favorite'],
         hours: {
@@ -375,7 +375,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://dazbog.com',
         rating: 4.5,
         reviewCount: 175,
-        image: '/images/listings/dazbog-hero.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Coffee', 'Organic', 'Riverwalk', 'Drive-Thru', 'Award Winning'],
         hours: {
@@ -406,7 +406,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://theofficecocr.com',
         rating: 4.4,
         reviewCount: 195,
-        image: '/images/listings/the-office-hero.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Brunch', 'Happy Hour', 'Craft Cocktails', 'Lunch', 'Modern Atmosphere'],
         hours: {
@@ -437,7 +437,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://bucketlisttavern.com',
         rating: 4.3,
         reviewCount: 165,
-        image: '/images/listings/bucket-list-hero.jpg',
+        image: '/images/listings/tribe-riverwalk-hero.jpg',
         gallery: [],
         features: ['Bar', 'Comfort Food', 'Unique Decor', 'Family Friendly', 'Lunch', 'Dinner'],
         hours: {
@@ -468,7 +468,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://provisioncastlerock.com',
         rating: 4.8,
         reviewCount: 156,
-        image: '/images/listings/provision-hero.jpg',
+        image: '/images/guides/provision-bar.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Craft Cocktails', 'Date Night', 'Speakeasy', 'Small Plates', 'Reservations Recommended'],
         hours: {
@@ -496,7 +496,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://rockyard.com',
         rating: 4.4,
         reviewCount: 510,
-        image: '/images/listings/rockyard-hero.jpg',
+        image: '/images/guides/great-divide-brewery.jpg',
         gallery: [],
         features: ['Brewery', 'Family Friendly', 'Patio', 'Award Winning Beer', 'Lunch', 'Dinner'],
         hours: {
@@ -558,7 +558,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://theparksportsbar.com',
         rating: 4.2,
         reviewCount: 185,
-        image: '/images/listings/the-park-hero.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Sports Bar', 'Happy Hour', 'DJ', 'Games', 'Multiple TVs', 'Late Night'],
         hours: {
@@ -589,7 +589,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.5,
         reviewCount: 240,
-        image: '/images/listings/cuba-cuba-hero.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Cuban', 'Mojitos', 'Tropical Atmosphere', 'Happy Hour', 'Lunch', 'Dinner'],
         hours: {
@@ -620,7 +620,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://br.coffee',
         rating: 4.4,
         reviewCount: 195,
-        image: '/images/listings/black-rock-hero.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'Drive-Thru', 'Fuel Drinks', 'Smoothies', 'Quick Service'],
         hours: {
@@ -651,7 +651,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.2,
         reviewCount: 165,
-        image: '/images/listings/cork-keg-hero.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Bar', 'Trivia', 'Karaoke', 'Live Music', 'Pool', 'Dancing', 'Late Night'],
         hours: {
