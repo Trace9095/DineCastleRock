@@ -22,8 +22,10 @@ export default function AdvertisePage() {
                         <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100" asChild>
                             <a href="mailto:advertise@dinecastlerock.com">Get Started</a>
                         </Button>
-                        <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                            Download Media Kit
+                        <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                            <a href="mailto:advertise@dinecastlerock.com?subject=Media%20Kit%20Request">
+                                Request Media Kit
+                            </a>
                         </Button>
                     </div>
                 </div>
