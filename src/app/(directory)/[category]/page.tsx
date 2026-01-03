@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { SlidersHorizontal, Search } from "lucide-react"
 import { notFound } from "next/navigation"
-import { getListingsByCategory, searchListings, type Listing } from "@/lib/data"
+import { getListingsByCategory, searchListings, isOpenNow, type Listing } from "@/lib/data"
 import { Suspense } from "react"
 
 // Valid categories that should render this page
@@ -63,9 +63,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         listings = listings.filter(l => l.isPremium)
     }
 
-    // Apply openNow filter
+    // Apply openNow filter (calculate dynamically)
     if (openNow === 'true') {
-        listings = listings.filter(l => l.isOpen)
+        listings = listings.filter(l => isOpenNow(l.hours))
     }
 
     // Apply hasDeals filter
@@ -204,7 +204,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                                         rating={listing.rating}
                                         reviewCount={listing.reviewCount}
                                         address={listing.address || 'Castle Rock, CO'}
-                                        isOpen={listing.isOpen}
+                                        isOpen={isOpenNow(listing.hours)}
                                         isPremium={listing.isPremium}
                                         deal={listing.deals.length > 0 ? listing.deals[0].title : undefined}
                                     />

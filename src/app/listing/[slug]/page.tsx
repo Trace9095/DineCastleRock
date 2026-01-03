@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar } from "lucide-react"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
-import { getListingBySlug } from "@/lib/data"
+import { getListingBySlug, isOpenNow } from "@/lib/data"
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -172,7 +172,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                     {listing.cuisine && (
                                         <Badge variant="outline">{listing.cuisine}</Badge>
                                     )}
-                                    {listing.isOpen && (
+                                    {isOpenNow(listing.hours) && (
                                         <Badge variant="secondary" className="bg-green-100 text-green-700 hover:bg-green-200">Open Now</Badge>
                                     )}
                                     {listing.isPremium && (

@@ -670,6 +670,307 @@ export const LISTINGS: Listing[] = [
         deals: [],
         updatedAt: new Date('2025-01-01')
     },
+    // Dessert & Bakery
+    {
+        id: '21',
+        slug: 'nothing-bundt-cakes-castle-rock',
+        name: 'Nothing Bundt Cakes',
+        description: "Specialty bakery known for their moist, delicious bundt cakes in a variety of flavors. Perfect for celebrations, gifts, or a sweet treat. The bakery offers individual bundtlets, bundtinis, and tiered cakes for any occasion.",
+        cuisine: 'Bakery',
+        price: '$$',
+        address: '4856 Meadows Pkwy, Suite 109, Castle Rock, CO 80109',
+        phone: '(720) 733-0888',
+        website: 'https://nothingbundtcakes.com',
+        rating: 4.8,
+        reviewCount: 215,
+        image: '/images/guides/family-dining-hero.jpg',
+        gallery: [],
+        features: ['Bakery', 'Cakes', 'Dessert', 'Celebration', 'Gift Shop'],
+        hours: {
+            "Monday": "9:00 AM - 6:00 PM",
+            "Tuesday": "9:00 AM - 6:00 PM",
+            "Wednesday": "9:00 AM - 6:00 PM",
+            "Thursday": "9:00 AM - 6:00 PM",
+            "Friday": "9:00 AM - 6:00 PM",
+            "Saturday": "10:00 AM - 5:00 PM",
+            "Sunday": "Closed"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'dessert',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '22',
+        slug: 'crumbl-cookies-castle-rock',
+        name: 'Crumbl Cookies',
+        description: "Famous for their rotating weekly menu of gourmet cookies. Each week features new specialty flavors alongside classics like their signature pink sugar cookie and chocolate chip. Fresh-baked daily in an open kitchen.",
+        cuisine: 'Dessert',
+        price: '$',
+        address: '5042 Factory Shops Blvd, Castle Rock, CO 80108',
+        phone: '(720) 638-4280',
+        website: 'https://crumblcookies.com',
+        rating: 4.6,
+        reviewCount: 340,
+        image: '/images/guides/date-night-hero.jpg',
+        gallery: [],
+        features: ['Cookies', 'Dessert', 'Weekly Menu', 'Open Kitchen', 'Takeout'],
+        hours: {
+            "Monday": "8:00 AM - 10:00 PM",
+            "Tuesday": "8:00 AM - 10:00 PM",
+            "Wednesday": "8:00 AM - 10:00 PM",
+            "Thursday": "8:00 AM - 10:00 PM",
+            "Friday": "8:00 AM - 11:00 PM",
+            "Saturday": "8:00 AM - 11:00 PM",
+            "Sunday": "Closed"
+        },
+        isOpen: true,
+        isPremium: true,
+        isFeatured: false,
+        categorySlug: 'dessert',
+        deals: [{ id: 'd9', title: 'Weekly Flavor Drop', description: 'New flavors every Sunday night at 6 PM' }],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '23',
+        slug: 'sweet-cow-ice-cream-castle-rock',
+        name: 'Sweet Cow Ice Cream',
+        description: "Colorado-born ice cream shop serving small-batch, handcrafted ice cream made with local dairy. Known for creative flavors and a rotating seasonal menu. A community favorite for families and ice cream lovers.",
+        cuisine: 'Ice Cream',
+        price: '$',
+        address: '4926 Factory Shops Blvd, Castle Rock, CO 80108',
+        phone: '(720) 409-8200',
+        website: 'https://sweetcowicecream.com',
+        rating: 4.7,
+        reviewCount: 285,
+        image: '/images/guides/family-dining-hero.jpg',
+        gallery: [],
+        features: ['Ice Cream', 'Local Dairy', 'Family Friendly', 'Seasonal Flavors', 'Handcrafted'],
+        hours: {
+            "Monday": "12:00 PM - 9:00 PM",
+            "Tuesday": "12:00 PM - 9:00 PM",
+            "Wednesday": "12:00 PM - 9:00 PM",
+            "Thursday": "12:00 PM - 9:00 PM",
+            "Friday": "12:00 PM - 10:00 PM",
+            "Saturday": "12:00 PM - 10:00 PM",
+            "Sunday": "12:00 PM - 9:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'dessert',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    // Food Trucks
+    {
+        id: '24',
+        slug: 'biker-jims-gourmet-dogs',
+        name: "Biker Jim's Gourmet Dogs",
+        description: "Famous Denver food truck bringing their legendary exotic meat hot dogs to Castle Rock events. Known for wild game sausages including elk, rattlesnake, and wild boar. Topped with unique ingredients like cream cheese and caramelized onions.",
+        cuisine: 'Gourmet Hot Dogs',
+        price: '$',
+        address: 'Various locations, Castle Rock, CO',
+        phone: '(720) 746-9355',
+        website: 'https://bikerjims.com',
+        rating: 4.7,
+        reviewCount: 180,
+        image: '/images/guides/happy-hour-hero.jpg',
+        gallery: [],
+        features: ['Food Truck', 'Gourmet Hot Dogs', 'Exotic Meats', 'Events', 'Catering'],
+        hours: {
+            "Friday": "11:00 AM - 8:00 PM",
+            "Saturday": "11:00 AM - 8:00 PM",
+            "Sunday": "11:00 AM - 6:00 PM"
+        },
+        isOpen: false,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'food-trucks',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '25',
+        slug: 'taste-of-philly-food-truck',
+        name: 'Taste of Philly Food Truck',
+        description: "Authentic Philadelphia cheesesteaks served from a mobile kitchen. Uses Amoroso rolls shipped from Philly and thinly sliced ribeye. A local favorite at Castle Rock festivals and farmers markets.",
+        cuisine: 'Cheesesteaks',
+        price: '$',
+        address: 'Various locations, Castle Rock, CO',
+        phone: '(303) 555-0124',
+        website: '',
+        rating: 4.5,
+        reviewCount: 120,
+        image: '/images/listings/tribe-riverwalk-hero.jpg',
+        gallery: [],
+        features: ['Food Truck', 'Cheesesteaks', 'Events', 'Farmers Market'],
+        hours: {
+            "Saturday": "10:00 AM - 4:00 PM",
+            "Sunday": "10:00 AM - 3:00 PM"
+        },
+        isOpen: false,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'food-trucks',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '26',
+        slug: 'rockin-tacos-truck',
+        name: 'Rockin Tacos',
+        description: "Mobile taqueria serving authentic street tacos with homemade tortillas and fresh ingredients. Specializes in carne asada, al pastor, and carnitas. Often found at local breweries and events throughout Castle Rock.",
+        cuisine: 'Mexican',
+        price: '$',
+        address: 'Various locations, Castle Rock, CO',
+        phone: '(720) 555-0156',
+        website: '',
+        rating: 4.6,
+        reviewCount: 145,
+        image: '/images/guides/family-dining-hero.jpg',
+        gallery: [],
+        features: ['Food Truck', 'Tacos', 'Street Food', 'Events', 'Brewery Partner'],
+        hours: {
+            "Thursday": "5:00 PM - 9:00 PM",
+            "Friday": "5:00 PM - 10:00 PM",
+            "Saturday": "12:00 PM - 10:00 PM",
+            "Sunday": "12:00 PM - 8:00 PM"
+        },
+        isOpen: false,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'food-trucks',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    // Takeout & Delivery
+    {
+        id: '27',
+        slug: 'mod-pizza-castle-rock',
+        name: 'MOD Pizza',
+        description: "Fast-casual pizza chain where you can build your own artisan-style pizza or salad. Made-to-order with unlimited toppings at one price. Known for quick service and customizable options.",
+        cuisine: 'Pizza',
+        price: '$',
+        address: '5042 Factory Shops Blvd, Suite 130, Castle Rock, CO 80108',
+        phone: '(720) 985-5350',
+        website: 'https://modpizza.com',
+        rating: 4.3,
+        reviewCount: 175,
+        image: '/images/home-hero.jpg',
+        gallery: [],
+        features: ['Pizza', 'Takeout', 'Delivery', 'Build Your Own', 'Quick Service'],
+        hours: {
+            "Monday": "10:30 AM - 10:00 PM",
+            "Tuesday": "10:30 AM - 10:00 PM",
+            "Wednesday": "10:30 AM - 10:00 PM",
+            "Thursday": "10:30 AM - 10:00 PM",
+            "Friday": "10:30 AM - 11:00 PM",
+            "Saturday": "10:30 AM - 11:00 PM",
+            "Sunday": "10:30 AM - 10:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'takeout-delivery',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '28',
+        slug: 'tokyo-joes-castle-rock',
+        name: "Tokyo Joe's",
+        description: "Fast-casual Japanese-inspired bowls and wraps. Build your own rice bowl with teriyaki chicken, salmon, tofu, or steak. Fresh ingredients, made-to-order, with gluten-free options available.",
+        cuisine: 'Japanese',
+        price: '$',
+        address: '4856 Meadows Pkwy, Suite 112, Castle Rock, CO 80109',
+        phone: '(303) 660-0800',
+        website: 'https://tokyojoes.com',
+        rating: 4.4,
+        reviewCount: 210,
+        image: '/images/guides/family-dining-hero.jpg',
+        gallery: [],
+        features: ['Japanese', 'Takeout', 'Delivery', 'Bowls', 'Healthy', 'Gluten-Free Options'],
+        hours: {
+            "Monday": "11:00 AM - 9:00 PM",
+            "Tuesday": "11:00 AM - 9:00 PM",
+            "Wednesday": "11:00 AM - 9:00 PM",
+            "Thursday": "11:00 AM - 9:00 PM",
+            "Friday": "11:00 AM - 9:00 PM",
+            "Saturday": "11:00 AM - 9:00 PM",
+            "Sunday": "11:00 AM - 9:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'takeout-delivery',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '29',
+        slug: 'noodles-and-company-castle-rock',
+        name: 'Noodles & Company',
+        description: "Fast-casual noodle restaurant serving global-inspired dishes from Asian to Italian. Customizable bowls with pasta, noodles, and zoodles. Known for their Wisconsin Mac & Cheese and Thai Green Curry.",
+        cuisine: 'Noodles',
+        price: '$',
+        address: '4856 Meadows Pkwy, Castle Rock, CO 80109',
+        phone: '(303) 814-4600',
+        website: 'https://noodles.com',
+        rating: 4.2,
+        reviewCount: 185,
+        image: '/images/home-hero.jpg',
+        gallery: [],
+        features: ['Noodles', 'Takeout', 'Delivery', 'Global Cuisine', 'Quick Service'],
+        hours: {
+            "Monday": "11:00 AM - 9:00 PM",
+            "Tuesday": "11:00 AM - 9:00 PM",
+            "Wednesday": "11:00 AM - 9:00 PM",
+            "Thursday": "11:00 AM - 9:00 PM",
+            "Friday": "11:00 AM - 10:00 PM",
+            "Saturday": "11:00 AM - 10:00 PM",
+            "Sunday": "11:00 AM - 9:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'takeout-delivery',
+        deals: [],
+        updatedAt: new Date('2025-01-01')
+    },
+    {
+        id: '30',
+        slug: 'qdoba-castle-rock',
+        name: 'Qdoba Mexican Eats',
+        description: "Fast-casual Mexican restaurant serving customizable burritos, bowls, tacos, and nachos. Fresh ingredients with no extra charge for guacamole or queso. Quick service with catering available.",
+        cuisine: 'Mexican',
+        price: '$',
+        address: '5002 Factory Shops Blvd, Castle Rock, CO 80108',
+        phone: '(303) 660-0050',
+        website: 'https://qdoba.com',
+        rating: 4.1,
+        reviewCount: 195,
+        image: '/images/guides/family-dining-hero.jpg',
+        gallery: [],
+        features: ['Mexican', 'Takeout', 'Delivery', 'Burritos', 'Quick Service', 'Catering'],
+        hours: {
+            "Monday": "10:30 AM - 10:00 PM",
+            "Tuesday": "10:30 AM - 10:00 PM",
+            "Wednesday": "10:30 AM - 10:00 PM",
+            "Thursday": "10:30 AM - 10:00 PM",
+            "Friday": "10:30 AM - 10:00 PM",
+            "Saturday": "10:30 AM - 10:00 PM",
+            "Sunday": "10:30 AM - 10:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'takeout-delivery',
+        deals: [{ id: 'd10', title: 'Free Guac & Queso', description: 'No extra charge for guacamole or queso on any entree' }],
+        updatedAt: new Date('2025-01-01')
+    },
 ]
 
 // Helper functions
@@ -759,4 +1060,87 @@ export function getAllCategories(): Category[] {
 
 export function getCategoryBySlug(slug: string): Category | undefined {
     return CATEGORIES.find(c => c.slug === slug)
+}
+
+/**
+ * Calculate if a business is currently open based on their hours.
+ * Uses Mountain Time (America/Denver) since Castle Rock is in Colorado.
+ */
+export function isOpenNow(hours: Record<string, string>): boolean {
+    if (!hours || Object.keys(hours).length === 0) {
+        return false
+    }
+
+    // Get current time in Mountain Time
+    const now = new Date()
+    const mtOptions: Intl.DateTimeFormatOptions = {
+        timeZone: 'America/Denver',
+        weekday: 'long',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false
+    }
+
+    const formatter = new Intl.DateTimeFormat('en-US', mtOptions)
+    const parts = formatter.formatToParts(now)
+
+    const dayOfWeek = parts.find(p => p.type === 'weekday')?.value || ''
+    const hour = parseInt(parts.find(p => p.type === 'hour')?.value || '0', 10)
+    const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10)
+    const currentMinutes = hour * 60 + minute
+
+    // Get today's hours
+    const todayHours = hours[dayOfWeek]
+    if (!todayHours || todayHours.toLowerCase() === 'closed') {
+        return false
+    }
+
+    // Parse the hours string (e.g., "11:00 AM - 10:00 PM" or "11:00 AM - 2:00 AM")
+    const timeMatch = todayHours.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i)
+    if (!timeMatch) {
+        return false
+    }
+
+    const [, openHour, openMin, openPeriod, closeHour, closeMin, closePeriod] = timeMatch
+
+    // Convert to 24-hour format
+    let openHour24 = parseInt(openHour, 10)
+    if (openPeriod.toUpperCase() === 'PM' && openHour24 !== 12) openHour24 += 12
+    if (openPeriod.toUpperCase() === 'AM' && openHour24 === 12) openHour24 = 0
+
+    let closeHour24 = parseInt(closeHour, 10)
+    if (closePeriod.toUpperCase() === 'PM' && closeHour24 !== 12) closeHour24 += 12
+    if (closePeriod.toUpperCase() === 'AM' && closeHour24 === 12) closeHour24 = 0
+
+    const openMinutes = openHour24 * 60 + parseInt(openMin, 10)
+    let closeMinutes = closeHour24 * 60 + parseInt(closeMin, 10)
+
+    // Handle overnight hours (e.g., closes at 2:00 AM)
+    if (closeMinutes < openMinutes) {
+        // Closes after midnight
+        closeMinutes += 24 * 60
+        // If we're past midnight but before closing, add 24 hours to current time
+        if (currentMinutes < openMinutes) {
+            return currentMinutes + 24 * 60 >= openMinutes && currentMinutes + 24 * 60 < closeMinutes
+        }
+    }
+
+    return currentMinutes >= openMinutes && currentMinutes < closeMinutes
+}
+
+/**
+ * Get a listing with the computed isOpen status
+ */
+export function getListingWithOpenStatus(listing: Listing): Listing & { isOpen: boolean } {
+    return {
+        ...listing,
+        isOpen: isOpenNow(listing.hours)
+    }
+}
+
+/**
+ * Get all listings with computed isOpen status
+ */
+export function getAllListingsWithOpenStatus(): (Listing & { isOpen: boolean })[] {
+    return LISTINGS.map(getListingWithOpenStatus)
 }
