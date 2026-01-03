@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
-import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar } from "lucide-react"
+import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { getListingBySlug, isOpenNow } from "@/lib/data"
@@ -129,6 +129,12 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         }))
     }
 
+    // Category label for breadcrumb
+    const categoryLabel = listing.categorySlug
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+
     return (
         <div className="min-h-screen bg-background">
             {/* JSON-LD Structured Data */}
@@ -136,36 +142,48 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+
             {/* Hero Gallery */}
-            <div className="relative z-0 h-[40vh] md:h-[50vh] grid grid-cols-1 md:grid-cols-4 gap-1 p-1">
-                <div className="md:col-span-2 relative h-full bg-zinc-100 overflow-hidden rounded-l-xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={displayImages[0]} alt={listing.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="hidden md:flex flex-col gap-1 h-full col-span-2">
-                    <div className="h-1/2 bg-zinc-100 relative overflow-hidden rounded-tr-xl">
-                        {displayImages[1] ? (
-                            /* eslint-disable-next-line @next/next/no-img-element */
-                            <img src={displayImages[1]} alt="Gallery 1" className="w-full h-full object-cover" />
-                        ) : (
-                            <div className="w-full h-full bg-zinc-200" />
-                        )}
+            <div className="relative z-0 h-[35vh] md:h-[45vh] bg-zinc-100">
+                <div className="h-full grid grid-cols-1 md:grid-cols-3 gap-0.5">
+                    <div className="md:col-span-2 relative h-full overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={displayImages[0]} alt={listing.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="h-1/2 bg-zinc-100 relative overflow-hidden rounded-br-xl">
-                        {displayImages[2] ? (
-                            /* eslint-disable-next-line @next/next/no-img-element */
-                            <img src={displayImages[2]} alt="Gallery 2" className="w-full h-full object-cover" />
-                        ) : (
-                            <div className="w-full h-full bg-zinc-200" />
-                        )}
+                    <div className="hidden md:grid grid-rows-2 gap-0.5 h-full">
+                        <div className="relative overflow-hidden bg-zinc-200">
+                            {displayImages[1] ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
+                                <img src={displayImages[1]} alt="Gallery 1" className="w-full h-full object-cover" />
+                            ) : (
+                                <div className="w-full h-full" />
+                            )}
+                        </div>
+                        <div className="relative overflow-hidden bg-zinc-200">
+                            {displayImages[2] ? (
+                                /* eslint-disable-next-line @next/next/no-img-element */
+                                <img src={displayImages[2]} alt="Gallery 2" className="w-full h-full object-cover" />
+                            ) : (
+                                <div className="w-full h-full" />
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container max-w-7xl mx-auto px-4 py-8">
+            <div className="container max-w-7xl mx-auto px-4 py-6">
+                {/* Breadcrumb */}
+                <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6">
+                    <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+                    <ChevronRight className="h-3 w-3" />
+                    <Link href={`/${listing.categorySlug}`} className="hover:text-foreground transition-colors">{categoryLabel}</Link>
+                    <ChevronRight className="h-3 w-3" />
+                    <span className="text-foreground font-medium truncate max-w-[200px]">{listing.name}</span>
+                </nav>
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-8">
+                    <div className="lg:col-span-2 space-y-6">
                         {/* Header Info */}
                         <div>
                             <div className="flex items-center justify-between mb-2">

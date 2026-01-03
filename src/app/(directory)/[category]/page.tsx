@@ -3,10 +3,11 @@ import { ListingCard } from "@/components/listings/ListingCard"
 import { SortSelect } from "@/components/listings/SortSelect"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { SlidersHorizontal, Search } from "lucide-react"
+import { SlidersHorizontal, Search, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 import { getListingsByCategory, searchListings, isOpenNow, type Listing } from "@/lib/data"
 import { Suspense } from "react"
+import Link from "next/link"
 
 // Valid categories that should render this page
 const VALID_CATEGORIES = [
@@ -19,6 +20,18 @@ const VALID_CATEGORIES = [
     'food-trucks',
     'breweries'
 ]
+
+// Category descriptions for better UX
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+    'restaurants': 'From fine dining to casual eateries, find your next favorite meal.',
+    'bars-nightlife': 'The best spots for drinks, live music, and nightlife.',
+    'bars': 'Local bars and pubs for every occasion.',
+    'coffee': 'Cafes and coffee shops to fuel your day.',
+    'takeout-delivery': 'Quick and convenient options for dining at home.',
+    'dessert': 'Sweet treats and dessert destinations.',
+    'food-trucks': 'Mobile kitchens serving up delicious street food.',
+    'breweries': 'Craft breweries and taprooms with local beers.'
+}
 
 interface PageProps {
     params: Promise<{ category: string }>
@@ -111,6 +124,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         .join(" ")
 
     const totalCount = listings.length
+    const categoryDescription = CATEGORY_DESCRIPTIONS[category] || `Discover the best ${categoryTitle.toLowerCase()} in Castle Rock.`
 
     // Generate ItemList schema for SEO
     const itemListSchema = {
@@ -129,77 +143,89 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     }
 
     return (
-        <div className="container max-w-7xl mx-auto px-4 py-8">
+        <div className="min-h-screen bg-background">
             {/* ItemList Schema for SEO */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
             />
-            {/* Header */}
-            <div className="mb-8 border-b pb-6">
-                <h1 className="text-4xl font-bold tracking-tight mb-2">{categoryTitle}</h1>
-                <p className="text-muted-foreground text-lg">
-                    Discover the best {categoryTitle.toLowerCase()} in Castle Rock.
-                </p>
-            </div>
 
-            {/* Search & Sort Bar */}
-            <div className="mb-6 flex flex-col sm:flex-row gap-4">
-                <form className="flex-1 relative" action={`/${category}`}>
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                        name="q"
-                        placeholder="Search by name, cuisine, or feature..."
-                        className="pl-10"
-                        defaultValue={searchQuery}
-                    />
-                    <input type="hidden" name="sort" value={sort} />
-                    {premium && <input type="hidden" name="premium" value={premium} />}
-                </form>
-                <Suspense fallback={<div className="h-10 w-[140px] bg-muted rounded-md animate-pulse" />}>
-                    <SortSelect currentSort={sort} category={category} />
-                </Suspense>
-            </div>
+            <div className="container max-w-7xl mx-auto px-4 py-6">
+                {/* Breadcrumb */}
+                <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6">
+                    <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+                    <ChevronRight className="h-3 w-3" />
+                    <span className="text-foreground font-medium">{categoryTitle}</span>
+                </nav>
 
-            <div className="flex flex-col md:flex-row gap-8">
-                {/* Sidebar - Hidden on mobile mostly, or collapsible */}
-                <aside className="w-full md:w-64 shrink-0 hidden md:block">
-                    <Suspense fallback={<div className="animate-pulse bg-muted h-96 rounded-lg" />}>
-                        <FilterSidebar />
-                    </Suspense>
-                </aside>
-
-                {/* Mobile Filter Trigger */}
-                <div className="md:hidden mb-4">
-                    <Button variant="outline" className="w-full">
-                        <SlidersHorizontal className="mr-2 h-4 w-4" /> Filters
-                    </Button>
+                {/* Header */}
+                <div className="mb-8">
+                    <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">{categoryTitle}</h1>
+                    <p className="text-muted-foreground">
+                        {categoryDescription}
+                    </p>
                 </div>
 
-                {/* Grid */}
-                <div className="flex-1">
-                    {/* Results count */}
-                    <div className="mb-4 text-sm text-muted-foreground">
-                        Showing {listings.length} of {totalCount} {totalCount === 1 ? 'result' : 'results'}
-                        {searchQuery && <span> for &quot;{searchQuery}&quot;</span>}
+                {/* Search & Sort Bar */}
+                <div className="mb-6 flex flex-col sm:flex-row gap-3">
+                    <form className="flex-1 relative" action={`/${category}`}>
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Input
+                            name="q"
+                            placeholder={`Search ${categoryTitle.toLowerCase()}...`}
+                            className="pl-10 h-10"
+                            defaultValue={searchQuery}
+                        />
+                        <input type="hidden" name="sort" value={sort} />
+                        {premium && <input type="hidden" name="premium" value={premium} />}
+                    </form>
+                    <div className="flex gap-2">
+                        <Suspense fallback={<div className="h-10 w-[140px] bg-muted rounded-md animate-pulse" />}>
+                            <SortSelect currentSort={sort} category={category} />
+                        </Suspense>
                     </div>
+                </div>
 
-                    {listings.length === 0 ? (
-                        <div className="text-center py-12 border rounded-lg bg-muted/20">
-                            <p className="text-muted-foreground mb-4">
-                                No listings found{searchQuery ? ` for "${searchQuery}"` : ''}.
-                            </p>
-                            {searchQuery && (
-                                <Button variant="outline" asChild>
-                                    <a href={`/${category}`}>Clear search</a>
-                                </Button>
-                            )}
+                <div className="flex flex-col lg:flex-row gap-8">
+                    {/* Sidebar - Hidden on mobile */}
+                    <aside className="w-full lg:w-56 shrink-0 hidden lg:block">
+                        <div className="sticky top-20">
+                            <Suspense fallback={<div className="animate-pulse bg-muted h-96 rounded-lg" />}>
+                                <FilterSidebar />
+                            </Suspense>
                         </div>
-                    ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {listings.map((listing) => (
-                                <div key={listing.id} className="h-full">
+                    </aside>
+
+                    {/* Main Content */}
+                    <div className="flex-1">
+                        {/* Results count & mobile filter */}
+                        <div className="flex items-center justify-between mb-4">
+                            <p className="text-sm text-muted-foreground">
+                                {totalCount} {totalCount === 1 ? 'place' : 'places'}
+                                {searchQuery && <span> matching &quot;{searchQuery}&quot;</span>}
+                            </p>
+                            <Button variant="outline" size="sm" className="lg:hidden">
+                                <SlidersHorizontal className="mr-2 h-4 w-4" /> Filters
+                            </Button>
+                        </div>
+
+                        {listings.length === 0 ? (
+                            <div className="text-center py-16 border rounded-lg bg-muted/10">
+                                <p className="text-lg font-medium mb-2">No listings found</p>
+                                <p className="text-muted-foreground mb-4">
+                                    {searchQuery ? `No results for "${searchQuery}"` : 'Try adjusting your filters'}
+                                </p>
+                                {searchQuery && (
+                                    <Button variant="outline" asChild>
+                                        <a href={`/${category}`}>Clear search</a>
+                                    </Button>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                                {listings.map((listing) => (
                                     <ListingCard
+                                        key={listing.id}
                                         id={listing.id}
                                         name={listing.name}
                                         slug={listing.slug}
@@ -213,17 +239,17 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                                         isPremium={listing.isPremium}
                                         deal={listing.deals.length > 0 ? listing.deals[0].title : undefined}
                                     />
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                                ))}
+                            </div>
+                        )}
 
-                    {/* Pagination Placeholder */}
-                    {listings.length >= 12 && (
-                        <div className="mt-12 flex justify-center">
-                            <Button variant="ghost">Load More</Button>
-                        </div>
-                    )}
+                        {/* Pagination Placeholder */}
+                        {listings.length >= 12 && (
+                            <div className="mt-10 flex justify-center">
+                                <Button variant="outline">Load More</Button>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
