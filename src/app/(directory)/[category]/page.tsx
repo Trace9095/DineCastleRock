@@ -2,9 +2,10 @@ import { FilterSidebar } from "@/components/listings/FilterSidebar"
 import { ListingCard } from "@/components/listings/ListingCard"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { SlidersHorizontal, Search, ArrowUpDown } from "lucide-react"
+import { SlidersHorizontal, Search } from "lucide-react"
 import { prisma } from "@/lib/db"
 import { notFound } from "next/navigation"
+import { Prisma } from "@prisma/client"
 
 // Valid categories that should render this page
 const VALID_CATEGORIES = [
@@ -52,7 +53,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     const categorySlugs = CATEGORY_SLUG_MAP[category] || [category]
 
     // Build query
-    const where: Parameters<typeof prisma.listing.findMany>[0]['where'] = {
+    const where: Prisma.ListingWhereInput = {
         OR: [
             { category: { slug: { in: categorySlugs } } },
             // Also include listings without a category if on restaurants page
@@ -65,9 +66,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         where.AND = [
             {
                 OR: [
-                    { name: { contains: searchQuery, mode: 'insensitive' } },
-                    { cuisine: { contains: searchQuery, mode: 'insensitive' } },
-                    { description: { contains: searchQuery, mode: 'insensitive' } },
+                    { name: { contains: searchQuery, mode: 'insensitive' as const } },
+                    { cuisine: { contains: searchQuery, mode: 'insensitive' as const } },
+                    { description: { contains: searchQuery, mode: 'insensitive' as const } },
                     { features: { hasSome: [searchQuery] } }
                 ]
             }
@@ -80,7 +81,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     }
 
     // Build orderBy based on sort param
-    let orderBy: Parameters<typeof prisma.listing.findMany>[0]['orderBy'] = { rating: 'desc' }
+    let orderBy: Prisma.ListingOrderByWithRelationInput = { rating: 'desc' }
     switch (sort) {
         case 'rating':
             orderBy = { rating: 'desc' }
