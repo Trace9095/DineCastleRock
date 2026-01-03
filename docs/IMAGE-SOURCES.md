@@ -125,12 +125,6 @@ For each business, visit the linked sources to download high-quality photos. Rec
 - Restaurant Guru (18 photos): https://restaurantguru.com/The-Park-Co-Sports-Bar-and-Kitchen-Castle-Rock
 - **Key visual:** 21 TVs, sports bar atmosphere
 
-### 16. Cork and Keg (Note: May be closed - verify status)
-**Address:** 320 Perry St, Castle Rock, CO 80104 (or 971 Park St)
-- Yelp (62 photos): https://www.yelp.com/biz/colorado-cork-and-keg-castle-rock-2
-- Tripadvisor (19 photos): https://www.tripadvisor.com/Restaurant_Review-g33345-d14937605-Reviews-Colorado_Cork_and_Keg-Castle_Rock_Colorado.html
-- **Note:** Was featured on Bar Rescue, renamed to Valerie's Brewhouse, now may be closed
-
 ---
 
 ## Coffee & Tea
@@ -177,11 +171,6 @@ For each business, visit the linked sources to download high-quality photos. Rec
 - Website: https://crumblcookies.com/castlerock
 - Yelp (42 photos): https://www.yelp.com/biz/crumbl-castle-rock-castle-rock
 - **Key visual:** Pink boxes, large gourmet cookies, open kitchen
-
-### 23. Sweet Cow Ice Cream
-**Note:** No Castle Rock location found. Consider removing or replacing with Smart Cow Yogurt Bar.
-- Smart Cow Website: https://www.smartcowcastlerock.com/
-- Sweet Cow Instagram (general): https://www.instagram.com/sweetcowicecream/
 
 ---
 

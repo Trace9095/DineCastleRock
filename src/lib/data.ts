@@ -62,7 +62,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://scileppis.com',
         rating: 4.8,
         reviewCount: 624,
-        image: '/images/listings/scileppis.jpg',
+        image: '/images/guides/date-night-hero.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Fine Dining', 'Date Night', 'Historic Building', 'Wine List', 'Reservations', 'Lunch', 'Dinner'],
         hours: {
@@ -93,7 +93,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://castlecafe.com',
         rating: 4.5,
         reviewCount: 535,
-        image: '/images/listings/castle-cafe.jpg',
+        image: '/images/listings/castle-cafe-hero.jpg',
         gallery: [],
         features: ['Historic Building', 'Pan Fried Chicken', 'Family Friendly', 'Lunch', 'Dinner', 'Local Favorite'],
         hours: {
@@ -124,7 +124,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://courtyardsocialcr.com',
         rating: 4.6,
         reviewCount: 328,
-        image: '/images/listings/courtyard-social.jpg',
+        image: '/images/listings/tribe-riverwalk-hero.jpg',
         gallery: ['/images/guides/happy-hour-hero.jpg'],
         features: ['Craft Cocktails', 'Oysters', 'Patio', 'Happy Hour', 'Brunch', 'Family Friendly'],
         hours: {
@@ -155,7 +155,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://greatdividebreweryandroadhouse.com',
         rating: 4.6,
         reviewCount: 456,
-        image: '/images/listings/great-divide.jpg',
+        image: '/images/guides/great-divide-brewery.jpg',
         gallery: ['/images/guides/happy-hour-hero.jpg'],
         features: ['Brewery', 'Patio', 'Riverwalk', 'Happy Hour', 'Brunch', 'Gluten-Free Options', 'Family Friendly', 'Reservations'],
         hours: {
@@ -189,7 +189,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://trestlescastlerock.com',
         rating: 4.7,
         reviewCount: 326,
-        image: '/images/listings/trestles.jpg',
+        image: '/images/guides/date-night-hero.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Seafood', 'Fine Dining', 'Date Night', 'Brunch', 'Business Casual', 'Reservations'],
         hours: {
@@ -220,7 +220,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://savinasmexicankitchen.com',
         rating: 4.5,
         reviewCount: 904,
-        image: '/images/listings/savinas.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Mexican', 'Tex-Mex', 'Mountain Views', 'Margaritas', 'Family Friendly', 'Lunch', 'Dinner'],
         hours: {
@@ -251,7 +251,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://hideawaybarandgrill.com',
         rating: 4.4,
         reviewCount: 345,
-        image: '/images/listings/hideaway.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Sports Bar', 'Happy Hour', 'Family Friendly', 'Draft Beer', 'Lunch', 'Dinner'],
         hours: {
@@ -282,7 +282,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.3,
         reviewCount: 210,
-        image: '/images/listings/whiskey-lodge.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Whiskey Bar', 'Sports', 'Happy Hour', 'Craft Cocktails', 'Late Night'],
         hours: {
@@ -313,7 +313,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://lostcoffee.com',
         rating: 4.7,
         reviewCount: 280,
-        image: '/images/listings/lost-coffee.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'WiFi', 'Local Roasters', 'Pastries', 'Cozy Atmosphere'],
         hours: {
@@ -344,7 +344,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://crowfootvalleycoffee.com',
         rating: 4.6,
         reviewCount: 320,
-        image: '/images/listings/crowfoot.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'WiFi', 'Live Music', 'The Crowbar', 'Food', 'Local Favorite'],
         hours: {
@@ -375,7 +375,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://dazbog.com',
         rating: 4.5,
         reviewCount: 175,
-        image: '/images/listings/dazbog-coffee.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'Organic', 'Riverwalk', 'Drive-Thru', 'Award Winning'],
         hours: {
@@ -406,7 +406,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://theofficecocr.com',
         rating: 4.4,
         reviewCount: 195,
-        image: '/images/listings/the-office-bar.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Brunch', 'Happy Hour', 'Craft Cocktails', 'Lunch', 'Modern Atmosphere'],
         hours: {
@@ -437,7 +437,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://bucketlisttavern.com',
         rating: 4.3,
         reviewCount: 165,
-        image: '/images/listings/bucket-list-tavern.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Bar', 'Comfort Food', 'Unique Decor', 'Family Friendly', 'Lunch', 'Dinner'],
         hours: {
@@ -468,7 +468,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://provisioncastlerock.com',
         rating: 4.8,
         reviewCount: 156,
-        image: '/images/listings/provision-bar.jpg',
+        image: '/images/guides/provision-bar.jpg',
         gallery: ['/images/guides/date-night-hero.jpg'],
         features: ['Craft Cocktails', 'Date Night', 'Speakeasy', 'Small Plates', 'Reservations Recommended'],
         hours: {
@@ -496,7 +496,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://rockyard.com',
         rating: 4.4,
         reviewCount: 510,
-        image: '/images/listings/rockyard-brewing.jpg',
+        image: '/images/guides/great-divide-brewery.jpg',
         gallery: [],
         features: ['Brewery', 'Family Friendly', 'Patio', 'Award Winning Beer', 'Lunch', 'Dinner'],
         hours: {
@@ -558,7 +558,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://theparksportsbar.com',
         rating: 4.2,
         reviewCount: 185,
-        image: '/images/listings/the-park-sports-bar.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Sports Bar', 'Happy Hour', 'DJ', 'Games', 'Multiple TVs', 'Late Night'],
         hours: {
@@ -589,7 +589,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.5,
         reviewCount: 240,
-        image: '/images/listings/cuba-cuba.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Cuban', 'Mojitos', 'Tropical Atmosphere', 'Happy Hour', 'Lunch', 'Dinner'],
         hours: {
@@ -620,7 +620,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://br.coffee',
         rating: 4.4,
         reviewCount: 195,
-        image: '/images/listings/black-rock-coffee.jpg',
+        image: '/images/home-hero.jpg',
         gallery: [],
         features: ['Coffee', 'Drive-Thru', 'Fuel Drinks', 'Smoothies', 'Quick Service'],
         hours: {
@@ -639,37 +639,6 @@ export const LISTINGS: Listing[] = [
         deals: [],
         updatedAt: new Date('2026-01-03')
     },
-    {
-        id: '20',
-        slug: 'cork-and-keg',
-        name: 'Cork and Keg',
-        description: "The place to sample everything from Colorado. Bills itself as having the best pickle shots in Douglas County. Features trivia, music video bingo, pool and Texas hold 'em tournaments, shuffleboard, darts, karaoke, live music, and dancing.",
-        cuisine: 'Bar',
-        price: '$',
-        address: '320 Perry St, Castle Rock, CO 80104',
-        phone: '(303) 814-2337',
-        website: '',
-        rating: 4.2,
-        reviewCount: 165,
-        image: '/images/listings/cork-and-keg.jpg',
-        gallery: [],
-        features: ['Bar', 'Trivia', 'Karaoke', 'Live Music', 'Pool', 'Dancing', 'Late Night'],
-        hours: {
-            "Monday": "2:00 PM - 2:00 AM",
-            "Tuesday": "2:00 PM - 2:00 AM",
-            "Wednesday": "2:00 PM - 2:00 AM",
-            "Thursday": "2:00 PM - 2:00 AM",
-            "Friday": "2:00 PM - 2:00 AM",
-            "Saturday": "12:00 PM - 2:00 AM",
-            "Sunday": "12:00 PM - 12:00 AM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'bars-nightlife',
-        deals: [],
-        updatedAt: new Date('2026-01-03')
-    },
     // Dessert & Bakery
     {
         id: '21',
@@ -683,7 +652,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://nothingbundtcakes.com',
         rating: 4.8,
         reviewCount: 215,
-        image: '/images/listings/nothing-bundt-cakes.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Bakery', 'Cakes', 'Dessert', 'Celebration', 'Gift Shop'],
         hours: {
@@ -714,7 +683,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://crumblcookies.com',
         rating: 4.6,
         reviewCount: 340,
-        image: '/images/listings/crumbl-cookies.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Cookies', 'Dessert', 'Weekly Menu', 'Open Kitchen', 'Takeout'],
         hours: {
@@ -733,37 +702,6 @@ export const LISTINGS: Listing[] = [
         deals: [{ id: 'd9', title: 'Weekly Flavor Drop', description: 'New flavors every Sunday night at 6 PM' }],
         updatedAt: new Date('2026-01-03')
     },
-    {
-        id: '23',
-        slug: 'sweet-cow-ice-cream-castle-rock',
-        name: 'Sweet Cow Ice Cream',
-        description: "Colorado-born ice cream shop serving small-batch, handcrafted ice cream made with local dairy. Known for creative flavors and a rotating seasonal menu. A community favorite for families and ice cream lovers.",
-        cuisine: 'Ice Cream',
-        price: '$',
-        address: '4926 Factory Shops Blvd, Castle Rock, CO 80108',
-        phone: '(720) 409-8200',
-        website: 'https://sweetcowicecream.com',
-        rating: 4.7,
-        reviewCount: 285,
-        image: '/images/listings/sweet-cow-ice-cream.jpg',
-        gallery: [],
-        features: ['Ice Cream', 'Local Dairy', 'Family Friendly', 'Seasonal Flavors', 'Handcrafted'],
-        hours: {
-            "Monday": "12:00 PM - 9:00 PM",
-            "Tuesday": "12:00 PM - 9:00 PM",
-            "Wednesday": "12:00 PM - 9:00 PM",
-            "Thursday": "12:00 PM - 9:00 PM",
-            "Friday": "12:00 PM - 10:00 PM",
-            "Saturday": "12:00 PM - 10:00 PM",
-            "Sunday": "12:00 PM - 9:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'dessert',
-        deals: [],
-        updatedAt: new Date('2026-01-03')
-    },
     // Food Trucks
     {
         id: '24',
@@ -777,7 +715,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://bikerjims.com',
         rating: 4.7,
         reviewCount: 180,
-        image: '/images/listings/biker-jims-dogs.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Food Truck', 'Gourmet Hot Dogs', 'Exotic Meats', 'Events', 'Catering'],
         hours: {
@@ -804,7 +742,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.5,
         reviewCount: 120,
-        image: '/images/listings/taste-of-philly.jpg',
+        image: '/images/guides/happy-hour-hero.jpg',
         gallery: [],
         features: ['Food Truck', 'Cheesesteaks', 'Events', 'Farmers Market'],
         hours: {
@@ -830,7 +768,7 @@ export const LISTINGS: Listing[] = [
         website: '',
         rating: 4.6,
         reviewCount: 145,
-        image: '/images/listings/rockin-tacos.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Food Truck', 'Tacos', 'Street Food', 'Events', 'Brewery Partner'],
         hours: {
@@ -859,7 +797,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://modpizza.com',
         rating: 4.3,
         reviewCount: 175,
-        image: '/images/listings/mod-pizza.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Pizza', 'Takeout', 'Delivery', 'Build Your Own', 'Quick Service'],
         hours: {
@@ -890,7 +828,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://tokyojoes.com',
         rating: 4.4,
         reviewCount: 210,
-        image: '/images/listings/tokyo-joes.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Japanese', 'Takeout', 'Delivery', 'Bowls', 'Healthy', 'Gluten-Free Options'],
         hours: {
@@ -921,7 +859,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://noodles.com',
         rating: 4.2,
         reviewCount: 185,
-        image: '/images/listings/noodles-company.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Noodles', 'Takeout', 'Delivery', 'Global Cuisine', 'Quick Service'],
         hours: {
@@ -952,7 +890,7 @@ export const LISTINGS: Listing[] = [
         website: 'https://qdoba.com',
         rating: 4.1,
         reviewCount: 195,
-        image: '/images/listings/qdoba.jpg',
+        image: '/images/guides/family-dining-hero.jpg',
         gallery: [],
         features: ['Mexican', 'Takeout', 'Delivery', 'Burritos', 'Quick Service', 'Catering'],
         hours: {
