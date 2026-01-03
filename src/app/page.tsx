@@ -1,7 +1,7 @@
 import { Hero } from "@/components/home/Hero"
 import { CategoryGrid } from "@/components/home/CategoryGrid"
 import { FeaturedSection } from "@/components/home/FeaturedSection"
-import { getTrendingListings, getDateNightListings, getFeaturedListing } from "@/lib/data"
+import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNow } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { Star, TrendingUp } from "lucide-react"
 import Link from "next/link"
@@ -21,7 +21,7 @@ export default function Home() {
     rating: listing.rating,
     reviewCount: listing.reviewCount,
     address: listing.address?.split(',')[0] || 'Castle Rock',
-    isOpen: listing.isOpen,
+    isOpen: isOpenNow(listing.hours),
     isPremium: listing.isPremium,
     deal: listing.deals.length > 0 ? listing.deals[0].title : undefined
   }))
@@ -39,7 +39,7 @@ export default function Home() {
     rating: listing.rating,
     reviewCount: listing.reviewCount,
     address: listing.address?.split(',')[0] || 'Castle Rock',
-    isOpen: listing.isOpen,
+    isOpen: isOpenNow(listing.hours),
     isPremium: listing.isPremium
   }))
 

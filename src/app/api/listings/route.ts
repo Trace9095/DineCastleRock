@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAllListings, getListingsByCategory } from '@/lib/data'
+import { getAllListings, getListingsByCategory, isOpenNow } from '@/lib/data'
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
@@ -55,7 +55,7 @@ export async function GET(request: Request) {
         gallery: listing.gallery,
         is_premium: listing.isPremium,
         is_featured: listing.isFeatured,
-        is_open: listing.isOpen,
+        is_open: isOpenNow(listing.hours),
         updated_at: listing.updatedAt.toISOString()
     }))
 
