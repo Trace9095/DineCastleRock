@@ -150,37 +150,37 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
             />
 
-            <div className="container max-w-7xl mx-auto px-4 py-6">
+            <div className="container max-w-7xl mx-auto px-4 py-8">
                 {/* Breadcrumb */}
-                <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6">
-                    <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+                <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="h-3 w-3" />
                     <span className="text-foreground font-medium">{categoryTitle}</span>
                 </nav>
 
                 {/* Header */}
-                <div className="mb-8">
-                    <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">{categoryTitle}</h1>
-                    <p className="text-muted-foreground">
+                <div className="mb-10">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3">{categoryTitle}</h1>
+                    <p className="text-muted-foreground text-lg max-w-2xl">
                         {categoryDescription}
                     </p>
                 </div>
 
                 {/* Search & Sort Bar */}
-                <div className="mb-6 flex flex-col sm:flex-row gap-3">
+                <div className="mb-8 flex flex-col sm:flex-row gap-3">
                     <form className="flex-1 relative" action={`/${category}`}>
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             name="q"
                             placeholder={`Search ${categoryTitle.toLowerCase()}...`}
-                            className="pl-10 h-10"
+                            className="pl-11 h-12 rounded-xl border-border/50 focus:border-primary"
                             defaultValue={searchQuery}
                         />
                         <input type="hidden" name="sort" value={sort} />
                         {premium && <input type="hidden" name="premium" value={premium} />}
                     </form>
                     <div className="flex gap-2">
-                        <Suspense fallback={<div className="h-10 w-[140px] bg-muted rounded-md animate-pulse" />}>
+                        <Suspense fallback={<div className="h-12 w-[140px] bg-muted rounded-xl animate-pulse" />}>
                             <SortSelect currentSort={sort} category={category} />
                         </Suspense>
                     </div>

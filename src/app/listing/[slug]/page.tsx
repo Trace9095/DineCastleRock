@@ -144,27 +144,28 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             />
 
             {/* Hero Gallery */}
-            <div className="relative z-0 h-[35vh] md:h-[45vh] bg-zinc-100">
-                <div className="h-full grid grid-cols-1 md:grid-cols-3 gap-0.5">
-                    <div className="md:col-span-2 relative h-full overflow-hidden">
+            <div className="relative z-0 h-[40vh] md:h-[50vh] bg-muted">
+                <div className="h-full grid grid-cols-1 md:grid-cols-4 gap-1">
+                    <div className="md:col-span-3 relative h-full overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={displayImages[0]} alt={listing.name} className="w-full h-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     </div>
-                    <div className="hidden md:grid grid-rows-2 gap-0.5 h-full">
-                        <div className="relative overflow-hidden bg-zinc-200">
+                    <div className="hidden md:grid grid-rows-2 gap-1 h-full">
+                        <div className="relative overflow-hidden bg-muted">
                             {displayImages[1] ? (
                                 /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[1]} alt="Gallery 1" className="w-full h-full object-cover" />
+                                <img src={displayImages[1]} alt="Gallery 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                             ) : (
-                                <div className="w-full h-full" />
+                                <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍽️</div>
                             )}
                         </div>
-                        <div className="relative overflow-hidden bg-zinc-200">
+                        <div className="relative overflow-hidden bg-muted">
                             {displayImages[2] ? (
                                 /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[2]} alt="Gallery 2" className="w-full h-full object-cover" />
+                                <img src={displayImages[2]} alt="Gallery 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                             ) : (
-                                <div className="w-full h-full" />
+                                <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍷</div>
                             )}
                         </div>
                     </div>
@@ -185,42 +186,39 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* Header Info */}
-                        <div>
-                            <div className="flex items-center justify-between mb-2">
-                                <div className="flex gap-2">
-                                    {listing.cuisine && (
-                                        <Badge variant="outline">{listing.cuisine}</Badge>
+                        <div className="space-y-4">
+                            <div className="flex items-start justify-between">
+                                <div className="flex flex-wrap gap-2">
+                                    {listing.isPremium && (
+                                        <Badge className="bg-primary text-primary-foreground">Featured</Badge>
                                     )}
                                     {isOpenNow(listing.hours) && (
-                                        <Badge variant="secondary" className="bg-green-100 text-green-700 hover:bg-green-200">Open Now</Badge>
+                                        <Badge variant="secondary" className="bg-emerald-100 text-emerald-700 border-emerald-200">Open Now</Badge>
                                     )}
-                                    {listing.isPremium && (
-                                        <Badge className="bg-amber-500 hover:bg-amber-600 text-white">Featured</Badge>
+                                    {listing.cuisine && (
+                                        <Badge variant="outline" className="border-primary/30 text-primary">{listing.cuisine}</Badge>
                                     )}
                                 </div>
-                                <div className="flex gap-2">
-                                    <Button variant="ghost" size="icon"><Share2 className="h-5 w-5" /></Button>
-                                    <Button variant="ghost" size="icon"><Heart className="h-5 w-5" /></Button>
+                                <div className="flex gap-1">
+                                    <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full hover:bg-primary/10"><Share2 className="h-4 w-4" /></Button>
+                                    <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full hover:bg-primary/10"><Heart className="h-4 w-4" /></Button>
                                 </div>
                             </div>
-                            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">{listing.name}</h1>
-                            <div className="flex items-center gap-4 text-sm flex-wrap">
-                                <div className="flex items-center gap-1">
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{listing.name}</h1>
+                            <div className="flex items-center gap-3 flex-wrap">
+                                <div className="flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
                                     <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                                    <span className="font-semibold">{listing.rating.toFixed(1)}</span>
-                                    <span className="text-muted-foreground">({listing.reviewCount} reviews)</span>
+                                    <span className="font-bold text-amber-900">{listing.rating.toFixed(1)}</span>
+                                    <span className="text-amber-700/80 text-sm">({listing.reviewCount})</span>
                                 </div>
                                 {listing.price && (
-                                    <>
-                                        <span>•</span>
-                                        <span className="font-medium">{listing.price}</span>
-                                    </>
+                                    <span className="font-medium text-muted-foreground">{listing.price}</span>
                                 )}
                                 {listing.address && (
-                                    <>
-                                        <span>•</span>
-                                        <span className="text-muted-foreground">{listing.address}</span>
-                                    </>
+                                    <span className="text-muted-foreground flex items-center gap-1">
+                                        <MapPin className="h-3.5 w-3.5" />
+                                        {listing.address.split(',')[0]}
+                                    </span>
                                 )}
                             </div>
                         </div>
@@ -365,98 +363,97 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                     </div>
 
                     {/* Sidebar info */}
-                    <div className="space-y-6">
-                        <div className="p-6 border rounded-xl bg-card shadow-sm space-y-4">
+                    <div className="space-y-5">
+                        <div className="p-5 border border-border/50 rounded-2xl bg-card shadow-sm space-y-4">
+                            <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground">Contact Info</h3>
+
                             {listing.address && (
-                                <>
-                                    <div className="flex items-start gap-4">
-                                        <MapPin className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                                        <div>
-                                            <p className="font-medium text-sm">{listing.address}</p>
-                                            <Button variant="link" className="p-0 h-auto text-xs" asChild>
-                                                <a
-                                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.address)}`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    Get Directions
-                                                </a>
-                                            </Button>
-                                        </div>
+                                <div className="flex items-start gap-3">
+                                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                        <MapPin className="h-4 w-4 text-primary" />
                                     </div>
-                                    <Separator />
-                                </>
+                                    <div>
+                                        <p className="font-medium text-sm">{listing.address}</p>
+                                        <a
+                                            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.address)}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xs text-primary hover:underline"
+                                        >
+                                            Get Directions
+                                        </a>
+                                    </div>
+                                </div>
                             )}
 
                             {hasValidWebsite && (
-                                <div className="flex items-start gap-4">
-                                    <Globe className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                                    <div>
-                                        <a
-                                            href={listing.website}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="font-medium text-sm hover:underline"
-                                        >
-                                            Visit Website
-                                        </a>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                        <Globe className="h-4 w-4 text-primary" />
                                     </div>
+                                    <a
+                                        href={listing.website}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-medium text-sm hover:text-primary transition-colors"
+                                    >
+                                        Visit Website
+                                    </a>
                                 </div>
                             )}
 
                             {hasValidPhone && (
-                                <div className="flex items-start gap-4">
-                                    <Phone className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
-                                    <div>
-                                        <a href={`tel:${listing.phone}`} className="font-medium text-sm hover:underline">
-                                            {listing.phone}
-                                        </a>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                                        <Phone className="h-4 w-4 text-primary" />
                                     </div>
+                                    <a href={`tel:${listing.phone}`} className="font-medium text-sm hover:text-primary transition-colors">
+                                        {listing.phone}
+                                    </a>
                                 </div>
-                            )}
-
-                            {hasHours && (
-                                <>
-                                    <Separator />
-                                    <div>
-                                        <div className="flex items-center gap-4 mb-2">
-                                            <Clock className="h-5 w-5 text-muted-foreground shrink-0" />
-                                            <span className="font-semibold text-sm">Hours</span>
-                                        </div>
-                                        <ul className="space-y-1 text-sm pl-9">
-                                            {hours.map(h => (
-                                                <li key={h.day} className="flex justify-between">
-                                                    <span className="text-muted-foreground">{h.day}</span>
-                                                    <span>{h.time}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </>
                             )}
                         </div>
 
+                        {hasHours && (
+                            <div className="p-5 border border-border/50 rounded-2xl bg-card shadow-sm">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <Clock className="h-4 w-4 text-primary" />
+                                    <span className="font-semibold text-sm">Hours of Operation</span>
+                                </div>
+                                <ul className="space-y-2 text-sm">
+                                    {hours.map(h => (
+                                        <li key={h.day} className="flex justify-between py-1 border-b border-border/30 last:border-0">
+                                            <span className="text-muted-foreground">{h.day}</span>
+                                            <span className="font-medium">{h.time}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+
                         {/* Data transparency */}
-                        <div className="p-4 border rounded-xl bg-muted/20 text-sm space-y-2">
+                        <div className="p-4 border border-border/50 rounded-xl bg-muted/30 text-sm space-y-2">
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Calendar className="h-4 w-4" />
-                                <span>Last updated: {listing.updatedAt.toLocaleDateString()}</span>
+                                <span>Updated {listing.updatedAt.toLocaleDateString()}</span>
                             </div>
                             <a
                                 href={`mailto:hello@dinecastlerock.com?subject=Issue with ${listing.name} listing`}
-                                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                             >
                                 <AlertCircle className="h-4 w-4" />
                                 <span>Report an issue</span>
                             </a>
                         </div>
 
-                        <div className="p-6 border rounded-xl bg-zinc-900 text-white shadow-sm text-center space-y-3">
-                            <h3 className="font-bold">Own this business?</h3>
-                            <p className="text-sm text-zinc-300">Claim this listing to manage details, add photos, and post deals.</p>
-                            <Link href={`/listing/${slug}/claim`} className="w-full">
-                                <Button variant="secondary" className="w-full">Claim Listing</Button>
-                            </Link>
+                        <div className="p-6 rounded-2xl bg-gradient-to-br from-stone-900 to-stone-800 text-white shadow-lg text-center space-y-3">
+                            <h3 className="font-bold text-lg">Own this business?</h3>
+                            <p className="text-sm text-stone-300">Claim this listing to manage details, add photos, and post deals.</p>
+                            <Button variant="secondary" className="w-full font-semibold" asChild>
+                                <Link href={`/listing/${slug}/claim`}>
+                                    Claim Listing
+                                </Link>
+                            </Button>
                         </div>
                     </div>
                 </div>
