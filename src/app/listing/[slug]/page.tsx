@@ -144,18 +144,18 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             />
 
             {/* Hero Gallery */}
-            <div className="relative z-0 h-[40vh] md:h-[50vh] bg-muted">
+            <div className="relative z-0 h-[40vh] md:h-[50vh] bg-muted overflow-hidden">
                 <div className="h-full grid grid-cols-1 md:grid-cols-4 gap-1">
                     <div className="md:col-span-3 relative h-full overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={displayImages[0]} alt={listing.name} className="w-full h-full object-cover" />
+                        <img src={displayImages[0]} alt={listing.name} className="absolute inset-0 w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     </div>
                     <div className="hidden md:grid grid-rows-2 gap-1 h-full">
                         <div className="relative overflow-hidden bg-muted">
                             {displayImages[1] ? (
                                 /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[1]} alt="Gallery 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                <img src={displayImages[1]} alt="Gallery 1" className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍽️</div>
                             )}
@@ -163,7 +163,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                         <div className="relative overflow-hidden bg-muted">
                             {displayImages[2] ? (
                                 /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[2]} alt="Gallery 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                <img src={displayImages[2]} alt="Gallery 2" className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍷</div>
                             )}
@@ -172,7 +172,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                 </div>
             </div>
 
-            <div className="container max-w-7xl mx-auto px-4 py-6">
+            <div className="relative z-10 bg-background container max-w-7xl mx-auto px-4 py-6">
                 {/* Breadcrumb */}
                 <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-6">
                     <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
