@@ -1,13 +1,80 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 // import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
 import { Analytics } from "@vercel/analytics/next";
 
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1c1917' },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "Dine Castle Rock | Premium Dining Guide",
-  description: "Discover the best restaurants, bars, and culinary experiences in Castle Rock, CO.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
+    template: "%s | Dine Castle Rock",
+  },
+  description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado. Local dining guide with menus, hours, reviews, and deals.",
+  keywords: [
+    "Castle Rock restaurants",
+    "Castle Rock dining",
+    "Castle Rock bars",
+    "Castle Rock breweries",
+    "Castle Rock coffee shops",
+    "restaurants near me Castle Rock",
+    "best food Castle Rock CO",
+    "Castle Rock Colorado food guide",
+    "Douglas County restaurants",
+  ],
+  authors: [{ name: "Dine Castle Rock" }],
+  creator: "Dine Castle Rock",
+  publisher: "Dine Castle Rock",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Dine Castle Rock",
+    title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
+    description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado. Local dining guide with menus, hours, reviews, and deals.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dine Castle Rock - Local Dining Guide",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
+    description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
+    images: ["/images/og-image.jpg"],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  category: "Food & Drink",
 };
 
 // Sitewide schema markup
