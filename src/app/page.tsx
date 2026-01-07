@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/Hero"
 import { CategoryGrid } from "@/components/home/CategoryGrid"
+import { DestinationsSection } from "@/components/home/DestinationsSection"
 import { FeaturedSection } from "@/components/home/FeaturedSection"
 import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNow } from "@/lib/data"
 import { Button } from "@/components/ui/button"
@@ -50,6 +51,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Hero />
       <CategoryGrid />
+      <DestinationsSection />
 
       <FeaturedSection
         title="Trending in Castle Rock"

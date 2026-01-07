@@ -29,7 +29,7 @@ export function Hero() {
         <section className="relative min-h-[600px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
             {/* Background Image with Gradient Overlay */}
             <div className="absolute inset-0 z-0">
-                <div className="w-full h-full bg-stone-900 bg-[url('/images/home-hero.jpg')] bg-cover bg-center" />
+                <div className="w-full h-full bg-stone-900 bg-[url('/images/hero-main.jpg')] bg-cover bg-center" />
                 <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/60 to-stone-900/90" />
             </div>
 
