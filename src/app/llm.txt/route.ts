@@ -1,83 +1,158 @@
 import { NextResponse } from 'next/server'
+import { LISTINGS, CATEGORIES } from '@/lib/data'
 
-export async function GET(request: Request) {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dine-castle-rock.vercel.app'
+export async function GET() {
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co'
 
-    const content = `# Dine Castle Rock - LLM Index
+    // Generate category summary
+    const categoryList = CATEGORIES.map(c => `- ${c.name}: ${c.slug} (${LISTINGS.filter(l => l.categorySlug === c.slug).length} listings)`).join('\n')
 
-## Overview
-Dine Castle Rock is the premier dining directory for Castle Rock, Colorado.
-We feature restaurants, bars, breweries, cafes, and other dining establishments.
+    // Generate top listings summary
+    const topListings = LISTINGS
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 10)
+        .map(l => `- ${l.name} (${l.cuisine || 'Restaurant'}, ${l.rating.toFixed(1)}★): ${baseUrl}/listing/${l.slug}`)
+        .join('\n')
+
+    const content = `# Dine Castle Rock - AI/LLM Index
+
+> Castle Rock, Colorado's premier local dining directory
+
+## Quick Facts
+- Location: Castle Rock, Colorado (Douglas County)
+- Content Type: Local business directory (restaurants, bars, breweries, cafes)
+- Total Listings: ${LISTINGS.length}
+- Categories: ${CATEGORIES.length}
+- Data Updates: Listings updated as businesses submit changes
+- Contact: hello@dinecastlerock.com
+
+## Site Purpose
+Dine Castle Rock helps residents and visitors discover dining establishments in Castle Rock, CO.
+We provide verified business information including hours, menus, reviews, deals, and contact details.
+
+## Key Pages for AI Consumption
+
+### Homepage
+${baseUrl}/
+- Overview of Castle Rock dining scene
+- Featured restaurants and trending spots
+- Category navigation
+
+### Category Pages
+${categoryList}
+
+### Top-Rated Listings
+${topListings}
+
+### Important Static Pages
+- About: ${baseUrl}/about - Mission, how rankings work, editorial policy
+- Guides: ${baseUrl}/guides - Curated dining guides (date night, happy hour, etc.)
+- Add Listing: ${baseUrl}/add-listing - Business submission form
+- Advertise: ${baseUrl}/advertise - Advertising information
 
 ## API Endpoints (JSON, read-only)
 
-### Listings
-- GET ${baseUrl}/api/listings
-  Returns all listings with pagination
-  Query params: ?category=restaurants&limit=50&offset=0
+All API endpoints return JSON and support CORS for browser requests.
 
-- GET ${baseUrl}/api/listings/{slug}
-  Returns a single listing by slug
+### GET ${baseUrl}/api/listings
+Returns paginated listings.
+Query params:
+- category: Filter by category slug (e.g., "restaurants")
+- limit: Number of results (default: 50)
+- offset: Pagination offset (default: 0)
+- q: Search query string
 
-### Categories
-- GET ${baseUrl}/api/categories
-  Returns all categories with listing counts
+### GET ${baseUrl}/api/listings/{slug}
+Returns a single listing by URL slug.
 
-### Deals
-- GET ${baseUrl}/api/deals
-  Returns all active deals
+### GET ${baseUrl}/api/categories
+Returns all categories with listing counts.
 
-### Trending
-- GET ${baseUrl}/api/trending
-  Returns trending listings
-  Query params: ?window=7d&limit=10
+### GET ${baseUrl}/api/deals
+Returns all active deals/promotions.
+
+### GET ${baseUrl}/api/trending
+Returns trending listings based on engagement.
+Query params:
+- window: Time window (default: "7d")
+- limit: Number of results (default: 10)
 
 ## Data Structure
 
 Each listing includes:
-- id: Unique identifier
-- slug: URL-friendly identifier
-- name: Business name
-- description: Business description
-- category: Array of category slugs
-- cuisine: Array of cuisine types
-- price_level: 1-4 ($ to $$$$)
-- address: Object with street, city, state, postal, lat, lng
-- phone: Phone number
-- website: Website URL
-- hours: Operating hours by day
-- features: Array of feature tags (e.g., "Patio", "Happy Hour")
-- rating: Object with value (0-5), count, source
-- deals: Array of active deals
-- image: Hero image URL
-- gallery: Array of additional image URLs
-- is_premium: Boolean for premium/featured status
-- updated_at: ISO-8601 timestamp
+\`\`\`json
+{
+  "id": "unique-id",
+  "slug": "url-friendly-name",
+  "name": "Business Name",
+  "description": "Description text",
+  "categorySlug": "restaurants",
+  "cuisine": "Italian",
+  "price": "$$",
+  "address": "123 Main St, Castle Rock, CO 80104",
+  "phone": "(303) 555-1234",
+  "website": "https://example.com",
+  "hours": {
+    "Monday": "11:00 AM - 9:00 PM",
+    "Tuesday": "11:00 AM - 9:00 PM"
+  },
+  "features": ["Patio", "Happy Hour", "Takeout"],
+  "rating": 4.5,
+  "reviewCount": 127,
+  "image": "/images/business.jpg",
+  "gallery": ["/images/photo1.jpg"],
+  "isPremium": false,
+  "deals": [
+    {
+      "title": "Happy Hour",
+      "description": "Half-price apps 3-6pm"
+    }
+  ]
+}
+\`\`\`
 
 ## Categories
-- restaurants: Full-service restaurants
-- bars: Bars and nightlife
-- breweries: Craft breweries
-- coffee: Coffee shops and cafes
-- dessert: Dessert and bakeries
-- food-trucks: Food trucks
+${CATEGORIES.map(c => `- **${c.name}** (/${c.slug}): ${c.description}`).join('\n')}
+
+## Structured Data
+- All pages include JSON-LD structured data
+- Listing pages use Restaurant/LocalBusiness schema
+- Site uses WebSite and Organization schema
+
+## Sitemap & Robots
+- Sitemap: ${baseUrl}/sitemap.xml
+- Robots: ${baseUrl}/robots.txt
+- This file: ${baseUrl}/llm.txt
 
 ## Update Frequency
+- Homepage: Updated daily
 - Listings: Updated as businesses submit changes
 - Deals: Real-time
 - Trending: Refreshed hourly
 
-## Sitemap
-${baseUrl}/sitemap.xml
+## Data Sources
+Business information is sourced from:
+- Direct business submissions
+- Public records and websites
+- Aggregated review platforms (Google, Yelp)
+- Local verification
 
 ## Contact
-For API questions or data corrections:
-hello@dinecastlerock.com
+For API access, data corrections, or partnership inquiries:
+Email: hello@dinecastlerock.com
+
+## Related Sites (Castle Rock Network)
+- Visit Castle Rock: https://visitcastlerock.co - Events and attractions
+- Shop Castle Rock: https://shopcastlerock.co - Local retail directory
+
+---
+Last updated: ${new Date().toISOString().split('T')[0]}
 `
 
     return new NextResponse(content, {
         headers: {
             'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'public, max-age=3600',
         },
     })
 }

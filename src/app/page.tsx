@@ -4,7 +4,7 @@ import { DestinationsSection } from "@/components/home/DestinationsSection"
 import { FeaturedSection } from "@/components/home/FeaturedSection"
 import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNow } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { Star, TrendingUp } from "lucide-react"
+import { Star, TrendingUp, ArrowRight, Sparkles, Heart } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
@@ -55,9 +55,10 @@ export default function Home() {
 
       <FeaturedSection
         title="Trending in Castle Rock"
+        badge="Hot This Week"
         subtitle={
-          <span className="flex items-center gap-2 justify-center text-muted-foreground">
-            <TrendingUp className="h-4 w-4" />
+          <span className="flex items-center gap-2 justify-center sm:justify-start">
+            <TrendingUp className="h-4 w-4 text-primary" />
             Most clicked and saved this week
           </span>
         }
@@ -66,48 +67,86 @@ export default function Home() {
         linkText="View All Restaurants"
       />
 
-      {/* Sponsored Section - Real Featured Listing */}
+      {/* Sponsored Section - Modern Glass Design */}
       {sponsoredListing && (
-        <section className="py-16 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
-          <div className="container max-w-7xl mx-auto px-4">
-            <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-6 text-center">Featured Restaurant</p>
-            <div className="flex flex-col md:flex-row gap-8 items-center p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10">
-              <div className="w-full md:w-2/5 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+        <section className="py-24 relative overflow-hidden">
+          {/* Background with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900" />
+
+          {/* Decorative elements */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
+
+          <div className="container max-w-7xl mx-auto px-4 relative z-10">
+            {/* Section badge */}
+            <div className="flex justify-center mb-8">
+              <div className="inline-flex items-center gap-2 glass rounded-full px-5 py-2">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-white">Featured Restaurant</span>
+              </div>
+            </div>
+
+            {/* Featured Card */}
+            <div className="flex flex-col lg:flex-row gap-10 items-center p-8 md:p-12 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 shadow-modern-xl">
+              {/* Image */}
+              <div className="w-full lg:w-2/5 aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group">
                 {sponsoredListing.image ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={sponsoredListing.image}
                     alt={sponsoredListing.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center text-6xl">🍽️</div>
+                  <div className="w-full h-full bg-gradient-to-br from-primary/30 via-orange-500/20 to-amber-500/30 flex items-center justify-center text-7xl">🍽️</div>
                 )}
               </div>
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-3xl md:text-4xl font-bold mb-3">{sponsoredListing.name}</h3>
-                <p className="text-stone-300 mb-6 text-lg line-clamp-2">
+
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                  {sponsoredListing.name}
+                </h3>
+                <p className="text-stone-300 mb-8 text-lg md:text-xl leading-relaxed line-clamp-2">
                   {sponsoredListing.description || `Discover ${sponsoredListing.name} in Castle Rock`}
                 </p>
-                <div className="flex items-center gap-4 justify-center md:justify-start text-sm mb-6 flex-wrap">
-                  <div className="flex items-center gap-1.5 bg-amber-500/20 border border-amber-500/30 rounded-full px-3 py-1">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="font-bold">{sponsoredListing.rating.toFixed(1)}</span>
-                    <span className="text-amber-200/70">({sponsoredListing.reviewCount})</span>
+
+                {/* Meta badges */}
+                <div className="flex items-center gap-4 justify-center lg:justify-start text-sm mb-8 flex-wrap">
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-full px-4 py-2 backdrop-blur-sm">
+                    <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                    <span className="font-bold text-white">{sponsoredListing.rating.toFixed(1)}</span>
+                    <span className="text-amber-200/70">({sponsoredListing.reviewCount} reviews)</span>
                   </div>
-                  <span className="text-stone-400">{sponsoredListing.cuisine}</span>
-                  <span className="text-stone-400">{sponsoredListing.price}</span>
+                  <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 backdrop-blur-sm">
+                    <span className="text-white/80">{sponsoredListing.cuisine}</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 backdrop-blur-sm">
+                    <span className="text-white/80">{sponsoredListing.price}</span>
+                  </div>
                 </div>
-                <Button size="lg" asChild className="rounded-full px-8 font-semibold shadow-lg">
+
+                {/* CTA Button */}
+                <Button
+                  size="lg"
+                  asChild
+                  className="rounded-full px-10 py-6 font-semibold shadow-glow-lg bg-gradient-to-r from-primary to-orange-500 hover:from-primary/90 hover:to-orange-500/90 transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg"
+                >
                   <Link href={`/listing/${sponsoredListing.slug}`}>
                     View Details
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
               </div>
             </div>
-            <p className="text-center text-sm text-stone-400 mt-6">
-              <Link href="/advertise" className="hover:text-white transition-colors inline-flex items-center gap-1">
-                Interested in promoting your business? <span className="text-primary">Learn more →</span>
+
+            {/* Advertise CTA */}
+            <p className="text-center text-sm text-stone-400 mt-8">
+              <Link href="/advertise" className="hover:text-white transition-colors inline-flex items-center gap-2 group">
+                Interested in promoting your business?
+                <span className="text-primary group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
             </p>
           </div>
@@ -116,7 +155,13 @@ export default function Home() {
 
       <FeaturedSection
         title="Date Night Destinations"
-        subtitle="Romantic spots for the perfect evening."
+        badge="Romantic Picks"
+        subtitle={
+          <span className="flex items-center gap-2 justify-center sm:justify-start">
+            <Heart className="h-4 w-4 text-rose-500" />
+            Romantic spots for the perfect evening
+          </span>
+        }
         items={formattedDateNight.length > 0 ? formattedDateNight : formattedTrending.slice().reverse()}
         link="/guides/date-night"
         linkText="View Date Night Guide"
