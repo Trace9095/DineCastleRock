@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
-// import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
 import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co';
+
+// Check if Clerk is configured
+const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -56,20 +59,11 @@ export const metadata: Metadata = {
     siteName: "Dine Castle Rock",
     title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
     description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado. Local dining guide with menus, hours, reviews, and deals.",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dine Castle Rock - Local Dining Guide",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
     description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
-    images: ["/images/og-image.jpg"],
   },
   alternates: {
     canonical: siteUrl,
@@ -108,8 +102,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    // <ClerkProvider>
+  const content = (
     <html lang="en">
       <head>
         <script
@@ -128,6 +121,12 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-    // </ClerkProvider>
   );
+
+  // Only wrap with ClerkProvider if configured
+  if (clerkPublishableKey) {
+    return <ClerkProvider>{content}</ClerkProvider>;
+  }
+
+  return content;
 }

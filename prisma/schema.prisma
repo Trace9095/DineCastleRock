@@ -133,17 +133,51 @@ model VerificationToken {
 model AdPlacement {
   id          String   @id @default(cuid())
   type        String   // "HOMEPAGE_HERO", "CATEGORY_TOP"
-  
+
   listing     Listing  @relation(fields: [listingId], references: [id])
   listingId   String
-  
+
   startDate   DateTime
   endDate     DateTime
   isActive    Boolean  @default(true)
-  
+
   impressions Int      @default(0)
   clicks      Int      @default(0)
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Claim {
+  id            String      @id @default(cuid())
+
+  // Claimant Info
+  name          String
+  email         String
+  phone         String?
+  role          String      // "Owner", "Manager", "Marketing"
+
+  // Verification
+  verificationMethod String  // "phone_call", "email", "document"
+  verificationNotes  String?
+
+  // Status
+  status        ClaimStatus @default(PENDING)
+  reviewedBy    String?     // Admin user ID
+  reviewedAt    DateTime?
+  rejectionReason String?
+
+  // Relations
+  listingId     String
+  userId        String?     // Clerk user ID if authenticated
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+enum ClaimStatus {
+  PENDING
+  REVIEWING
+  APPROVED
+  REJECTED
 }

@@ -1,7 +1,17 @@
+import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { MapPin, Heart, Star, Users, Mail, TrendingUp, Shield } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+    title: "About Us | Dine Castle Rock",
+    description: "Learn about Dine Castle Rock, your local guide to the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado. Part of the Castle Rock Network.",
+    openGraph: {
+        title: "About Dine Castle Rock",
+        description: "Your local guide to the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
+    },
+}
 
 export default function AboutPage() {
     return (
