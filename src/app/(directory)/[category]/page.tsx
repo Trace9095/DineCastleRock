@@ -1,13 +1,17 @@
 import { FilterSidebar } from "@/components/listings/FilterSidebar"
 import { ListingCard } from "@/components/listings/ListingCard"
+import { MobileFilterDrawer } from "@/components/listings/MobileFilterDrawer"
+import { Pagination } from "@/components/listings/Pagination"
 import { SortSelect } from "@/components/listings/SortSelect"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { SlidersHorizontal, Search, ChevronRight } from "lucide-react"
+import { Search, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 import { getListingsByCategory, searchListings, isOpenNow, type Listing } from "@/lib/data"
 import { Suspense } from "react"
 import Link from "next/link"
+
+const PAGE_SIZE = 12
 
 // Valid categories that should render this page
 const VALID_CATEGORIES = [
@@ -43,6 +47,7 @@ interface PageProps {
         hasDeals?: string
         price?: string
         cuisine?: string
+        page?: string
     }>
 }
 
@@ -55,8 +60,12 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         openNow,
         hasDeals,
         price,
-        cuisine
+        cuisine,
+        page
     } = await searchParams
+
+    // Parse page number (default to 1)
+    const currentPage = Math.max(1, parseInt(page || '1', 10) || 1)
 
     // Only handle valid category routes
     if (!VALID_CATEGORIES.includes(category)) {
@@ -123,7 +132,13 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ")
 
+    // Pagination calculations
     const totalCount = listings.length
+    const totalPages = Math.ceil(totalCount / PAGE_SIZE)
+    const validPage = Math.min(currentPage, Math.max(1, totalPages))
+    const startIndex = (validPage - 1) * PAGE_SIZE
+    const paginatedListings = listings.slice(startIndex, startIndex + PAGE_SIZE)
+
     const categoryDescription = CATEGORY_DESCRIPTIONS[category] || `Discover the best ${categoryTitle.toLowerCase()} in Castle Rock.`
 
     // Generate ItemList schema for SEO
@@ -204,12 +219,10 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                                 {totalCount} {totalCount === 1 ? 'place' : 'places'}
                                 {searchQuery && <span> matching &quot;{searchQuery}&quot;</span>}
                             </p>
-                            <Button variant="outline" size="sm" className="lg:hidden">
-                                <SlidersHorizontal className="mr-2 h-4 w-4" /> Filters
-                            </Button>
+                            <MobileFilterDrawer />
                         </div>
 
-                        {listings.length === 0 ? (
+                        {paginatedListings.length === 0 ? (
                             <div className="text-center py-16 border rounded-lg bg-muted/10">
                                 <p className="text-lg font-medium mb-2">No listings found</p>
                                 <p className="text-muted-foreground mb-4">
@@ -223,7 +236,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                             </div>
                         ) : (
                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                                {listings.map((listing) => (
+                                {paginatedListings.map((listing) => (
                                     <ListingCard
                                         key={listing.id}
                                         id={listing.id}
@@ -243,12 +256,15 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                             </div>
                         )}
 
-                        {/* Pagination Placeholder */}
-                        {listings.length >= 12 && (
-                            <div className="mt-10 flex justify-center">
-                                <Button variant="outline">Load More</Button>
-                            </div>
-                        )}
+                        {/* Pagination */}
+                        <Suspense fallback={null}>
+                            <Pagination
+                                currentPage={validPage}
+                                totalPages={totalPages}
+                                totalItems={totalCount}
+                                pageSize={PAGE_SIZE}
+                            />
+                        </Suspense>
                     </div>
                 </div>
             </div>

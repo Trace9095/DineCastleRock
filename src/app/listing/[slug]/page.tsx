@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
 import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar, ChevronRight } from "lucide-react"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
@@ -95,8 +94,16 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         '/images/guides/happy-hour-hero.jpg'
     ]
 
-    // Build JSON-LD structured data
-    const jsonLd = {
+    const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co'
+
+    // Category label for breadcrumb
+    const categoryLabel = listing.categorySlug
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+
+    // Build JSON-LD structured data for Restaurant
+    const restaurantJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Restaurant',
         name: listing.name,
@@ -129,18 +136,43 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
         }))
     }
 
-    // Category label for breadcrumb
-    const categoryLabel = listing.categorySlug
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
+    // Build Breadcrumb JSON-LD structured data
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: siteUrl
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: categoryLabel,
+                item: `${siteUrl}/${listing.categorySlug}`
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: listing.name,
+                item: `${siteUrl}/listing/${slug}`
+            }
+        ]
+    }
 
     return (
         <div className="min-h-screen bg-background">
-            {/* JSON-LD Structured Data */}
+            {/* JSON-LD Structured Data - Restaurant */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
+            />
+            {/* JSON-LD Structured Data - Breadcrumb */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
 
             {/* Hero Gallery */}
