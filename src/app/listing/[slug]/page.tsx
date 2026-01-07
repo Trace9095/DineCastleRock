@@ -463,6 +463,26 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                             </div>
                         )}
 
+                        {/* Map Embed */}
+                        {listing.address && (
+                            <div className="border border-border/50 rounded-2xl overflow-hidden shadow-sm">
+                                <div className="p-4 bg-card border-b border-border/50">
+                                    <div className="flex items-center gap-2">
+                                        <MapPin className="h-4 w-4 text-primary" />
+                                        <span className="font-semibold text-sm">Location</span>
+                                    </div>
+                                </div>
+                                <iframe
+                                    title={`Map showing ${listing.name} location`}
+                                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(listing.address + ', Castle Rock, CO')}&zoom=15`}
+                                    className="w-full h-48 border-0"
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    allowFullScreen
+                                />
+                            </div>
+                        )}
+
                         {/* Data transparency */}
                         <div className="p-4 border border-border/50 rounded-xl bg-muted/30 text-sm space-y-2">
                             <div className="flex items-center gap-2 text-muted-foreground">
