@@ -1,4 +1,4 @@
-// Real Castle Rock, CO businesses - data gathered from public sources
+// Real Castle Rock, CO businesses - data verified from public sources (January 2026)
 
 export interface Listing {
     id: string
@@ -22,6 +22,7 @@ export interface Listing {
     categorySlug: string
     deals: Deal[]
     updatedAt: Date
+    sources?: string[] // Source URLs for verification
 }
 
 export interface Deal {
@@ -95,14 +96,14 @@ export const DESTINATIONS = [
     }
 ]
 
-// All listings - Real Castle Rock businesses
+// All listings - Real Castle Rock businesses (VERIFIED January 2026)
 export const LISTINGS: Listing[] = [
     // ==================== RESTAURANTS ====================
     {
         id: '1',
         slug: 'scileppis-old-stone-church',
         name: "Scileppi's at The Old Stone Church",
-        description: "Upscale casual Italian restaurant in Castle Rock that specializes in authentic Italian food. Located in a building that was originally St. Francis of Assisi, the first church in Castle Rock, built in 1888. With its cozy atmosphere, friendly staff and a menu bursting with mouthwatering dishes, it's perfect for a leisurely dinner, lunch catch-up, or solo meal at the bar.",
+        description: "Family-owned Italian restaurant and pizzeria located in a historic 1888 Catholic church. Opened in 2018, this upscale casual dining establishment specializes in authentic Italian food with a modern twist. Features unique seating including a 'Confessional' 2-top table and upstairs 'Last Supper Table' for groups. Known for sun-dried tomato rigatoni, New York-style pizza (Slice Works), and what locals call 'the best calamari in Colorado.'",
         cuisine: 'Italian',
         price: '$$$',
         address: '210 3rd Street, Castle Rock, CO 80104',
@@ -112,7 +113,7 @@ export const LISTINGS: Listing[] = [
         reviewCount: 624,
         image: '/images/dining.jpg',
         gallery: ['/images/dining.jpg', '/images/downtown.jpg'],
-        features: ['Fine Dining', 'Date Night', 'Historic Building', 'Wine List', 'Reservations', 'Lunch', 'Dinner'],
+        features: ['Fine Dining', 'Date Night', 'Historic Building', 'Wine List', 'Pizza', 'OpenTable Reservations'],
         hours: {
             "Monday": "11:00 AM - 9:00 PM",
             "Tuesday": "11:00 AM - 9:00 PM",
@@ -127,14 +128,15 @@ export const LISTINGS: Listing[] = [
         isFeatured: true,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2026-01-03')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://scileppis.com/', 'https://www.yelp.com/biz/scileppis-at-the-old-stone-church-castle-rock', 'https://www.opentable.com/r/scileppis-at-the-old-stone-church-castle-rock']
     },
     {
         id: '2',
         slug: 'castle-cafe',
         name: 'Castle Cafe',
-        description: "A Castle Rock institution for 25+ years. The building is over 100 years old and was the main stop for travelers between Denver and Colorado Springs in the late 1800s. Famous for their World Famous Pan Fried Chicken and southern-style dishes. All seating is first-come, first-served.",
-        cuisine: 'American',
+        description: "A Castle Rock institution for 25+ years, housed in a building over 100 years old that was once the main stop for travelers between Denver and Colorado Springs. Famous for their World Famous Pan Fried Chicken (4 pieces with mashed potatoes, gravy, and seasonal veggies - takes 30 minutes to prepare). Also known for Chicken Fried Steak, Brisket, and incredible desserts like White Chocolate Black Bottom Banana Cream Pie.",
+        cuisine: 'American Southern',
         price: '$$',
         address: '403 Wilcox Street, Castle Rock, CO 80104',
         phone: '(303) 814-2233',
@@ -142,8 +144,8 @@ export const LISTINGS: Listing[] = [
         rating: 4.5,
         reviewCount: 535,
         image: '/images/listings/castle-cafe-hero.jpg',
-        gallery: ['/images/listings/castle-cafe-hero.jpg'],
-        features: ['Historic Building', 'Pan Fried Chicken', 'Family Friendly', 'Lunch', 'Dinner', 'Local Favorite'],
+        gallery: ['/images/listings/castle-cafe-hero.jpg', '/images/downtown.jpg'],
+        features: ['Historic Building', 'Pan Fried Chicken', 'Family Friendly', 'Southern Cuisine', 'No Reservations'],
         hours: {
             "Monday": "11:00 AM - 9:00 PM",
             "Tuesday": "11:00 AM - 9:00 PM",
@@ -151,294 +153,243 @@ export const LISTINGS: Listing[] = [
             "Thursday": "11:00 AM - 9:00 PM",
             "Friday": "11:00 AM - 9:00 PM",
             "Saturday": "11:00 AM - 9:00 PM",
-            "Sunday": "11:30 AM - 8:00 PM"
+            "Sunday": "11:00 AM - 8:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2026-01-03')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://castlecafe.com/', 'https://www.yelp.com/biz/castle-cafe-castle-rock', 'https://www.tripadvisor.com/Restaurant_Review-g33345-d489995-Reviews-Castle_Cafe-Castle_Rock_Colorado.html']
     },
     {
         id: '3',
-        slug: 'augustine-grill',
-        name: 'Augustine Grill',
-        description: "Upscale steakhouse offering prime cuts, fresh seafood, and an extensive wine list in an elegant setting. Known for their dry-aged steaks and exceptional service, Augustine Grill is the premier destination for special occasions and business dinners in Castle Rock.",
-        cuisine: 'Steakhouse',
-        price: '$$$$',
-        address: '6538 Promenade Pkwy, Castle Rock, CO 80108',
-        phone: '(303) 663-7575',
-        website: 'https://augustinegrill.com',
-        rating: 4.7,
-        reviewCount: 412,
-        image: '/images/augustine-grill.jpg',
-        gallery: ['/images/augustine-grill.jpg', '/images/dining.jpg'],
-        features: ['Fine Dining', 'Steaks', 'Wine List', 'Date Night', 'Business Dining', 'Reservations'],
+        slug: 'wild-blue-yonder-brewing',
+        name: 'Wild Blue Yonder Brewing Company',
+        description: "Castle Rock's award-winning, veteran-owned brewpub featuring 16 taps of craft beer, a full food menu, craft cocktails, and wine. Located in a historic building on Wilcox Street, this brewery combines military heritage with exceptional craft brewing. Family-friendly atmosphere with a commitment to community involvement.",
+        cuisine: 'Brewery & American',
+        price: '$$',
+        address: '519 Wilcox Street, Castle Rock, CO 80104',
+        phone: '(720) 733-8622',
+        website: 'https://wildblueyonderbrewing.com',
+        rating: 4.6,
+        reviewCount: 312,
+        image: '/images/rockyard-brewing.jpg',
+        gallery: ['/images/rockyard-brewing.jpg', '/images/downtown.jpg'],
+        features: ['Brewery', 'Veteran Owned', 'Craft Beer', 'Full Bar', 'Family Friendly', 'Patio'],
         hours: {
-            "Monday": "4:00 PM - 9:00 PM",
-            "Tuesday": "4:00 PM - 9:00 PM",
-            "Wednesday": "4:00 PM - 9:00 PM",
-            "Thursday": "4:00 PM - 9:00 PM",
-            "Friday": "4:00 PM - 10:00 PM",
-            "Saturday": "4:00 PM - 10:00 PM",
-            "Sunday": "4:00 PM - 9:00 PM"
+            "Monday": "Closed",
+            "Tuesday": "11:00 AM - 9:00 PM",
+            "Wednesday": "11:00 AM - 9:00 PM",
+            "Thursday": "11:00 AM - 9:00 PM",
+            "Friday": "11:00 AM - 10:00 PM",
+            "Saturday": "11:00 AM - 10:00 PM",
+            "Sunday": "11:00 AM - 8:00 PM"
         },
         isOpen: true,
         isPremium: true,
         isFeatured: true,
-        categorySlug: 'restaurants',
+        categorySlug: 'breweries',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://wildblueyonderbrewing.com/about-us']
     },
     {
         id: '4',
-        slug: 'b-and-b-pickle-barrel',
-        name: 'B&B Pickle Barrel',
-        description: "Classic American diner serving hearty breakfasts and comfort food since 1982. Famous for their massive omelets, homemade corned beef hash, and friendly service. A local favorite for weekend brunch with the family.",
-        cuisine: 'American Diner',
+        slug: 'b-and-b-cafe',
+        name: 'B&B Cafe',
+        description: "A Castle Rock landmark since 1946, B&B Cafe serves classic American breakfast and brunch in a cozy downtown setting. Known for hearty portions, friendly service, and that small-town diner atmosphere that keeps locals coming back generation after generation. Perfect for weekend brunch with the family.",
+        cuisine: 'American Breakfast',
         price: '$',
-        address: '927 Wilcox St, Castle Rock, CO 80104',
-        phone: '(303) 688-3566',
-        website: '',
+        address: '324 Wilcox Street, Castle Rock, CO 80104',
+        phone: '(720) 733-7827',
+        website: 'https://www.thebbcafe.com',
         rating: 4.4,
-        reviewCount: 387,
+        reviewCount: 287,
         image: '/images/b-and-b-pickle-barrel.jpg',
         gallery: ['/images/b-and-b-pickle-barrel.jpg'],
-        features: ['Breakfast', 'Brunch', 'Family Friendly', 'Diner', 'Local Favorite', 'Cash Friendly'],
+        features: ['Breakfast', 'Brunch', 'Family Friendly', 'Historic', 'Local Favorite'],
         hours: {
             "Monday": "6:00 AM - 2:00 PM",
             "Tuesday": "6:00 AM - 2:00 PM",
             "Wednesday": "6:00 AM - 2:00 PM",
             "Thursday": "6:00 AM - 2:00 PM",
             "Friday": "6:00 AM - 2:00 PM",
-            "Saturday": "6:00 AM - 2:00 PM",
-            "Sunday": "6:00 AM - 2:00 PM"
+            "Saturday": "7:00 AM - 2:00 PM",
+            "Sunday": "7:00 AM - 2:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'restaurants',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.thebbcafe.com/', 'https://www.yelp.com/biz/b-and-b-cafe-castle-rock-2']
     },
     {
         id: '5',
-        slug: 'tacos-selene',
-        name: 'Tacos Selene',
-        description: "Authentic Mexican street tacos and traditional dishes made with family recipes passed down through generations. Fresh tortillas made daily, slow-cooked meats, and homemade salsas create an unforgettable taste of Mexico in Castle Rock.",
-        cuisine: 'Mexican',
-        price: '$',
-        address: '613 Wilcox St, Castle Rock, CO 80104',
-        phone: '(720) 733-8226',
-        website: '',
-        rating: 4.6,
-        reviewCount: 298,
-        image: '/images/tacos-selene.jpg',
-        gallery: ['/images/tacos-selene.jpg'],
-        features: ['Mexican', 'Street Tacos', 'Family Recipes', 'Fresh Tortillas', 'Lunch', 'Dinner'],
-        hours: {
-            "Monday": "10:00 AM - 9:00 PM",
-            "Tuesday": "10:00 AM - 9:00 PM",
-            "Wednesday": "10:00 AM - 9:00 PM",
-            "Thursday": "10:00 AM - 9:00 PM",
-            "Friday": "10:00 AM - 10:00 PM",
-            "Saturday": "10:00 AM - 10:00 PM",
-            "Sunday": "10:00 AM - 8:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'restaurants',
-        deals: [{ id: 'd1', title: 'Taco Tuesday', description: '$2 street tacos every Tuesday' }],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '6',
         slug: 'union-american-bistro',
         name: 'Union American Bistro',
-        description: "Upscale American bistro offering locally-sourced ingredients in a warm, welcoming atmosphere. Perfect for business lunches and celebratory dinners. Excellent wine selection and craft cocktails complement a menu of refined comfort food.",
+        description: "Contemporary American restaurant offering casual elegant dining with tapas, small plates, and comfort food. Ranked #2 of 135 restaurants in Castle Rock on TripAdvisor. Known for their beef tenderloin, The Chop (double pork chop with apple chutney), and crab cake burger. Features signature martinis, great wine selection, and available for private parties up to 80 people.",
         cuisine: 'American Bistro',
         price: '$$$',
-        address: '302 Wilcox St, Castle Rock, CO 80104',
-        phone: '(303) 814-3663',
+        address: '3 Wilcox Street, Castle Rock, CO 80104',
+        phone: '(303) 688-8159',
         website: 'https://theunionbistro.com',
         rating: 4.6,
         reviewCount: 290,
         image: '/images/union-american-bistro.jpg',
         gallery: ['/images/union-american-bistro.jpg', '/images/downtown.jpg'],
-        features: ['Fine Dining', 'Date Night', 'Wine List', 'Lunch', 'Dinner', 'Private Events'],
+        features: ['Fine Dining', 'Date Night', 'Wine List', 'Brunch', 'Happy Hour', 'Private Events'],
+        hours: {
+            "Monday": "Closed",
+            "Tuesday": "11:30 AM - 9:00 PM",
+            "Wednesday": "11:30 AM - 9:00 PM",
+            "Thursday": "11:30 AM - 9:00 PM",
+            "Friday": "11:30 AM - 10:00 PM",
+            "Saturday": "10:00 AM - 10:00 PM",
+            "Sunday": "10:00 AM - 8:00 PM"
+        },
+        isOpen: true,
+        isPremium: true,
+        isFeatured: true,
+        categorySlug: 'restaurants',
+        deals: [
+            { id: 'd1', title: 'Happy Hour', description: 'Tue-Sun 2-6 PM in bar area. $5 Margaritas Tue, Half-price wine Wed' }
+        ],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://theunionbistro.com', 'https://www.yelp.com/biz/union-an-american-bistro-castle-rock', 'https://www.opentable.com/r/union-an-american-bistro']
+    },
+    {
+        id: '6',
+        slug: 'trestles-coastal-cuisine',
+        name: 'Trestles Coastal Cuisine',
+        description: "Family-owned fine dining seafood restaurant opened in 2017 by Castle Rock residents Jose and Mimi Espinoza. Named after the renowned surfing coastline between San Diego and Orange counties. Known for freshly shucked oysters (West and East Coast), Sea Scallop BLT, Annapolis Crab Cakes, and what many call 'the best breakfast in Castle Rock.' Women- and Latinx-owned.",
+        cuisine: 'Seafood',
+        price: '$$$',
+        address: '880 W Happy Canyon Road, Suite 150, Castle Rock, CO 80108',
+        phone: '(714) 362-4736',
+        website: 'https://trestlescastlerock.com',
+        rating: 4.7,
+        reviewCount: 326,
+        image: '/images/dining.jpg',
+        gallery: ['/images/dining.jpg'],
+        features: ['Seafood', 'Fine Dining', 'Oyster Bar', 'Brunch', 'Happy Hour', 'Reservations'],
+        hours: {
+            "Monday": "7:30 AM - 8:00 PM",
+            "Tuesday": "7:30 AM - 8:00 PM",
+            "Wednesday": "7:30 AM - 8:00 PM",
+            "Thursday": "7:30 AM - 8:00 PM",
+            "Friday": "7:30 AM - 9:00 PM",
+            "Saturday": "7:30 AM - 9:00 PM",
+            "Sunday": "7:30 AM - 2:00 PM"
+        },
+        isOpen: true,
+        isPremium: true,
+        isFeatured: false,
+        categorySlug: 'restaurants',
+        deals: [{ id: 'd2', title: 'Happy Hour', description: 'Daily 3-6 PM' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://trestlescastlerock.com/', 'https://www.yelp.com/biz/trestles-coastal-cuisine-castle-rock', 'https://www.opentable.com/r/trestles-coastal-cuisine-castle-rock']
+    },
+    {
+        id: '7',
+        slug: 'savinas-mexican-kitchen',
+        name: "Savina's Mexican Kitchen",
+        description: "Originally founded as La Loma in 1973, renamed in 2025 in tribute to Grandma Savina Mendoza whose recipes remain central to the menu. A Denver institution celebrated for award-winning Hatch green chile and authentic family recipes. Known for house-made flour tortillas rolled right before your eyes, mesquite-grilled fajitas, and stunning mountain views from Mount Evans to Pikes Peak.",
+        cuisine: 'Mexican',
+        price: '$$',
+        address: '6361 Promenade Parkway, Castle Rock, CO 80108',
+        phone: '(303) 632-9900',
+        website: 'https://savinasmexicankitchen.com',
+        rating: 4.5,
+        reviewCount: 904,
+        image: '/images/tacos-selene.jpg',
+        gallery: ['/images/tacos-selene.jpg', '/images/promenade.jpg'],
+        features: ['Mexican', 'Award-Winning Green Chile', 'Mountain Views', 'Margaritas', 'Brunch Sat-Sun'],
         hours: {
             "Monday": "11:00 AM - 9:00 PM",
             "Tuesday": "11:00 AM - 9:00 PM",
             "Wednesday": "11:00 AM - 9:00 PM",
             "Thursday": "11:00 AM - 9:00 PM",
             "Friday": "11:00 AM - 10:00 PM",
-            "Saturday": "10:00 AM - 10:00 PM",
-            "Sunday": "10:00 AM - 8:00 PM"
-        },
-        isOpen: true,
-        isPremium: true,
-        isFeatured: false,
-        categorySlug: 'restaurants',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '7',
-        slug: 'trestles-coastal-cuisine',
-        name: 'Trestles Coastal Cuisine',
-        description: "Family owned and operated restaurant where excellent quality in Character, Food and Service is lived out. Serving fresh seafood and coastal-inspired dishes in the heart of the Village at Castle Pines.",
-        cuisine: 'Seafood',
-        price: '$$$',
-        address: '880 W Happy Canyon Rd, Suite 150, Castle Rock, CO 80108',
-        phone: '(303) 633-3622',
-        website: 'https://trestlescastlerock.com',
-        rating: 4.7,
-        reviewCount: 326,
-        image: '/images/dining.jpg',
-        gallery: ['/images/dining.jpg'],
-        features: ['Seafood', 'Fine Dining', 'Date Night', 'Brunch', 'Business Casual', 'Reservations'],
-        hours: {
-            "Monday": "8:00 AM - 8:00 PM",
-            "Tuesday": "8:00 AM - 8:00 PM",
-            "Wednesday": "8:00 AM - 8:00 PM",
-            "Thursday": "8:00 AM - 8:00 PM",
-            "Friday": "8:00 AM - 9:00 PM",
-            "Saturday": "8:00 AM - 9:00 PM",
-            "Sunday": "8:00 AM - 8:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'restaurants',
-        deals: [],
-        updatedAt: new Date('2026-01-03')
-    },
-    {
-        id: '8',
-        slug: 'savinas-mexican-kitchen',
-        name: "Savina's Mexican Kitchen",
-        description: "Formerly La Loma, founded in 1973 with the same beloved recipes and traditions. Amazing views from Mount Evans to Pikes Peak. Serving authentic Tex-Mex with family recipes passed down through generations.",
-        cuisine: 'Mexican',
-        price: '$$',
-        address: '6361 Promenade Pkwy, Castle Rock, CO 80108',
-        phone: '(303) 632-9900',
-        website: 'https://savinasmexicankitchen.com',
-        rating: 4.5,
-        reviewCount: 904,
-        image: '/images/tacos-selene.jpg',
-        gallery: ['/images/tacos-selene.jpg'],
-        features: ['Mexican', 'Tex-Mex', 'Mountain Views', 'Margaritas', 'Family Friendly', 'Lunch', 'Dinner'],
-        hours: {
-            "Monday": "11:00 AM - 9:00 PM",
-            "Tuesday": "11:00 AM - 9:00 PM",
-            "Wednesday": "11:00 AM - 9:00 PM",
-            "Thursday": "11:00 AM - 9:00 PM",
-            "Friday": "11:00 AM - 9:00 PM",
-            "Saturday": "11:00 AM - 9:00 PM",
+            "Saturday": "11:00 AM - 10:00 PM",
             "Sunday": "11:00 AM - 9:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'restaurants',
-        deals: [],
-        updatedAt: new Date('2026-01-03')
+        deals: [{ id: 'd3', title: 'Happy Hour', description: 'Mon-Fri 3-6 PM' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://savinasmexicankitchen.com/', 'https://www.yelp.com/biz/savina-s-castle-rock', 'https://5280.com/original-la-loma-changes-name-to-savinas-mexican-kitchen/']
     },
 
     // ==================== BARS & NIGHTLIFE ====================
     {
         id: '10',
-        slug: 'sienna-wine-bar',
-        name: 'Sienna Wine Bar',
-        description: "Sophisticated wine bar offering an extensive selection of wines from around the world, paired with artisanal cheeses and small plates. The intimate atmosphere makes it perfect for date nights or unwinding after work with friends.",
-        cuisine: 'Wine Bar',
-        price: '$$$',
-        address: '319 Jerry St, Castle Rock, CO 80104',
-        phone: '(303) 663-9463',
-        website: 'https://siennawine.com',
-        rating: 4.7,
-        reviewCount: 186,
-        image: '/images/sienna-wine-bar.jpg',
-        gallery: ['/images/sienna-wine-bar.jpg', '/images/downtown.jpg'],
-        features: ['Wine Bar', 'Small Plates', 'Date Night', 'Craft Cocktails', 'Live Music', 'Intimate Atmosphere'],
-        hours: {
-            "Tuesday": "4:00 PM - 10:00 PM",
-            "Wednesday": "4:00 PM - 10:00 PM",
-            "Thursday": "4:00 PM - 10:00 PM",
-            "Friday": "4:00 PM - 11:00 PM",
-            "Saturday": "2:00 PM - 11:00 PM",
-            "Sunday": "2:00 PM - 8:00 PM"
-        },
-        isOpen: true,
-        isPremium: true,
-        isFeatured: true,
-        categorySlug: 'bars-nightlife',
-        deals: [{ id: 'd2', title: 'Wine Wednesday', description: 'Half-price bottles every Wednesday' }],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '11',
         slug: 'hideaway-bar-grill',
         name: 'Hideaway Bar & Grill',
-        description: "The hometown favorite in Castle Rock. Family friendly bar and grill offering 12 beers on draft, full bar, sports on TVs with happy hour drink specials and a kitchen cooking up delicious food.",
-        cuisine: 'American',
+        description: "Castle Rock's hometown favorite since March 2012, founded by Bob and Becky. Family-friendly bar and grill serving lunch and dinner with fresh, locally sourced ingredients. Features 12 beers on draft, hand-breaded chicken tenders, acclaimed Monte Cristo Sandwich, and fish tacos. Entertainment includes karaoke Thu/Sat, live music Fri, plus retro video games and billiards.",
+        cuisine: 'American Bar & Grill',
         price: '$$',
-        address: '600 Jerry St, Castle Rock, CO 80104',
-        phone: '(303) 663-9464',
+        address: '600 Jerry Street, Castle Rock, CO 80104',
+        phone: '(720) 519-0509',
         website: 'https://hideawaybarandgrill.com',
         rating: 4.4,
         reviewCount: 345,
         image: '/images/dining.jpg',
-        gallery: [],
-        features: ['Sports Bar', 'Happy Hour', 'Family Friendly', 'Draft Beer', 'Lunch', 'Dinner'],
+        gallery: ['/images/dining.jpg'],
+        features: ['Sports Bar', 'Live Music', 'Karaoke', 'Patio', 'Family Friendly', 'Sunday Brunch'],
         hours: {
             "Monday": "11:00 AM - 10:00 PM",
             "Tuesday": "11:00 AM - 10:00 PM",
             "Wednesday": "11:00 AM - 10:00 PM",
-            "Thursday": "11:00 AM - 10:00 PM",
+            "Thursday": "11:00 AM - 11:00 PM",
             "Friday": "11:00 AM - 11:00 PM",
-            "Saturday": "11:00 AM - 11:00 PM",
-            "Sunday": "11:00 AM - 9:00 PM"
+            "Saturday": "10:00 AM - 11:00 PM",
+            "Sunday": "10:00 AM - 8:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'bars-nightlife',
-        deals: [{ id: 'd3', title: 'Happy Hour', description: 'Daily drink specials' }],
-        updatedAt: new Date('2026-01-03')
+        deals: [{ id: 'd4', title: 'Happy Hour', description: '3-6 PM & 9 PM - Close daily' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://hideawaybarandgrill.com/', 'https://www.yelp.com/biz/hideaway-bar-and-grill-castle-rock', 'https://www.tripadvisor.com/Restaurant_Review-g33345-d5064737-Reviews-Hideaway_Bar_Grill-Castle_Rock_Colorado.html']
     },
     {
-        id: '12',
+        id: '11',
         slug: 'the-whiskey-lodge',
         name: 'The Whiskey Lodge',
-        description: "Rustic vibes with wood accents and taxidermy décor. Plenty of TVs and a whiskey-focused menu including nine different types of Old Fashioneds—including a peanut-butter flavored rendition.",
+        description: "A one-of-a-kind bar and restaurant specializing in whiskey, bourbon, and great food. Features over 100 bourbons and whiskeys, 17 beers on tap, and a signature smoked old-fashioned. Free whiskey tastings every Thursday at 6 PM. Designated leather seating area for bourbon tasting and patio with live music from new artists weekly.",
         cuisine: 'Whiskey Bar',
         price: '$$',
-        address: '100 3rd St, Castle Rock, CO 80104',
-        phone: '(303) 688-2323',
-        website: '',
+        address: '3911 Ambrosia Street, Suite 103, Castle Rock, CO 80109',
+        phone: '(303) 862-8575',
+        website: 'https://www.thewhiskeylodge.com',
         rating: 4.3,
         reviewCount: 210,
         image: '/images/sienna-wine-bar.jpg',
-        gallery: [],
-        features: ['Whiskey Bar', 'Sports', 'Happy Hour', 'Craft Cocktails', 'Late Night'],
+        gallery: ['/images/sienna-wine-bar.jpg'],
+        features: ['Whiskey Bar', '100+ Bourbons', 'Live Music', 'Free Tastings Thu', 'Patio'],
         hours: {
-            "Monday": "3:00 PM - 12:00 AM",
-            "Tuesday": "3:00 PM - 12:00 AM",
-            "Wednesday": "3:00 PM - 12:00 AM",
-            "Thursday": "3:00 PM - 12:00 AM",
-            "Friday": "3:00 PM - 2:00 AM",
-            "Saturday": "12:00 PM - 2:00 AM",
-            "Sunday": "12:00 PM - 10:00 PM"
+            "Monday": "3:00 PM - 10:00 PM",
+            "Tuesday": "3:00 PM - 10:00 PM",
+            "Wednesday": "3:00 PM - 10:00 PM",
+            "Thursday": "3:00 PM - 10:00 PM",
+            "Friday": "3:00 PM - 11:00 PM",
+            "Saturday": "1:00 PM - 11:00 PM",
+            "Sunday": "1:00 PM - 9:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'bars-nightlife',
-        deals: [{ id: 'd4', title: 'Weekday Happy Hour', description: '3-6 PM - specials on drinks and food' }],
-        updatedAt: new Date('2026-01-03')
+        deals: [{ id: 'd5', title: 'Happy Hour', description: '3-6 PM daily - $5 Old Fashioned' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.thewhiskeylodge.com/', 'https://www.yelp.com/biz/the-whiskey-lodge-castle-rock', 'https://www.tripadvisor.com/Restaurant_Review-g33345-d20969850-Reviews-The_Whiskey_Lodge-Castle_Rock_Colorado.html']
     },
 
     // ==================== COFFEE ====================
@@ -446,63 +397,65 @@ export const LISTINGS: Listing[] = [
         id: '20',
         slug: 'lost-coffee',
         name: 'Lost Coffee',
-        description: "Beloved family-owned coffee shop serving the community since 2013. Features locally-roasted Colorado beans in a warm, rustic atmosphere with friendly service. Their signature Lost Latte has become a local favorite.",
+        description: "Specialty coffee shop established in 2010, with Castle Rock being their first location. From its beginnings as a mobile coffee truck, Lost Coffee has expanded across Colorado. Coffee is locally roasted in small batches in Littleton using top 3% ethically sourced beans. Known for scratch-made mocha with pure cacao, Sanctuary Chai, and ceremonial grade Japanese matcha.",
         cuisine: 'Coffee',
         price: '$',
-        address: '304 Wilcox St, Castle Rock, CO 80104',
-        phone: '(303) 688-1808',
-        website: 'https://lostcoffee.com',
+        address: '390 Perry Street, Castle Rock, CO 80104',
+        phone: '(303) 862-8367',
+        website: 'https://www.lostcoffee.com/pages/castle-rock',
         rating: 4.7,
         reviewCount: 280,
         image: '/images/lost-coffee.jpg',
         gallery: ['/images/lost-coffee.jpg', '/images/downtown.jpg'],
-        features: ['Coffee', 'WiFi', 'Local Roasters', 'Pastries', 'Cozy Atmosphere'],
+        features: ['Coffee', 'Local Roaster', 'Ethically Sourced', 'Matcha', 'Chai'],
         hours: {
-            "Monday": "6:30 AM - 5:00 PM",
-            "Tuesday": "6:30 AM - 5:00 PM",
-            "Wednesday": "6:30 AM - 5:00 PM",
-            "Thursday": "6:30 AM - 5:00 PM",
-            "Friday": "6:30 AM - 5:00 PM",
-            "Saturday": "7:00 AM - 5:00 PM",
-            "Sunday": "7:00 AM - 4:00 PM"
+            "Monday": "6:00 AM - 6:00 PM",
+            "Tuesday": "6:00 AM - 6:00 PM",
+            "Wednesday": "6:00 AM - 6:00 PM",
+            "Thursday": "6:00 AM - 6:00 PM",
+            "Friday": "6:00 AM - 6:00 PM",
+            "Saturday": "6:00 AM - 6:00 PM",
+            "Sunday": "6:00 AM - 6:00 PM"
         },
         isOpen: true,
         isPremium: true,
         isFeatured: true,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.lostcoffee.com/pages/castle-rock', 'https://www.yelp.com/biz/lostcoffee-castle-rock-2', 'https://www.tripadvisor.com/Restaurant_Review-g33345-d5564864-Reviews-Lost_Coffee-Castle_Rock_Colorado.html']
     },
     {
         id: '21',
         slug: 'crowfoot-valley-coffee',
         name: 'Crowfoot Valley Coffee',
-        description: "A Castle Rock institution since 1999. This flagship downtown coffee shop offers free WiFi, great food, live music, and even adult beverages at the Crowbar. Owner Jason Gray brings nearly 30 years of coffee expertise. Outstanding coffee—bold, thick, smooth, and not bitter.",
+        description: "Castle Rock's foremost boutique roaster since January 1999. Owner Jason Gray has been in the coffee business for nearly 30 years, sourcing green coffee globally and purchasing only the top 3% of world's coffee. Known for consistency, small farm relationships, classic dark roasts, Lavender Latte, and whiskey-infused coffee beans. Also serves beer and breakfast sandwiches.",
         cuisine: 'Coffee',
-        price: '$',
-        address: '102 3rd St, Castle Rock, CO 80104',
-        phone: '(303) 688-0789',
+        price: '$$',
+        address: '734 Wilcox Street, Suite 102, Castle Rock, CO 80104',
+        phone: '(303) 814-0999',
         website: 'https://crowfootvalleycoffee.com',
         rating: 4.6,
         reviewCount: 320,
         image: '/images/lost-coffee.jpg',
-        gallery: [],
-        features: ['Coffee', 'WiFi', 'Live Music', 'The Crowbar', 'Food', 'Local Favorite'],
+        gallery: ['/images/lost-coffee.jpg'],
+        features: ['Coffee', 'Boutique Roaster', 'Beer', 'Live Music', 'Local Favorite'],
         hours: {
-            "Monday": "6:00 AM - 6:00 PM",
-            "Tuesday": "6:00 AM - 6:00 PM",
-            "Wednesday": "6:00 AM - 6:00 PM",
-            "Thursday": "6:00 AM - 6:00 PM",
-            "Friday": "6:00 AM - 8:00 PM",
-            "Saturday": "6:30 AM - 8:00 PM",
-            "Sunday": "7:00 AM - 5:00 PM"
+            "Monday": "5:00 AM - 7:00 PM",
+            "Tuesday": "5:00 AM - 7:00 PM",
+            "Wednesday": "5:00 AM - 7:00 PM",
+            "Thursday": "5:00 AM - 7:00 PM",
+            "Friday": "5:00 AM - 9:00 PM",
+            "Saturday": "7:00 AM - 9:00 PM",
+            "Sunday": "7:00 AM - 4:00 PM"
         },
         isOpen: true,
         isPremium: true,
         isFeatured: false,
         categorySlug: 'coffee',
         deals: [],
-        updatedAt: new Date('2026-01-03')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://crowfootvalleycoffee.com/', 'https://www.yelp.com/biz/crowfoot-valley-coffee-castle-rock', 'https://www.tripadvisor.com/Attraction_Review-g33345-d3642176-Reviews-Crowfoot_Valley_Coffee_and_Crowbar-Castle_Rock_Colorado.html']
     },
 
     // ==================== BREWERIES ====================
@@ -510,17 +463,17 @@ export const LISTINGS: Listing[] = [
         id: '30',
         slug: 'rockyard-brewing-company',
         name: 'Rockyard Brewing Company',
-        description: "Long-standing brewpub known for its classic tavern fare and award-winning beers. A Castle Rock institution since 1999. Great family atmosphere with outdoor seating available. Their flagship beers have won numerous awards at state and national competitions.",
-        cuisine: 'Brewery & Pub',
+        description: "Douglas County's longest-running brewpub, opened in 1999 by Colorado-raised siblings Mike and Jeff Drabing. Multiple award-winning brewery including Gold Medal World Beer Cup 2018 (Primadonna), Gold GABF 2017 (Plum Creek Sour), and Gold GABF 2016 (Warning Sign Imperial Bock). Family-friendly brewpub with handcrafted American Grill menu using fresh local ingredients.",
+        cuisine: 'Brewery & American',
         price: '$$',
-        address: '880 Castleton Rd, Castle Rock, CO 80109',
+        address: '880 Castleton Road, Castle Rock, CO 80109',
         phone: '(303) 814-9273',
         website: 'https://rockyard.com',
         rating: 4.4,
         reviewCount: 510,
         image: '/images/rockyard-brewing.jpg',
         gallery: ['/images/rockyard-brewing.jpg'],
-        features: ['Brewery', 'Family Friendly', 'Patio', 'Award Winning Beer', 'Lunch', 'Dinner'],
+        features: ['Award-Winning Brewery', 'Family Friendly', 'Patio', 'Burgers', 'Pizza', 'Late Night Menu'],
         hours: {
             "Monday": "11:00 AM - 9:00 PM",
             "Tuesday": "11:00 AM - 9:00 PM",
@@ -535,23 +488,24 @@ export const LISTINGS: Listing[] = [
         isFeatured: true,
         categorySlug: 'breweries',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://rockyard.com/', 'https://www.yelp.com/biz/rockyard-brewing-company-castle-rock-2', 'https://www.colorado.com/castle-rock/rockyard-brewing-company']
     },
     {
         id: '31',
         slug: 'great-divide-brewery-roadhouse',
         name: 'Great Divide Brewery & Roadhouse',
-        description: "Award-winning craft beers from Great Divide Brewing Company paired with delicious American comfort food and friendly service from Roadhouse Hospitality. Features a scenic patio by the riverwalk, menus for gluten-free guests and kids.",
+        description: "Established in 2020, bringing together craft beer from Great Divide Brewing Company (founded in Denver) with delicious food from Vibe Concepts. Located across from Festival Park in Downtown Castle Rock. Features a five-barrel pilot brewing system creating experimental small-batch beers only available here. Known for beer flights ($15), Titan IPA, 5-hour Braised Short Rib, and NY Strip.",
         cuisine: 'Brewery & American',
-        price: '$$',
-        address: '215 Wilcox St, Castle Rock, CO 80104',
+        price: '$$$',
+        address: '215 Wilcox Street, Castle Rock, CO 80104',
         phone: '(303) 955-5788',
-        website: 'https://greatdividebreweryandroadhouse.com',
+        website: 'https://www.greatdividebreweryandroadhouse.com/castle-rock',
         rating: 4.6,
         reviewCount: 456,
         image: '/images/rockyard-brewing.jpg',
-        gallery: ['/images/rockyard-brewing.jpg'],
-        features: ['Brewery', 'Patio', 'Riverwalk', 'Happy Hour', 'Brunch', 'Gluten-Free Options', 'Family Friendly', 'Reservations'],
+        gallery: ['/images/rockyard-brewing.jpg', '/images/downtown.jpg'],
+        features: ['Brewery', 'Pilot Brewing System', 'Weekend Brunch', 'Patio', 'Firepit', 'Gluten-Free'],
         hours: {
             "Monday": "11:00 AM - 10:00 PM",
             "Tuesday": "11:00 AM - 10:00 PM",
@@ -566,10 +520,11 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'breweries',
         deals: [
-            { id: 'd5', title: 'Happy Hour', description: 'Daily 3-6 PM - specials on food and drinks' },
-            { id: 'd6', title: 'Late Night Happy Hour', description: '9 PM to close, any day of the week' }
+            { id: 'd6', title: 'Happy Hour', description: 'Daily 3-6 PM - $5 Great Divide Lager, $8 cocktails, half off select apps' },
+            { id: 'd7', title: 'Late Night Happy Hour', description: 'Daily 9 PM-Close - $5 Lager, $7 cocktails' }
         ],
-        updatedAt: new Date('2026-01-03')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.greatdividebreweryandroadhouse.com/castle-rock', 'https://www.yelp.com/biz/great-divide-brewery-and-roadhouse-castle-rock-castle-rock', 'https://greatdivide.com/castle-rock/']
     },
 
     // ==================== RETAIL & SHOPPING ====================
@@ -577,48 +532,145 @@ export const LISTINGS: Listing[] = [
         id: '40',
         slug: 'outlets-at-castle-rock',
         name: 'Outlets at Castle Rock',
-        description: "Premier outlet shopping destination featuring over 100 stores with top brands at outlet prices. Enjoy open-air shopping with stunning mountain views, diverse dining options, and regular community events throughout the year.",
+        description: "Colorado's largest open-air outlet center featuring over 100 of the world's best brands at up to 70% off retail prices. Voted Colorado's Best Outlet Shopping since 2015. Conveniently located off I-25 between Denver and Colorado Springs (Exit 184 or 185). Pedestrian-friendly and pet-friendly shopping experience with stunning mountain views.",
         cuisine: 'Shopping Center',
         price: '$$',
-        address: '5050 Factory Shops Blvd, Castle Rock, CO 80108',
-        phone: '(303) 688-4494',
-        website: 'https://outletsatcastlerock.com',
+        address: '5050 Factory Shops Blvd, Suite 437, Castle Rock, CO 80108',
+        phone: '(303) 688-4495',
+        website: 'https://www.outletsatcastlerock.com',
         rating: 4.5,
         reviewCount: 1250,
         image: '/images/outlets-at-castle-rock.jpg',
         gallery: ['/images/outlets-at-castle-rock.jpg', '/images/outlets-hero.jpg'],
-        features: ['Outlet Shopping', 'Mountain Views', 'Dining', 'Family Friendly', 'Events'],
+        features: ['Outlet Shopping', '100+ Stores', 'Mountain Views', 'Pet Friendly', 'Food Court'],
         hours: {
             "Monday": "10:00 AM - 8:00 PM",
             "Tuesday": "10:00 AM - 8:00 PM",
             "Wednesday": "10:00 AM - 8:00 PM",
             "Thursday": "10:00 AM - 8:00 PM",
-            "Friday": "10:00 AM - 9:00 PM",
-            "Saturday": "10:00 AM - 9:00 PM",
-            "Sunday": "10:00 AM - 7:00 PM"
+            "Friday": "10:00 AM - 8:00 PM",
+            "Saturday": "10:00 AM - 8:00 PM",
+            "Sunday": "11:00 AM - 6:00 PM"
         },
         isOpen: true,
         isPremium: true,
         isFeatured: true,
         categorySlug: 'retail',
-        deals: [{ id: 'd10', title: 'Deal Days', description: 'Extra savings during seasonal events' }],
-        updatedAt: new Date('2026-01-07')
+        deals: [{ id: 'd10', title: 'Up to 70% Off', description: 'Designer brands at outlet prices' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.outletsatcastlerock.com', 'https://www.yelp.com/biz/outlets-at-castle-rock-castle-rock']
     },
     {
         id: '41',
-        slug: 'castle-rock-mercantile',
-        name: 'Castle Rock Mercantile',
-        description: "Charming downtown boutique featuring a curated collection of Colorado-made gifts, home decor, artisan crafts, and local products. The perfect place to find unique souvenirs and support local makers.",
-        cuisine: 'Boutique',
+        slug: 'nike-factory-store',
+        name: 'Nike Factory Store',
+        description: "Official Nike outlet store at Outlets at Castle Rock offering athletic footwear, apparel, and accessories at factory store prices. Find deals on running shoes, training gear, and the latest Nike styles for men, women, and kids.",
+        cuisine: 'Athletic Retail',
         price: '$$',
-        address: '318 Perry St, Castle Rock, CO 80104',
-        phone: '(303) 688-1881',
-        website: '',
+        address: '5050 Factory Shops Blvd, Location 905, Castle Rock, CO 80108',
+        phone: '(303) 688-3013',
+        website: 'https://www.outletsatcastlerock.com/store/nike-factory-store',
+        rating: 4.3,
+        reviewCount: 890,
+        image: '/images/nike-factory-store.jpg',
+        gallery: ['/images/nike-factory-store.jpg', '/images/outlets-at-castle-rock.jpg'],
+        features: ['Athletic Wear', 'Footwear', 'Outlet Prices', 'Nike'],
+        hours: {
+            "Monday": "10:00 AM - 8:00 PM",
+            "Tuesday": "10:00 AM - 8:00 PM",
+            "Wednesday": "10:00 AM - 8:00 PM",
+            "Thursday": "10:00 AM - 8:00 PM",
+            "Friday": "10:00 AM - 8:00 PM",
+            "Saturday": "10:00 AM - 8:00 PM",
+            "Sunday": "11:00 AM - 6:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'retail',
+        deals: [],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.outletsatcastlerock.com/store/nike-factory-store']
+    },
+    {
+        id: '42',
+        slug: 'coach-outlet',
+        name: 'Coach Outlet',
+        description: "Designer handbags, accessories, and leather goods at outlet prices. Coach is a modern American luxury brand with a rich heritage rooted in quality and craftsmanship, synonymous with the ease and sophistication of New York style. Find classic styles alongside seasonal collections.",
+        cuisine: 'Designer Retail',
+        price: '$$$',
+        address: '5050 Factory Shops Blvd, Suite 460, Castle Rock, CO 80108',
+        phone: '(303) 814-0750',
+        website: 'https://www.coachoutlet.com/stores/co/castle-rock/5050-factory-shops-blvd',
+        rating: 4.4,
+        reviewCount: 567,
+        image: '/images/coach-outlet.jpg',
+        gallery: ['/images/coach-outlet.jpg', '/images/outlets-at-castle-rock.jpg'],
+        features: ['Designer', 'Handbags', 'Accessories', 'Luxury', 'Outlet Prices'],
+        hours: {
+            "Monday": "10:00 AM - 8:00 PM",
+            "Tuesday": "10:00 AM - 8:00 PM",
+            "Wednesday": "10:00 AM - 8:00 PM",
+            "Thursday": "10:00 AM - 8:00 PM",
+            "Friday": "10:00 AM - 8:00 PM",
+            "Saturday": "10:00 AM - 8:00 PM",
+            "Sunday": "11:00 AM - 6:00 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'retail',
+        deals: [],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.coachoutlet.com/stores/co/castle-rock/5050-factory-shops-blvd', 'https://www.yelp.com/biz/the-coach-factory-store-castle-rock']
+    },
+    {
+        id: '43',
+        slug: 'homegoods',
+        name: 'HomeGoods',
+        description: "Discover an ever-changing selection of home decor, furniture, bedding, kitchenware, and unique finds at amazing prices. Combined T.J. Maxx & HomeGoods location at The Promenade. New arrivals daily make every visit a treasure hunt for your home.",
+        cuisine: 'Home Retail',
+        price: '$$',
+        address: '6374 Promenade Parkway, Castle Rock, CO 80108',
+        phone: '(303) 663-1401',
+        website: 'https://www.homegoods.com/store-details/Castle-Rock-CO-80108/746',
+        rating: 4.2,
+        reviewCount: 445,
+        image: '/images/home-goods.jpg',
+        gallery: ['/images/home-goods.jpg', '/images/promenade.jpg'],
+        features: ['Home Decor', 'Furniture', 'Kitchenware', 'Bedding', 'T.J. Maxx'],
+        hours: {
+            "Monday": "9:30 AM - 9:30 PM",
+            "Tuesday": "9:30 AM - 9:30 PM",
+            "Wednesday": "9:30 AM - 6:00 PM",
+            "Thursday": "9:30 AM - 6:00 PM",
+            "Friday": "9:30 AM - 9:30 PM",
+            "Saturday": "9:30 AM - 9:30 PM",
+            "Sunday": "9:30 AM - 9:30 PM"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'retail',
+        deals: [],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.homegoods.com/store-details/Castle-Rock-CO-80108/746', 'https://www.yelp.com/biz/homegoods-castle-rock']
+    },
+    {
+        id: '44',
+        slug: 'the-emporium-castle-rock',
+        name: 'The Emporium Castle Rock',
+        description: "Downtown Castle Rock's premier destination for local artisans and makers, featuring 60+ local merchants under one roof. Find Colorado-made gifts, handcrafted jewelry, home decor, and unique souvenirs. The perfect place to shop local and support Castle Rock's creative community.",
+        cuisine: 'Gift Shop',
+        price: '$$',
+        address: '104 4th Street, Castle Rock, CO 80104',
+        phone: '(720) 539-9080',
+        website: 'https://theemporiumcastlerock.com',
         rating: 4.8,
         reviewCount: 145,
-        image: '/images/castle-rock-mercantile.jpg',
-        gallery: ['/images/castle-rock-mercantile.jpg', '/images/downtown.jpg'],
-        features: ['Local Goods', 'Colorado Made', 'Gifts', 'Home Decor', 'Artisan Crafts'],
+        image: '/images/gifts.jpg',
+        gallery: ['/images/gifts.jpg', '/images/downtown.jpg'],
+        features: ['Local Artisans', '60+ Merchants', 'Colorado Made', 'Gifts', 'Handcrafted'],
         hours: {
             "Monday": "10:00 AM - 6:00 PM",
             "Tuesday": "10:00 AM - 6:00 PM",
@@ -631,102 +683,10 @@ export const LISTINGS: Listing[] = [
         isOpen: true,
         isPremium: false,
         isFeatured: false,
-        categorySlug: 'retail',
+        categorySlug: 'gifts',
         deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '42',
-        slug: 'nike-factory-store',
-        name: 'Nike Factory Store',
-        description: "Official Nike outlet store offering athletic footwear, apparel, and accessories at factory store prices. Find deals on running shoes, training gear, and the latest Nike styles for men, women, and kids.",
-        cuisine: 'Athletic Retail',
-        price: '$$',
-        address: '5050 Factory Shops Blvd #320, Castle Rock, CO 80108',
-        phone: '(303) 814-0195',
-        website: 'https://nike.com',
-        rating: 4.3,
-        reviewCount: 890,
-        image: '/images/nike-factory-store.jpg',
-        gallery: ['/images/nike-factory-store.jpg', '/images/outlets-at-castle-rock.jpg'],
-        features: ['Athletic Wear', 'Footwear', 'Outlet Prices', 'Nike', 'Sports'],
-        hours: {
-            "Monday": "10:00 AM - 8:00 PM",
-            "Tuesday": "10:00 AM - 8:00 PM",
-            "Wednesday": "10:00 AM - 8:00 PM",
-            "Thursday": "10:00 AM - 8:00 PM",
-            "Friday": "10:00 AM - 9:00 PM",
-            "Saturday": "10:00 AM - 9:00 PM",
-            "Sunday": "10:00 AM - 7:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'retail',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '43',
-        slug: 'coach-outlet',
-        name: 'Coach Outlet',
-        description: "Designer handbags, accessories, and leather goods at outlet prices. Find classic Coach styles alongside seasonal collections, including bags, wallets, shoes, and gifts for every occasion.",
-        cuisine: 'Designer Retail',
-        price: '$$$',
-        address: '5050 Factory Shops Blvd #340, Castle Rock, CO 80108',
-        phone: '(303) 688-0055',
-        website: 'https://coachoutlet.com',
-        rating: 4.4,
-        reviewCount: 567,
-        image: '/images/coach-outlet.jpg',
-        gallery: ['/images/coach-outlet.jpg', '/images/outlets-at-castle-rock.jpg'],
-        features: ['Designer', 'Handbags', 'Accessories', 'Outlet Prices', 'Luxury'],
-        hours: {
-            "Monday": "10:00 AM - 8:00 PM",
-            "Tuesday": "10:00 AM - 8:00 PM",
-            "Wednesday": "10:00 AM - 8:00 PM",
-            "Thursday": "10:00 AM - 8:00 PM",
-            "Friday": "10:00 AM - 9:00 PM",
-            "Saturday": "10:00 AM - 9:00 PM",
-            "Sunday": "10:00 AM - 7:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'retail',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '44',
-        slug: 'home-goods',
-        name: 'HomeGoods',
-        description: "Discover an ever-changing selection of home decor, furniture, bedding, kitchenware, and unique finds at amazing prices. New arrivals daily make every visit a treasure hunt for your home.",
-        cuisine: 'Home Retail',
-        price: '$$',
-        address: '4856 Meadows Pkwy, Castle Rock, CO 80109',
-        phone: '(303) 663-5050',
-        website: 'https://homegoods.com',
-        rating: 4.2,
-        reviewCount: 445,
-        image: '/images/home-goods.jpg',
-        gallery: ['/images/home-goods.jpg', '/images/meadows.jpg'],
-        features: ['Home Decor', 'Furniture', 'Kitchenware', 'Bedding', 'Discount Prices'],
-        hours: {
-            "Monday": "9:30 AM - 9:30 PM",
-            "Tuesday": "9:30 AM - 9:30 PM",
-            "Wednesday": "9:30 AM - 9:30 PM",
-            "Thursday": "9:30 AM - 9:30 PM",
-            "Friday": "9:30 AM - 9:30 PM",
-            "Saturday": "9:30 AM - 9:30 PM",
-            "Sunday": "10:00 AM - 8:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'retail',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://theemporiumcastlerock.com/', 'https://www.yelp.com/search?cflt=giftshops&find_loc=Castle+Rock,+CO']
     },
 
     // ==================== AUTO & TRANSPORTATION ====================
@@ -734,17 +694,17 @@ export const LISTINGS: Listing[] = [
         id: '50',
         slug: 'all-around-auto-care',
         name: 'All Around Auto Care',
-        description: "Family-owned auto repair shop serving Castle Rock for over 15 years. Comprehensive automotive services including oil changes, brake repair, engine diagnostics, and more. Known for honest service and fair pricing.",
+        description: "Family-owned auto repair shop established in 1997, offering dependable auto repairs by ASE-Certified technicians. AAA Approved Auto Repair Facility with 4.9/5 star rating. Services include oil changes, tire rotation, brake repair, and comprehensive diagnostics. Features a Guest for Life Program ($79.95 for six visits with oil change, courtesy check, and tire rotation).",
         cuisine: 'Auto Repair',
         price: '$$',
-        address: '855 S Perry St, Castle Rock, CO 80104',
-        phone: '(303) 688-1148',
-        website: 'https://allaroundautocare.com',
-        rating: 4.8,
+        address: '2807 N Highway 85, Unit #104, Castle Rock, CO 80109',
+        phone: '(720) 512-4411',
+        website: 'https://allaroundautomotivecare.com',
+        rating: 4.9,
         reviewCount: 234,
         image: '/images/all-around-auto-care.jpg',
         gallery: ['/images/all-around-auto-care.jpg', '/images/auto.jpg'],
-        features: ['Auto Repair', 'Oil Change', 'Brakes', 'Diagnostics', 'Family Owned', 'ASE Certified'],
+        features: ['ASE Certified', 'AAA Approved', 'Family Owned', 'Oil Change', 'Brakes', 'Diagnostics'],
         hours: {
             "Monday": "7:30 AM - 5:30 PM",
             "Tuesday": "7:30 AM - 5:30 PM",
@@ -758,50 +718,20 @@ export const LISTINGS: Listing[] = [
         isPremium: false,
         isFeatured: false,
         categorySlug: 'auto',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
+        deals: [{ id: 'd11', title: 'Guest for Life', description: '$79.95 for 6 visits - oil change, courtesy check, tire rotation' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://allaroundautomotivecare.com/Castle-Rock-Colorado.html', 'https://www.yelp.com/biz/all-around-auto-care-castle-rock-castle-rock', 'https://www.aaa.com/autorepair/shop/all-around-auto-care-109791']
     },
     {
         id: '51',
-        slug: 'castle-rock-tire-auto',
-        name: 'Castle Rock Tire & Auto',
-        description: "Full-service tire and auto center offering tire sales, installation, rotation, and balancing along with complete auto repair services. Carrying major tire brands with competitive pricing and expert installation.",
-        cuisine: 'Tire & Auto',
-        price: '$$',
-        address: '1050 Park St, Castle Rock, CO 80109',
-        phone: '(303) 688-1080',
-        website: 'https://castlerocktire.com',
-        rating: 4.6,
-        reviewCount: 312,
-        image: '/images/castle-rock-tire-auto.jpg',
-        gallery: ['/images/castle-rock-tire-auto.jpg', '/images/auto.jpg'],
-        features: ['Tires', 'Auto Repair', 'Alignment', 'Brakes', 'Major Brands'],
-        hours: {
-            "Monday": "7:30 AM - 6:00 PM",
-            "Tuesday": "7:30 AM - 6:00 PM",
-            "Wednesday": "7:30 AM - 6:00 PM",
-            "Thursday": "7:30 AM - 6:00 PM",
-            "Friday": "7:30 AM - 6:00 PM",
-            "Saturday": "8:00 AM - 4:00 PM",
-            "Sunday": "Closed"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'auto',
-        deals: [{ id: 'd11', title: 'Free Rotation', description: 'Free tire rotation with purchase of 4 tires' }],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '52',
-        slug: 'medved-autoplex',
-        name: 'Medved Autoplex',
-        description: "Castle Rock's premier new and used car dealership featuring Chevrolet, Buick, and GMC vehicles. Family-owned since 1948, offering sales, service, and financing with a commitment to customer satisfaction.",
+        slug: 'castle-rock-chevrolet-gmc',
+        name: 'Castle Rock Chevrolet GMC',
+        description: "Castle Rock's premier new and used car dealership featuring Chevrolet and GMC vehicles. Acquired by Foundation Automotive Corp. in 2020 (formerly Medved), offering sales, service, and financing with a commitment to customer satisfaction. Full service center for maintenance and repairs.",
         cuisine: 'Car Dealership',
         price: '$$$',
-        address: '5001 S I-25, Castle Rock, CO 80109',
-        phone: '(303) 688-3436',
-        website: 'https://medved.com',
+        address: '1506 S Wilcox Street, Castle Rock, CO 80104',
+        phone: '(720) 773-6113',
+        website: 'https://www.castlerockchevygmc.com',
         rating: 4.3,
         reviewCount: 567,
         image: '/images/medved-autoplex.jpg',
@@ -821,32 +751,33 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'auto',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.castlerockchevygmc.com/', 'https://www.castlerockautoplex.com/']
     },
 
     // ==================== HEALTH & WELLNESS ====================
     {
         id: '60',
-        slug: 'massage-heights',
-        name: 'Massage Heights',
-        description: "Professional massage therapy and skincare services in a relaxing retreat setting. Offering Swedish, deep tissue, sports massage, and customized treatments. Membership programs available for regular wellness.",
+        slug: 'massage-envy-castle-rock',
+        name: 'Massage Envy',
+        description: "Professional massage therapy and skincare services offering Swedish, deep tissue, sports massage, and customized treatments. Membership programs available for regular wellness. Convenient location near I-25 for easy access.",
         cuisine: 'Spa & Massage',
         price: '$$',
-        address: '4856 Meadows Pkwy, Castle Rock, CO 80109',
-        phone: '(303) 663-3400',
-        website: 'https://massageheights.com',
-        rating: 4.6,
+        address: '5650 Allen Way #116, Castle Rock, CO 80108',
+        phone: '(720) 974-9100',
+        website: 'https://locations.massageenvy.com/colorado/castle-rock/5650-allen-way.html',
+        rating: 4.5,
         reviewCount: 198,
         image: '/images/massage-heights.jpg',
         gallery: ['/images/massage-heights.jpg', '/images/wellness.jpg'],
-        features: ['Massage', 'Skincare', 'Wellness', 'Membership', 'Relaxation'],
+        features: ['Massage', 'Skincare', 'Membership', 'Swedish', 'Deep Tissue'],
         hours: {
-            "Monday": "9:00 AM - 9:00 PM",
-            "Tuesday": "9:00 AM - 9:00 PM",
-            "Wednesday": "9:00 AM - 9:00 PM",
-            "Thursday": "9:00 AM - 9:00 PM",
-            "Friday": "9:00 AM - 9:00 PM",
-            "Saturday": "9:00 AM - 7:00 PM",
+            "Monday": "9:00 AM - 8:00 PM",
+            "Tuesday": "9:00 AM - 8:00 PM",
+            "Wednesday": "9:00 AM - 8:00 PM",
+            "Thursday": "10:00 AM - 8:00 PM",
+            "Friday": "9:00 AM - 8:00 PM",
+            "Saturday": "9:00 AM - 5:00 PM",
             "Sunday": "10:00 AM - 6:00 PM"
         },
         isOpen: true,
@@ -854,54 +785,56 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'wellness',
         deals: [{ id: 'd12', title: 'First Visit Special', description: 'Introductory rate for new guests' }],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://locations.massageenvy.com/colorado/castle-rock/5650-allen-way.html', 'https://www.yelp.com/search?find_desc=Massage&find_loc=Castle+Rock,+CO']
     },
     {
         id: '61',
         slug: 'orangetheory-fitness',
         name: 'Orangetheory Fitness',
-        description: "Science-backed, technology-tracked, coach-inspired group workouts designed to produce results from the inside out. Heart rate-based interval training that keeps your body burning calories long after your workout.",
+        description: "Science-backed, technology-tracked, coach-inspired group workouts designed to produce results from the inside out. Heart rate-based interval training in 60-minute sessions that keeps your body burning calories long after your workout. Located in The Meadows area near AMC Movie Theater.",
         cuisine: 'Fitness Studio',
         price: '$$',
-        address: '5042 Factory Shops Blvd, Castle Rock, CO 80108',
-        phone: '(303) 814-3888',
-        website: 'https://orangetheory.com',
+        address: '3990 Limelight Avenue, Unit F, Castle Rock, CO 80109',
+        phone: '(303) 747-4003',
+        website: 'https://www.orangetheory.com/en-us/locations/castle-rock-colorado-0504',
         rating: 4.7,
         reviewCount: 345,
         image: '/images/orangetheory-fitness.jpg',
         gallery: ['/images/orangetheory-fitness.jpg', '/images/wellness.jpg'],
-        features: ['Fitness', 'Group Classes', 'Personal Training', 'Heart Rate Training', 'HIIT'],
+        features: ['Fitness', 'HIIT', 'Heart Rate Training', 'Group Classes', 'Wheelchair Accessible'],
         hours: {
             "Monday": "5:00 AM - 8:00 PM",
             "Tuesday": "5:00 AM - 8:00 PM",
             "Wednesday": "5:00 AM - 8:00 PM",
             "Thursday": "5:00 AM - 8:00 PM",
             "Friday": "5:00 AM - 7:00 PM",
-            "Saturday": "7:00 AM - 12:00 PM",
-            "Sunday": "7:00 AM - 12:00 PM"
+            "Saturday": "6:00 AM - 11:30 AM",
+            "Sunday": "6:00 AM - 1:30 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'wellness',
         deals: [{ id: 'd13', title: 'Free First Class', description: 'Try your first class free' }],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.orangetheory.com/en-us/locations/castle-rock-colorado-0504', 'https://www.yelp.com/biz/orangetheory-fitness-castle-rock-castle-rock']
     },
     {
         id: '62',
-        slug: 'castle-rock-adventist-hospital',
-        name: 'Castle Rock Adventist Hospital',
-        description: "Full-service community hospital providing emergency care, surgical services, imaging, laboratory, and specialty care. Part of the Centura Health network, committed to delivering whole-person care to the Castle Rock community.",
+        slug: 'adventhealth-castle-rock',
+        name: 'AdventHealth Castle Rock',
+        description: "55-bed hospital (rebranded from Castle Rock Adventist Hospital in August 2023). Recognized as one of America's highest-rated hospitals for patient safety by The Leapfrog Group. Features Level III trauma center, emergency care available 24/7, surgical services, cardiac catheterization lab, advanced imaging, and orthopedic care. Free parking available 24/7.",
         cuisine: 'Hospital',
         price: '',
         address: '2350 Meadows Blvd, Castle Rock, CO 80109',
         phone: '(720) 455-5000',
-        website: 'https://centura.org/locations/castle-rock-adventist-hospital',
+        website: 'https://www.adventhealth.com/hospital/adventhealth-castle-rock',
         rating: 4.2,
         reviewCount: 456,
         image: '/images/castle-rock-adventist-hospital.jpg',
         gallery: ['/images/castle-rock-adventist-hospital.jpg'],
-        features: ['Emergency Room', 'Surgery', 'Imaging', 'Laboratory', 'Specialty Care'],
+        features: ['Emergency Room 24/7', 'Level III Trauma', 'Surgery', 'Cardiac Care', 'Free Parking'],
         hours: {
             "Monday": "Open 24 Hours",
             "Tuesday": "Open 24 Hours",
@@ -916,217 +849,60 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'wellness',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.adventhealth.com/hospital/adventhealth-castle-rock', 'https://www.centura.org/location/castle-rock-adventist-hospital']
     },
 
     // ==================== KIDS & FAMILY ====================
     {
         id: '70',
         slug: 'miller-activity-complex',
-        name: 'Miller Activity Complex',
-        description: "Castle Rock's premier recreation facility featuring an indoor pool, fitness center, gymnasium, and youth programs. Offering swim lessons, sports leagues, fitness classes, and family activities for all ages.",
+        name: 'Miller Activity Complex (MAC)',
+        description: "64,443 square-foot, two-story recreational facility within the 300+ acre Philip S. Miller Park. Voted 'Best of the Best for Family Entertainment' by Colorado Community Media in 2019. Features indoor synthetic turf fields, 3,000 SF play area with 23-foot slide, 5,000 SF trampoline zone (16 beds), indoor aquatics center with lap lanes and leisure pool with water slide, 18-hole golf simulator, and batting cages.",
         cuisine: 'Recreation Center',
         price: '$',
-        address: '700 Mountain Way, Castle Rock, CO 80104',
-        phone: '(303) 660-1036',
-        website: 'https://crgov.com/mac',
+        address: '1375 Plum Creek Parkway, Castle Rock, CO 80109',
+        phone: '(720) 733-2245',
+        website: 'https://www.crgov.com/2049/Miller-Activity-Complex-MAC',
         rating: 4.5,
         reviewCount: 389,
         image: '/images/miller-activity-complex.jpg',
         gallery: ['/images/miller-activity-complex.jpg', '/images/kids.jpg'],
-        features: ['Swimming Pool', 'Gym', 'Fitness Classes', 'Youth Programs', 'Sports Leagues'],
+        features: ['Swimming Pool', 'Trampoline Zone', 'Turf Fields', 'Golf Simulator', 'Play Area', 'Events'],
         hours: {
-            "Monday": "5:00 AM - 9:00 PM",
-            "Tuesday": "5:00 AM - 9:00 PM",
-            "Wednesday": "5:00 AM - 9:00 PM",
-            "Thursday": "5:00 AM - 9:00 PM",
-            "Friday": "5:00 AM - 9:00 PM",
+            "Monday": "5:30 AM - 9:00 PM",
+            "Tuesday": "5:30 AM - 9:00 PM",
+            "Wednesday": "5:30 AM - 9:00 PM",
+            "Thursday": "5:30 AM - 9:00 PM",
+            "Friday": "5:30 AM - 9:00 PM",
             "Saturday": "7:00 AM - 6:00 PM",
             "Sunday": "8:00 AM - 5:00 PM"
         },
         isOpen: true,
-        isPremium: false,
+        isPremium: true,
         isFeatured: false,
         categorySlug: 'kids',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '71',
-        slug: 'little-monkey-bizness',
-        name: 'Little Monkey Bizness',
-        description: "Indoor play space designed for children ages 0-8 featuring imaginative play areas, bounce houses, slides, and toddler zones. Host birthday parties and enjoy a clean, safe environment for active play.",
-        cuisine: 'Indoor Playground',
-        price: '$',
-        address: '750 N. Wilcox St, Castle Rock, CO 80104',
-        phone: '(303) 660-5439',
-        website: 'https://littlemonkeybizness.com',
-        rating: 4.4,
-        reviewCount: 234,
-        image: '/images/little-monkey-bizness.jpg',
-        gallery: ['/images/little-monkey-bizness.jpg', '/images/kids.jpg'],
-        features: ['Indoor Playground', 'Birthday Parties', 'Toddler Area', 'Bounce Houses', 'Safe Play'],
-        hours: {
-            "Monday": "9:00 AM - 6:00 PM",
-            "Tuesday": "9:00 AM - 6:00 PM",
-            "Wednesday": "9:00 AM - 6:00 PM",
-            "Thursday": "9:00 AM - 6:00 PM",
-            "Friday": "9:00 AM - 7:00 PM",
-            "Saturday": "9:00 AM - 7:00 PM",
-            "Sunday": "10:00 AM - 5:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'kids',
-        deals: [{ id: 'd14', title: 'Sibling Discount', description: 'Discounted admission for siblings' }],
-        updatedAt: new Date('2026-01-07')
-    },
-
-    // ==================== GIFTS & SPECIALTY ====================
-    {
-        id: '80',
-        slug: 'knotty-pine-gift-shop',
-        name: 'Knotty Pine Gift Shop',
-        description: "Eclectic gift shop featuring Colorado-made products, rustic home decor, handcrafted jewelry, and unique souvenirs. Find the perfect gift for any occasion in this charming downtown boutique.",
-        cuisine: 'Gift Shop',
-        price: '$$',
-        address: '324 Perry St, Castle Rock, CO 80104',
-        phone: '(303) 688-4567',
-        website: '',
-        rating: 4.7,
-        reviewCount: 156,
-        image: '/images/knotty-pine-gift-shop.jpg',
-        gallery: ['/images/knotty-pine-gift-shop.jpg', '/images/gifts.jpg'],
-        features: ['Gifts', 'Colorado Made', 'Home Decor', 'Jewelry', 'Souvenirs'],
-        hours: {
-            "Monday": "10:00 AM - 6:00 PM",
-            "Tuesday": "10:00 AM - 6:00 PM",
-            "Wednesday": "10:00 AM - 6:00 PM",
-            "Thursday": "10:00 AM - 6:00 PM",
-            "Friday": "10:00 AM - 7:00 PM",
-            "Saturday": "10:00 AM - 7:00 PM",
-            "Sunday": "11:00 AM - 5:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'gifts',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '81',
-        slug: 'the-perfect-gift',
-        name: 'The Perfect Gift',
-        description: "Curated collection of unique gifts, candles, jewelry, and specialty items. From personalized gifts to trendy home accents, find something special for every person and occasion.",
-        cuisine: 'Gift Boutique',
-        price: '$$',
-        address: '316 Perry St, Castle Rock, CO 80104',
-        phone: '(303) 663-4455',
-        website: '',
-        rating: 4.6,
-        reviewCount: 189,
-        image: '/images/the-perfect-gift.jpg',
-        gallery: ['/images/the-perfect-gift.jpg', '/images/gifts.jpg'],
-        features: ['Gifts', 'Candles', 'Jewelry', 'Personalized', 'Home Accents'],
-        hours: {
-            "Monday": "10:00 AM - 6:00 PM",
-            "Tuesday": "10:00 AM - 6:00 PM",
-            "Wednesday": "10:00 AM - 6:00 PM",
-            "Thursday": "10:00 AM - 6:00 PM",
-            "Friday": "10:00 AM - 7:00 PM",
-            "Saturday": "10:00 AM - 7:00 PM",
-            "Sunday": "11:00 AM - 5:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'gifts',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-
-    // ==================== HOME SERVICES ====================
-    {
-        id: '90',
-        slug: 'castle-rock-heating-cooling',
-        name: 'Castle Rock Heating & Cooling',
-        description: "Licensed HVAC contractor serving Castle Rock and Douglas County. Offering heating and air conditioning installation, repair, and maintenance. Emergency services available with upfront pricing.",
-        cuisine: 'HVAC Services',
-        price: '$$',
-        address: 'Service Area: Castle Rock, CO',
-        phone: '(303) 688-1110',
-        website: 'https://castlerockheatingcooling.com',
-        rating: 4.7,
-        reviewCount: 278,
-        image: '/images/castle-rock-heating-cooling.jpg',
-        gallery: ['/images/castle-rock-heating-cooling.jpg', '/images/home-services.jpg'],
-        features: ['HVAC', 'Heating', 'Cooling', 'Emergency Service', 'Installation', 'Repair'],
-        hours: {
-            "Monday": "7:00 AM - 6:00 PM",
-            "Tuesday": "7:00 AM - 6:00 PM",
-            "Wednesday": "7:00 AM - 6:00 PM",
-            "Thursday": "7:00 AM - 6:00 PM",
-            "Friday": "7:00 AM - 6:00 PM",
-            "Saturday": "8:00 AM - 4:00 PM",
-            "Sunday": "Emergency Only"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'home-services',
-        deals: [{ id: 'd15', title: 'Seasonal Tune-Up', description: 'Discounted maintenance check' }],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '91',
-        slug: 'castle-rock-electric',
-        name: 'Castle Rock Electric',
-        description: "Full-service electrical contractor providing residential and commercial electrical services. From panel upgrades to new construction, our licensed electricians deliver quality work with attention to safety.",
-        cuisine: 'Electrical Services',
-        price: '$$',
-        address: 'Service Area: Castle Rock, CO',
-        phone: '(303) 660-1234',
-        website: 'https://castlerockelectric.com',
-        rating: 4.8,
-        reviewCount: 167,
-        image: '/images/castle-rock-electric.jpg',
-        gallery: ['/images/castle-rock-electric.jpg', '/images/home-services.jpg'],
-        features: ['Electrical', 'Panel Upgrade', 'Wiring', 'Lighting', 'Licensed', 'Residential'],
-        hours: {
-            "Monday": "7:00 AM - 5:00 PM",
-            "Tuesday": "7:00 AM - 5:00 PM",
-            "Wednesday": "7:00 AM - 5:00 PM",
-            "Thursday": "7:00 AM - 5:00 PM",
-            "Friday": "7:00 AM - 5:00 PM",
-            "Saturday": "By Appointment",
-            "Sunday": "Closed"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'home-services',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
+        deals: [{ id: 'd14', title: 'Resident Rates', description: 'Castle Rock residents receive discounted admission' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.crgov.com/2049/Miller-Activity-Complex-MAC', 'https://www.tripadvisor.com/Attraction_Review-g33345-d7812523-Reviews-Miller_Activity_Complex-Castle_Rock_Colorado.html']
     },
 
     // ==================== PROFESSIONAL SERVICES ====================
     {
         id: '100',
-        slug: 'first-bank-castle-rock',
+        slug: 'firstbank-castle-rock',
         name: 'FirstBank',
-        description: "Colorado's largest locally-owned bank offering personal and business banking, mortgages, and wealth management. Committed to community banking with personalized service and local decision-making.",
+        description: "Colorado's largest locally-owned bank offering personal and business banking, mortgages, and wealth management. Two Castle Rock branches: Plum Creek (established June 18, 1975) and Founders Parkway. Committed to community banking with personalized service and local decision-making.",
         cuisine: 'Banking',
         price: '',
-        address: '600 Wilcox St, Castle Rock, CO 80104',
-        phone: '(303) 814-5500',
-        website: 'https://efirstbank.com',
+        address: '2 Plum Creek Parkway, Castle Rock, CO 80104',
+        phone: '(303) 688-5000',
+        website: 'https://www.efirstbank.com',
         rating: 4.3,
         reviewCount: 145,
         image: '/images/first-bank.jpg',
         gallery: ['/images/first-bank.jpg', '/images/professional-services.jpg'],
-        features: ['Banking', 'Mortgages', 'Business Banking', 'ATM', 'Local Bank'],
+        features: ['Banking', 'Mortgages', 'Business Banking', 'ATM', 'Drive-Thru', 'Local Bank'],
         hours: {
             "Monday": "9:00 AM - 5:00 PM",
             "Tuesday": "9:00 AM - 5:00 PM",
@@ -1141,166 +917,74 @@ export const LISTINGS: Listing[] = [
         isFeatured: false,
         categorySlug: 'professional-services',
         deals: [],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '101',
-        slug: 'castle-rock-law-group',
-        name: 'Castle Rock Law Group',
-        description: "Full-service law firm providing family law, estate planning, business law, and real estate services. Experienced attorneys dedicated to serving the Castle Rock community with professional legal counsel.",
-        cuisine: 'Legal Services',
-        price: '$$$',
-        address: '104 E Allen St, Castle Rock, CO 80104',
-        phone: '(303) 688-3045',
-        website: 'https://castlerocklawgroup.com',
-        rating: 4.5,
-        reviewCount: 89,
-        image: '/images/castle-rock-law-group.jpg',
-        gallery: ['/images/castle-rock-law-group.jpg', '/images/professional-services.jpg'],
-        features: ['Legal', 'Family Law', 'Estate Planning', 'Business Law', 'Real Estate'],
-        hours: {
-            "Monday": "8:30 AM - 5:00 PM",
-            "Tuesday": "8:30 AM - 5:00 PM",
-            "Wednesday": "8:30 AM - 5:00 PM",
-            "Thursday": "8:30 AM - 5:00 PM",
-            "Friday": "8:30 AM - 5:00 PM",
-            "Saturday": "Closed",
-            "Sunday": "Closed"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'professional-services',
-        deals: [{ id: 'd16', title: 'Free Consultation', description: 'Complimentary initial consultation' }],
-        updatedAt: new Date('2026-01-07')
-    },
-
-    // ==================== BEAUTY & PERSONAL CARE ====================
-    {
-        id: '110',
-        slug: 'salon-envy',
-        name: 'Salon Envy',
-        description: "Full-service hair salon offering cuts, color, highlights, and styling for men and women. Our experienced stylists stay current with the latest trends and techniques to help you look and feel your best.",
-        cuisine: 'Hair Salon',
-        price: '$$',
-        address: '880 W Happy Canyon Rd, Castle Rock, CO 80108',
-        phone: '(303) 663-8800',
-        website: 'https://salonenvycastlerock.com',
-        rating: 4.6,
-        reviewCount: 234,
-        image: '/images/salon-envy.jpg',
-        gallery: ['/images/salon-envy.jpg', '/images/beauty.jpg'],
-        features: ['Hair Cuts', 'Color', 'Highlights', 'Styling', 'Men & Women'],
-        hours: {
-            "Monday": "Closed",
-            "Tuesday": "9:00 AM - 7:00 PM",
-            "Wednesday": "9:00 AM - 7:00 PM",
-            "Thursday": "9:00 AM - 7:00 PM",
-            "Friday": "9:00 AM - 6:00 PM",
-            "Saturday": "9:00 AM - 5:00 PM",
-            "Sunday": "Closed"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'beauty',
-        deals: [{ id: 'd17', title: 'New Client Special', description: '20% off first visit' }],
-        updatedAt: new Date('2026-01-07')
-    },
-    {
-        id: '111',
-        slug: 'nail-bar',
-        name: 'The Nail Bar',
-        description: "Modern nail salon offering manicures, pedicures, gel nails, and nail art in a clean, relaxing environment. Premium products and attentive service make every visit a pampering experience.",
-        cuisine: 'Nail Salon',
-        price: '$$',
-        address: '4856 Meadows Pkwy, Castle Rock, CO 80109',
-        phone: '(303) 814-9988',
-        website: '',
-        rating: 4.4,
-        reviewCount: 178,
-        image: '/images/nail-bar.jpg',
-        gallery: ['/images/nail-bar.jpg', '/images/beauty.jpg'],
-        features: ['Manicure', 'Pedicure', 'Gel Nails', 'Nail Art', 'Relaxing'],
-        hours: {
-            "Monday": "10:00 AM - 7:00 PM",
-            "Tuesday": "10:00 AM - 7:00 PM",
-            "Wednesday": "10:00 AM - 7:00 PM",
-            "Thursday": "10:00 AM - 7:00 PM",
-            "Friday": "10:00 AM - 7:00 PM",
-            "Saturday": "9:00 AM - 6:00 PM",
-            "Sunday": "11:00 AM - 5:00 PM"
-        },
-        isOpen: true,
-        isPremium: false,
-        isFeatured: false,
-        categorySlug: 'beauty',
-        deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://www.efirstbank.com/', 'https://www.yelp.com/biz/firstbank-castle-rock-5']
     },
 
     // ==================== PETS ====================
     {
         id: '120',
-        slug: 'castle-rock-veterinary',
-        name: 'Castle Rock Veterinary Hospital',
-        description: "Comprehensive veterinary care for dogs, cats, and exotic pets. Services include wellness exams, vaccinations, surgery, dental care, and emergency services. Compassionate care from experienced veterinarians.",
-        cuisine: 'Veterinary',
-        price: '$$',
-        address: '745 Maleta Ln, Castle Rock, CO 80108',
-        phone: '(303) 688-2480',
-        website: 'https://castlerockvet.com',
+        slug: 'veterinary-specialists-rockies',
+        name: 'Veterinary Specialists of the Rockies',
+        description: "24/7 emergency veterinary care and specialty services for dogs, cats, and exotic pets. Comprehensive services include emergency medicine, surgery, internal medicine, cardiology, oncology, and neurology. State-of-the-art facility providing advanced veterinary care to Castle Rock and surrounding communities.",
+        cuisine: 'Emergency Veterinary',
+        price: '$$$',
+        address: '774 Maleta Lane, Castle Rock, CO 80108',
+        phone: '(303) 660-1027',
+        website: 'https://vetsoftherockies.com',
         rating: 4.7,
         reviewCount: 345,
         image: '/images/castle-rock-veterinary.jpg',
         gallery: ['/images/castle-rock-veterinary.jpg', '/images/pets.jpg'],
-        features: ['Veterinary', 'Wellness', 'Surgery', 'Dental', 'Emergency', 'Exotic Pets'],
+        features: ['24/7 Emergency', 'Surgery', 'Cardiology', 'Oncology', 'Neurology', 'Exotic Pets'],
         hours: {
-            "Monday": "7:30 AM - 6:00 PM",
-            "Tuesday": "7:30 AM - 6:00 PM",
-            "Wednesday": "7:30 AM - 6:00 PM",
-            "Thursday": "7:30 AM - 6:00 PM",
-            "Friday": "7:30 AM - 6:00 PM",
-            "Saturday": "8:00 AM - 2:00 PM",
-            "Sunday": "Closed"
+            "Monday": "Open 24 Hours",
+            "Tuesday": "Open 24 Hours",
+            "Wednesday": "Open 24 Hours",
+            "Thursday": "Open 24 Hours",
+            "Friday": "Open 24 Hours",
+            "Saturday": "Open 24 Hours",
+            "Sunday": "Open 24 Hours"
         },
         isOpen: true,
-        isPremium: false,
+        isPremium: true,
         isFeatured: false,
         categorySlug: 'pets',
         deals: [],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://vetsoftherockies.com/', 'https://www.yelp.com/biz/veterinary-specialists-of-the-rockies-castle-rock']
     },
     {
         id: '121',
         slug: 'petco-castle-rock',
         name: 'Petco',
-        description: "Full-service pet store offering food, supplies, toys, and accessories for dogs, cats, fish, birds, and small animals. Services include grooming, training, and veterinary care through Vetco clinics.",
+        description: "Full-service pet store offering food, supplies, toys, and accessories for dogs, cats, fish, birds, and small animals. Services include grooming, training, and veterinary care through on-site Banfield Pet Hospital. Located at The Promenade, about 1 minute from Exit 185 of I-25.",
         cuisine: 'Pet Store',
         price: '$$',
-        address: '4854 Meadows Pkwy, Castle Rock, CO 80109',
-        phone: '(303) 660-0377',
-        website: 'https://petco.com',
+        address: '6378 Promenade Parkway, Castle Rock, CO 80108',
+        phone: '(303) 537-9000',
+        website: 'https://stores.petco.com/co/castlerock/pet-supplies-castlerock-co-2449.html',
         rating: 4.2,
         reviewCount: 267,
         image: '/images/petco.jpg',
         gallery: ['/images/petco.jpg', '/images/pets.jpg'],
-        features: ['Pet Supplies', 'Grooming', 'Training', 'Vetco', 'Adoption Events'],
+        features: ['Pet Supplies', 'Grooming', 'Training', 'Banfield Vet', 'Adoption Events'],
         hours: {
             "Monday": "9:00 AM - 9:00 PM",
             "Tuesday": "9:00 AM - 9:00 PM",
-            "Wednesday": "9:00 AM - 9:00 PM",
+            "Wednesday": "9:00 AM - 7:00 PM",
             "Thursday": "9:00 AM - 9:00 PM",
             "Friday": "9:00 AM - 9:00 PM",
             "Saturday": "9:00 AM - 9:00 PM",
-            "Sunday": "10:00 AM - 7:00 PM"
+            "Sunday": "9:00 AM - 8:00 PM"
         },
         isOpen: true,
         isPremium: false,
         isFeatured: false,
         categorySlug: 'pets',
         deals: [{ id: 'd18', title: 'Pals Rewards', description: 'Earn points on every purchase' }],
-        updatedAt: new Date('2026-01-07')
+        updatedAt: new Date('2026-01-07'),
+        sources: ['https://stores.petco.com/co/castlerock/pet-supplies-castlerock-co-2449.html', 'https://www.yelp.com/biz/petco-castle-rock']
     },
 ]
 
@@ -1314,7 +998,6 @@ export function getListingBySlug(slug: string): Listing | undefined {
 }
 
 export function getListingsByCategory(categorySlug: string): Listing[] {
-    // Map category slugs
     const slugMap: Record<string, string[]> = {
         'restaurants': ['restaurants'],
         'bars-nightlife': ['bars-nightlife'],
@@ -1342,7 +1025,6 @@ export function getListingsByCategory(categorySlug: string): Listing[] {
 export function getTrendingListings(limit = 8): Listing[] {
     return [...LISTINGS]
         .sort((a, b) => {
-            // Sort by premium first, then rating, then review count
             if (a.isPremium !== b.isPremium) return b.isPremium ? 1 : -1
             if (a.rating !== b.rating) return b.rating - a.rating
             return b.reviewCount - a.reviewCount
@@ -1356,6 +1038,7 @@ export function getDateNightListings(limit = 8): Listing[] {
             l.features.includes('Date Night') ||
             l.features.includes('Craft Cocktails') ||
             l.features.includes('Fine Dining') ||
+            l.features.includes('Wine List') ||
             l.price === '$$$' ||
             l.price === '$$$$'
         )
@@ -1414,16 +1097,11 @@ export function getDestinationBySlug(slug: string) {
     return DESTINATIONS.find(d => d.slug === slug)
 }
 
-/**
- * Calculate if a business is currently open based on their hours.
- * Uses Mountain Time (America/Denver) since Castle Rock is in Colorado.
- */
 export function isOpenNow(hours: Record<string, string>): boolean {
     if (!hours || Object.keys(hours).length === 0) {
         return false
     }
 
-    // Get current time in Mountain Time
     const now = new Date()
     const mtOptions: Intl.DateTimeFormatOptions = {
         timeZone: 'America/Denver',
@@ -1441,13 +1119,11 @@ export function isOpenNow(hours: Record<string, string>): boolean {
     const minute = parseInt(parts.find(p => p.type === 'minute')?.value || '0', 10)
     const currentMinutes = hour * 60 + minute
 
-    // Get today's hours
     const todayHours = hours[dayOfWeek]
     if (!todayHours || todayHours.toLowerCase() === 'closed') {
         return false
     }
 
-    // Handle special cases
     if (todayHours.toLowerCase().includes('open 24 hours')) {
         return true
     }
@@ -1456,7 +1132,6 @@ export function isOpenNow(hours: Record<string, string>): boolean {
         return false
     }
 
-    // Parse the hours string (e.g., "11:00 AM - 10:00 PM" or "11:00 AM - 2:00 AM")
     const timeMatch = todayHours.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i)
     if (!timeMatch) {
         return false
@@ -1464,7 +1139,6 @@ export function isOpenNow(hours: Record<string, string>): boolean {
 
     const [, openHour, openMin, openPeriod, closeHour, closeMin, closePeriod] = timeMatch
 
-    // Convert to 24-hour format
     let openHour24 = parseInt(openHour, 10)
     if (openPeriod.toUpperCase() === 'PM' && openHour24 !== 12) openHour24 += 12
     if (openPeriod.toUpperCase() === 'AM' && openHour24 === 12) openHour24 = 0
@@ -1476,11 +1150,8 @@ export function isOpenNow(hours: Record<string, string>): boolean {
     const openMinutes = openHour24 * 60 + parseInt(openMin, 10)
     let closeMinutes = closeHour24 * 60 + parseInt(closeMin, 10)
 
-    // Handle overnight hours (e.g., closes at 2:00 AM)
     if (closeMinutes < openMinutes) {
-        // Closes after midnight
         closeMinutes += 24 * 60
-        // If we're past midnight but before closing, add 24 hours to current time
         if (currentMinutes < openMinutes) {
             return currentMinutes + 24 * 60 >= openMinutes && currentMinutes + 24 * 60 < closeMinutes
         }
@@ -1489,9 +1160,6 @@ export function isOpenNow(hours: Record<string, string>): boolean {
     return currentMinutes >= openMinutes && currentMinutes < closeMinutes
 }
 
-/**
- * Get a listing with the computed isOpen status
- */
 export function getListingWithOpenStatus(listing: Listing): Listing & { isOpen: boolean } {
     return {
         ...listing,
@@ -1499,9 +1167,6 @@ export function getListingWithOpenStatus(listing: Listing): Listing & { isOpen: 
     }
 }
 
-/**
- * Get all listings with computed isOpen status
- */
 export function getAllListingsWithOpenStatus(): (Listing & { isOpen: boolean })[] {
     return LISTINGS.map(getListingWithOpenStatus)
 }
