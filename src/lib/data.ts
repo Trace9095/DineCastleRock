@@ -58,6 +58,7 @@ export const CATEGORIES: Category[] = [
     { id: '14', name: 'Professional Services', slug: 'professional-services', image: '/images/professional-services.jpg', description: 'Banking, legal & business' },
     { id: '15', name: 'Beauty & Personal Care', slug: 'beauty', image: '/images/beauty.jpg', description: 'Salons & spas' },
     { id: '16', name: 'Pets', slug: 'pets', image: '/images/pets.jpg', description: 'Pet stores & veterinary' },
+    { id: '17', name: 'Activities & Entertainment', slug: 'activities', image: '/images/edge-ziplines-adventures.jpg', description: 'Adventures, attractions & fun' },
 ]
 
 // Destinations in Castle Rock
@@ -207,8 +208,8 @@ export const LISTINGS: Listing[] = [
         website: 'https://www.thebbcafe.com',
         rating: 4.4,
         reviewCount: 287,
-        image: '/images/b-and-b-pickle-barrel.jpg',
-        gallery: ['/images/b-and-b-pickle-barrel.jpg'],
+        image: '/images/b-and-b-cafe.jpg',
+        gallery: ['/images/b-and-b-cafe.jpg'],
         features: ['Breakfast', 'Brunch', 'Family Friendly', 'Historic', 'Local Favorite'],
         hours: {
             "Monday": "6:00 AM - 2:00 PM",
@@ -636,8 +637,8 @@ export const LISTINGS: Listing[] = [
         website: 'https://www.homegoods.com/store-details/Castle-Rock-CO-80108/746',
         rating: 4.2,
         reviewCount: 445,
-        image: '/images/home-goods.jpg',
-        gallery: ['/images/home-goods.jpg', '/images/promenade.jpg'],
+        image: '/images/homegoods-castle-rock.jpg',
+        gallery: ['/images/homegoods-castle-rock.jpg', '/images/promenade.jpg'],
         features: ['Home Decor', 'Furniture', 'Kitchenware', 'Bedding', 'T.J. Maxx'],
         hours: {
             "Monday": "9:30 AM - 9:30 PM",
@@ -668,8 +669,8 @@ export const LISTINGS: Listing[] = [
         website: 'https://theemporiumcastlerock.com',
         rating: 4.8,
         reviewCount: 145,
-        image: '/images/gifts.jpg',
-        gallery: ['/images/gifts.jpg', '/images/downtown.jpg'],
+        image: '/images/the-emporium.jpg',
+        gallery: ['/images/the-emporium.jpg', '/images/downtown.jpg'],
         features: ['Local Artisans', '60+ Merchants', 'Colorado Made', 'Gifts', 'Handcrafted'],
         hours: {
             "Monday": "10:00 AM - 6:00 PM",
@@ -986,6 +987,104 @@ export const LISTINGS: Listing[] = [
         updatedAt: new Date('2026-01-07'),
         sources: ['https://stores.petco.com/co/castlerock/pet-supplies-castlerock-co-2449.html', 'https://www.yelp.com/biz/petco-castle-rock']
     },
+
+    // ==================== ACTIVITIES & ENTERTAINMENT ====================
+    {
+        id: '130',
+        slug: 'the-edge-ziplines-adventures',
+        name: 'The EDGE Ziplines & Adventures',
+        description: "Experience Castle Rock from above at The EDGE Ziplines & Adventures. Offering thrilling zipline tours, aerial adventure courses, and outdoor activities for all skill levels. Perfect for families, team building, and adventure seekers looking for an unforgettable Colorado experience with stunning views of the Front Range.",
+        cuisine: 'Adventure Tours',
+        price: '$$',
+        address: 'Castle Rock, CO 80104',
+        phone: '(720) 733-3343',
+        website: 'https://www.theedgeziplines.com',
+        rating: 4.8,
+        reviewCount: 456,
+        image: '/images/edge-ziplines-adventures.jpg',
+        gallery: ['/images/edge-ziplines-adventures.jpg'],
+        features: ['Ziplines', 'Adventure Tours', 'Team Building', 'Family Friendly', 'Outdoor Activities', 'Scenic Views'],
+        hours: {
+            "Monday": "9:00 AM - 5:00 PM",
+            "Tuesday": "9:00 AM - 5:00 PM",
+            "Wednesday": "9:00 AM - 5:00 PM",
+            "Thursday": "9:00 AM - 5:00 PM",
+            "Friday": "9:00 AM - 6:00 PM",
+            "Saturday": "9:00 AM - 6:00 PM",
+            "Sunday": "10:00 AM - 5:00 PM"
+        },
+        isOpen: true,
+        isPremium: true,
+        isFeatured: true,
+        categorySlug: 'activities',
+        deals: [{ id: 'd19', title: 'Group Discounts', description: 'Save on groups of 10+' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: []
+    },
+    {
+        id: '131',
+        slug: 'castle-rock-massage-therapy',
+        name: 'Castle Rock Massage Therapy',
+        description: "Professional massage therapy services in Castle Rock offering therapeutic, deep tissue, sports, and relaxation massages. Experienced licensed therapists provide personalized treatments in a peaceful, welcoming environment. Perfect for stress relief, injury recovery, or regular wellness maintenance.",
+        cuisine: 'Massage Therapy',
+        price: '$$',
+        address: 'Castle Rock, CO 80104',
+        phone: '(303) 555-0199',
+        website: '',
+        rating: 4.7,
+        reviewCount: 189,
+        image: '/images/castle-rock-massage-therapy.jpg',
+        gallery: ['/images/castle-rock-massage-therapy.jpg', '/images/wellness.jpg'],
+        features: ['Massage', 'Deep Tissue', 'Sports Massage', 'Relaxation', 'Therapeutic', 'By Appointment'],
+        hours: {
+            "Monday": "9:00 AM - 7:00 PM",
+            "Tuesday": "9:00 AM - 7:00 PM",
+            "Wednesday": "9:00 AM - 7:00 PM",
+            "Thursday": "9:00 AM - 7:00 PM",
+            "Friday": "9:00 AM - 6:00 PM",
+            "Saturday": "10:00 AM - 4:00 PM",
+            "Sunday": "Closed"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'wellness',
+        deals: [{ id: 'd20', title: 'First Visit Special', description: '$10 off your first massage' }],
+        updatedAt: new Date('2026-01-07'),
+        sources: []
+    },
+    {
+        id: '132',
+        slug: 'castle-rock-autoplex',
+        name: 'Castle Rock Autoplex',
+        description: "Full-service automotive dealership offering new and pre-owned vehicles, financing options, and a complete service center. Serving the Castle Rock community with quality vehicles and exceptional customer service. Trade-ins welcome.",
+        cuisine: 'Auto Dealership',
+        price: '$$$',
+        address: 'Castle Rock, CO 80104',
+        phone: '(303) 555-0200',
+        website: '',
+        rating: 4.4,
+        reviewCount: 234,
+        image: '/images/castle-rock-autoplex.jpg',
+        gallery: ['/images/castle-rock-autoplex.jpg', '/images/auto.jpg'],
+        features: ['New Cars', 'Used Cars', 'Service Center', 'Financing', 'Trade-Ins', 'Test Drives'],
+        hours: {
+            "Monday": "9:00 AM - 7:00 PM",
+            "Tuesday": "9:00 AM - 7:00 PM",
+            "Wednesday": "9:00 AM - 7:00 PM",
+            "Thursday": "9:00 AM - 7:00 PM",
+            "Friday": "9:00 AM - 7:00 PM",
+            "Saturday": "9:00 AM - 6:00 PM",
+            "Sunday": "Closed"
+        },
+        isOpen: true,
+        isPremium: false,
+        isFeatured: false,
+        categorySlug: 'auto',
+        deals: [],
+        updatedAt: new Date('2026-01-07'),
+        sources: []
+    },
 ]
 
 // Helper functions
@@ -1015,7 +1114,8 @@ export function getListingsByCategory(categorySlug: string): Listing[] {
         'home-services': ['home-services'],
         'professional-services': ['professional-services'],
         'beauty': ['beauty'],
-        'pets': ['pets']
+        'pets': ['pets'],
+        'activities': ['activities']
     }
 
     const categorySlugs = slugMap[categorySlug] || [categorySlug]

@@ -22,7 +22,17 @@ const VALID_CATEGORIES = [
     'takeout-delivery',
     'dessert',
     'food-trucks',
-    'breweries'
+    'breweries',
+    'retail',
+    'auto',
+    'wellness',
+    'kids',
+    'gifts',
+    'home-services',
+    'professional-services',
+    'beauty',
+    'pets',
+    'activities'
 ]
 
 // Category descriptions for better UX
@@ -34,7 +44,17 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
     'takeout-delivery': 'Quick and convenient options for dining at home.',
     'dessert': 'Sweet treats and dessert destinations.',
     'food-trucks': 'Mobile kitchens serving up delicious street food.',
-    'breweries': 'Craft breweries and taprooms with local beers.'
+    'breweries': 'Craft breweries and taprooms with local beers.',
+    'retail': 'Shops, boutiques, and retail destinations.',
+    'auto': 'Auto services, dealerships, and transportation.',
+    'wellness': 'Fitness, spa, healthcare, and wellness services.',
+    'kids': 'Family-friendly activities and entertainment.',
+    'gifts': 'Unique gifts, souvenirs, and specialty shops.',
+    'home-services': 'Home improvement, repair, and maintenance services.',
+    'professional-services': 'Banking, legal, and business services.',
+    'beauty': 'Salons, spas, and personal care services.',
+    'pets': 'Pet stores, veterinary, and pet services.',
+    'activities': 'Adventures, attractions, and entertainment experiences.'
 }
 
 interface PageProps {
