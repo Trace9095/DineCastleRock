@@ -1614,8 +1614,12 @@ export function getListingsByCategory(categorySlug: string): Listing[] {
     return LISTINGS.filter(l => categorySlugs.includes(l.categorySlug))
 }
 
+// Dining categories for restaurant-focused sections (excludes activities, beauty, home services, etc.)
+const DINING_CATEGORIES = ['restaurants', 'breweries', 'bars-nightlife', 'coffee', 'dessert', 'takeout-delivery', 'food-trucks']
+
 export function getTrendingListings(limit = 8): Listing[] {
     return [...LISTINGS]
+        .filter(l => DINING_CATEGORIES.includes(l.categorySlug))
         .sort((a, b) => {
             if (a.isPremium !== b.isPremium) return b.isPremium ? 1 : -1
             if (a.rating !== b.rating) return b.rating - a.rating
@@ -1627,23 +1631,26 @@ export function getTrendingListings(limit = 8): Listing[] {
 export function getDateNightListings(limit = 8): Listing[] {
     return [...LISTINGS]
         .filter(l =>
-            l.features.includes('Date Night') ||
-            l.features.includes('Craft Cocktails') ||
-            l.features.includes('Fine Dining') ||
-            l.features.includes('Wine List') ||
-            l.price === '$$$' ||
-            l.price === '$$$$'
+            DINING_CATEGORIES.includes(l.categorySlug) && (
+                l.features.includes('Date Night') ||
+                l.features.includes('Craft Cocktails') ||
+                l.features.includes('Fine Dining') ||
+                l.features.includes('Wine List') ||
+                l.price === '$$$' ||
+                l.price === '$$$$'
+            )
         )
         .sort((a, b) => b.rating - a.rating)
         .slice(0, limit)
 }
 
 export function getFeaturedListing(): Listing | undefined {
-    return LISTINGS.find(l => l.isPremium && l.isFeatured)
+    // Only return dining venues for the "Featured Restaurant" section
+    return LISTINGS.find(l => l.isPremium && l.isFeatured && DINING_CATEGORIES.includes(l.categorySlug))
 }
 
 export function getFeaturedListings(limit = 6): Listing[] {
-    return LISTINGS.filter(l => l.isFeatured).slice(0, limit)
+    return LISTINGS.filter(l => l.isFeatured && DINING_CATEGORIES.includes(l.categorySlug)).slice(0, limit)
 }
 
 export function getActiveDeals(): { deal: Deal; listing: Listing }[] {
