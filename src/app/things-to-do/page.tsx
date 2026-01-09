@@ -2,10 +2,62 @@ import { Metadata } from "next"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ListingCard } from "@/components/listings/ListingCard"
-import { getListingsByCategory, isOpenNow, CATEGORIES, DESTINATIONS } from "@/lib/data"
-import { MapPin, Compass, Heart, Users, Sparkles, ChevronRight } from "lucide-react"
+import { getListingsByCategory, getListingBySlug, isOpenNow, CATEGORIES, DESTINATIONS } from "@/lib/data"
+import { MapPin, Compass, Heart, Users, Sparkles, ChevronRight, Star, BookOpen, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+
+// Guides for Things To Do
+const GUIDES = [
+    {
+        slug: "outdoor-adventures",
+        title: "Outdoor Adventures in Castle Rock",
+        excerpt: "From ziplines to hiking trails, discover thrilling outdoor activities.",
+        image: "/images/edge-ziplines-adventures.jpg",
+        author: "Editorial",
+        date: "Jan 2026"
+    },
+    {
+        slug: "family-weekend",
+        title: "Perfect Family Weekend",
+        excerpt: "A complete itinerary for families visiting Castle Rock.",
+        image: "/images/kids.jpg",
+        author: "Editorial",
+        date: "Jan 2026"
+    },
+    {
+        slug: "happy-hour",
+        title: "The Ultimate Happy Hour Guide",
+        excerpt: "Best deals on drinks and apps 3-6pm.",
+        image: "/images/guides/happy-hour-hero.jpg",
+        author: "Editorial",
+        date: "Oct 2025"
+    },
+    {
+        slug: "date-night",
+        title: "Romantic Date Night Spots",
+        excerpt: "Impress your significant other with these picks.",
+        image: "/images/guides/date-night-hero.jpg",
+        author: "Sarah J.",
+        date: "Sep 2025"
+    },
+    {
+        slug: "wellness-retreat",
+        title: "Local Wellness & Self-Care",
+        excerpt: "Spas, fitness, and relaxation spots in Castle Rock.",
+        image: "/images/beauty.jpg",
+        author: "Editorial",
+        date: "Jan 2026"
+    },
+    {
+        slug: "shopping-guide",
+        title: "Shopping Districts Guide",
+        excerpt: "From outlets to downtown boutiques, where to shop.",
+        image: "/images/outlets-at-castle-rock.jpg",
+        author: "Editorial",
+        date: "Jan 2026"
+    },
+]
 
 export const metadata: Metadata = {
     title: "Things To Do in Castle Rock | Activities, Entertainment & Attractions",
@@ -30,6 +82,9 @@ export default function ThingsToDoPage() {
     const kidsListings = getListingsByCategory('kids').slice(0, 4)
     const wellnessListings = getListingsByCategory('wellness').slice(0, 4)
     const retailListings = getListingsByCategory('retail').slice(0, 4)
+
+    // Get The Edge Ziplines as the featured/recommended listing
+    const edgeZiplines = getListingBySlug('the-edge-ziplines-adventures')
 
     const allFeaturedCategories = FEATURED_CATEGORIES.map(fc => {
         const category = CATEGORIES.find(c => c.slug === fc.slug)
@@ -93,9 +148,76 @@ export default function ThingsToDoPage() {
                 </div>
             </section>
 
+            {/* Editor's Pick - Featured Adventure */}
+            {edgeZiplines && (
+                <section className="py-12 px-4">
+                    <div className="container max-w-6xl mx-auto">
+                        <Card className="overflow-hidden border-primary/20 bg-gradient-to-r from-orange-50/50 to-amber-50/50 dark:from-orange-950/20 dark:to-amber-950/20">
+                            <div className="flex flex-col lg:flex-row">
+                                <div className="relative w-full lg:w-2/5 h-64 lg:h-auto">
+                                    <Image
+                                        src={edgeZiplines.image || '/images/edge-ziplines-adventures.jpg'}
+                                        alt={edgeZiplines.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                    <div className="absolute top-4 left-4">
+                                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-orange-500 text-white text-sm font-medium rounded-full">
+                                            <Star className="h-3.5 w-3.5 fill-current" />
+                                            Editor&apos;s Pick
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-6 lg:p-8 flex flex-col justify-center lg:w-3/5">
+                                    <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-2">Must-Try Experience</p>
+                                    <h3 className="text-2xl lg:text-3xl font-bold mb-3">{edgeZiplines.name}</h3>
+                                    <p className="text-muted-foreground mb-4 line-clamp-3">
+                                        {edgeZiplines.description}
+                                    </p>
+                                    <div className="flex flex-wrap items-center gap-4 mb-5">
+                                        <div className="flex items-center gap-1">
+                                            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                                            <span className="font-medium">{edgeZiplines.rating}</span>
+                                            <span className="text-muted-foreground text-sm">({edgeZiplines.reviewCount} reviews)</span>
+                                        </div>
+                                        <span className="text-sm text-muted-foreground">{edgeZiplines.price}</span>
+                                        {edgeZiplines.deals.length > 0 && (
+                                            <span className="text-sm text-green-600 dark:text-green-400 font-medium">
+                                                {edgeZiplines.deals[0].title}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {edgeZiplines.features.slice(0, 4).map((feature, i) => (
+                                            <span key={i} className="text-xs px-2.5 py-1 bg-background border rounded-full">
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <div className="flex gap-3">
+                                        <Button asChild>
+                                            <Link href={`/listing/${edgeZiplines.slug}`}>
+                                                View Details <ArrowRight className="ml-2 h-4 w-4" />
+                                            </Link>
+                                        </Button>
+                                        {edgeZiplines.website && (
+                                            <Button variant="outline" asChild>
+                                                <a href={edgeZiplines.website} target="_blank" rel="noopener noreferrer">
+                                                    Book Now
+                                                </a>
+                                            </Button>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
+                    </div>
+                </section>
+            )}
+
             {/* Activities & Adventures Section */}
             {activitiesListings.length > 0 && (
-                <section className="py-16 px-4">
+                <section className="py-16 px-4 bg-muted/30">
                     <div className="container max-w-6xl mx-auto">
                         <div className="flex items-center justify-between mb-8">
                             <div>
@@ -137,7 +259,7 @@ export default function ThingsToDoPage() {
             )}
 
             {/* Destinations Section */}
-            <section className="py-16 px-4 bg-muted/30">
+            <section className="py-16 px-4">
                 <div className="container max-w-6xl mx-auto">
                     <div className="text-center mb-10">
                         <div className="inline-flex items-center gap-2 mb-2">
@@ -297,6 +419,54 @@ export default function ThingsToDoPage() {
                                 <span className="text-sm font-medium text-center group-hover:text-primary transition-colors">
                                     {category.name}
                                 </span>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Editorial Guides Section */}
+            <section className="py-16 px-4 bg-muted/30">
+                <div className="container max-w-6xl mx-auto">
+                    <div className="flex items-center justify-between mb-10">
+                        <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <div className="p-2 rounded-lg bg-primary/10">
+                                    <BookOpen className="h-5 w-5 text-primary" />
+                                </div>
+                                <h2 className="text-2xl font-bold">Editorial Guides</h2>
+                            </div>
+                            <p className="text-muted-foreground">Curated recommendations from our local experts</p>
+                        </div>
+                        <Button variant="outline" asChild>
+                            <Link href="/guides">
+                                All Guides <ChevronRight className="ml-1 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {GUIDES.slice(0, 6).map((guide) => (
+                            <Link key={guide.slug} href={`/guides/${guide.slug}`} className="group block">
+                                <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
+                                    <div className="relative aspect-video">
+                                        <Image
+                                            src={guide.image}
+                                            alt={guide.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        <div className="absolute bottom-3 left-3 right-3">
+                                            <span className="text-xs text-white/80">{guide.author} • {guide.date}</span>
+                                        </div>
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                                            {guide.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground line-clamp-2">{guide.excerpt}</p>
+                                    </div>
+                                </Card>
                             </Link>
                         ))}
                     </div>
