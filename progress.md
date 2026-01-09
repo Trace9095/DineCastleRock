@@ -568,12 +568,11 @@ Custom Open Graph images improve link previews when sharing URLs on iMessage, Tw
 
 ### High Priority
 - [x] Complete OG images for all category pages ✅ (January 2026)
-- [ ] Download real images for businesses (see docs/IMAGE-SOURCES.md)
+- [ ] Download real images for original listings (see Image Status below)
 - [ ] Add user authentication for claiming (Clerk ready, needs env vars)
 
 ### Medium Priority
 - [x] Create OG images for add-listing and advertise pages ✅ (January 2026)
-- [ ] Build admin dashboard for managing listings
 - [ ] Add photo upload for claimed listings
 - [ ] Implement deal management for business owners
 
@@ -583,6 +582,54 @@ Custom Open Graph images improve link previews when sharing URLs on iMessage, Tw
 - [ ] Implement menu PDF upload
 - [ ] Add accessibility/amenities fields
 - [ ] Create email notification system
+
+---
+
+## Business Image Status (January 2026)
+
+### Listings WITH Real Images (20 businesses) ✅
+| Business | Image File |
+|----------|------------|
+| Castle Cafe | `/images/listings/castle-cafe-hero.jpg` |
+| B&B Cafe | `/images/b-and-b-cafe.jpg` |
+| Union American Bistro | `/images/union-american-bistro.jpg` |
+| Lost Coffee | `/images/lost-coffee.jpg` |
+| Rockyard Brewing | `/images/rockyard-brewing.jpg` |
+| Nothing Bundt Cakes | `/images/nothing-bundt-cakes.jpg` |
+| Crumbl Cookies | `/images/crumbl-cookies.jpg` |
+| Sugar Rush Cakery | `/images/sugar-rush-cakery.jpg` |
+| Sage Salon and Spa | `/images/sage-salon-and-spa.jpg` |
+| Copperfalls Aveda | `/images/copperfalls-aveda.jpg` |
+| The Hair Shop | `/images/the-hair-shop.jpg` |
+| Blue Sky Plumbing | `/images/blue-sky-plumbing.jpg` |
+| WireNut Home Services | `/images/wirenut-home-services.jpg` |
+| Romo's Street Tacos | `/images/romos-street-tacos.jpg` |
+| Stack'd | `/images/stackd-foods.jpg` |
+| The Barn | `/images/the-barn-castle-rock.jpg` |
+| Amazing Lemons Boutique | `/images/amazing-lemons-boutique.jpg` |
+| MOD Pizza | `/images/mod-pizza-castle-rock.jpg` |
+| Tokyo Joe's | `/images/tokyo-joes-castle-rock.jpg` |
+| Qdoba | `/images/qdoba-castle-rock.jpg` |
+
+### Listings NEEDING Real Images (~10 businesses)
+| Business | Current Image | Source URL |
+|----------|---------------|------------|
+| Scileppi's | `/images/dining.jpg` | scileppis.com, Yelp |
+| Trestles Coastal | `/images/dining.jpg` | trestlescastlerock.com |
+| Hideaway Bar & Grill | `/images/dining.jpg` | hideawaybarandgrill.com |
+| Courtyard Social | placeholder | courtyardsocialcr.com |
+| Provision | placeholder | provisioncastlerock.com |
+| The Office Bar | placeholder | theofficecocr.com |
+| Great Divide | placeholder | greatdivide.com |
+| Crowfoot Valley Coffee | placeholder | crowfootvalleycoffee.com |
+| Dazbog Coffee | placeholder | dazbog.com |
+| Black Rock Coffee | placeholder | br.coffee |
+
+### How to Add Images
+1. Download from business website or Yelp
+2. Save to `/public/images/listings/` as `business-slug.jpg`
+3. Update `src/lib/data.ts` image path
+4. See `docs/IMAGE-SOURCES.md` for full URLs
 
 ---
 
