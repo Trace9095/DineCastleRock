@@ -493,3 +493,135 @@ curl https://dinecastlerock.co/llm.txt
 - Test at 360px, 768px, 1366px widths
 - Verify no horizontal scrollbars
 - Verify touch targets are adequate (~44px)
+
+---
+
+## January 2026 - Open Graph Images for Social Sharing
+
+### OG Image Implementation
+
+Custom Open Graph images improve link previews when sharing URLs on iMessage, Twitter, Facebook, LinkedIn, Slack, etc.
+
+**Pattern:** Each page can have an `opengraph-image.tsx` file that generates a branded image using `next/og` ImageResponse.
+
+### OG Image Status by Page
+
+#### Home & Main Pages
+| Page | Route | OG Image | Theme |
+|------|-------|----------|-------|
+| Home | `/` | ✅ Complete | Orange/dark - branded D logo |
+| Things To Do | `/things-to-do` | ✅ Complete | Blue/cyan - 🎯 |
+| About | `/about` | ✅ Complete | Slate - branded D logo |
+| Guides Index | `/guides` | ✅ Complete | Green/emerald - 📖 |
+
+#### Category Pages (17 total) - ALL COMPLETE ✅
+| Category | Route | OG Image | Theme |
+|----------|-------|----------|-------|
+| Restaurants | `/restaurants` | ✅ Complete | Orange/burnt - 🍽️ |
+| Bars & Nightlife | `/bars-nightlife` | ✅ Complete | Purple/violet - 🍸 |
+| Breweries | `/breweries` | ✅ Complete | Amber/gold - 🍺 |
+| Coffee & Cafes | `/coffee` | ✅ Complete | Stone/warm - ☕ |
+| Dessert & Bakery | `/dessert` | ✅ Complete | Pink/rose - 🧁 |
+| Food Trucks | `/food-trucks` | ✅ Complete | Red/orange - 🚚 |
+| Takeout & Delivery | `/takeout-delivery` | ✅ Complete | Green/lime - 📦 |
+| Retail & Shopping | `/retail` | ✅ Complete | Indigo/blue - 🛍️ |
+| Auto & Transportation | `/auto` | ✅ Complete | Gray/steel - 🚗 |
+| Health & Wellness | `/wellness` | ✅ Complete | Teal/mint - 💪 |
+| Kids & Family | `/kids` | ✅ Complete | Yellow/bright - 👨‍👩‍👧 |
+| Gifts & Specialty | `/gifts` | ✅ Complete | Magenta/purple - 🎁 |
+| Home Services | `/home-services` | ✅ Complete | Sky blue - 🏠 |
+| Professional Services | `/professional-services` | ✅ Complete | Navy/blue - 💼 |
+| Beauty & Personal Care | `/beauty` | ✅ Complete | Pink/blush - 💄 |
+| Pets | `/pets` | ✅ Complete | Orange/warm - 🐾 |
+| Activities & Entertainment | `/activities` | ✅ Complete | Cyan/bright - 🎉 |
+
+#### Guide Pages (3 defined) - ALL COMPLETE ✅
+| Guide | Route | OG Image | Theme |
+|-------|-------|----------|-------|
+| Happy Hour | `/guides/happy-hour` | ✅ Complete | Golden/yellow - 🍻 |
+| Date Night | `/guides/date-night` | ✅ Complete | Rose/pink - ❤️ |
+| Family Friendly | `/guides/family-friendly` | ✅ Complete | Yellow/warm - 👨‍👩‍👧 |
+
+#### Static Pages - ALL COMPLETE ✅
+| Page | Route | OG Image | Theme |
+|------|-------|----------|-------|
+| Add Listing | `/add-listing` | ✅ Complete | Green/emerald - ➕ |
+| Advertise | `/advertise` | ✅ Complete | Dark/orange - 📢 |
+| Privacy Policy | `/privacy` | ✅ Complete | Slate - 🔒 |
+| Terms of Service | `/terms` | ✅ Complete | Slate - 📜 |
+| Editorial Policy | `/editorial-policy` | ✅ Complete | Slate - ✍️ |
+| Admin | `/admin` | ⏭️ Skipped | Internal only |
+| Sign In | `/sign-in` | ⏭️ Skipped | Auth page |
+| Sign Up | `/sign-up` | ⏭️ Skipped | Auth page |
+
+### OG Image Summary - COMPLETE ✅
+- **Total Pages with OG Images:** 29 pages
+- **Home & Main:** 4 pages
+- **Categories:** 17 pages (all complete)
+- **Guides:** 3 pages (all complete)
+- **Static Pages:** 5 pages (all complete)
+- **Skipped:** 3 pages (internal/auth - not needed)
+
+---
+
+## Future Development Tasks
+
+### High Priority
+- [x] Complete OG images for all category pages ✅ (January 2026)
+- [ ] Download real images for businesses (see docs/IMAGE-SOURCES.md)
+- [ ] Add user authentication for claiming (Clerk ready, needs env vars)
+
+### Medium Priority
+- [x] Create OG images for add-listing and advertise pages ✅ (January 2026)
+- [ ] Build admin dashboard for managing listings
+- [ ] Add photo upload for claimed listings
+- [ ] Implement deal management for business owners
+
+### Low Priority
+- [x] Create OG images for legal pages (privacy, terms, editorial-policy) ✅ (January 2026)
+- [ ] Add reservation provider integration (OpenTable, Resy)
+- [ ] Implement menu PDF upload
+- [ ] Add accessibility/amenities fields
+- [ ] Create email notification system
+
+---
+
+## For Future LLM Sessions
+
+### Quick Start Checklist
+1. Read this `progress.md` file first for context
+2. Check `src/lib/data.ts` for all listings and categories
+3. Check `src/app/` for page structure
+4. Run `npm run lint` to verify no errors
+5. Run `npm run build` to verify build passes
+
+### Key Files
+| Purpose | File |
+|---------|------|
+| All business data | `src/lib/data.ts` |
+| Categories list | `src/lib/data.ts` → `CATEGORIES` array |
+| OG image pattern | `src/app/opengraph-image.tsx` |
+| Theme/colors | `src/app/globals.css` |
+| Components | `src/components/ui/` (shadcn/ui) |
+
+### OG Image Creation Pattern
+```tsx
+// src/app/[page]/opengraph-image.tsx
+import { ImageResponse } from 'next/og'
+
+export const runtime = 'edge'
+export const alt = 'Page Title - Dine Castle Rock'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+export default async function Image() {
+    return new ImageResponse(
+        // JSX with inline styles (no Tailwind)
+        // Use gradient backgrounds, emoji icons, pills
+    )
+}
+```
+
+### Category Folder Structure
+Categories use Next.js route groups: `src/app/(directory)/[category]/`
+To add an OG image for a category, create: `src/app/(directory)/[category-slug]/opengraph-image.tsx`
