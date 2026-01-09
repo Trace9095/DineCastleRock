@@ -1,6 +1,6 @@
 # Dine Castle Rock - Development Progress
 
-## Last Updated: January 2026
+## Last Updated: January 9, 2026
 
 ---
 
