@@ -388,3 +388,108 @@ npm run build
 3. Guides load with correct listings
 4. Things To Do shows Editor's Pick (The Edge Ziplines)
 5. Social sharing preview works (test with https://cards-dev.twitter.com/validator)
+
+---
+
+## January 2026 - Responsive, SEO, AI Visibility & Branding Audit
+
+### Branding Source of Truth
+- **Layout shell**: `src/app/layout.tsx` (NetworkHeader + NetworkFooter)
+- **Theme**: `src/app/globals.css` (oklch colors, modern shadows, glassmorphism)
+- **Components**: `src/components/ui/` (shadcn/ui components)
+- **Shared components**: `src/components/shared/` (NetworkHeader, NetworkFooter)
+
+### Global States Created
+
+| State | File | Status |
+|-------|------|--------|
+| 404 Not Found | `src/app/not-found.tsx` | Created |
+| Error Boundary | `src/app/error.tsx` | Created |
+| Loading | `src/app/loading.tsx` | Created |
+
+**404 Page Features:**
+- Branded with Utensils icon and primary color
+- Clear "404" display with helpful message
+- CTAs: Go Home, Browse Restaurants
+- Popular page links (Restaurants, Bars, Coffee, Guides)
+
+**Error Page Features:**
+- Destructive color scheme with AlertTriangle icon
+- Try Again button with reset() functionality
+- Go Home fallback
+- Error ID display for debugging
+- Contact link for persistent issues
+
+**Loading Page Features:**
+- Animated logo with pulse effect
+- Shimmer loading bar
+- Minimal, clean design
+
+### SEO & AI Visibility Audit
+
+**Already Implemented (Verified):**
+- Unique `<title>` per page with template pattern
+- Meta descriptions on all pages
+- Open Graph + Twitter Card tags
+- Canonical URLs via metadataBase
+- JSON-LD schema (WebSite, Organization)
+- robots.txt with AI crawler allowlist
+- sitemap.xml generated from data
+- llm.txt for AI crawlers
+- Semantic HTML (header, main, footer, article)
+- Server-side rendering (all pages SSR/SSG)
+
+**robots.txt AI Crawlers Allowed:**
+- GPTBot, ChatGPT-User, Google-Extended
+- Anthropic-ai, Claude-Web, cohere-ai, PerplexityBot
+
+**Improvements Made:**
+- Added llm.txt to AI crawler allow list in robots.ts
+
+### Responsive Design Audit
+
+**Key Viewports Tested:**
+- Mobile: 360x800, 390x844
+- Tablet: 768x1024
+- Desktop: 1366x768, 1920x1080
+
+**Components Verified as Responsive:**
+| Component | Mobile | Tablet | Desktop |
+|-----------|--------|--------|---------|
+| NetworkHeader | Hamburger | Nav | Full nav |
+| NetworkFooter | 2-col grid | 4-col | 4-col |
+| Hero | Stacked | Centered | Centered |
+| FeaturedSection | 85% carousel | 50% items | 25% items |
+| ListingCard | Full width | Half | Quarter |
+| CategoryGrid | 2-col | 3-col | 4-col |
+
+**Responsive Patterns Used:**
+- Tailwind breakpoints: sm, md, lg, xl
+- Flexbox with wrap for quick links
+- CSS Grid for category/footer layouts
+- Carousel with responsive basis values
+- Hidden/visible classes for mobile nav
+
+### How to Verify New Pages
+
+**Test 404 page:**
+Visit any non-existent URL like /nonexistent-page
+
+**Test error boundary:**
+Errors are caught and displayed with branded error page
+
+**Verify robots.txt:**
+```bash
+curl https://dinecastlerock.co/robots.txt
+```
+
+**Verify llm.txt:**
+```bash
+curl https://dinecastlerock.co/llm.txt
+```
+
+**Responsive testing:**
+- Use browser DevTools responsive mode
+- Test at 360px, 768px, 1366px widths
+- Verify no horizontal scrollbars
+- Verify touch targets are adequate (~44px)
