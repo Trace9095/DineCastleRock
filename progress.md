@@ -207,20 +207,75 @@ Query params:
 
 ---
 
+## January 2026 Update - Expanded Business Directory
+
+### 10. Claims API Connected to Prisma
+**Issue:** Claims were stored in an in-memory Map, lost on server restart.
+
+**Solution:** Updated `src/app/api/claims/route.ts`:
+- Conditionally uses Prisma when DATABASE_URL is configured
+- Falls back to in-memory storage when database unavailable
+- Maintains backwards compatibility - site works without database
+- POST creates claims, GET retrieves all claims for admin
+
+### 11. Added 15 New Castle Rock Businesses
+**Issue:** Categories like Dessert, Beauty, Home Services, and Food Trucks were empty.
+
+**Solution:** Added real Castle Rock businesses to `src/lib/data.ts`:
+
+**Dessert & Bakery (3 new):**
+- Nothing Bundt Cakes - Bundt cake specialty bakery
+- Crumbl Cookies - Gourmet cookies with rotating weekly menu
+- Sugar Rush Cakery - Food Network featured custom cakes (by appointment)
+
+**Beauty & Personal Care (3 new):**
+- Sage Salon and Spa - Luxury downtown salon, 16+ years
+- Copperfalls Aveda Day Spa - Award-winning Aveda salon
+- The Hair Shop - Neighborhood salon with friendly service
+
+**Home Services (2 new):**
+- Blue Sky Plumbing, Heating, Cooling & Electric - Family owned since 1989
+- WireNut Home Services - Local Colorado company with "No Surprises" pricing
+
+**Food Trucks (2 new):**
+- Romo's Street Tacos - Family-owned authentic Mexican
+- Stack'd - Award-winning birria tacos, voted Best Food Truck
+
+**Gifts & Specialty (2 new):**
+- The Barn - Antiques, clothing, largest Jellycat selection
+- Amazing Lemons Boutique - Family-owned downtown boutique
+
+**Takeout & Delivery (3 new):**
+- MOD Pizza - Build-your-own artisan pizza
+- Tokyo Joe's - Japanese fast casual bowls
+- Qdoba Mexican Eats - Fresh Mexican fast-casual
+
+### 12. Updated IMAGE-SOURCES.md
+**Issue:** Documentation didn't include new business categories or image status.
+
+**Solution:** Updated `docs/IMAGE-SOURCES.md`:
+- Added Beauty & Personal Care section with sources
+- Added Home Services section with sources
+- Added Gifts & Specialty section with sources
+- Added Food Trucks with real businesses
+- Added Image Status Summary showing which listings have real vs placeholder images
+
+---
+
 ## Remaining TODO
 
 ### High Priority
-- [ ] Add real images for all 20 businesses
-- [ ] Implement real-time "Open Now" status based on hours
-- [ ] Add map embed to listing pages
-- [ ] Add sitemap.xml generation
+- [ ] Download real images for businesses (see docs/IMAGE-SOURCES.md for sources)
+- [x] ~~Implement real-time "Open Now" status~~ (Already implemented via `isOpenNow()`)
+- [x] ~~Add map embed to listing pages~~ (Already implemented)
+- [x] ~~Add sitemap.xml generation~~ (Already exists at /sitemap.xml)
 
 ### Medium Priority
-- [ ] Add user authentication for claiming
-- [ ] Build admin dashboard for managing listings
+- [ ] Add user authentication for claiming (Clerk ready, needs env vars)
+- [ ] Build admin dashboard for managing listings (basic version exists at /admin)
 - [ ] Add photo upload for claimed listings
 - [ ] Implement deal management for business owners
-- [ ] Add more Castle Rock businesses
+- [x] ~~Add more Castle Rock businesses~~ (Added 15 new businesses)
 
 ### Low Priority / Nice to Have
 - [ ] Add reservation provider integration (OpenTable, Resy)

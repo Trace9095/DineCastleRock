@@ -176,16 +176,22 @@ For each business, visit the linked sources to download high-quality photos. Rec
 
 ## Food Trucks
 
-### 24. Biker Jim's Gourmet Dogs
+### Romo's Street Tacos
+**Address:** 971 Park Street, Castle Rock, CO 80104
+- Website: https://romosstreettacos.com/
+- Yelp: https://www.yelp.com/search?cflt=tacos&find_loc=Castle+Rock,+CO
+- **Key visual:** Food truck, authentic street tacos, family-owned
+
+### Stack'd
+**Address:** 110 South Wilcox Street, Castle Rock, CO 80104
+- Website: https://www.stackdfoods.net/
+- **Key visual:** Food truck, birria tacos, comfort food
+- Note: Voted "Best Food Truck" in Castle Rock
+
+### Biker Jim's Gourmet Dogs
 - Website: https://bikerjims.com/
 - **Key visual:** Food truck, exotic meat hot dogs
 - Note: Mobile location, check events calendar
-
-### 25. Taste of Philly Food Truck
-- Note: Mobile food truck, limited online presence
-
-### 26. Rockin Tacos
-- Note: Mobile food truck, often at local breweries
 
 ---
 
@@ -219,6 +225,56 @@ For each business, visit the linked sources to download high-quality photos. Rec
 
 ---
 
+## Beauty & Personal Care
+
+### Sage Salon and Spa
+**Address:** 695 Jerry Street, Suite 100, Castle Rock, CO 80104
+- Website: https://sagesaloncr.com/
+- Yelp (68 photos): https://www.yelp.com/biz/sage-salon-and-spa-castle-rock
+- **Key visual:** Luxury salon interior, downtown Castle Rock
+
+### Copperfalls Aveda Day Spa
+**Address:** 4768 Castleton Way, Suite 120, Castle Rock, CO 80109
+- Website: https://copperfalls.com/
+- **Key visual:** Aveda products, spa atmosphere, relaxation
+
+### The Hair Shop
+**Address:** 1647 Park Street, Suite D, Castle Rock, CO 80109
+- Yelp (19 reviews): https://www.yelp.com/biz/the-hair-shop-castle-rock
+- **Key visual:** Neighborhood salon, friendly atmosphere
+
+---
+
+## Home Services
+
+### Blue Sky Plumbing, Heating, Cooling & Electric
+- Website: https://www.blueskyplumbing.com/castle-rock-co/
+- **Key visual:** Service truck, technicians, family-owned branding
+
+### WireNut Home Services
+- Website: https://thewirenut.com/service-areas/castle-rock-co/
+- **Key visual:** Service vehicle, local Colorado company
+
+---
+
+## Gifts & Specialty
+
+### The Emporium Castle Rock
+**Address:** 104 4th Street, Castle Rock, CO 80104
+- Website: https://theemporiumcastlerock.com/
+- **Key visual:** Local artisans, Colorado-made gifts, gallery setting
+
+### The Barn
+**Address:** 420 Perry Street, Castle Rock, CO 80104
+- Website: https://thebarncastlerock.com/
+- **Key visual:** Antiques, vintage items, Jellycat plush toys
+
+### Amazing Lemons Boutique
+**Address:** 212 Wilcox Street, Castle Rock, CO 80104
+- **Key visual:** Boutique clothing, downtown location near Festival Park
+
+---
+
 ## Recommended Image Dimensions
 
 For optimal display on the website:
@@ -232,3 +288,30 @@ Use this format: `[business-slug].jpg`
 Example: `scileppis.jpg`, `castle-cafe.jpg`, `great-divide.jpg`
 
 Save all images to: `/public/images/listings/`
+
+---
+
+## Image Status Summary (January 2026)
+
+### Already Have Real Images:
+- Castle Cafe (`/images/listings/castle-cafe-hero.jpg`)
+- Union Bistro (`/images/listings/union-bistro-hero.jpg`)
+- Tribe Riverwalk (`/images/listings/tribe-riverwalk-hero.jpg`)
+- B&B Cafe (`/images/b-and-b-cafe.jpg`)
+- Lost Coffee (`/images/lost-coffee.jpg`)
+- Rockyard Brewing (`/images/rockyard-brewing.jpg`)
+- Outlets at Castle Rock (`/images/outlets-at-castle-rock.jpg`)
+- Nike Factory Store (`/images/nike-factory-store.jpg`)
+- Coach Outlet (`/images/coach-outlet.jpg`)
+- HomeGoods (`/images/homegoods-castle-rock.jpg`)
+- The Emporium (`/images/the-emporium.jpg`)
+
+### Using Category Placeholders (Need Real Images):
+- Restaurants: Scileppi's, Trestles, Savina's
+- Breweries: Wild Blue Yonder, Great Divide
+- Bars: Hideaway, Whiskey Lodge
+- Dessert: Nothing Bundt Cakes, Crumbl Cookies, Sugar Rush Cakery
+- Beauty: Sage Salon, Copperfalls, The Hair Shop
+- Home Services: Blue Sky Plumbing, WireNut
+- Food Trucks: Romo's Street Tacos, Stack'd
+- Takeout: MOD Pizza, Tokyo Joe's, Qdoba
