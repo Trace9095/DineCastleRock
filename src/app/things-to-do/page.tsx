@@ -88,7 +88,6 @@ export default function ThingsToDoPage() {
     const activitiesListings = getListingsByCategory('activities').slice(0, 4)
     const kidsListings = getListingsByCategory('kids').slice(0, 4)
     const wellnessListings = getListingsByCategory('wellness').slice(0, 4)
-    const retailListings = getListingsByCategory('retail').slice(0, 4)
 
     // Get The Edge Ziplines as the featured/recommended listing
     const edgeZiplines = getListingBySlug('the-edge-ziplines-adventures')

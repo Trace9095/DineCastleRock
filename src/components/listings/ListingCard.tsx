@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Star, MapPin, Clock, Sparkles } from "lucide-react"
+import { Star, MapPin, Sparkles } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export interface ListingCardProps {

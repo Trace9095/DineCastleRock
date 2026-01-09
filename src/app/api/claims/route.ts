@@ -122,7 +122,6 @@ export async function GET() {
                 },
             })
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return NextResponse.json({
                 claims: claims.map((c: { id: string; listingId: string; name: string; email: string; phone: string | null; role: string; status: string; createdAt: Date; reviewedAt: Date | null }) => ({
                     id: c.id,

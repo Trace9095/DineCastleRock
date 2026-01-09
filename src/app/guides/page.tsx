@@ -34,7 +34,7 @@ export default function GuidesIndex() {
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-bold tracking-tight mb-4">Editorial Guides</h1>
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    Curated lists and local insights to help you navigate Castle Rock's food scene.
+                    Curated lists and local insights to help you navigate Castle Rock&apos;s food scene.
                 </p>
             </div>
 

@@ -22,7 +22,7 @@ const GUIDES: Record<string, {
         heroImage: "/images/guides/happy-hour-hero.jpg",
         intro: "Castle Rock's happy hour scene is booming. From craft breweries on Wilcox to upscale cocktails downtown, here are the best deals in town for after-work drinks and bites.",
         content: [
-            "Whether you're looking for discounted craft beers, half-off appetizers, or specialty cocktails, Castle Rock has you covered. The downtown area along Wilcox Street is especially popular for its walkable collection of bars and restaurants offering daily specials.",
+            "Whether you are looking for discounted craft beers, half-off appetizers, or specialty cocktails, Castle Rock has you covered. The downtown area along Wilcox Street is especially popular for its walkable collection of bars and restaurants offering daily specials.",
             "Most happy hours run from 3-6 PM on weekdays, though some spots extend their deals into the evening or offer late-night specials. Pro tip: Many places also run weekend brunch happy hours that are worth checking out.",
             "Here are our top picks for happy hour in Castle Rock, featuring verified deal information and local favorites."
         ],
@@ -193,16 +193,16 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                                     <p className="text-muted-foreground">We recommend reservations, especially on Friday and Saturday nights. Most restaurants accept reservations through their website or by phone.</p>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold mb-2">What's the dress code at upscale Castle Rock restaurants?</h3>
-                                    <p className="text-muted-foreground">Most spots are business casual. You'll fit in with nice jeans and a collared shirt, but you can certainly dress up more for special occasions.</p>
+                                    <h3 className="font-semibold mb-2">What is the dress code at upscale Castle Rock restaurants?</h3>
+                                    <p className="text-muted-foreground">Most spots are business casual. You will fit in with nice jeans and a collared shirt, but you can certainly dress up more for special occasions.</p>
                                 </div>
                             </>
                         )}
                         {slug === 'family-friendly' && (
                             <>
                                 <div>
-                                    <h3 className="font-semibold mb-2">Do these restaurants have kids' menus?</h3>
-                                    <p className="text-muted-foreground">Yes, all restaurants in this guide offer dedicated kids' menus with familiar favorites like mac and cheese, chicken tenders, and pizza.</p>
+                                    <h3 className="font-semibold mb-2">Do these restaurants have children&apos;s menus?</h3>
+                                    <p className="text-muted-foreground">Yes, all restaurants in this guide offer dedicated kids menus with familiar favorites like mac and cheese, chicken tenders, and pizza.</p>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold mb-2">Are high chairs available?</h3>
