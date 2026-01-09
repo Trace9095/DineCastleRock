@@ -65,6 +65,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Things To Do in Castle Rock",
         description: "Discover adventures, attractions, family activities, and entertainment in Castle Rock, Colorado.",
+        images: ['/things-to-do/opengraph-image'],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Things To Do in Castle Rock",
+        description: "Discover adventures, attractions, and entertainment in Castle Rock, CO.",
+        images: ['/things-to-do/opengraph-image'],
     },
 }
 
