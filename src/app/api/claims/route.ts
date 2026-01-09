@@ -10,8 +10,8 @@ interface ClaimRequest {
     listingSlug: string
 }
 
-// In-memory storage for demo (replace with Prisma when database is configured)
-const claims: Array<ClaimRequest & { id: string; status: string; createdAt: Date }> = []
+// In-memory storage (used when DATABASE_URL is not configured or Prisma unavailable)
+const inMemoryClaims: Array<ClaimRequest & { id: string; status: string; createdAt: Date }> = []
 
 export async function POST(request: Request) {
     try {
@@ -34,7 +34,42 @@ export async function POST(request: Request) {
             )
         }
 
-        // Create claim record (in-memory for demo)
+        // Try to use Prisma if DATABASE_URL is configured
+        if (process.env.DATABASE_URL) {
+            try {
+                const { prisma } = await import('@/lib/db')
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const claim = await (prisma as any).claim.create({
+                    data: {
+                        name: body.name,
+                        email: body.email,
+                        phone: body.phone || null,
+                        role: body.role || 'Owner',
+                        verificationMethod: body.verificationMethod || 'email',
+                        listingId: body.listingSlug,
+                        status: 'PENDING',
+                    },
+                })
+
+                console.log('New claim submitted to database:', {
+                    claimId: claim.id,
+                    listing: listing.name,
+                    claimant: body.name,
+                    email: body.email,
+                })
+
+                return NextResponse.json({
+                    success: true,
+                    claimId: claim.id,
+                    message: 'Claim submitted successfully',
+                })
+            } catch (dbError) {
+                console.warn('Database unavailable, using in-memory storage:', dbError)
+                // Fall through to in-memory storage
+            }
+        }
+
+        // Fallback to in-memory storage
         const claim = {
             id: `claim_${Date.now()}`,
             ...body,
@@ -42,15 +77,9 @@ export async function POST(request: Request) {
             createdAt: new Date(),
         }
 
-        claims.push(claim)
+        inMemoryClaims.push(claim)
 
-        // In production, you would:
-        // 1. Save to database using Prisma
-        // 2. Send confirmation email to claimant
-        // 3. Send notification to admin
-        // 4. Log the claim for audit
-
-        console.log('New claim submitted:', {
+        console.log('New claim submitted (in-memory):', {
             claimId: claim.id,
             listing: listing.name,
             claimant: body.name,
@@ -73,9 +102,49 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-    // Return all claims (admin only in production)
+    // Try to use Prisma if DATABASE_URL is configured
+    if (process.env.DATABASE_URL) {
+        try {
+            const { prisma } = await import('@/lib/db')
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const claims = await (prisma as any).claim.findMany({
+                orderBy: { createdAt: 'desc' },
+                select: {
+                    id: true,
+                    listingId: true,
+                    name: true,
+                    email: true,
+                    phone: true,
+                    role: true,
+                    status: true,
+                    createdAt: true,
+                    reviewedAt: true,
+                },
+            })
+
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            return NextResponse.json({
+                claims: claims.map((c: { id: string; listingId: string; name: string; email: string; phone: string | null; role: string; status: string; createdAt: Date; reviewedAt: Date | null }) => ({
+                    id: c.id,
+                    listingSlug: c.listingId,
+                    name: c.name,
+                    email: c.email,
+                    phone: c.phone,
+                    role: c.role,
+                    status: c.status.toLowerCase(),
+                    createdAt: c.createdAt,
+                    reviewedAt: c.reviewedAt,
+                })),
+            })
+        } catch (dbError) {
+            console.warn('Database unavailable, using in-memory storage:', dbError)
+            // Fall through to in-memory storage
+        }
+    }
+
+    // Fallback to in-memory storage
     return NextResponse.json({
-        claims: claims.map(c => ({
+        claims: inMemoryClaims.map(c => ({
             id: c.id,
             listingSlug: c.listingSlug,
             name: c.name,
