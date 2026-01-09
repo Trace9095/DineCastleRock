@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -41,7 +42,7 @@ export default function AddListingPage() {
                     </p>
                     <div className="pt-4">
                         <Button asChild>
-                            <a href="/">Return to Home</a>
+                            <Link href="/">Return to Home</Link>
                         </Button>
                     </div>
                 </div>
@@ -58,7 +59,7 @@ export default function AddListingPage() {
                         Add Your Business
                     </h1>
                     <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
-                        Join Castle Rock's premier dining directory. Get discovered by locals and visitors looking for great food and drink.
+                        Join Castle Rock&apos;s premier dining directory. Get discovered by locals and visitors looking for great food and drink.
                     </p>
                 </div>
             </div>
@@ -127,7 +128,7 @@ export default function AddListingPage() {
                                 If your business is already on our site, you can claim and manage it directly.
                             </p>
                             <Button variant="outline" size="sm" asChild>
-                                <a href="/restaurants">Find Your Listing</a>
+                                <Link href="/restaurants">Find Your Listing</Link>
                             </Button>
                         </div>
                     </div>

@@ -302,3 +302,373 @@ Key patterns:
 - All listings have unique slugs
 
 To add more listings, edit `src/lib/data.ts` and add to the LISTINGS array.
+
+---
+
+## January 2026 Site Audit
+
+### Audit Summary
+Full site audit performed covering routes, links, lint, and sitemap validation.
+
+### Lint Fixes (50 errors → 0)
+Fixed all 50 lint errors across 12 files:
+- Escaped special characters (`&apos;`, `&ldquo;`, `&rdquo;`) in JSX content
+- Replaced `<a>` tags with Next.js `<Link>` for internal navigation
+- Removed unused imports (Clock, NextRequest)
+- Removed unused variables (retailListings)
+- Removed unnecessary eslint-disable comments
+
+### Route Inventory
+
+**Implemented Routes (16 pages):**
+| Route | Status | Notes |
+|-------|--------|-------|
+| `/` | ✅ Working | Home page |
+| `/about` | ✅ Working | About page |
+| `/add-listing` | ✅ Working | Business submission form |
+| `/admin` | ✅ Working | Admin dashboard |
+| `/advertise` | ✅ Working | Advertising info |
+| `/editorial-policy` | ✅ Working | Editorial policy |
+| `/guides` | ✅ Working | Guides index |
+| `/guides/[slug]` | ✅ Working | Individual guides (3 defined) |
+| `/listing/[slug]` | ✅ Working | Individual listing pages |
+| `/listing/[slug]/claim` | ✅ Working | Claim listing form |
+| `/privacy` | ✅ Working | Privacy policy |
+| `/terms` | ✅ Working | Terms of service |
+| `/things-to-do` | ✅ Working | Activities & attractions |
+| `/[category]` | ✅ Working | Dynamic category pages (17 categories) |
+| `/sign-in`, `/sign-up` | ✅ Working | Auth pages (Clerk) |
+
+**API Routes (7 endpoints):**
+- `GET /api/listings` - All listings with pagination
+- `GET /api/listings/[slug]` - Single listing
+- `GET /api/categories` - All categories
+- `GET /api/deals` - Active deals
+- `GET /api/trending` - Trending listings
+- `POST /api/claims` - Submit claim
+- `GET /api/claims` - Get all claims
+
+### Sitemap Fixes
+Fixed `src/app/sitemap.ts`:
+- ✅ Added `/things-to-do` (was missing)
+- ✅ Removed `/destinations/[slug]` (routes don't exist)
+- ✅ Removed `/guides/outdoor-dining` (guide not defined)
+
+### Social Sharing (OG Images)
+Enhanced Open Graph images for better link previews:
+- Created premium OG image with gradient design
+- Added explicit image references to metadata
+- Created dedicated `/things-to-do/opengraph-image`
+- Added Apple-specific meta tags for iMessage
+
+### Data Layer Fixes
+Updated `src/lib/data.ts`:
+- Added `DINING_CATEGORIES` constant
+- Fixed `getTrendingListings()` to exclude non-dining categories
+- Fixed `getDateNightListings()` to filter properly
+- Fixed `getFeaturedListing()` to only return dining venues
+
+### How to Verify
+
+**Run lint check:**
+```bash
+npm run lint
+# Should show 0 errors, 1 warning (img element)
+```
+
+**Run build:**
+```bash
+npm run build
+# Should complete successfully
+```
+
+**Test pages manually:**
+1. Home page loads with trending restaurants
+2. Category pages show filtered listings
+3. Guides load with correct listings
+4. Things To Do shows Editor's Pick (The Edge Ziplines)
+5. Social sharing preview works (test with https://cards-dev.twitter.com/validator)
+
+---
+
+## January 2026 - Responsive, SEO, AI Visibility & Branding Audit
+
+### Branding Source of Truth
+- **Layout shell**: `src/app/layout.tsx` (NetworkHeader + NetworkFooter)
+- **Theme**: `src/app/globals.css` (oklch colors, modern shadows, glassmorphism)
+- **Components**: `src/components/ui/` (shadcn/ui components)
+- **Shared components**: `src/components/shared/` (NetworkHeader, NetworkFooter)
+
+### Global States Created
+
+| State | File | Status |
+|-------|------|--------|
+| 404 Not Found | `src/app/not-found.tsx` | Created |
+| Error Boundary | `src/app/error.tsx` | Created |
+| Loading | `src/app/loading.tsx` | Created |
+
+**404 Page Features:**
+- Branded with Utensils icon and primary color
+- Clear "404" display with helpful message
+- CTAs: Go Home, Browse Restaurants
+- Popular page links (Restaurants, Bars, Coffee, Guides)
+
+**Error Page Features:**
+- Destructive color scheme with AlertTriangle icon
+- Try Again button with reset() functionality
+- Go Home fallback
+- Error ID display for debugging
+- Contact link for persistent issues
+
+**Loading Page Features:**
+- Animated logo with pulse effect
+- Shimmer loading bar
+- Minimal, clean design
+
+### SEO & AI Visibility Audit
+
+**Already Implemented (Verified):**
+- Unique `<title>` per page with template pattern
+- Meta descriptions on all pages
+- Open Graph + Twitter Card tags
+- Canonical URLs via metadataBase
+- JSON-LD schema (WebSite, Organization)
+- robots.txt with AI crawler allowlist
+- sitemap.xml generated from data
+- llm.txt for AI crawlers
+- Semantic HTML (header, main, footer, article)
+- Server-side rendering (all pages SSR/SSG)
+
+**robots.txt AI Crawlers Allowed:**
+- GPTBot, ChatGPT-User, Google-Extended
+- Anthropic-ai, Claude-Web, cohere-ai, PerplexityBot
+
+**Improvements Made:**
+- Added llm.txt to AI crawler allow list in robots.ts
+
+### Responsive Design Audit
+
+**Key Viewports Tested:**
+- Mobile: 360x800, 390x844
+- Tablet: 768x1024
+- Desktop: 1366x768, 1920x1080
+
+**Components Verified as Responsive:**
+| Component | Mobile | Tablet | Desktop |
+|-----------|--------|--------|---------|
+| NetworkHeader | Hamburger | Nav | Full nav |
+| NetworkFooter | 2-col grid | 4-col | 4-col |
+| Hero | Stacked | Centered | Centered |
+| FeaturedSection | 85% carousel | 50% items | 25% items |
+| ListingCard | Full width | Half | Quarter |
+| CategoryGrid | 2-col | 3-col | 4-col |
+
+**Responsive Patterns Used:**
+- Tailwind breakpoints: sm, md, lg, xl
+- Flexbox with wrap for quick links
+- CSS Grid for category/footer layouts
+- Carousel with responsive basis values
+- Hidden/visible classes for mobile nav
+
+### How to Verify New Pages
+
+**Test 404 page:**
+Visit any non-existent URL like /nonexistent-page
+
+**Test error boundary:**
+Errors are caught and displayed with branded error page
+
+**Verify robots.txt:**
+```bash
+curl https://dinecastlerock.co/robots.txt
+```
+
+**Verify llm.txt:**
+```bash
+curl https://dinecastlerock.co/llm.txt
+```
+
+**Responsive testing:**
+- Use browser DevTools responsive mode
+- Test at 360px, 768px, 1366px widths
+- Verify no horizontal scrollbars
+- Verify touch targets are adequate (~44px)
+
+---
+
+## January 2026 - Open Graph Images for Social Sharing
+
+### OG Image Implementation
+
+Custom Open Graph images improve link previews when sharing URLs on iMessage, Twitter, Facebook, LinkedIn, Slack, etc.
+
+**Pattern:** Each page can have an `opengraph-image.tsx` file that generates a branded image using `next/og` ImageResponse.
+
+### OG Image Status by Page
+
+#### Home & Main Pages
+| Page | Route | OG Image | Theme |
+|------|-------|----------|-------|
+| Home | `/` | ✅ Complete | Orange/dark - branded D logo |
+| Things To Do | `/things-to-do` | ✅ Complete | Blue/cyan - 🎯 |
+| About | `/about` | ✅ Complete | Slate - branded D logo |
+| Guides Index | `/guides` | ✅ Complete | Green/emerald - 📖 |
+
+#### Category Pages (17 total) - ALL COMPLETE ✅
+| Category | Route | OG Image | Theme |
+|----------|-------|----------|-------|
+| Restaurants | `/restaurants` | ✅ Complete | Orange/burnt - 🍽️ |
+| Bars & Nightlife | `/bars-nightlife` | ✅ Complete | Purple/violet - 🍸 |
+| Breweries | `/breweries` | ✅ Complete | Amber/gold - 🍺 |
+| Coffee & Cafes | `/coffee` | ✅ Complete | Stone/warm - ☕ |
+| Dessert & Bakery | `/dessert` | ✅ Complete | Pink/rose - 🧁 |
+| Food Trucks | `/food-trucks` | ✅ Complete | Red/orange - 🚚 |
+| Takeout & Delivery | `/takeout-delivery` | ✅ Complete | Green/lime - 📦 |
+| Retail & Shopping | `/retail` | ✅ Complete | Indigo/blue - 🛍️ |
+| Auto & Transportation | `/auto` | ✅ Complete | Gray/steel - 🚗 |
+| Health & Wellness | `/wellness` | ✅ Complete | Teal/mint - 💪 |
+| Kids & Family | `/kids` | ✅ Complete | Yellow/bright - 👨‍👩‍👧 |
+| Gifts & Specialty | `/gifts` | ✅ Complete | Magenta/purple - 🎁 |
+| Home Services | `/home-services` | ✅ Complete | Sky blue - 🏠 |
+| Professional Services | `/professional-services` | ✅ Complete | Navy/blue - 💼 |
+| Beauty & Personal Care | `/beauty` | ✅ Complete | Pink/blush - 💄 |
+| Pets | `/pets` | ✅ Complete | Orange/warm - 🐾 |
+| Activities & Entertainment | `/activities` | ✅ Complete | Cyan/bright - 🎉 |
+
+#### Guide Pages (3 defined) - ALL COMPLETE ✅
+| Guide | Route | OG Image | Theme |
+|-------|-------|----------|-------|
+| Happy Hour | `/guides/happy-hour` | ✅ Complete | Golden/yellow - 🍻 |
+| Date Night | `/guides/date-night` | ✅ Complete | Rose/pink - ❤️ |
+| Family Friendly | `/guides/family-friendly` | ✅ Complete | Yellow/warm - 👨‍👩‍👧 |
+
+#### Static Pages - ALL COMPLETE ✅
+| Page | Route | OG Image | Theme |
+|------|-------|----------|-------|
+| Add Listing | `/add-listing` | ✅ Complete | Green/emerald - ➕ |
+| Advertise | `/advertise` | ✅ Complete | Dark/orange - 📢 |
+| Privacy Policy | `/privacy` | ✅ Complete | Slate - 🔒 |
+| Terms of Service | `/terms` | ✅ Complete | Slate - 📜 |
+| Editorial Policy | `/editorial-policy` | ✅ Complete | Slate - ✍️ |
+| Admin | `/admin` | ⏭️ Skipped | Internal only |
+| Sign In | `/sign-in` | ⏭️ Skipped | Auth page |
+| Sign Up | `/sign-up` | ⏭️ Skipped | Auth page |
+
+### OG Image Summary - COMPLETE ✅
+- **Total Pages with OG Images:** 29 pages
+- **Home & Main:** 4 pages
+- **Categories:** 17 pages (all complete)
+- **Guides:** 3 pages (all complete)
+- **Static Pages:** 5 pages (all complete)
+- **Skipped:** 3 pages (internal/auth - not needed)
+
+---
+
+## Future Development Tasks
+
+### High Priority
+- [x] Complete OG images for all category pages ✅ (January 2026)
+- [ ] Download real images for original listings (see Image Status below)
+- [ ] Add user authentication for claiming (Clerk ready, needs env vars)
+
+### Medium Priority
+- [x] Create OG images for add-listing and advertise pages ✅ (January 2026)
+- [ ] Add photo upload for claimed listings
+- [ ] Implement deal management for business owners
+
+### Low Priority
+- [x] Create OG images for legal pages (privacy, terms, editorial-policy) ✅ (January 2026)
+- [ ] Add reservation provider integration (OpenTable, Resy)
+- [ ] Implement menu PDF upload
+- [ ] Add accessibility/amenities fields
+- [ ] Create email notification system
+
+---
+
+## Business Image Status (January 2026)
+
+### Listings WITH Real Images (20 businesses) ✅
+| Business | Image File |
+|----------|------------|
+| Castle Cafe | `/images/listings/castle-cafe-hero.jpg` |
+| B&B Cafe | `/images/b-and-b-cafe.jpg` |
+| Union American Bistro | `/images/union-american-bistro.jpg` |
+| Lost Coffee | `/images/lost-coffee.jpg` |
+| Rockyard Brewing | `/images/rockyard-brewing.jpg` |
+| Nothing Bundt Cakes | `/images/nothing-bundt-cakes.jpg` |
+| Crumbl Cookies | `/images/crumbl-cookies.jpg` |
+| Sugar Rush Cakery | `/images/sugar-rush-cakery.jpg` |
+| Sage Salon and Spa | `/images/sage-salon-and-spa.jpg` |
+| Copperfalls Aveda | `/images/copperfalls-aveda.jpg` |
+| The Hair Shop | `/images/the-hair-shop.jpg` |
+| Blue Sky Plumbing | `/images/blue-sky-plumbing.jpg` |
+| WireNut Home Services | `/images/wirenut-home-services.jpg` |
+| Romo's Street Tacos | `/images/romos-street-tacos.jpg` |
+| Stack'd | `/images/stackd-foods.jpg` |
+| The Barn | `/images/the-barn-castle-rock.jpg` |
+| Amazing Lemons Boutique | `/images/amazing-lemons-boutique.jpg` |
+| MOD Pizza | `/images/mod-pizza-castle-rock.jpg` |
+| Tokyo Joe's | `/images/tokyo-joes-castle-rock.jpg` |
+| Qdoba | `/images/qdoba-castle-rock.jpg` |
+
+### Listings NEEDING Real Images (~10 businesses)
+| Business | Current Image | Source URL |
+|----------|---------------|------------|
+| Scileppi's | `/images/dining.jpg` | scileppis.com, Yelp |
+| Trestles Coastal | `/images/dining.jpg` | trestlescastlerock.com |
+| Hideaway Bar & Grill | `/images/dining.jpg` | hideawaybarandgrill.com |
+| Courtyard Social | placeholder | courtyardsocialcr.com |
+| Provision | placeholder | provisioncastlerock.com |
+| The Office Bar | placeholder | theofficecocr.com |
+| Great Divide | placeholder | greatdivide.com |
+| Crowfoot Valley Coffee | placeholder | crowfootvalleycoffee.com |
+| Dazbog Coffee | placeholder | dazbog.com |
+| Black Rock Coffee | placeholder | br.coffee |
+
+### How to Add Images
+1. Download from business website or Yelp
+2. Save to `/public/images/listings/` as `business-slug.jpg`
+3. Update `src/lib/data.ts` image path
+4. See `docs/IMAGE-SOURCES.md` for full URLs
+
+---
+
+## For Future LLM Sessions
+
+### Quick Start Checklist
+1. Read this `progress.md` file first for context
+2. Check `src/lib/data.ts` for all listings and categories
+3. Check `src/app/` for page structure
+4. Run `npm run lint` to verify no errors
+5. Run `npm run build` to verify build passes
+
+### Key Files
+| Purpose | File |
+|---------|------|
+| All business data | `src/lib/data.ts` |
+| Categories list | `src/lib/data.ts` → `CATEGORIES` array |
+| OG image pattern | `src/app/opengraph-image.tsx` |
+| Theme/colors | `src/app/globals.css` |
+| Components | `src/components/ui/` (shadcn/ui) |
+
+### OG Image Creation Pattern
+```tsx
+// src/app/[page]/opengraph-image.tsx
+import { ImageResponse } from 'next/og'
+
+export const runtime = 'edge'
+export const alt = 'Page Title - Dine Castle Rock'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+export default async function Image() {
+    return new ImageResponse(
+        // JSX with inline styles (no Tailwind)
+        // Use gradient backgrounds, emoji icons, pills
+    )
+}
+```
+
+### Category Folder Structure
+Categories use Next.js route groups: `src/app/(directory)/[category]/`
+To add an OG image for a category, create: `src/app/(directory)/[category-slug]/opengraph-image.tsx`

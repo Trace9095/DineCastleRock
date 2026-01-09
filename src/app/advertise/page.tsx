@@ -73,7 +73,7 @@ export default function AdvertisePage() {
                         <h3 className="text-xl font-semibold">Featured Listing</h3>
                         <p className="text-muted-foreground text-sm">
                             Get premium placement at the top of category pages and homepage sections.
-                            Includes a "Featured" badge and priority in search results.
+                            Includes a &ldquo;Featured&rdquo; badge and priority in search results.
                         </p>
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export default function AdvertisePage() {
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4 text-green-600" />
-                                "Has Deals" filter visibility
+                                &ldquo;Has Deals&rdquo; filter visibility
                             </li>
                             <li className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4 text-green-600" />
@@ -163,7 +163,7 @@ export default function AdvertisePage() {
                                     <h3 className="font-semibold">Engaged Local Audience</h3>
                                     <p className="text-sm text-muted-foreground">
                                         Our visitors are actively searching for places to eat—not passively scrolling.
-                                        They're ready to dine, order, or reserve.
+                                        They&apos;re ready to dine, order, or reserve.
                                     </p>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@ export default function AdvertisePage() {
                                 <div>
                                     <h3 className="font-semibold">Hyper-Local Focus</h3>
                                     <p className="text-sm text-muted-foreground">
-                                        We're 100% focused on Castle Rock. No diluted audience—just your neighbors
+                                        We&apos;re 100% focused on Castle Rock. No diluted audience—just your neighbors
                                         and visitors exploring our town.
                                     </p>
                                 </div>
@@ -193,7 +193,7 @@ export default function AdvertisePage() {
                     <div className="bg-muted/30 rounded-xl p-8 space-y-6">
                         <h3 className="text-xl font-semibold">Ready to Get Started?</h3>
                         <p className="text-muted-foreground">
-                            Contact us for a customized advertising package. We'll work with your budget
+                            Contact us for a customized advertising package. We will work with your budget
                             and goals to create a campaign that drives real results.
                         </p>
                         <div className="space-y-3">

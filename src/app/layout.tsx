@@ -59,11 +59,28 @@ export const metadata: Metadata = {
     siteName: "Dine Castle Rock",
     title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
     description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado. Local dining guide with menus, hours, reviews, and deals.",
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: "Dine Castle Rock - Castle Rock's Premier Dining Guide",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
     description: "Discover the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
+    images: ['/opengraph-image'],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Dine Castle Rock",
+    statusBarStyle: "black-translucent",
+  },
+  other: {
+    'apple-mobile-web-app-title': 'Dine Castle Rock',
   },
   alternates: {
     canonical: siteUrl,

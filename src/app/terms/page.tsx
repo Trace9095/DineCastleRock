@@ -53,7 +53,7 @@ export default function TermsPage() {
 
                     <h3>Featured and Premium Listings</h3>
                     <p>
-                        Some listings on our site are designated as "Featured" or "Premium." These are paid placements and are clearly labeled as such. Paid placement does not affect our editorial recommendations or ratings from third-party sources.
+                        Some listings on our site are designated as &ldquo;Featured&rdquo; or &ldquo;Premium.&rdquo; These are paid placements and are clearly labeled as such. Paid placement does not affect our editorial recommendations or ratings from third-party sources.
                     </p>
                 </section>
 
@@ -67,7 +67,7 @@ export default function TermsPage() {
                 <section>
                     <h2>Limitation of Liability</h2>
                     <p>
-                        Dine Castle Rock is provided "as is" without warranties of any kind. We are not responsible for any damages arising from your use of our website or reliance on information provided.
+                        Dine Castle Rock is provided &ldquo;as is&rdquo; without warranties of any kind. We are not responsible for any damages arising from your use of our website or reliance on information provided.
                     </p>
                 </section>
 

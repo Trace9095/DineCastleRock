@@ -26,7 +26,10 @@ export default function robots(): MetadataRoute.Robots {
                     'cohere-ai',
                     'PerplexityBot',
                 ],
-                allow: '/',
+                allow: [
+                    '/',
+                    '/llm.txt',
+                ],
             },
         ],
         sitemap: `${baseUrl}/sitemap.xml`,

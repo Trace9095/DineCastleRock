@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'Dine Castle Rock - Castle Rock\'s Premier Dining Guide'
+export const alt = 'Pets in Castle Rock - Pet Stores & Veterinary Services'
 export const size = {
     width: 1200,
     height: 630,
@@ -20,35 +20,33 @@ export default async function Image() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: 'linear-gradient(135deg, #1c1917 0%, #292524 40%, #44403c 100%)',
+                    background: 'linear-gradient(135deg, #7c2d12 0%, #9a3412 40%, #c2410c 100%)',
                     position: 'relative',
                 }}
             >
-                {/* Decorative gradient orbs */}
                 <div
                     style={{
                         position: 'absolute',
-                        top: '-100px',
-                        right: '-100px',
+                        top: '-80px',
+                        right: '-50px',
+                        width: '350px',
+                        height: '350px',
+                        borderRadius: '50%',
+                        background: 'radial-gradient(circle, rgba(251,146,60,0.4) 0%, transparent 70%)',
+                    }}
+                />
+                <div
+                    style={{
+                        position: 'absolute',
+                        bottom: '-100px',
+                        left: '-80px',
                         width: '400px',
                         height: '400px',
                         borderRadius: '50%',
                         background: 'radial-gradient(circle, rgba(249,115,22,0.3) 0%, transparent 70%)',
                     }}
                 />
-                <div
-                    style={{
-                        position: 'absolute',
-                        bottom: '-150px',
-                        left: '-100px',
-                        width: '500px',
-                        height: '500px',
-                        borderRadius: '50%',
-                        background: 'radial-gradient(circle, rgba(234,88,12,0.2) 0%, transparent 70%)',
-                    }}
-                />
 
-                {/* Main content container */}
                 <div
                     style={{
                         display: 'flex',
@@ -59,7 +57,6 @@ export default async function Image() {
                         zIndex: 10,
                     }}
                 >
-                    {/* Logo container with glow */}
                     <div
                         style={{
                             display: 'flex',
@@ -73,21 +70,18 @@ export default async function Image() {
                                 width: '100px',
                                 height: '100px',
                                 borderRadius: '24px',
-                                background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                                background: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: '56px',
-                                fontWeight: 800,
-                                color: '#ffffff',
+                                fontSize: '48px',
                                 boxShadow: '0 20px 60px rgba(249,115,22,0.4)',
                             }}
                         >
-                            D
+                            🐾
                         </div>
                     </div>
 
-                    {/* Title */}
                     <div
                         style={{
                             display: 'flex',
@@ -97,29 +91,28 @@ export default async function Image() {
                     >
                         <div
                             style={{
-                                fontSize: '80px',
+                                fontSize: '72px',
                                 fontWeight: 800,
                                 color: '#ffffff',
-                                letterSpacing: '-3px',
+                                letterSpacing: '-2px',
                                 marginBottom: '12px',
                                 textShadow: '0 4px 20px rgba(0,0,0,0.3)',
                             }}
                         >
-                            Dine Castle Rock
+                            Pets
                         </div>
                         <div
                             style={{
-                                fontSize: '32px',
+                                fontSize: '36px',
                                 fontWeight: 500,
-                                color: '#d6d3d1',
-                                letterSpacing: '1px',
+                                color: '#fed7aa',
+                                letterSpacing: '0.5px',
                             }}
                         >
-                            Castle Rock&apos;s Premier Dining Guide
+                            Pet Services in Castle Rock
                         </div>
                     </div>
 
-                    {/* Category pills */}
                     <div
                         style={{
                             display: 'flex',
@@ -127,26 +120,25 @@ export default async function Image() {
                             marginTop: '48px',
                         }}
                     >
-                        {['Restaurants', 'Bars', 'Breweries', 'Coffee', 'Deals'].map((category) => (
+                        {['Pet Stores', 'Vets', 'Grooming', 'Boarding', 'Training'].map((item) => (
                             <div
-                                key={category}
+                                key={item}
                                 style={{
                                     padding: '12px 24px',
                                     borderRadius: '100px',
-                                    background: 'rgba(255,255,255,0.1)',
-                                    border: '1px solid rgba(255,255,255,0.15)',
-                                    color: '#a8a29e',
+                                    background: 'rgba(255,255,255,0.15)',
+                                    border: '1px solid rgba(255,255,255,0.2)',
+                                    color: '#ffedd5',
                                     fontSize: '18px',
                                     fontWeight: 500,
                                 }}
                             >
-                                {category}
+                                {item}
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Bottom URL bar */}
                 <div
                     style={{
                         position: 'absolute',
@@ -154,7 +146,7 @@ export default async function Image() {
                         left: '0',
                         right: '0',
                         height: '60px',
-                        background: 'rgba(0,0,0,0.3)',
+                        background: 'rgba(0,0,0,0.25)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -165,11 +157,11 @@ export default async function Image() {
                         style={{
                             fontSize: '20px',
                             fontWeight: 600,
-                            color: '#f97316',
+                            color: '#fb923c',
                             letterSpacing: '0.5px',
                         }}
                     >
-                        dinecastlerock.co
+                        dinecastlerock.co/pets
                     </div>
                 </div>
             </div>

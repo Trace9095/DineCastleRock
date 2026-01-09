@@ -34,13 +34,13 @@ export default function AboutPage() {
                     <div>
                         <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                         <p className="text-muted-foreground text-lg leading-relaxed">
-                            Castle Rock's dining scene is thriving—from beloved local spots to exciting new openings.
+                            Castle Rock&apos;s dining scene is thriving—from beloved local spots to exciting new openings.
                             We created Dine Castle Rock to help residents and visitors discover the best places to eat,
                             drink, and gather in our community.
                         </p>
                         <p className="text-muted-foreground text-lg leading-relaxed mt-4">
-                            Whether you're looking for a date night spot, a family-friendly restaurant,
-                            or the best happy hour in town, we're here to help you find it.
+                            Whether you&apos;re looking for a date night spot, a family-friendly restaurant,
+                            or the best happy hour in town, we&apos;re here to help you find it.
                         </p>
                     </div>
 
@@ -83,9 +83,9 @@ export default function AboutPage() {
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Trending Listings</h3>
                                 <p className="text-muted-foreground">
-                                    Our "Trending" section highlights venues with the most engagement over the past week.
+                                    Our &ldquo;Trending&rdquo; section highlights venues with the most engagement over the past week.
                                     This includes page views, clicks to website/phone, and saves.
-                                    It's a real-time reflection of what Castle Rock is interested in.
+                                    It&apos;s a real-time reflection of what Castle Rock is interested in.
                                 </p>
                             </div>
                         </div>
@@ -97,8 +97,8 @@ export default function AboutPage() {
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Featured & Premium Listings</h3>
                                 <p className="text-muted-foreground">
-                                    Listings marked as "Featured" are paid placements from businesses that want extra visibility.
-                                    We clearly label these so you always know when you're seeing sponsored content.
+                                    Listings marked as &ldquo;Featured&rdquo; are paid placements from businesses that want extra visibility.
+                                    We clearly label these so you always know when you&apos;re seeing sponsored content.
                                     Premium status is available to any business that claims their listing.
                                 </p>
                             </div>
@@ -180,7 +180,7 @@ export default function AboutPage() {
                 <div className="container max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
                     <p className="text-zinc-300 mb-8">
-                        Have questions, feedback, or want to partner with us? We'd love to hear from you.
+                        Have questions, feedback, or want to partner with us? We&apos;d love to hear from you.
                     </p>
 
                     <div className="flex items-center justify-center gap-2 mb-8">

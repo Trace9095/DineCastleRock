@@ -55,12 +55,12 @@ export default function EditorialPolicyPage() {
                     <h2>Trending and Featured Content</h2>
                     <h3>Trending Listings</h3>
                     <p>
-                        "Trending" designations are based on user engagement signals such as page views and clicks within our platform. These are automatically generated and are not influenced by paid relationships.
+                        &ldquo;Trending&rdquo; designations are based on user engagement signals such as page views and clicks within our platform. These are automatically generated and are not influenced by paid relationships.
                     </p>
 
                     <h3>Featured/Premium Listings</h3>
                     <p>
-                        Listings marked as "Featured" or "Premium" are paid placements. These businesses have purchased enhanced visibility on our platform. Paid status is always clearly disclosed and does not affect:
+                        Listings marked as &ldquo;Featured&rdquo; or &ldquo;Premium&rdquo; are paid placements. These businesses have purchased enhanced visibility on our platform. Paid status is always clearly disclosed and does not affect:
                     </p>
                     <ul>
                         <li>Third-party ratings displayed</li>
@@ -72,7 +72,7 @@ export default function EditorialPolicyPage() {
                 <section>
                     <h2>Editorial Guides</h2>
                     <p>
-                        Our editorial guides ("Best Happy Hour," "Date Night Spots," etc.) are curated by our editorial team based on:
+                        Our editorial guides (&ldquo;Best Happy Hour,&rdquo; &ldquo;Date Night Spots,&rdquo; etc.) are curated by our editorial team based on:
                     </p>
                     <ul>
                         <li>Personal dining experiences</li>
@@ -88,7 +88,7 @@ export default function EditorialPolicyPage() {
                 <section>
                     <h2>Corrections and Updates</h2>
                     <p>
-                        We welcome corrections and updates to our listings. If you notice inaccurate information, please contact us at <a href="mailto:hello@dinecastlerock.com">hello@dinecastlerock.com</a> or use the "Report an issue" link on any listing page.
+                        We welcome corrections and updates to our listings. If you notice inaccurate information, please contact us at <a href="mailto:hello@dinecastlerock.com">hello@dinecastlerock.com</a> or use the &ldquo;Report an issue&rdquo; link on any listing page.
                     </p>
                     <p>
                         Business owners can claim their listings to manage their own information directly.

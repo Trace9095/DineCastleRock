@@ -15,7 +15,7 @@ export default function PrivacyPage() {
                 <section>
                     <h2>Introduction</h2>
                     <p>
-                        Dine Castle Rock ("we," "our," or "us") operates the dinecastlerock.co website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                        Dine Castle Rock (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates the dinecastlerock.co website. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
                     </p>
                 </section>
 
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
                 <section>
                     <h2>Data Sources for Listings</h2>
                     <p>
-                        Business information displayed on our site is compiled from publicly available sources, including business websites, Google Business Profiles, and other public directories. Rating information displayed is aggregated from third-party sources and is provided for informational purposes only.
+                        Business information displayed on our site is compiled from publicly available sources, including business websites, Google Business Profiles, and other public directories. Ratings are aggregated from third-party sources and provided for informational purposes only.
                     </p>
                 </section>
 
