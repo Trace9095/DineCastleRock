@@ -302,3 +302,89 @@ Key patterns:
 - All listings have unique slugs
 
 To add more listings, edit `src/lib/data.ts` and add to the LISTINGS array.
+
+---
+
+## January 2026 Site Audit
+
+### Audit Summary
+Full site audit performed covering routes, links, lint, and sitemap validation.
+
+### Lint Fixes (50 errors → 0)
+Fixed all 50 lint errors across 12 files:
+- Escaped special characters (`&apos;`, `&ldquo;`, `&rdquo;`) in JSX content
+- Replaced `<a>` tags with Next.js `<Link>` for internal navigation
+- Removed unused imports (Clock, NextRequest)
+- Removed unused variables (retailListings)
+- Removed unnecessary eslint-disable comments
+
+### Route Inventory
+
+**Implemented Routes (16 pages):**
+| Route | Status | Notes |
+|-------|--------|-------|
+| `/` | ✅ Working | Home page |
+| `/about` | ✅ Working | About page |
+| `/add-listing` | ✅ Working | Business submission form |
+| `/admin` | ✅ Working | Admin dashboard |
+| `/advertise` | ✅ Working | Advertising info |
+| `/editorial-policy` | ✅ Working | Editorial policy |
+| `/guides` | ✅ Working | Guides index |
+| `/guides/[slug]` | ✅ Working | Individual guides (3 defined) |
+| `/listing/[slug]` | ✅ Working | Individual listing pages |
+| `/listing/[slug]/claim` | ✅ Working | Claim listing form |
+| `/privacy` | ✅ Working | Privacy policy |
+| `/terms` | ✅ Working | Terms of service |
+| `/things-to-do` | ✅ Working | Activities & attractions |
+| `/[category]` | ✅ Working | Dynamic category pages (17 categories) |
+| `/sign-in`, `/sign-up` | ✅ Working | Auth pages (Clerk) |
+
+**API Routes (7 endpoints):**
+- `GET /api/listings` - All listings with pagination
+- `GET /api/listings/[slug]` - Single listing
+- `GET /api/categories` - All categories
+- `GET /api/deals` - Active deals
+- `GET /api/trending` - Trending listings
+- `POST /api/claims` - Submit claim
+- `GET /api/claims` - Get all claims
+
+### Sitemap Fixes
+Fixed `src/app/sitemap.ts`:
+- ✅ Added `/things-to-do` (was missing)
+- ✅ Removed `/destinations/[slug]` (routes don't exist)
+- ✅ Removed `/guides/outdoor-dining` (guide not defined)
+
+### Social Sharing (OG Images)
+Enhanced Open Graph images for better link previews:
+- Created premium OG image with gradient design
+- Added explicit image references to metadata
+- Created dedicated `/things-to-do/opengraph-image`
+- Added Apple-specific meta tags for iMessage
+
+### Data Layer Fixes
+Updated `src/lib/data.ts`:
+- Added `DINING_CATEGORIES` constant
+- Fixed `getTrendingListings()` to exclude non-dining categories
+- Fixed `getDateNightListings()` to filter properly
+- Fixed `getFeaturedListing()` to only return dining venues
+
+### How to Verify
+
+**Run lint check:**
+```bash
+npm run lint
+# Should show 0 errors, 1 warning (img element)
+```
+
+**Run build:**
+```bash
+npm run build
+# Should complete successfully
+```
+
+**Test pages manually:**
+1. Home page loads with trending restaurants
+2. Category pages show filtered listings
+3. Guides load with correct listings
+4. Things To Do shows Editor's Pick (The Edge Ziplines)
+5. Social sharing preview works (test with https://cards-dev.twitter.com/validator)

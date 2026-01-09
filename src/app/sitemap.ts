@@ -1,12 +1,11 @@
 import type { MetadataRoute } from 'next'
-import { LISTINGS, CATEGORIES, DESTINATIONS } from '@/lib/data'
+import { LISTINGS, CATEGORIES } from '@/lib/data'
 
-// Define guides that exist on the site
+// Define guides that exist on the site (must match guides/[slug]/page.tsx)
 const GUIDES = [
     { slug: 'date-night' },
     { slug: 'happy-hour' },
     { slug: 'family-friendly' },
-    { slug: 'outdoor-dining' },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -63,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        {
+            url: `${baseUrl}/things-to-do`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
     ]
 
     // Category pages
@@ -89,19 +94,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }))
 
-    // Destination pages
-    const destinationPages: MetadataRoute.Sitemap = DESTINATIONS.map((dest) => ({
-        url: `${baseUrl}/destinations/${dest.slug}`,
-        lastModified: now,
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-    }))
-
     return [
         ...staticPages,
         ...categoryPages,
         ...listingPages,
         ...guidePages,
-        ...destinationPages,
     ]
 }
