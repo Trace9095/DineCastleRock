@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 import "./globals.css";
 import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
@@ -119,6 +120,7 @@ export default function RootLayout({
         </main>
         <NetworkFooter />
         <Analytics />
+        <Script src="/analytics.js" strategy="afterInteractive" />
       </body>
     </html>
   );
