@@ -1,0 +1,100 @@
+import { ArrowRight, Sparkles } from "lucide-react"
+import { ListingCard, ListingCardProps } from "@/components/listings/ListingCard"
+import { Button } from "@/components/ui/button"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import { ReactNode } from "react"
+import Link from "next/link"
+
+interface FeaturedSectionProps {
+    title: string
+    subtitle?: ReactNode
+    items: ListingCardProps[]
+    link?: string
+    linkText?: string
+    badge?: string
+}
+
+export function FeaturedSection({ title, subtitle, items, link, linkText, badge }: FeaturedSectionProps) {
+    return (
+        <section className="py-20 md:py-28">
+            <div className="container px-4 max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+                    <div>
+                        {badge && (
+                            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-4">
+                                <Sparkles className="w-4 h-4 text-primary" />
+                                <span className="text-sm font-medium text-primary">{badge}</span>
+                            </div>
+                        )}
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">{title}</h2>
+                        {subtitle && <div className="text-muted-foreground text-base md:text-lg">{subtitle}</div>}
+                    </div>
+                    {link && (
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="hidden sm:inline-flex group rounded-full px-6 border-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                            asChild
+                        >
+                            <Link href={link}>
+                                {linkText || "View All"}
+                                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                            </Link>
+                        </Button>
+                    )}
+                </div>
+
+                {/* Carousel */}
+                <Carousel
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    className="w-full"
+                >
+                    <CarouselContent className="-ml-4 md:-ml-6">
+                        {items.map((item, index) => (
+                            <CarouselItem
+                                key={item.id}
+                                className="pl-4 md:pl-6 basis-[85%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                                style={{ animationDelay: `${index * 50}ms` }}
+                            >
+                                <div className="h-full">
+                                    <ListingCard {...item} />
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <div className="hidden md:block">
+                        <CarouselPrevious className="-left-5 w-12 h-12 bg-white shadow-modern-lg border-0 hover:bg-primary hover:text-white transition-all duration-300" />
+                        <CarouselNext className="-right-5 w-12 h-12 bg-white shadow-modern-lg border-0 hover:bg-primary hover:text-white transition-all duration-300" />
+                    </div>
+                </Carousel>
+
+                {/* Mobile CTA */}
+                {link && (
+                    <div className="mt-10 sm:hidden text-center">
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="w-full group rounded-full border-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                            asChild
+                        >
+                            <Link href={link}>
+                                {linkText || "View All"}
+                                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                            </Link>
+                        </Button>
+                    </div>
+                )}
+            </div>
+        </section>
+    )
+}

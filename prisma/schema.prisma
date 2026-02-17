@@ -1,0 +1,183 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(USER)
+  
+  listings      Listing[]
+  accounts      Account[]
+  sessions      Session[]
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+enum UserRole {
+  USER
+  BUSINESS_OWNER
+  ADMIN
+}
+
+model Listing {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  
+  cuisine     String?
+  price       String?  // $, $$, $$$, $$$$
+  address     String?
+  phone       String?
+  website     String?
+  
+  rating      Float    @default(0)
+  reviewCount Int      @default(0)
+  
+  // Media
+  image       String?  // Main hero image
+  gallery     String[] // Additional images
+  
+  // Metadata
+  features    String[] // ["Patio", "Happy Hour"]
+  hours       Json?    // Structured hours
+  
+  // Status
+  isOpen      Boolean  @default(true)
+  isPremium   Boolean  @default(false)
+  isFeatured  Boolean  @default(false)
+  
+  // Relations
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+
+  owner       User?     @relation(fields: [userId], references: [id])
+  userId      String?
+
+  // Ads/Monetization
+  activeDeals Deal[]
+  adPlacements AdPlacement[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
+  listings Listing[]
+}
+
+model Deal {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  couponCode  String?
+  startDate   DateTime?
+  endDate     DateTime?
+  
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  listingId   String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// NextAuth Models (if needed, good practice to include)
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model AdPlacement {
+  id          String   @id @default(cuid())
+  type        String   // "HOMEPAGE_HERO", "CATEGORY_TOP"
+
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  listingId   String
+
+  startDate   DateTime
+  endDate     DateTime
+  isActive    Boolean  @default(true)
+
+  impressions Int      @default(0)
+  clicks      Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Claim {
+  id            String      @id @default(cuid())
+
+  // Claimant Info
+  name          String
+  email         String
+  phone         String?
+  role          String      // "Owner", "Manager", "Marketing"
+
+  // Verification
+  verificationMethod String  // "phone_call", "email", "document"
+  verificationNotes  String?
+
+  // Status
+  status        ClaimStatus @default(PENDING)
+  reviewedBy    String?     // Admin user ID
+  reviewedAt    DateTime?
+  rejectionReason String?
+
+  // Relations
+  listingId     String
+  userId        String?     // Clerk user ID if authenticated
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+enum ClaimStatus {
+  PENDING
+  REVIEWING
+  APPROVED
+  REJECTED
+}
