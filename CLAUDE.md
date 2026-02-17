@@ -178,6 +178,7 @@ Deployed on Vercel. Domain: dinecastlerock.co.
 - **Initial build:** 66-business dining directory with Apple/Tesla design, Embla carousel, comprehensive API
 - **Session 29:** Added to Epic AI portfolio, CLAUDE.md created, audit completed
 - **Session 30:** Added skip-to-content accessibility link + `id="main-content"` to layout.tsx
+- **Session 31:** Legal date updates (privacy + terms: January 2025 → February 2026). Package version bump (0.1.0 → 1.0.0).
 
 ---
-*Last updated: Session 30 (February 2026)*
+*Last updated: Session 31 (February 2026)*
