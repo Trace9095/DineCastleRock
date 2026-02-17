@@ -130,6 +130,23 @@ Dine Castle Rock is part of a three-site local directory network for Castle Rock
 
 All three sites share cross-site navigation via `NetworkHeader` and `NetworkFooter` components.
 
+## Codebase Stats
+
+| Metric | Count |
+|:-------|------:|
+| Total Lines of Code | 14,978 |
+| TypeScript/TSX | 14,540 lines (96 files) |
+| JavaScript | 140 lines (1 file) |
+| CSS | 298 lines (1 file) |
+| Total Source Files | 98 |
+| Businesses | 66 |
+| Categories | 17 |
+| API Routes | 7 |
+
+*Stats as of February 2026. Part of the Epic AI portfolio (314,873 total lines across 11 projects).*
+
+---
+
 ## License
 
 Private. All rights reserved. Built by [Epic AI](https://epicai.org).
