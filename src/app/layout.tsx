@@ -133,7 +133,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <NetworkHeader />
-        <main id="main-content" className="flex-1 w-full">
+        <main id="main-content" className="flex-1 w-full pt-16 lg:pt-20">
           {children}
         </main>
         <NetworkFooter />

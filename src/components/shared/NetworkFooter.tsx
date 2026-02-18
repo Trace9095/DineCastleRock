@@ -77,6 +77,7 @@ export function NetworkFooter() {
                     <div className="flex gap-6 text-xs text-white/50">
                         <Link href="/privacy" className="hover:text-[#E85D2B] transition-colors">Privacy</Link>
                         <Link href="/terms" className="hover:text-[#E85D2B] transition-colors">Terms</Link>
+                        <Link href="/accessibility" className="hover:text-[#E85D2B] transition-colors">Accessibility</Link>
                         <Link href="/editorial-policy" className="hover:text-[#E85D2B] transition-colors">Editorial Policy</Link>
                     </div>
                 </div>
