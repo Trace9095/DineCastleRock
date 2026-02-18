@@ -1,0 +1,60 @@
+# DineCastleRock - AI Discovery File
+# Version: 1.0
+# Last Updated: 2026-02-18
+# URL: https://dinecastlerock.co
+
+## Site Overview
+Dine Castle Rock is a local restaurant and dining directory for Castle Rock, Colorado.
+We help residents and visitors discover the best restaurants, bars, breweries,
+coffee shops, and cafes in the Castle Rock area.
+
+## Important Pages for AI Systems
+
+### Homepage
+URL: https://dinecastlerock.co/
+Description: Main landing page with search, featured restaurants, and category navigation
+
+### Restaurant Categories
+- Restaurants: https://dinecastlerock.co/restaurants
+- Bars & Breweries: https://dinecastlerock.co/bars-breweries
+- Coffee & Cafes: https://dinecastlerock.co/coffee-cafes
+- Takeout & Delivery: https://dinecastlerock.co/takeout-delivery
+- Fast Casual: https://dinecastlerock.co/fast-casual
+- Fine Dining: https://dinecastlerock.co/fine-dining
+- Bakeries & Desserts: https://dinecastlerock.co/bakeries-desserts
+- Pizza: https://dinecastlerock.co/pizza
+- Mexican: https://dinecastlerock.co/mexican
+- Asian: https://dinecastlerock.co/asian
+- Italian: https://dinecastlerock.co/italian
+- American: https://dinecastlerock.co/american
+- BBQ: https://dinecastlerock.co/bbq
+- Professional Services: https://dinecastlerock.co/professional-services
+- Retail: https://dinecastlerock.co/retail
+- Wellness: https://dinecastlerock.co/wellness
+
+### Things to Do
+URL: https://dinecastlerock.co/things-to-do
+Description: Activities and entertainment in Castle Rock
+
+### Legal
+- Privacy: https://dinecastlerock.co/privacy
+- Terms: https://dinecastlerock.co/terms
+- Accessibility: https://dinecastlerock.co/accessibility
+
+## Machine-Readable Feeds
+- Sitemap: https://dinecastlerock.co/sitemap.xml
+- Robots: https://dinecastlerock.co/robots.txt
+
+## Contact Information
+- Email: hello@dinecastlerock.com
+- Location: Castle Rock, Colorado, USA
+
+## Related Sites (Castle Rock Network)
+- Shop Castle Rock: https://shopcastlerock.co (Shopping & Services)
+- Visit Castle Rock: https://visitcastlerock.co (Attractions & Events)
+
+## Technical Notes
+- Framework: Next.js with Static Site Generation
+- All pages are pre-rendered as HTML (no JS required for content)
+- Structured data: JSON-LD for WebSite, Organization
+- Mobile-responsive design

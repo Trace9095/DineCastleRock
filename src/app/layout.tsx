@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import Script from "next/script";
 import "./globals.css";
 import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
-import { Analytics } from "@vercel/analytics/next";
+import { ConsentAwareAnalytics } from "@/components/shared/consent-aware-analytics";
+import { CookieConsentBanner } from "@/components/shared/cookie-consent-banner";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co';
 
@@ -136,8 +136,8 @@ export default function RootLayout({
           {children}
         </main>
         <NetworkFooter />
-        <Analytics />
-        <Script src="/analytics.js" strategy="afterInteractive" />
+        <ConsentAwareAnalytics />
+        <CookieConsentBanner />
       </body>
     </html>
   );
