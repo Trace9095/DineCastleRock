@@ -158,7 +158,7 @@ export default function ThingsToDoPage() {
             {edgeZiplines && (
                 <section className="py-12 px-4">
                     <div className="container max-w-6xl mx-auto">
-                        <Card className="overflow-hidden border-primary/20 bg-gradient-to-r from-orange-50/50 to-amber-50/50 dark:from-orange-950/20 dark:to-amber-950/20">
+                        <Card className="overflow-hidden border-[#E85D2B]/20 bg-gradient-to-r from-[#E85D2B]/10 to-amber-500/10">
                             <div className="flex flex-col lg:flex-row">
                                 <div className="relative w-full lg:w-2/5 h-64 lg:h-auto">
                                     <Image
@@ -175,7 +175,7 @@ export default function ThingsToDoPage() {
                                     </div>
                                 </div>
                                 <div className="p-6 lg:p-8 flex flex-col justify-center lg:w-3/5">
-                                    <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-2">Must-Try Experience</p>
+                                    <p className="text-sm text-[#E85D2B] font-medium mb-2">Must-Try Experience</p>
                                     <h3 className="text-2xl lg:text-3xl font-bold mb-3">{edgeZiplines.name}</h3>
                                     <p className="text-muted-foreground mb-4 line-clamp-3">
                                         {edgeZiplines.description}
@@ -188,7 +188,7 @@ export default function ThingsToDoPage() {
                                         </div>
                                         <span className="text-sm text-muted-foreground">{edgeZiplines.price}</span>
                                         {edgeZiplines.deals.length > 0 && (
-                                            <span className="text-sm text-green-600 dark:text-green-400 font-medium">
+                                            <span className="text-sm text-emerald-400 font-medium">
                                                 {edgeZiplines.deals[0].title}
                                             </span>
                                         )}
@@ -223,7 +223,7 @@ export default function ThingsToDoPage() {
 
             {/* Activities & Adventures Section */}
             {activitiesListings.length > 0 && (
-                <section className="py-16 px-4 bg-muted/30">
+                <section className="py-16 px-4 bg-white/[0.02]">
                     <div className="container max-w-6xl mx-auto">
                         <div className="flex items-center justify-between mb-8">
                             <div>
@@ -356,7 +356,7 @@ export default function ThingsToDoPage() {
 
             {/* Wellness Section */}
             {wellnessListings.length > 0 && (
-                <section className="py-16 px-4 bg-muted/30">
+                <section className="py-16 px-4 bg-white/[0.02]">
                     <div className="container max-w-6xl mx-auto">
                         <div className="flex items-center justify-between mb-8">
                             <div>
@@ -432,7 +432,7 @@ export default function ThingsToDoPage() {
             </section>
 
             {/* Editorial Guides Section */}
-            <section className="py-16 px-4 bg-muted/30">
+            <section className="py-16 px-4 bg-white/[0.02]">
                 <div className="container max-w-6xl mx-auto">
                     <div className="flex items-center justify-between mb-10">
                         <div>
@@ -480,7 +480,7 @@ export default function ThingsToDoPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 px-4 bg-gradient-to-r from-primary/10 to-primary/5">
+            <section className="py-16 px-4 bg-gradient-to-br from-[#E85D2B]/10 via-[#0a0a14] to-[#E85D2B]/5 border-t border-white/5">
                 <div className="container max-w-4xl mx-auto text-center">
                     <h2 className="text-2xl font-bold mb-4">Have a Business in Castle Rock?</h2>
                     <p className="text-muted-foreground mb-6">

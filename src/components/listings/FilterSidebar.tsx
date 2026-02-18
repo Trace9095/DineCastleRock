@@ -80,7 +80,7 @@ export function FilterSidebar() {
             {/* Premium Toggle */}
             <div
                 className={`relative group overflow-hidden rounded-xl border p-4 transition-all hover:shadow-md cursor-pointer ${
-                    currentPremium ? 'bg-gradient-to-br from-amber-50 to-purple-50 border-amber-200' : 'bg-gradient-to-br from-background to-muted/30'
+                    currentPremium ? 'bg-gradient-to-br from-[#E85D2B]/10 to-amber-500/10 border-[#E85D2B]/30' : 'bg-white/5 border-white/10'
                 }`}
                 onClick={() => toggleBooleanFilter('premium', currentPremium)}
             >
@@ -92,7 +92,7 @@ export function FilterSidebar() {
                         <p className="text-xs text-muted-foreground">Show featured locations</p>
                     </div>
                     <div className={`w-11 h-6 rounded-full transition-colors ${
-                        currentPremium ? 'bg-gradient-to-r from-amber-500 to-purple-600' : 'bg-muted'
+                        currentPremium ? 'bg-gradient-to-r from-[#E85D2B] to-amber-500' : 'bg-white/10'
                     }`}>
                         <div className={`w-5 h-5 bg-white rounded-full shadow-sm transition-transform mt-0.5 ${
                             currentPremium ? 'translate-x-5 ml-0.5' : 'translate-x-0.5'

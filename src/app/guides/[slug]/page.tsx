@@ -142,7 +142,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 {/* Listings Grid */}
                 <div className="my-12 grid gap-8">
                     {listings.map((listing, index) => (
-                        <div key={listing.id} className="border rounded-xl p-4 md:p-6 bg-muted/20">
+                        <div key={listing.id} className="border border-white/5 rounded-xl p-4 md:p-6 bg-white/5">
                             <div className="mb-4">
                                 <div className="flex items-center gap-2 mb-1">
                                     <span className="text-sm font-medium text-muted-foreground">#{index + 1}</span>
@@ -171,7 +171,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 </div>
 
                 {/* FAQ Section */}
-                <div className="mt-12 border-t pt-8">
+                <div className="mt-12 border-t border-white/10 pt-8">
                     <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
                     <div className="space-y-6">
                         {slug === 'happy-hour' && (

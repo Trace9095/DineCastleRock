@@ -52,9 +52,9 @@ export function ListingCard({
 
                     {/* Rating Badge - Glass effect */}
                     <div className="absolute top-3 right-3 z-10">
-                        <div className="flex items-center gap-1.5 bg-white/95 backdrop-blur-md rounded-full px-3 py-1.5 shadow-lg">
+                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md rounded-full px-3 py-1.5 shadow-lg border border-white/10">
                             <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                            <span className="text-sm font-bold text-stone-900">{rating.toFixed(1)}</span>
+                            <span className="text-sm font-bold text-white">{rating.toFixed(1)}</span>
                         </div>
                     </div>
 

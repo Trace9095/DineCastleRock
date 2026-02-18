@@ -54,8 +54,8 @@ export function ReviewForm({ listingName, listingSlug }: ReviewFormProps) {
     if (formState === "success") {
         return (
             <div className="text-center py-8 space-y-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle className="h-8 w-8 text-green-600" />
+                <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto">
+                    <CheckCircle className="h-8 w-8 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-semibold">Thank You!</h3>
                 <p className="text-muted-foreground">
@@ -94,7 +94,7 @@ export function ReviewForm({ listingName, listingSlug }: ReviewFormProps) {
                                 className={`h-8 w-8 ${
                                     star <= (hoveredRating || rating)
                                         ? "fill-amber-400 text-amber-400"
-                                        : "text-zinc-300"
+                                        : "text-white/20"
                                 }`}
                             />
                         </button>

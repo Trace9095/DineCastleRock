@@ -225,7 +225,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                         <Badge className="bg-primary text-primary-foreground">Featured</Badge>
                                     )}
                                     {isOpenNow(listing.hours) && (
-                                        <Badge variant="secondary" className="bg-emerald-100 text-emerald-700 border-emerald-200">Open Now</Badge>
+                                        <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20">Open Now</Badge>
                                     )}
                                     {listing.cuisine && (
                                         <Badge variant="outline" className="border-primary/30 text-primary">{listing.cuisine}</Badge>
@@ -238,10 +238,10 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                             </div>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{listing.name}</h1>
                             <div className="flex items-center gap-3 flex-wrap">
-                                <div className="flex items-center gap-1.5 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
+                                <div className="flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1">
                                     <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                                    <span className="font-bold text-amber-900">{listing.rating.toFixed(1)}</span>
-                                    <span className="text-amber-700/80 text-sm">({listing.reviewCount})</span>
+                                    <span className="font-bold text-amber-400">{listing.rating.toFixed(1)}</span>
+                                    <span className="text-amber-400/70 text-sm">({listing.reviewCount})</span>
                                 </div>
                                 {listing.price && (
                                     <span className="font-medium text-muted-foreground">{listing.price}</span>
@@ -275,19 +275,19 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
                         {/* Active Deals */}
                         {listing.deals.length > 0 && (
-                            <div className="bg-green-50 border border-green-200 rounded-xl p-4 space-y-3">
-                                <h3 className="font-semibold text-green-800 flex items-center gap-2">
+                            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 space-y-3">
+                                <h3 className="font-semibold text-emerald-400 flex items-center gap-2">
                                     <Star className="h-4 w-4" />
                                     Current Deals
                                 </h3>
                                 <div className="space-y-2">
                                     {listing.deals.map((deal) => (
-                                        <div key={deal.id} className="bg-white rounded-lg p-3 shadow-sm">
-                                            <p className="font-medium text-green-700">{deal.title}</p>
+                                        <div key={deal.id} className="bg-white/5 rounded-lg p-3">
+                                            <p className="font-medium text-emerald-300">{deal.title}</p>
                                             <p className="text-sm text-muted-foreground">{deal.description}</p>
                                             {deal.couponCode && (
                                                 <p className="text-sm mt-1">
-                                                    Code: <span className="font-mono bg-green-100 px-2 py-0.5 rounded">{deal.couponCode}</span>
+                                                    Code: <span className="font-mono bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">{deal.couponCode}</span>
                                                 </p>
                                             )}
                                         </div>
@@ -327,7 +327,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                             </TabsContent>
 
                             <TabsContent value="menu" className="pt-6">
-                                <div className="p-8 border rounded-lg text-center bg-muted/20">
+                                <div className="p-8 border rounded-lg text-center bg-white/5">
                                     {hasValidWebsite ? (
                                         <>
                                             <p className="mb-4">View the menu on their website</p>
@@ -354,7 +354,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                         ))}
                                     </div>
                                 ) : (
-                                    <div className="p-8 border rounded-lg text-center bg-muted/20">
+                                    <div className="p-8 border rounded-lg text-center bg-white/5">
                                         <p className="text-muted-foreground">No photos available yet</p>
                                     </div>
                                 )}
@@ -362,7 +362,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
 
                             <TabsContent value="reviews" className="pt-6 space-y-8">
                                 {/* Rating Summary */}
-                                <div className="p-6 border rounded-lg bg-muted/20">
+                                <div className="p-6 border rounded-lg bg-white/5">
                                     <div className="flex items-center justify-center gap-4">
                                         <div className="text-center">
                                             <div className="text-4xl font-bold">{listing.rating.toFixed(1)}</div>
@@ -484,7 +484,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                         )}
 
                         {/* Data transparency */}
-                        <div className="p-4 border border-border/50 rounded-xl bg-muted/30 text-sm space-y-2">
+                        <div className="p-4 border border-white/5 rounded-xl bg-white/5 text-sm space-y-2">
                             <div className="flex items-center gap-2 text-muted-foreground">
                                 <Calendar className="h-4 w-4" />
                                 <span>Updated {listing.updatedAt.toLocaleDateString()}</span>
@@ -498,9 +498,9 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                             </a>
                         </div>
 
-                        <div className="p-6 rounded-2xl bg-gradient-to-br from-stone-900 to-stone-800 text-white shadow-lg text-center space-y-3">
+                        <div className="p-6 rounded-2xl bg-gradient-to-br from-[#E85D2B]/20 to-[#E85D2B]/10 border border-[#E85D2B]/20 text-white text-center space-y-3">
                             <h3 className="font-bold text-lg">Own this business?</h3>
-                            <p className="text-sm text-stone-300">Claim this listing to manage details, add photos, and post deals.</p>
+                            <p className="text-sm text-white/60">Claim this listing to manage details, add photos, and post deals.</p>
                             <Button variant="secondary" className="w-full font-semibold" asChild>
                                 <Link href={`/listing/${slug}/claim`}>
                                     Claim Listing

@@ -48,7 +48,7 @@ export default function GuidesIndex() {
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute top-2 left-2">
-                                <Badge variant="secondary" className="bg-white/90 backdrop-blur-sm text-black">Guide</Badge>
+                                <Badge variant="secondary" className="bg-white/10 backdrop-blur-sm text-white border border-white/10">Guide</Badge>
                             </div>
                         </div>
                         <h2 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{guide.title}</h2>

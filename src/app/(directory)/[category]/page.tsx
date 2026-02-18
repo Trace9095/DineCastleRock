@@ -243,7 +243,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                         </div>
 
                         {paginatedListings.length === 0 ? (
-                            <div className="text-center py-16 border rounded-lg bg-muted/10">
+                            <div className="text-center py-16 border border-white/5 rounded-lg bg-white/5">
                                 <p className="text-lg font-medium mb-2">No listings found</p>
                                 <p className="text-muted-foreground mb-4">
                                     {searchQuery ? `No results for "${searchQuery}"` : 'Try adjusting your filters'}

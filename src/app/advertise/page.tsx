@@ -8,21 +8,21 @@ export default function AdvertisePage() {
     return (
         <div className="min-h-screen bg-background">
             {/* Hero Section */}
-            <div className="bg-zinc-900 text-white py-20">
+            <div className="bg-gradient-to-br from-[#0a0a14] via-[#12121a] to-[#E85D2B]/10 text-white py-20">
                 <div className="container max-w-4xl mx-auto px-4 text-center">
-                    <Badge className="mb-4 bg-white/10 text-white hover:bg-white/20">Partner With Us</Badge>
+                    <Badge className="mb-4 bg-white/10 text-white hover:bg-white/20 border-white/10">Partner With Us</Badge>
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                         Reach Castle Rock Diners
                     </h1>
-                    <p className="text-lg text-zinc-300 max-w-2xl mx-auto mb-8">
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto mb-8">
                         Connect with locals and visitors actively searching for dining experiences.
                         Promote your restaurant, bar, or café to our engaged community.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100" asChild>
+                        <Button size="lg" className="bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90" asChild>
                             <a href="mailto:advertise@dinecastlerock.com">Get Started</a>
                         </Button>
-                        <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                        <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
                             <a href="mailto:advertise@dinecastlerock.com?subject=Media%20Kit%20Request">
                                 Request Media Kit
                             </a>
@@ -32,7 +32,7 @@ export default function AdvertisePage() {
             </div>
 
             {/* Stats Section */}
-            <div className="border-b">
+            <div className="border-b border-white/5">
                 <div className="container max-w-5xl mx-auto px-4 py-12">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div>
@@ -67,8 +67,8 @@ export default function AdvertisePage() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Featured Listing */}
                     <div className="border rounded-xl p-6 space-y-4">
-                        <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
-                            <Star className="h-6 w-6 text-amber-600" />
+                        <div className="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center">
+                            <Star className="h-6 w-6 text-amber-400" />
                         </div>
                         <h3 className="text-xl font-semibold">Featured Listing</h3>
                         <p className="text-muted-foreground text-sm">
@@ -95,8 +95,8 @@ export default function AdvertisePage() {
                     {/* Sponsored Content */}
                     <div className="border rounded-xl p-6 space-y-4 relative">
                         <Badge className="absolute -top-3 right-4">Most Popular</Badge>
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <Megaphone className="h-6 w-6 text-blue-600" />
+                        <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                            <Megaphone className="h-6 w-6 text-blue-400" />
                         </div>
                         <h3 className="text-xl font-semibold">Sponsored Placement</h3>
                         <p className="text-muted-foreground text-sm">
@@ -122,8 +122,8 @@ export default function AdvertisePage() {
 
                     {/* Deal Promotion */}
                     <div className="border rounded-xl p-6 space-y-4">
-                        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                            <TrendingUp className="h-6 w-6 text-green-600" />
+                        <div className="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                            <TrendingUp className="h-6 w-6 text-emerald-400" />
                         </div>
                         <h3 className="text-xl font-semibold">Deal Spotlight</h3>
                         <p className="text-muted-foreground text-sm">
@@ -190,7 +190,7 @@ export default function AdvertisePage() {
                         </div>
                     </div>
 
-                    <div className="bg-muted/30 rounded-xl p-8 space-y-6">
+                    <div className="bg-white/5 rounded-xl p-8 space-y-6 border border-white/5">
                         <h3 className="text-xl font-semibold">Ready to Get Started?</h3>
                         <p className="text-muted-foreground">
                             Contact us for a customized advertising package. We will work with your budget
@@ -214,19 +214,19 @@ export default function AdvertisePage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-zinc-900 text-white py-16">
+            <div className="bg-gradient-to-br from-[#E85D2B]/15 via-[#0a0a14] to-[#E85D2B]/10 border-t border-white/5 text-white py-16">
                 <div className="container max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4">
                         Not Ready to Advertise Yet?
                     </h2>
-                    <p className="text-zinc-300 mb-8">
+                    <p className="text-white/60 mb-8">
                         Make sure your business is listed first. Basic listings are always free.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
                             <Link href="/add-listing">Add Your Listing</Link>
                         </Button>
-                        <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100" asChild>
+                        <Button size="lg" className="bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90" asChild>
                             <Link href="/restaurants">Browse Directory</Link>
                         </Button>
                     </div>

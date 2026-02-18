@@ -70,30 +70,30 @@ export default function ClaimPage({ params }: { params: Promise<{ slug: string }
     if (isSuccess) {
         return (
             <div className="container max-w-lg mx-auto py-12 px-4">
-                <Card className="border-green-200 bg-green-50">
+                <Card className="border-emerald-500/20 bg-emerald-500/10">
                     <CardHeader className="text-center">
-                        <div className="mx-auto mb-4 bg-green-100 p-4 rounded-full w-fit">
-                            <CheckCircle className="h-10 w-10 text-green-600" />
+                        <div className="mx-auto mb-4 bg-emerald-500/10 p-4 rounded-full w-fit">
+                            <CheckCircle className="h-10 w-10 text-emerald-400" />
                         </div>
-                        <CardTitle className="text-green-800 text-2xl">Claim Request Submitted!</CardTitle>
-                        <CardDescription className="text-green-700 text-base mt-2">
+                        <CardTitle className="text-emerald-400 text-2xl">Claim Request Submitted!</CardTitle>
+                        <CardDescription className="text-emerald-300/80 text-base mt-2">
                             We&apos;ve received your request to claim <strong>{listingName}</strong>.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <div className="bg-white/50 rounded-lg p-4 space-y-3">
-                            <h4 className="font-semibold text-green-800">What happens next?</h4>
-                            <ul className="space-y-2 text-sm text-green-700">
+                        <div className="bg-white/5 rounded-lg p-4 space-y-3">
+                            <h4 className="font-semibold text-emerald-400">What happens next?</h4>
+                            <ul className="space-y-2 text-sm text-emerald-300/80">
                                 <li className="flex items-start gap-2">
-                                    <span className="bg-green-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">1</span>
+                                    <span className="bg-emerald-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">1</span>
                                     <span>You&apos;ll receive a confirmation email shortly</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="bg-green-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">2</span>
+                                    <span className="bg-emerald-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">2</span>
                                     <span>Our team will verify your ownership within 24-48 hours</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="bg-green-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">3</span>
+                                    <span className="bg-emerald-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shrink-0 mt-0.5">3</span>
                                     <span>Once approved, you&apos;ll get full access to manage your listing</span>
                                 </li>
                             </ul>
@@ -216,8 +216,8 @@ export default function ClaimPage({ params }: { params: Promise<{ slug: string }
                                         key={method.value}
                                         className={`flex items-start gap-3 p-4 border rounded-lg cursor-pointer transition-colors ${
                                             formData.verificationMethod === method.value
-                                                ? 'border-primary bg-primary/5'
-                                                : 'border-border hover:border-primary/50'
+                                                ? 'border-[#E85D2B] bg-[#E85D2B]/10'
+                                                : 'border-white/10 hover:border-[#E85D2B]/50'
                                         }`}
                                     >
                                         <input
@@ -238,7 +238,7 @@ export default function ClaimPage({ params }: { params: Promise<{ slug: string }
                         </div>
 
                         {/* Terms Notice */}
-                        <div className="bg-muted/50 p-4 rounded-lg text-sm text-muted-foreground">
+                        <div className="bg-white/5 p-4 rounded-lg text-sm text-white/50 border border-white/5">
                             <p>
                                 By submitting this claim, you confirm that you have the authority to represent
                                 this business and agree to our{' '}

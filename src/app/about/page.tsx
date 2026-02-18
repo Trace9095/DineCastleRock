@@ -17,12 +17,12 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-background">
             {/* Hero Section */}
-            <div className="bg-zinc-900 text-white py-20">
+            <div className="bg-gradient-to-br from-[#0a0a14] via-[#12121a] to-[#E85D2B]/10 text-white py-20">
                 <div className="container max-w-4xl mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                         About Dine Castle Rock
                     </h1>
-                    <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
                         Your local guide to the best restaurants, bars, breweries, and cafés in Castle Rock, Colorado.
                     </p>
                 </div>
@@ -45,24 +45,30 @@ export default function AboutPage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6 py-8">
-                        <div className="text-center p-6 border rounded-xl">
-                            <MapPin className="h-8 w-8 mx-auto mb-3 text-primary" />
+                        <div className="text-center p-6 bg-[#12121a] border border-white/5 rounded-xl">
+                            <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-[#E85D2B]/10 flex items-center justify-center">
+                                <MapPin className="h-6 w-6 text-[#E85D2B]" />
+                            </div>
                             <h3 className="font-semibold mb-2">100% Local</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-white/50">
                                 Focused exclusively on Castle Rock and surrounding areas.
                             </p>
                         </div>
-                        <div className="text-center p-6 border rounded-xl">
-                            <Heart className="h-8 w-8 mx-auto mb-3 text-primary" />
+                        <div className="text-center p-6 bg-[#12121a] border border-white/5 rounded-xl">
+                            <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-rose-500/10 flex items-center justify-center">
+                                <Heart className="h-6 w-6 text-rose-400" />
+                            </div>
                             <h3 className="font-semibold mb-2">Community First</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-white/50">
                                 Supporting local businesses and helping them thrive.
                             </p>
                         </div>
-                        <div className="text-center p-6 border rounded-xl">
-                            <Star className="h-8 w-8 mx-auto mb-3 text-primary" />
+                        <div className="text-center p-6 bg-[#12121a] border border-white/5 rounded-xl">
+                            <div className="w-12 h-12 mx-auto mb-3 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                                <Star className="h-6 w-6 text-amber-400" />
+                            </div>
                             <h3 className="font-semibold mb-2">Quality Focused</h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-white/50">
                                 Curated listings with real information you can trust.
                             </p>
                         </div>
@@ -77,9 +83,9 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold mb-8">How We Rank & Feature Listings</h2>
 
                 <div className="space-y-6">
-                    <div className="bg-muted/30 rounded-xl p-6">
+                    <div className="bg-white/5 rounded-xl p-6 border border-white/5">
                         <div className="flex gap-4">
-                            <TrendingUp className="h-6 w-6 text-primary shrink-0 mt-1" />
+                            <TrendingUp className="h-6 w-6 text-[#E85D2B] shrink-0 mt-1" />
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Trending Listings</h3>
                                 <p className="text-muted-foreground">
@@ -91,9 +97,9 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <div className="bg-muted/30 rounded-xl p-6">
+                    <div className="bg-white/5 rounded-xl p-6 border border-white/5">
                         <div className="flex gap-4">
-                            <Star className="h-6 w-6 text-amber-500 shrink-0 mt-1" />
+                            <Star className="h-6 w-6 text-amber-400 shrink-0 mt-1" />
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Featured & Premium Listings</h3>
                                 <p className="text-muted-foreground">
@@ -105,9 +111,9 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <div className="bg-muted/30 rounded-xl p-6">
+                    <div className="bg-white/5 rounded-xl p-6 border border-white/5">
                         <div className="flex gap-4">
-                            <Users className="h-6 w-6 text-primary shrink-0 mt-1" />
+                            <Users className="h-6 w-6 text-[#E85D2B] shrink-0 mt-1" />
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Ratings & Reviews</h3>
                                 <p className="text-muted-foreground">
@@ -119,9 +125,9 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    <div className="bg-muted/30 rounded-xl p-6">
+                    <div className="bg-white/5 rounded-xl p-6 border border-white/5">
                         <div className="flex gap-4">
-                            <Shield className="h-6 w-6 text-primary shrink-0 mt-1" />
+                            <Shield className="h-6 w-6 text-[#E85D2B] shrink-0 mt-1" />
                             <div>
                                 <h3 className="font-semibold text-lg mb-2">Editorial Independence</h3>
                                 <p className="text-muted-foreground">
@@ -147,28 +153,28 @@ export default function AboutPage() {
                 <div className="grid md:grid-cols-3 gap-6">
                     <a
                         href="https://visitcastlerock.co"
-                        className="block p-6 border rounded-xl hover:border-primary transition-colors"
+                        className="block p-6 bg-white/5 border border-white/10 rounded-xl hover:border-[#0EA5E9]/30 transition-colors"
                     >
                         <h3 className="font-semibold mb-2">Visit Castle Rock</h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-white/50">
                             Events, attractions, and things to do in Castle Rock.
                         </p>
                     </a>
 
-                    <div className="p-6 border rounded-xl bg-primary/5 border-primary">
+                    <div className="p-6 bg-[#E85D2B]/10 border-2 border-[#E85D2B]/30 rounded-xl">
                         <h3 className="font-semibold mb-2">Dine Castle Rock</h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-white/50">
                             Restaurants, bars, and dining experiences.
                         </p>
-                        <span className="text-xs text-primary font-medium">You are here</span>
+                        <span className="text-xs text-[#E85D2B] font-medium">You are here</span>
                     </div>
 
                     <a
                         href="https://shopcastlerock.co"
-                        className="block p-6 border rounded-xl hover:border-primary transition-colors"
+                        className="block p-6 bg-white/5 border border-white/10 rounded-xl hover:border-[#D4A853]/30 transition-colors"
                     >
                         <h3 className="font-semibold mb-2">Shop Castle Rock</h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-white/50">
                             Local shops, boutiques, and retail in Castle Rock.
                         </p>
                     </a>
@@ -176,25 +182,25 @@ export default function AboutPage() {
             </div>
 
             {/* Contact Section */}
-            <div className="bg-zinc-900 text-white py-16">
+            <div className="bg-gradient-to-br from-[#E85D2B]/15 via-[#0a0a14] to-[#E85D2B]/10 border-y border-white/5 text-white py-16">
                 <div className="container max-w-3xl mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-                    <p className="text-zinc-300 mb-8">
+                    <p className="text-white/60 mb-8">
                         Have questions, feedback, or want to partner with us? We&apos;d love to hear from you.
                     </p>
 
                     <div className="flex items-center justify-center gap-2 mb-8">
-                        <Mail className="h-5 w-5" />
-                        <a href="mailto:hello@dinecastlerock.com" className="hover:underline">
+                        <Mail className="h-5 w-5 text-[#E85D2B]" />
+                        <a href="mailto:hello@dinecastlerock.com" className="hover:underline text-white/80 hover:text-white">
                             hello@dinecastlerock.com
                         </a>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100" asChild>
+                        <Button size="lg" className="bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90" asChild>
                             <Link href="/add-listing">Add Your Business</Link>
                         </Button>
-                        <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                        <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
                             <Link href="/advertise">Advertise With Us</Link>
                         </Button>
                     </div>
@@ -203,7 +209,7 @@ export default function AboutPage() {
 
             {/* Report Issue */}
             <div className="container max-w-4xl mx-auto px-4 py-12">
-                <div className="bg-muted/30 rounded-xl p-6 text-center">
+                <div className="bg-white/5 rounded-xl p-6 text-center border border-white/5">
                     <h3 className="font-semibold mb-2">See something wrong?</h3>
                     <p className="text-sm text-muted-foreground mb-4">
                         If you notice incorrect information on any listing, please let us know.

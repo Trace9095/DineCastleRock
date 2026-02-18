@@ -33,8 +33,8 @@ export default function AddListingPage() {
         return (
             <div className="container max-w-2xl mx-auto px-4 py-16">
                 <div className="text-center space-y-6">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                        <CheckCircle className="h-10 w-10 text-green-600" />
+                    <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto">
+                        <CheckCircle className="h-10 w-10 text-emerald-400" />
                     </div>
                     <h1 className="text-3xl font-bold">Submission Received!</h1>
                     <p className="text-muted-foreground text-lg max-w-md mx-auto">
@@ -53,12 +53,12 @@ export default function AddListingPage() {
     return (
         <div className="min-h-screen bg-background">
             {/* Hero Section */}
-            <div className="bg-zinc-900 text-white py-16">
+            <div className="bg-gradient-to-br from-[#0a0a14] via-[#12121a] to-[#E85D2B]/10 text-white py-16">
                 <div className="container max-w-4xl mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                         Add Your Business
                     </h1>
-                    <p className="text-lg text-zinc-300 max-w-2xl mx-auto">
+                    <p className="text-lg text-white/60 max-w-2xl mx-auto">
                         Join Castle Rock&apos;s premier dining directory. Get discovered by locals and visitors looking for great food and drink.
                     </p>
                 </div>
@@ -122,7 +122,7 @@ export default function AddListingPage() {
 
                         <Separator />
 
-                        <div className="bg-muted/50 rounded-lg p-4">
+                        <div className="bg-white/5 rounded-lg p-4 border border-white/5">
                             <h3 className="font-medium mb-2">Already Listed?</h3>
                             <p className="text-sm text-muted-foreground mb-3">
                                 If your business is already on our site, you can claim and manage it directly.
@@ -135,7 +135,7 @@ export default function AddListingPage() {
 
                     {/* Form */}
                     <div className="lg:col-span-2">
-                        <div className="bg-card border rounded-xl p-6 md:p-8">
+                        <div className="bg-[#12121a] border border-white/5 rounded-xl p-6 md:p-8">
                             <h2 className="text-2xl font-semibold mb-6">Business Information</h2>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
@@ -246,7 +246,7 @@ export default function AddListingPage() {
                                     />
                                 </div>
 
-                                <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
+                                <div className="bg-white/5 rounded-lg p-4 text-sm text-white/50 border border-white/5">
                                     <p>
                                         By submitting, you confirm you are authorized to represent this business.
                                         Our team will verify the submission and may contact you for additional information.

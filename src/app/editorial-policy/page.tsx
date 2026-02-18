@@ -11,7 +11,7 @@ export default function EditorialPolicyPage() {
             <h1 className="text-4xl font-bold tracking-tight mb-8">Editorial Policy</h1>
             <p className="text-muted-foreground mb-8">Last updated: January 2025</p>
 
-            <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
+            <div className="prose prose-lg prose-invert max-w-none space-y-8">
                 <section>
                     <h2>Our Mission</h2>
                     <p>
