@@ -28,19 +28,19 @@ export function FeaturedSection({ title, subtitle, items, link, linkText, badge 
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
                     <div>
                         {badge && (
-                            <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 mb-4">
-                                <Sparkles className="w-4 h-4 text-primary" />
-                                <span className="text-sm font-medium text-primary">{badge}</span>
+                            <div className="inline-flex items-center gap-2 bg-[#E85D2B]/10 border border-[#E85D2B]/20 rounded-full px-4 py-1.5 mb-4">
+                                <Sparkles className="w-4 h-4 text-[#E85D2B]" />
+                                <span className="text-sm font-medium text-[#E85D2B]">{badge}</span>
                             </div>
                         )}
-                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">{title}</h2>
-                        {subtitle && <div className="text-muted-foreground text-base md:text-lg">{subtitle}</div>}
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">{title}</h2>
+                        {subtitle && <div className="text-white/50 text-base md:text-lg">{subtitle}</div>}
                     </div>
                     {link && (
                         <Button
                             variant="outline"
                             size="lg"
-                            className="hidden sm:inline-flex group rounded-full px-6 border-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                            className="hidden sm:inline-flex group rounded-full px-6 border border-white/10 text-white/70 hover:bg-[#E85D2B] hover:text-white hover:border-[#E85D2B] transition-all duration-300"
                             asChild
                         >
                             <Link href={link}>
@@ -73,8 +73,8 @@ export function FeaturedSection({ title, subtitle, items, link, linkText, badge 
                         ))}
                     </CarouselContent>
                     <div className="hidden md:block">
-                        <CarouselPrevious className="-left-5 w-12 h-12 bg-white shadow-modern-lg border-0 hover:bg-primary hover:text-white transition-all duration-300" />
-                        <CarouselNext className="-right-5 w-12 h-12 bg-white shadow-modern-lg border-0 hover:bg-primary hover:text-white transition-all duration-300" />
+                        <CarouselPrevious className="-left-5 w-12 h-12 bg-[#12121a] border border-white/10 text-white hover:bg-[#E85D2B] hover:text-white hover:border-[#E85D2B] transition-all duration-300" />
+                        <CarouselNext className="-right-5 w-12 h-12 bg-[#12121a] border border-white/10 text-white hover:bg-[#E85D2B] hover:text-white hover:border-[#E85D2B] transition-all duration-300" />
                     </div>
                 </Carousel>
 
@@ -84,7 +84,7 @@ export function FeaturedSection({ title, subtitle, items, link, linkText, badge 
                         <Button
                             variant="outline"
                             size="lg"
-                            className="w-full group rounded-full border-2 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                            className="w-full group rounded-full border border-white/10 text-white/70 hover:bg-[#E85D2B] hover:text-white hover:border-[#E85D2B] transition-all duration-300"
                             asChild
                         >
                             <Link href={link}>
