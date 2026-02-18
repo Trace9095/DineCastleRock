@@ -129,7 +129,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
             {/* Content Section */}
             <div className="container max-w-3xl mx-auto px-4 py-12">
-                <div className="prose prose-lg dark:prose-invert max-w-none">
+                <div className="prose prose-lg prose-invert max-w-none">
                     <p className="lead text-xl text-muted-foreground">{guide.intro}</p>
 
                     {guide.content.map((paragraph, i) => (

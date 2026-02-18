@@ -77,15 +77,15 @@ export default function AdvertisePage() {
                         </p>
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Top of category pages
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Featured badge
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Homepage carousel
                             </li>
                         </ul>
@@ -105,15 +105,15 @@ export default function AdvertisePage() {
                         </p>
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Homepage hero placement
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Category page banners
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Click & impression tracking
                             </li>
                         </ul>
@@ -132,15 +132,15 @@ export default function AdvertisePage() {
                         </p>
                         <ul className="space-y-2 text-sm">
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 &ldquo;Has Deals&rdquo; filter visibility
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Deal badge on listing cards
                             </li>
                             <li className="flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                                <CheckCircle className="h-4 w-4 text-emerald-400" />
                                 Deals guide inclusion
                             </li>
                         </ul>

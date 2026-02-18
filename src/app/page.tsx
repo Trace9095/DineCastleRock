@@ -108,7 +108,7 @@ export default function Home() {
                   <div className="flex items-center gap-2 bg-[#E85D2B]/10 border border-[#E85D2B]/20 rounded-full px-4 py-2 backdrop-blur-sm">
                     <Star className="h-5 w-5 fill-[#E85D2B] text-[#E85D2B]" />
                     <span className="font-bold text-white">{sponsoredListing.rating.toFixed(1)}</span>
-                    <span className="text-white/40">({sponsoredListing.reviewCount} reviews)</span>
+                    <span className="text-white/60">({sponsoredListing.reviewCount} reviews)</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 backdrop-blur-sm">
                     <span className="text-white/70">{sponsoredListing.cuisine}</span>
@@ -131,7 +131,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="text-center text-sm text-white/30 mt-8">
+            <p className="text-center text-sm text-white/50 mt-8">
               <Link href="/advertise" className="hover:text-white transition-colors inline-flex items-center gap-2 group">
                 Interested in promoting your business?
                 <span className="text-[#E85D2B] group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">

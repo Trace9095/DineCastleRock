@@ -16,7 +16,7 @@ export function NetworkFooter() {
                                 Dine <span className="text-[#E85D2B]">Castle Rock</span>
                             </span>
                         </Link>
-                        <p className="text-sm text-white/40 leading-relaxed">
+                        <p className="text-sm text-white/60 leading-relaxed">
                             Your guide to the best restaurants, bars, and cafes in Castle Rock, Colorado.
                         </p>
                     </div>
@@ -71,10 +71,10 @@ export function NetworkFooter() {
 
                 {/* Bottom Bar */}
                 <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-white/30">
+                    <p className="text-xs text-white/50">
                         &copy; {new Date().getFullYear()} Castle Rock Network. All rights reserved.
                     </p>
-                    <div className="flex gap-6 text-xs text-white/30">
+                    <div className="flex gap-6 text-xs text-white/50">
                         <Link href="/privacy" className="hover:text-[#E85D2B] transition-colors">Privacy</Link>
                         <Link href="/terms" className="hover:text-[#E85D2B] transition-colors">Terms</Link>
                         <Link href="/editorial-policy" className="hover:text-[#E85D2B] transition-colors">Editorial Policy</Link>

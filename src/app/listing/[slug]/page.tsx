@@ -373,7 +373,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                                         className={`h-4 w-4 ${
                                                             star <= Math.round(listing.rating)
                                                                 ? "fill-amber-400 text-amber-400"
-                                                                : "text-zinc-300"
+                                                                : "text-white/20"
                                                         }`}
                                                     />
                                                 ))}
