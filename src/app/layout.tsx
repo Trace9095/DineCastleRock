@@ -77,6 +77,7 @@ export const metadata: Metadata = {
     title: "Dine Castle Rock",
     statusBarStyle: "black-translucent",
   },
+  manifest: '/site.webmanifest',
   other: {
     'apple-mobile-web-app-title': 'Dine Castle Rock',
   },
