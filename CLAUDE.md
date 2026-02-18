@@ -179,6 +179,7 @@ Deployed on Vercel. Domain: dinecastlerock.co.
 - **Session 29:** Added to Epic AI portfolio, CLAUDE.md created, audit completed
 - **Session 30:** Added skip-to-content accessibility link + `id="main-content"` to layout.tsx
 - **Session 31:** Legal date updates (privacy + terms: January 2025 → February 2026). Package version bump (0.1.0 → 1.0.0).
+- **Session 34:** Gold standard audit (security headers, HSTS, robots, metadata). Fixed critical header overlap (pt-16 lg:pt-20 on main for fixed header). Added accessibility link to footer. Pushed commits e882b4f, 0f89015.
 
 ---
-*Last updated: Session 31 (February 2026)*
+*Last updated: Session 34 (February 2026)*
