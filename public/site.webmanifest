@@ -1,20 +1,15 @@
 {
   "name": "Dine Castle Rock",
   "short_name": "DineCR",
-  "description": "Castle Rock's premier dining guide. Discover restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
+  "description": "Castle Rock's premier dining guide - restaurants, bars, breweries, and cafes",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a14",
-  "theme_color": "#0a0a14",
+  "theme_color": "#E85D2B",
   "icons": [
     {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    },
-    {
       "src": "/favicon.ico",
-      "sizes": "32x32",
+      "sizes": "any",
       "type": "image/x-icon"
     }
   ]
