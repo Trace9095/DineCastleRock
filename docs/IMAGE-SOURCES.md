@@ -291,7 +291,7 @@ Save all images to: `/public/images/listings/`
 
 ---
 
-## Image Status Summary (January 2026)
+## Image Status Summary (February 2026)
 
 ### Already Have Real Images:
 - Castle Cafe (`/images/listings/castle-cafe-hero.jpg`)
