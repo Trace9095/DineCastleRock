@@ -98,7 +98,7 @@ export function CategoryGrid() {
                         >
                             {/* Background Image */}
                             <div className="absolute inset-0">
-                                <Image
+                                <Image quality={90}
                                     src={cat.image}
                                     alt={cat.name}
                                     fill

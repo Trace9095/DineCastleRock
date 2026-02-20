@@ -31,7 +31,7 @@ export function DestinationsSection() {
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
                             {/* Background Image */}
-                            <Image
+                            <Image quality={90}
                                 src={destination.image}
                                 alt={destination.name}
                                 fill

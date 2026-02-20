@@ -161,7 +161,7 @@ export default function ThingsToDoPage() {
                         <Card className="overflow-hidden border-[#E85D2B]/20 bg-gradient-to-r from-[#E85D2B]/10 to-amber-500/10">
                             <div className="flex flex-col lg:flex-row">
                                 <div className="relative w-full lg:w-2/5 h-64 lg:h-auto">
-                                    <Image
+                                    <Image quality={90}
                                         src={edgeZiplines.image || '/images/edge-ziplines-adventures.jpg'}
                                         alt={edgeZiplines.name}
                                         fill
@@ -279,7 +279,7 @@ export default function ThingsToDoPage() {
                             <Card key={destination.id} className="overflow-hidden group">
                                 <div className="flex flex-col md:flex-row">
                                     <div className="relative w-full md:w-48 h-48 md:h-auto shrink-0">
-                                        <Image
+                                        <Image quality={90}
                                             src={destination.image}
                                             alt={destination.name}
                                             fill
@@ -413,7 +413,7 @@ export default function ThingsToDoPage() {
                             >
                                 <div className="w-12 h-12 rounded-full bg-muted mb-3 overflow-hidden">
                                     {category.image && (
-                                        <Image
+                                        <Image quality={90}
                                             src={category.image}
                                             alt={category.name}
                                             width={48}
@@ -455,7 +455,7 @@ export default function ThingsToDoPage() {
                             <Link key={guide.slug} href={`/guides/${guide.slug}`} className="group block">
                                 <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
                                     <div className="relative aspect-video">
-                                        <Image
+                                        <Image quality={90}
                                             src={guide.image}
                                             alt={guide.title}
                                             fill

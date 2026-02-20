@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Utensils, Compass, ShoppingBag } from "lucide-react"
+import { Utensils, Compass, ShoppingBag, Mail } from "lucide-react"
 
 export function NetworkFooter() {
     return (
@@ -19,6 +19,10 @@ export function NetworkFooter() {
                         <p className="text-sm text-white/60 leading-relaxed">
                             Your guide to the best restaurants, bars, and cafes in Castle Rock, Colorado.
                         </p>
+                        <a href="mailto:hello@dinecastlerock.co" className="flex items-center gap-2 text-sm text-white/50 hover:text-[#E85D2B] transition-colors">
+                            <Mail className="h-3.5 w-3.5" />
+                            hello@dinecastlerock.co
+                        </a>
                     </div>
 
                     {/* Explore */}
