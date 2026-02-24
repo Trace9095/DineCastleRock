@@ -51,12 +51,7 @@ export async function POST(request: Request) {
                     },
                 })
 
-                console.log('New claim submitted to database:', {
-                    claimId: claim.id,
-                    listing: listing.name,
-                    claimant: body.name,
-                    email: body.email,
-                })
+                console.log('New claim submitted:', claim.id)
 
                 return NextResponse.json({
                     success: true,
@@ -79,12 +74,7 @@ export async function POST(request: Request) {
 
         inMemoryClaims.push(claim)
 
-        console.log('New claim submitted (in-memory):', {
-            claimId: claim.id,
-            listing: listing.name,
-            claimant: body.name,
-            email: body.email,
-        })
+        console.log('New claim submitted (in-memory):', claim.id)
 
         return NextResponse.json({
             success: true,

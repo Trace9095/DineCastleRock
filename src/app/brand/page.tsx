@@ -5,7 +5,7 @@ import { Utensils, ShoppingBag, Compass, ExternalLink } from "lucide-react";
 export const metadata: Metadata = {
   title: "Brand | Dine Castle Rock",
   description:
-    "Brand guidelines, color palette, and typography for Dine Castle Rock — your guide to the best restaurants, bars, and cafes in Castle Rock, Colorado.",
+    "Brand guidelines, color palette, and typography for Dine Castle Rock — your guide to the best restaurants, bars, breweries, and cafes in Castle Rock, Colorado.",
   openGraph: {
     title: "Brand | Dine Castle Rock",
     description:
@@ -20,6 +20,36 @@ const colors = [
   { name: "Card", hex: "#12121A", className: "bg-[#12121a]", text: "text-white" },
   { name: "Surface", hex: "#1A1A24", className: "bg-[#1a1a24]", text: "text-white" },
   { name: "Foreground", hex: "#F5F5F5", className: "bg-[#f5f5f5]", text: "text-[#0a0a14]" },
+];
+
+const brandGuidelines = [
+  {
+    title: "Voice & Tone",
+    items: [
+      "Warm and welcoming — like a recommendation from a local",
+      "Helpful and direct — get people to the right table fast",
+      "Celebratory of the local food scene, not corporate",
+      "Honest about featured vs. organic placement",
+    ],
+  },
+  {
+    title: "Logo Usage",
+    items: [
+      "Use on dark backgrounds (#0A0A14) whenever possible",
+      "Minimum clear space: equal to the height of the logo mark",
+      "Do not recolor, stretch, or add effects to the logo",
+      "Orange (#E85D2B) is the only approved accent color",
+    ],
+  },
+  {
+    title: "Color Usage",
+    items: [
+      "Orange (#E85D2B) for primary CTAs, links, and accents only",
+      "Never use orange for large background fills — use sparingly",
+      "Dark surfaces (#0A0A14, #12121A) for all primary layouts",
+      "White (#F5F5F5) for body text — never pure #FFFFFF",
+    ],
+  },
 ];
 
 const sisterSites = [
@@ -81,8 +111,8 @@ export default function BrandPage() {
               Color Palette
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              A bold orange accent on dark surfaces. Designed for warmth and appetite
-              appeal that reflects the dining experience.
+              A warm orange accent on dark surfaces. Designed for appetite appeal
+              and premium readability.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {colors.map((c) => (
@@ -96,6 +126,9 @@ export default function BrandPage() {
                 </div>
               ))}
             </div>
+            <p className="text-xs text-muted-foreground/50 mt-6">
+              OKLCH source values: Primary oklch(0.65 0.18 35) &middot; Background oklch(0.08 0.02 265) &middot; Card oklch(0.10 0.02 265)
+            </p>
           </div>
         </div>
       </section>
@@ -149,6 +182,40 @@ export default function BrandPage() {
                   Used for codes, hex values, and technical details
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      {/* Brand Guidelines */}
+      <section className="section">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-sm font-medium text-[#E85D2B] mb-3 uppercase tracking-wider">
+              Usage
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Brand Guidelines
+            </h2>
+            <p className="text-muted-foreground text-lg mb-10">
+              Rules for representing Dine Castle Rock consistently across all contexts.
+            </p>
+            <div className="space-y-6">
+              {brandGuidelines.map((section) => (
+                <div key={section.title} className="glass-card rounded-2xl p-6">
+                  <h3 className="font-semibold text-lg mb-4 text-[#E85D2B]">{section.title}</h3>
+                  <ul className="space-y-2">
+                    {section.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full bg-[#E85D2B] mt-2 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -223,9 +290,13 @@ export default function BrandPage() {
       <section className="py-12">
         <div className="container">
           <p className="text-center text-sm text-muted-foreground/60">
-            For brand inquiries, contact{" "}
+            For brand inquiries, email{" "}
+            <a href="mailto:hello@dinecastlerock.com" className="text-[#E85D2B] hover:underline">
+              hello@dinecastlerock.com
+            </a>
+            {" "}or visit our{" "}
             <Link href="/about" className="text-[#E85D2B] hover:underline">
-              our team
+              about page
             </Link>
             .
           </p>
