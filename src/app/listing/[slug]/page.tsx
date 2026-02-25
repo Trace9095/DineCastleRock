@@ -490,7 +490,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                 <span>Updated {listing.updatedAt.toLocaleDateString()}</span>
                             </div>
                             <a
-                                href={`mailto:hello@dinecastlerock.com?subject=Issue with ${listing.name} listing`}
+                                href={`mailto:hello@dinecastlerock.co?subject=Issue with ${listing.name} listing`}
                                 className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                             >
                                 <AlertCircle className="h-4 w-4" />

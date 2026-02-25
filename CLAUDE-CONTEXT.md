@@ -1,3 +1,5 @@
+> WARNING: DEPRECATED — Superseded by CLAUDE.md in this repo.
+
 # DineCastleRock - Project Context for AI Development
 
 ## Project Overview

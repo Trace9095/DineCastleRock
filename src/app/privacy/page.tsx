@@ -76,7 +76,7 @@ export default function PrivacyPage() {
                         If you have questions about this Privacy Policy or wish to exercise your rights, please contact us at:
                     </p>
                     <p>
-                        Email: <a href="mailto:hello@dinecastlerock.com">hello@dinecastlerock.com</a>
+                        Email: <a href="mailto:hello@dinecastlerock.co">hello@dinecastlerock.co</a>
                     </p>
                 </section>
             </div>

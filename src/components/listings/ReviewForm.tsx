@@ -43,7 +43,7 @@ export function ReviewForm({ listingName, listingSlug }: ReviewFormProps) {
         )
 
         // Open mailto
-        window.location.href = `mailto:reviews@dinecastlerock.com?subject=${subject}&body=${body}`
+        window.location.href = `mailto:reviews@dinecastlerock.co?subject=${subject}&body=${body}`
 
         // Show success after brief delay
         setTimeout(() => {

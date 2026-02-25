@@ -88,7 +88,7 @@ export default function EditorialPolicyPage() {
                 <section>
                     <h2>Corrections and Updates</h2>
                     <p>
-                        We welcome corrections and updates to our listings. If you notice inaccurate information, please contact us at <a href="mailto:hello@dinecastlerock.com">hello@dinecastlerock.com</a> or use the &ldquo;Report an issue&rdquo; link on any listing page.
+                        We welcome corrections and updates to our listings. If you notice inaccurate information, please contact us at <a href="mailto:hello@dinecastlerock.co">hello@dinecastlerock.co</a> or use the &ldquo;Report an issue&rdquo; link on any listing page.
                     </p>
                     <p>
                         Business owners can claim their listings to manage their own information directly.

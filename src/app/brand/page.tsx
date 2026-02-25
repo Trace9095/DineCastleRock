@@ -291,8 +291,8 @@ export default function BrandPage() {
         <div className="container">
           <p className="text-center text-sm text-muted-foreground/60">
             For brand inquiries, email{" "}
-            <a href="mailto:hello@dinecastlerock.com" className="text-[#E85D2B] hover:underline">
-              hello@dinecastlerock.com
+            <a href="mailto:hello@dinecastlerock.co" className="text-[#E85D2B] hover:underline">
+              hello@dinecastlerock.co
             </a>
             {" "}or visit our{" "}
             <Link href="/about" className="text-[#E85D2B] hover:underline">

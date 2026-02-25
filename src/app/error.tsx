@@ -56,7 +56,7 @@ export default function Error({
                 <p className="text-xs text-muted-foreground pt-4">
                     If this problem persists, please{" "}
                     <a
-                        href="mailto:hello@dinecastlerock.com?subject=Error%20Report"
+                        href="mailto:hello@dinecastlerock.co?subject=Error%20Report"
                         className="underline hover:text-foreground transition-colors"
                     >
                         contact us

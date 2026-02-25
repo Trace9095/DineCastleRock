@@ -24,7 +24,7 @@ export async function GET() {
 - Total Listings: ${LISTINGS.length}
 - Categories: ${CATEGORIES.length}
 - Data Updates: Listings updated as businesses submit changes
-- Contact: hello@dinecastlerock.com
+- Contact: hello@dinecastlerock.co
 
 ## Site Purpose
 Dine Castle Rock helps residents and visitors discover dining establishments in Castle Rock, CO.
@@ -139,7 +139,7 @@ Business information is sourced from:
 
 ## Contact
 For API access, data corrections, or partnership inquiries:
-Email: hello@dinecastlerock.com
+Email: hello@dinecastlerock.co
 
 ## Related Sites (Castle Rock Network)
 - Visit Castle Rock: https://visitcastlerock.co - Events and attractions

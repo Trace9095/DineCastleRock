@@ -46,7 +46,7 @@ Description: Activities and entertainment in Castle Rock
 - Robots: https://dinecastlerock.co/robots.txt
 
 ## Contact Information
-- Email: hello@dinecastlerock.com
+- Email: hello@dinecastlerock.co
 - Location: Castle Rock, Colorado, USA
 
 ## Related Sites (Castle Rock Network)

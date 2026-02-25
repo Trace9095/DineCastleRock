@@ -20,10 +20,10 @@ export default function AdvertisePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button size="lg" className="bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90" asChild>
-                            <a href="mailto:advertise@dinecastlerock.com">Get Started</a>
+                            <a href="mailto:advertise@dinecastlerock.co">Get Started</a>
                         </Button>
                         <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
-                            <a href="mailto:advertise@dinecastlerock.com?subject=Media%20Kit%20Request">
+                            <a href="mailto:advertise@dinecastlerock.co?subject=Media%20Kit%20Request">
                                 Request Media Kit
                             </a>
                         </Button>
@@ -199,13 +199,13 @@ export default function AdvertisePage() {
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <Mail className="h-5 w-5 text-muted-foreground" />
-                                <a href="mailto:advertise@dinecastlerock.com" className="hover:underline">
-                                    advertise@dinecastlerock.com
+                                <a href="mailto:advertise@dinecastlerock.co" className="hover:underline">
+                                    advertise@dinecastlerock.co
                                 </a>
                             </div>
                         </div>
                         <Button size="lg" className="w-full" asChild>
-                            <a href="mailto:advertise@dinecastlerock.com?subject=Advertising%20Inquiry">
+                            <a href="mailto:advertise@dinecastlerock.co?subject=Advertising%20Inquiry">
                                 Contact Us
                             </a>
                         </Button>

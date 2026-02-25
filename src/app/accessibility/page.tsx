@@ -78,7 +78,7 @@ export default function AccessibilityPage() {
             <div className="bg-muted/50 rounded-lg p-6 space-y-2 border border-border">
               <p className="font-semibold text-foreground">Dine Castle Rock</p>
               <p>
-                Email: <a href="mailto:hello@dinecastlerock.com" className="text-[#E85D2B] hover:underline">hello@dinecastlerock.com</a>
+                Email: <a href="mailto:hello@dinecastlerock.co" className="text-[#E85D2B] hover:underline">hello@dinecastlerock.co</a>
               </p>
               <p>Castle Rock, CO 80104</p>
             </div>

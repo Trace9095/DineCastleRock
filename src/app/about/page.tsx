@@ -191,8 +191,8 @@ export default function AboutPage() {
 
                     <div className="flex items-center justify-center gap-2 mb-8">
                         <Mail className="h-5 w-5 text-[#E85D2B]" />
-                        <a href="mailto:hello@dinecastlerock.com" className="hover:underline text-white/80 hover:text-white">
-                            hello@dinecastlerock.com
+                        <a href="mailto:hello@dinecastlerock.co" className="hover:underline text-white/80 hover:text-white">
+                            hello@dinecastlerock.co
                         </a>
                     </div>
 
@@ -215,7 +215,7 @@ export default function AboutPage() {
                         If you notice incorrect information on any listing, please let us know.
                     </p>
                     <Button variant="outline" size="sm" asChild>
-                        <a href="mailto:hello@dinecastlerock.com?subject=Report%20an%20Issue">
+                        <a href="mailto:hello@dinecastlerock.co?subject=Report%20an%20Issue">
                             Report an Issue
                         </a>
                     </Button>

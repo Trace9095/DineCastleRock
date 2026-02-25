@@ -84,7 +84,7 @@ export default function TermsPage() {
                         For questions about these Terms, please contact us at:
                     </p>
                     <p>
-                        Email: <a href="mailto:hello@dinecastlerock.com">hello@dinecastlerock.com</a>
+                        Email: <a href="mailto:hello@dinecastlerock.co">hello@dinecastlerock.co</a>
                     </p>
                 </section>
             </div>

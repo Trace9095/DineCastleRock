@@ -1,3 +1,5 @@
+> WARNING: DEPRECATED — Superseded by CLAUDE.md in this repo.
+
 # DineCastleRock - Universal LLM Handoff Prompt
 
 Copy everything in **Section A** and paste it into a fresh LLM session.

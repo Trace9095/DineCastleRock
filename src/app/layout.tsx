@@ -83,6 +83,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
+    types: {
+      'text/markdown': '/llms.txt',
+    },
   },
   category: "Food & Drink",
 };
@@ -104,7 +107,7 @@ const websiteSchema = {
       "@id": "https://dinecastlerock.co/#org",
       "name": "Dine Castle Rock",
       "url": "https://dinecastlerock.co/",
-      "email": "hello@dinecastlerock.com",
+      "email": "hello@dinecastlerock.co",
       "sameAs": [
         "https://visitcastlerock.co/",
         "https://shopcastlerock.co/"
