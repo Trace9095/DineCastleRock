@@ -57,7 +57,7 @@ export function FeaturedSection({ title, subtitle, items, link, linkText, badge 
                         align: "start",
                         loop: true,
                     }}
-                    className="w-full"
+                    className="w-full min-h-[340px]"
                 >
                     <CarouselContent className="-ml-4 md:-ml-6">
                         {items.map((item, index) => (

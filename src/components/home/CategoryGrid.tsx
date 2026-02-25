@@ -102,6 +102,7 @@ export function CategoryGrid() {
                                     src={cat.image}
                                     alt={cat.name}
                                     fill
+                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     className="object-cover opacity-0 group-hover:opacity-15 transition-all duration-500 scale-100 group-hover:scale-110"
                                 />
                             </div>

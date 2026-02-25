@@ -66,7 +66,7 @@ export function NetworkFooter() {
                                 <span className="flex items-center gap-2 text-[#E85D2B]">
                                     <Utensils className="h-3.5 w-3.5" />
                                     Dine Castle Rock
-                                    <span className="text-xs text-white/20">(You are here)</span>
+                                    <span className="text-xs text-white/50">(You are here)</span>
                                 </span>
                             </li>
                         </ul>

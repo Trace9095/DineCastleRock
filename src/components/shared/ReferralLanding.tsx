@@ -306,7 +306,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
 
             <Link
               href="/add-listing"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-lg font-bold text-white bg-[#E85D2B] hover:bg-[#d14e1f] transition-colors shadow-lg shadow-[#E85D2B]/20 hover:shadow-[#E85D2B]/30"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-lg font-bold text-white bg-[#C04E20] hover:bg-[#A84118] transition-colors shadow-lg shadow-[#C04E20]/20 hover:shadow-[#C04E20]/30"
             >
               List Your Restaurant
               <ArrowRight className="w-5 h-5" />

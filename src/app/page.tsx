@@ -121,7 +121,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   asChild
-                  className="rounded-full px-10 py-6 font-semibold shadow-lg shadow-[#E85D2B]/20 bg-[#E85D2B] hover:bg-[#E85D2B]/90 transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg text-white"
+                  className="rounded-full px-10 py-6 font-semibold shadow-lg shadow-[#C04E20]/20 bg-[#C04E20] hover:bg-[#A84118] transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg text-white"
                 >
                   <Link href={`/listing/${sponsoredListing.slug}`}>
                     View Details

@@ -197,7 +197,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90" asChild>
+                        <Button size="lg" className="bg-[#C04E20] text-white hover:bg-[#A84118]" asChild>
                             <Link href="/add-listing">Add Your Business</Link>
                         </Button>
                         <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>

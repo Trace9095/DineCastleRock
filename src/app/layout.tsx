@@ -132,7 +132,7 @@ export default function RootLayout({
       <body
         className="font-sans antialiased min-h-screen flex flex-col bg-background text-foreground"
       >
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#E85D2B] focus:text-white focus:underline">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#C04E20] focus:text-white focus:underline">
           Skip to main content
         </a>
         <NetworkHeader />

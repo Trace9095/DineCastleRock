@@ -131,7 +131,7 @@ export function CookieConsentBanner() {
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             onClick={handleAcceptAll}
-            className="flex-1 px-5 py-2.5 bg-[#E85D2B] hover:bg-[#f0845a] text-white font-semibold text-sm rounded-xl transition-colors"
+            className="flex-1 px-5 py-2.5 bg-[#C04E20] hover:bg-[#A84118] text-white font-semibold text-sm rounded-xl transition-colors"
           >
             Accept All
           </button>

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 const QUICK_LINKS = [
     { label: "Restaurants", href: "/restaurants", icon: Utensils },
@@ -30,9 +31,14 @@ export function Hero() {
         <section className="relative min-h-[700px] md:min-h-[800px] flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <div
-                    className="w-full h-full bg-[#0a0a14] bg-[url('/images/hero-main.jpg')] bg-cover bg-center scale-105"
-                    style={{ transform: 'scale(1.05)' }}
+                <Image
+                    src="/images/hero-main.jpg"
+                    alt=""
+                    fill
+                    priority
+                    quality={90}
+                    className="object-cover object-center scale-105"
+                    sizes="100vw"
                 />
                 {/* Multi-layer gradient for depth */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14]/40 via-[#0a0a14]/30 to-[#0a0a14]/90" />
@@ -101,7 +107,7 @@ export function Hero() {
                             <Button
                                 type="submit"
                                 aria-label="Search"
-                                className="rounded-xl px-8 h-12 font-semibold shadow-lg bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#E85D2B]/20"
+                                className="rounded-xl px-8 h-12 font-semibold shadow-lg bg-[#C04E20] text-white hover:bg-[#A84118] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#C04E20]/20"
                             >
                                 <span className="hidden sm:inline">Search</span>
                                 <ChevronRight className="h-5 w-5 sm:hidden" />

@@ -35,6 +35,7 @@ export function DestinationsSection() {
                                 src={destination.image}
                                 alt={destination.name}
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                 className="object-cover transition-all duration-700 scale-100 group-hover:scale-110"
                             />
 

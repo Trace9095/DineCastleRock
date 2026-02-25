@@ -87,7 +87,7 @@ export function NetworkHeader() {
                             <Search className="h-4 w-4" />
                         </Link>
                     </Button>
-                    <Button size="sm" className="hidden sm:inline-flex h-9 rounded-full px-5 font-semibold bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90 hover:scale-105 transition-all shadow-lg shadow-[#E85D2B]/20" asChild>
+                    <Button size="sm" className="hidden sm:inline-flex h-9 rounded-full px-5 font-semibold bg-[#C04E20] text-white hover:bg-[#A84118] hover:scale-105 transition-all shadow-lg shadow-[#C04E20]/20" asChild>
                         <Link href="/add-listing">
                             Add Listing
                         </Link>
@@ -135,7 +135,7 @@ export function NetworkHeader() {
                             </a>
                         </div>
                         <div className="pt-3">
-                            <Button className="w-full rounded-full h-11 font-semibold bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90 shadow-lg shadow-[#E85D2B]/20" asChild>
+                            <Button className="w-full rounded-full h-11 font-semibold bg-[#C04E20] text-white hover:bg-[#A84118] shadow-lg shadow-[#C04E20]/20" asChild>
                                 <Link href="/add-listing" onClick={() => setMobileMenuOpen(false)}>
                                     Add Your Business
                                 </Link>
