@@ -31,19 +31,35 @@ export function NetworkHeader() {
         >
             <div className="container flex h-16 lg:h-18 items-center justify-between px-4 max-w-7xl mx-auto">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2.5 group">
-                    <div className={cn(
-                        "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
-                        scrolled || !isHome
-                            ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
-                            : "bg-white/10 backdrop-blur-md"
-                    )}>
-                        <Utensils className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="font-bold text-lg tracking-tight text-white">
-                        Dine <span className="text-[#E85D2B]">Castle Rock</span>
-                    </span>
-                </Link>
+                {isHome ? (
+                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 group">
+                        <div className={cn(
+                            "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
+                            scrolled || !isHome
+                                ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
+                                : "bg-white/10 backdrop-blur-md"
+                        )}>
+                            <Utensils className="h-4 w-4 text-white" />
+                        </div>
+                        <span className="font-bold text-lg tracking-tight text-white">
+                            Dine <span className="text-[#E85D2B]">Castle Rock</span>
+                        </span>
+                    </button>
+                ) : (
+                    <Link href="/" className="flex items-center gap-2.5 group">
+                        <div className={cn(
+                            "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
+                            scrolled || !isHome
+                                ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
+                                : "bg-white/10 backdrop-blur-md"
+                        )}>
+                            <Utensils className="h-4 w-4 text-white" />
+                        </div>
+                        <span className="font-bold text-lg tracking-tight text-white">
+                            Dine <span className="text-[#E85D2B]">Castle Rock</span>
+                        </span>
+                    </Link>
+                )}
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-1">
