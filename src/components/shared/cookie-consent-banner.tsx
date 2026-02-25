@@ -91,7 +91,7 @@ export function CookieConsentBanner() {
             <label className="flex items-center justify-between">
               <div>
                 <span className="text-white text-sm font-medium">Essential</span>
-                <p className="text-white/50 text-xs">Required for the site to function</p>
+                <p className="text-white/70 text-xs">Required for the site to function</p>
               </div>
               <div className="px-3 py-1 bg-[#E85D2B]/20 text-[#E85D2B] text-xs rounded-full">Always on</div>
             </label>
@@ -99,7 +99,7 @@ export function CookieConsentBanner() {
             <label className="flex items-center justify-between cursor-pointer group">
               <div>
                 <span className="text-white text-sm font-medium group-hover:text-[#E85D2B] transition-colors">Analytics</span>
-                <p className="text-white/50 text-xs">Help us understand how visitors use our site</p>
+                <p className="text-white/70 text-xs">Help us understand how visitors use our site</p>
               </div>
               <button
                 role="switch"
@@ -114,7 +114,7 @@ export function CookieConsentBanner() {
             <label className="flex items-center justify-between cursor-pointer group">
               <div>
                 <span className="text-white text-sm font-medium group-hover:text-[#E85D2B] transition-colors">Marketing</span>
-                <p className="text-white/50 text-xs">Personalized content and advertisements</p>
+                <p className="text-white/70 text-xs">Personalized content and advertisements</p>
               </div>
               <button
                 role="switch"

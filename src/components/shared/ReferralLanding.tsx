@@ -152,7 +152,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
           </div>
 
           {/* Trust line */}
-          <p className="text-white/40 text-sm tracking-wide uppercase">
+          <p className="text-white/70 text-sm tracking-wide uppercase">
             {source.socialProofText}
           </p>
         </div>
@@ -192,7 +192,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
               Taste <span className="text-[#E85D2B]">Castle Rock</span>
             </h2>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
+            <p className="text-white/70 text-lg max-w-xl mx-auto">
               Explore 17 dining categories — from sit-down restaurants to food
               trucks, breweries to dessert spots.
             </p>
@@ -218,14 +218,14 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
                       <h3 className="text-lg font-bold text-white mb-1 group-hover:text-[#E85D2B] transition-colors">
                         {cat.name}
                       </h3>
-                      <p className="text-white/50 text-sm leading-relaxed">
+                      <p className="text-white/70 text-sm leading-relaxed">
                         {cat.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Count badge */}
-                  <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white/40 group-hover:text-[#E85D2B]/70 transition-colors">
+                  <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white/70 group-hover:text-[#E85D2B]/70 transition-colors">
                     <span>{cat.count} listings</span>
                     <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                   </div>
@@ -247,7 +247,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
                 <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
                   {stat.value}
                 </div>
-                <div className="text-white/40 text-xs sm:text-sm uppercase tracking-wider">
+                <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
@@ -271,7 +271,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             Not Sure Where to Start?
           </h2>
-          <p className="text-white/50 mb-8 max-w-lg mx-auto">
+          <p className="text-white/70 mb-8 max-w-lg mx-auto">
             Check out our curated dining guides for Happy Hour, Date Night, and
             Family-Friendly picks across Castle Rock.
           </p>
@@ -299,7 +299,7 @@ export function ReferralLanding({ source }: ReferralLandingProps) {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Own a Restaurant in Castle Rock?
             </h2>
-            <p className="text-white/50 mb-8 max-w-md mx-auto">
+            <p className="text-white/70 mb-8 max-w-md mx-auto">
               Get listed on Castle Rock&apos;s most visited dining directory.
               Free basic listings, premium options available.
             </p>

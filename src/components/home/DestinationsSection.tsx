@@ -16,7 +16,7 @@ export function DestinationsSection() {
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
                         Where to Shop & Dine
                     </h2>
-                    <p className="text-white/50 max-w-2xl mx-auto text-lg">
+                    <p className="text-white/70 max-w-2xl mx-auto text-lg">
                         Explore Castle Rock&apos;s best shopping and dining districts
                     </p>
                 </div>
@@ -55,7 +55,7 @@ export function DestinationsSection() {
                                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#E85D2B] transition-colors duration-300">
                                     {destination.name}
                                 </h3>
-                                <p className="text-white/50 text-sm mb-4 line-clamp-2 leading-relaxed">
+                                <p className="text-white/70 text-sm mb-4 line-clamp-2 leading-relaxed">
                                     {destination.description}
                                 </p>
 

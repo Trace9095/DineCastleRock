@@ -50,7 +50,7 @@ export default function AboutPage() {
                                 <MapPin className="h-6 w-6 text-[#E85D2B]" />
                             </div>
                             <h3 className="font-semibold mb-2">100% Local</h3>
-                            <p className="text-sm text-white/50">
+                            <p className="text-sm text-white/70">
                                 Focused exclusively on Castle Rock and surrounding areas.
                             </p>
                         </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                                 <Heart className="h-6 w-6 text-rose-400" />
                             </div>
                             <h3 className="font-semibold mb-2">Community First</h3>
-                            <p className="text-sm text-white/50">
+                            <p className="text-sm text-white/70">
                                 Supporting local businesses and helping them thrive.
                             </p>
                         </div>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                                 <Star className="h-6 w-6 text-amber-400" />
                             </div>
                             <h3 className="font-semibold mb-2">Quality Focused</h3>
-                            <p className="text-sm text-white/50">
+                            <p className="text-sm text-white/70">
                                 Curated listings with real information you can trust.
                             </p>
                         </div>
@@ -156,14 +156,14 @@ export default function AboutPage() {
                         className="block p-6 bg-white/5 border border-white/10 rounded-xl hover:border-[#0EA5E9]/30 transition-colors"
                     >
                         <h3 className="font-semibold mb-2">Visit Castle Rock</h3>
-                        <p className="text-sm text-white/50">
+                        <p className="text-sm text-white/70">
                             Events, attractions, and things to do in Castle Rock.
                         </p>
                     </a>
 
                     <div className="p-6 bg-[#E85D2B]/10 border-2 border-[#E85D2B]/30 rounded-xl">
                         <h3 className="font-semibold mb-2">Dine Castle Rock</h3>
-                        <p className="text-sm text-white/50">
+                        <p className="text-sm text-white/70">
                             Restaurants, bars, and dining experiences.
                         </p>
                         <span className="text-xs text-[#E85D2B] font-medium">You are here</span>
@@ -174,7 +174,7 @@ export default function AboutPage() {
                         className="block p-6 bg-white/5 border border-white/10 rounded-xl hover:border-[#D4A853]/30 transition-colors"
                     >
                         <h3 className="font-semibold mb-2">Shop Castle Rock</h3>
-                        <p className="text-sm text-white/50">
+                        <p className="text-sm text-white/70">
                             Local shops, boutiques, and retail in Castle Rock.
                         </p>
                     </a>

@@ -34,7 +34,7 @@ export function FeaturedSection({ title, subtitle, items, link, linkText, badge 
                             </div>
                         )}
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">{title}</h2>
-                        {subtitle && <div className="text-white/50 text-base md:text-lg">{subtitle}</div>}
+                        {subtitle && <div className="text-white/70 text-base md:text-lg">{subtitle}</div>}
                     </div>
                     {link && (
                         <Button

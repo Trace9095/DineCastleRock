@@ -100,7 +100,7 @@ export default function Home() {
                 <h3 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
                   {sponsoredListing.name}
                 </h3>
-                <p className="text-white/50 mb-8 text-lg md:text-xl leading-relaxed line-clamp-2">
+                <p className="text-white/70 mb-8 text-lg md:text-xl leading-relaxed line-clamp-2">
                   {sponsoredListing.description || `Discover ${sponsoredListing.name} in Castle Rock`}
                 </p>
 
@@ -131,7 +131,7 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="text-center text-sm text-white/50 mt-8">
+            <p className="text-center text-sm text-white/70 mt-8">
               <Link href="/advertise" className="hover:text-white transition-colors inline-flex items-center gap-2 group">
                 Interested in promoting your business?
                 <span className="text-[#E85D2B] group-hover:translate-x-1 transition-transform duration-300 inline-flex items-center gap-1">

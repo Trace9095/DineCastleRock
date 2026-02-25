@@ -80,7 +80,7 @@ export function CategoryGrid() {
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
                     Explore Castle Rock
                 </h2>
-                <p className="text-white/50 max-w-2xl mx-auto text-lg">
+                <p className="text-white/70 max-w-2xl mx-auto text-lg">
                     Discover local favorites across every category
                 </p>
             </div>
@@ -123,7 +123,7 @@ export function CategoryGrid() {
                                 <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white mb-2 group-hover:text-[#E85D2B] transition-colors duration-300">
                                     {cat.name}
                                 </h3>
-                                <p className="text-white/40 text-sm md:text-base mb-4">
+                                <p className="text-white/70 text-sm md:text-base mb-4">
                                     {cat.description}
                                 </p>
 
@@ -158,9 +158,9 @@ export function CategoryGrid() {
                                 className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-transparent hover:border-[#E85D2B]/10 transition-all duration-300 hover:-translate-y-1"
                             >
                                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#E85D2B]/10 group-hover:scale-110 transition-all duration-300">
-                                    <Icon className="w-5 h-5 text-white/40 group-hover:text-[#E85D2B] transition-colors duration-300" />
+                                    <Icon className="w-5 h-5 text-white/70 group-hover:text-[#E85D2B] transition-colors duration-300" />
                                 </div>
-                                <span className="text-xs font-medium text-white/40 group-hover:text-white transition-colors text-center leading-tight">
+                                <span className="text-xs font-medium text-white/70 group-hover:text-white transition-colors text-center leading-tight">
                                     {cat.name}
                                 </span>
                             </Link>

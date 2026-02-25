@@ -127,10 +127,10 @@ export function NetworkHeader() {
                         </Link>
                         <div className="pt-3 mt-3 border-t border-white/5 space-y-1">
                             <p className="px-4 text-xs font-medium text-[#E85D2B] uppercase tracking-wider mb-2">Castle Rock Network</p>
-                            <a href="https://visitcastlerock.co" className="flex items-center px-4 py-3 text-sm text-white/50 rounded-xl hover:text-[#0EA5E9] hover:bg-white/5 transition-colors">
+                            <a href="https://visitcastlerock.co" className="flex items-center px-4 py-3 text-sm text-white/70 rounded-xl hover:text-[#0EA5E9] hover:bg-white/5 transition-colors">
                                 Visit Castle Rock
                             </a>
-                            <a href="https://shopcastlerock.co" className="flex items-center px-4 py-3 text-sm text-white/50 rounded-xl hover:text-[#D4A853] hover:bg-white/5 transition-colors">
+                            <a href="https://shopcastlerock.co" className="flex items-center px-4 py-3 text-sm text-white/70 rounded-xl hover:text-[#D4A853] hover:bg-white/5 transition-colors">
                                 Shop Castle Rock
                             </a>
                         </div>

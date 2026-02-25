@@ -238,7 +238,7 @@ export default function ClaimPage({ params }: { params: Promise<{ slug: string }
                         </div>
 
                         {/* Terms Notice */}
-                        <div className="bg-white/5 p-4 rounded-lg text-sm text-white/50 border border-white/5">
+                        <div className="bg-white/5 p-4 rounded-lg text-sm text-white/70 border border-white/5">
                             <p>
                                 By submitting this claim, you confirm that you have the authority to represent
                                 this business and agree to our{' '}

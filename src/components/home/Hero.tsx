@@ -87,12 +87,12 @@ export function Hero() {
                     >
                         <div className="flex items-center p-2">
                             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 ml-1">
-                                <Search className="h-5 w-5 text-white/40" />
+                                <Search className="h-5 w-5 text-white/70" />
                             </div>
                             <Input
                                 type="text"
                                 placeholder="Search restaurants, cuisines, or dishes..."
-                                className="border-0 bg-transparent text-white placeholder:text-white/30 focus-visible:ring-0 focus-visible:ring-offset-0 h-14 text-base font-medium"
+                                className="border-0 bg-transparent text-white placeholder:text-white/50 focus-visible:ring-0 focus-visible:ring-offset-0 h-14 text-base font-medium"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 onFocus={() => setIsFocused(true)}
@@ -100,6 +100,7 @@ export function Hero() {
                             />
                             <Button
                                 type="submit"
+                                aria-label="Search"
                                 className="rounded-xl px-8 h-12 font-semibold shadow-lg bg-[#E85D2B] text-white hover:bg-[#E85D2B]/90 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#E85D2B]/20"
                             >
                                 <span className="hidden sm:inline">Search</span>
@@ -136,7 +137,7 @@ export function Hero() {
 
                 {/* Stats */}
                 <div className="animate-fade-up opacity-0 [animation-delay:700ms] [animation-fill-mode:forwards]">
-                    <div className="mt-16 flex items-center justify-center gap-8 text-white/40 text-sm">
+                    <div className="mt-16 flex items-center justify-center gap-8 text-white/70 text-sm">
                         <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-[#E85D2B]">50+</span>
                             <span>Local Spots</span>
@@ -160,7 +161,7 @@ export function Hero() {
 
             {/* Scroll indicator */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-fade-up opacity-0 [animation-delay:900ms] [animation-fill-mode:forwards]">
-                <div className="flex flex-col items-center gap-2 text-white/30">
+                <div className="flex flex-col items-center gap-2 text-white/50">
                     <span className="text-xs tracking-widest uppercase">Explore</span>
                     <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5">
                         <div className="w-1.5 h-3 bg-[#E85D2B]/50 rounded-full animate-bounce" />

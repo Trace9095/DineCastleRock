@@ -246,7 +246,7 @@ export default function AddListingPage() {
                                     />
                                 </div>
 
-                                <div className="bg-white/5 rounded-lg p-4 text-sm text-white/50 border border-white/5">
+                                <div className="bg-white/5 rounded-lg p-4 text-sm text-white/70 border border-white/5">
                                     <p>
                                         By submitting, you confirm you are authorized to represent this business.
                                         Our team will verify the submission and may contact you for additional information.
