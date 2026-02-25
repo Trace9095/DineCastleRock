@@ -1,8 +1,15 @@
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { CheckCircle, Star, TrendingUp, Users, Mail, MapPin, Megaphone } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+    title: "Advertise Your Restaurant | Dine Castle Rock",
+    description: "List your Castle Rock restaurant, bar, or cafe on Dine Castle Rock. Reach local diners, showcase your menu, and grow your business.",
+    alternates: { canonical: "https://dinecastlerock.co/advertise" },
+}
 
 export default function AdvertisePage() {
     return (

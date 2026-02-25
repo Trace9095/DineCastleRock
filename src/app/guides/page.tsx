@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+
+export const metadata: Metadata = {
+    title: "Dining Guides | Dine Castle Rock",
+    description: "Curated dining guides for Castle Rock, Colorado — happy hour spots, date night picks, family-friendly restaurants, and more local food insights.",
+    alternates: { canonical: "https://dinecastlerock.co/guides" },
+}
 
 const GUIDES = [
     {
