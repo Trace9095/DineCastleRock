@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
+  <rect width="200" height="50" fill="white"/>
+  <text x="10" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#121212">
+    Dine<tspan fill="#E85D2B">CastleRock</tspan>
+  </text>
+</svg>
