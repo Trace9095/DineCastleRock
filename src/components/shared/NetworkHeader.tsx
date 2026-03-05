@@ -37,7 +37,7 @@ export function NetworkHeader() {
                             "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
                             scrolled || !isHome
                                 ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
-                                : "bg-white/10 backdrop-blur-md"
+                                : "bg-white/10"
                         )}>
                             <Utensils className="h-4 w-4 text-white" />
                         </div>
@@ -51,7 +51,7 @@ export function NetworkHeader() {
                             "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
                             scrolled || !isHome
                                 ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
-                                : "bg-white/10 backdrop-blur-md"
+                                : "bg-white/10"
                         )}>
                             <Utensils className="h-4 w-4 text-white" />
                         </div>
