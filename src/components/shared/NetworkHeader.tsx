@@ -25,7 +25,7 @@ export function NetworkHeader() {
             className={cn(
                 "fixed top-0 z-50 w-full transition-all duration-500",
                 scrolled || !isHome
-                    ? "bg-[#0a0a14]/80 backdrop-blur-xl border-b border-white/5 shadow-lg"
+                    ? "bg-[#0a0a14] border-b border-white/5 shadow-lg"
                     : "bg-transparent"
             )}
         >
@@ -108,7 +108,7 @@ export function NetworkHeader() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden border-t border-white/5 bg-[#12121a]/95 backdrop-blur-xl">
+                <div className="md:hidden border-t border-white/5 bg-[#12121a]">
                     <nav className="container px-4 py-4 space-y-1 max-w-7xl mx-auto">
                         <Link href="/restaurants" className="flex items-center px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                             Restaurants
