@@ -134,16 +134,13 @@ All three sites share cross-site navigation via `NetworkHeader` and `NetworkFoot
 
 | Metric | Count |
 |:-------|------:|
-| Total Lines of Code | 14,978 |
-| TypeScript/TSX | 14,540 lines (96 files) |
-| JavaScript | 140 lines (1 file) |
-| CSS | 298 lines (1 file) |
-| Total Source Files | 98 |
-| Businesses | 66 |
-| Categories | 17 |
-| API Routes | 7 |
+| Total Lines of Code | 28,193 |
+| TypeScript/TSX Files | 133 |
+| Pages (routes) | 36 |
+| API Routes | 8 |
+| Version | 1.2.0 |
 
-*Stats as of February 2026. Part of the Epic AI portfolio (314,873 total lines across 11 projects).*
+*Stats as of March 2026. Part of the [Epic AI](https://epicai.ai) portfolio (1.7M+ total lines across 18 projects).*
 
 ---
 
