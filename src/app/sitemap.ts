@@ -80,12 +80,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.4,
         },
-        {
-            url: `${baseUrl}/feed.xml`,
-            lastModified: now,
-            changeFrequency: 'daily',
-            priority: 0.3,
-        },
     ]
 
     // Category pages

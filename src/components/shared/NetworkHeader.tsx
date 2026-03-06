@@ -25,7 +25,7 @@ export function NetworkHeader() {
             className={cn(
                 "fixed top-0 z-50 w-full transition-all duration-500",
                 scrolled || !isHome
-                    ? "bg-[#0a0a14] border-b border-white/5 shadow-lg"
+                    ? "bg-[#0a0a14]/80 backdrop-blur-xl border-b border-white/5 shadow-lg"
                     : "bg-transparent"
             )}
         >
@@ -37,7 +37,7 @@ export function NetworkHeader() {
                             "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
                             scrolled || !isHome
                                 ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
-                                : "bg-white/10"
+                                : "bg-white/10 backdrop-blur-md"
                         )}>
                             <Utensils className="h-4 w-4 text-white" />
                         </div>
@@ -51,7 +51,7 @@ export function NetworkHeader() {
                             "w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300",
                             scrolled || !isHome
                                 ? "bg-[#E85D2B] shadow-lg shadow-[#E85D2B]/20"
-                                : "bg-white/10"
+                                : "bg-white/10 backdrop-blur-md"
                         )}>
                             <Utensils className="h-4 w-4 text-white" />
                         </div>
@@ -108,7 +108,7 @@ export function NetworkHeader() {
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
-                <div className="md:hidden border-t border-white/5 bg-[#12121a]">
+                <div className="md:hidden border-t border-white/5 bg-[#12121a]/95 backdrop-blur-xl">
                     <nav className="container px-4 py-4 space-y-1 max-w-7xl mx-auto">
                         <Link href="/restaurants" className="flex items-center px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-xl hover:bg-white/5 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                             Restaurants

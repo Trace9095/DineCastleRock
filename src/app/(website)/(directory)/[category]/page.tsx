@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { FilterSidebar } from "@/components/listings/FilterSidebar"
 import { ListingCard } from "@/components/listings/ListingCard"
 import { MobileFilterDrawer } from "@/components/listings/MobileFilterDrawer"
@@ -69,6 +70,39 @@ interface PageProps {
         cuisine?: string
         page?: string
     }>
+}
+
+const CATEGORY_LABELS: Record<string, string> = {
+    'restaurants': 'Restaurants',
+    'bars-nightlife': 'Bars & Nightlife',
+    'bars': 'Bars',
+    'coffee': 'Coffee Shops',
+    'takeout-delivery': 'Takeout & Delivery',
+    'dessert': 'Dessert',
+    'food-trucks': 'Food Trucks',
+    'breweries': 'Breweries',
+    'retail': 'Retail',
+    'auto': 'Auto Services',
+    'wellness': 'Wellness',
+    'kids': 'Family & Kids',
+    'gifts': 'Gifts',
+    'home-services': 'Home Services',
+    'professional-services': 'Professional Services',
+    'beauty': 'Beauty & Personal Care',
+    'pets': 'Pets',
+    'activities': 'Activities',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
+    const { category } = await params
+    if (!VALID_CATEGORIES.includes(category)) return {}
+    const label = CATEGORY_LABELS[category] || category
+    const description = CATEGORY_DESCRIPTIONS[category] || `Find the best ${label} in Castle Rock, Colorado.`
+    return {
+        title: `${label} in Castle Rock, CO`,
+        description: `${description} Browse Castle Rock's top ${label.toLowerCase()} with menus, hours, and reviews on Dine Castle Rock.`,
+        alternates: { canonical: `https://dinecastlerock.co/${category}` },
+    }
 }
 
 export default async function CategoryPage({ params, searchParams }: PageProps) {
