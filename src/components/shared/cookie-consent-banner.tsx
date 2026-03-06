@@ -56,7 +56,7 @@ export function CookieConsentBanner() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-end justify-center bg-black/40 backdrop-blur-sm animate-in fade-in duration-500"
+      className="fixed inset-0 z-[9999] flex items-end justify-center bg-black/60 animate-in fade-in duration-500"
       role="dialog"
       aria-modal="true"
       aria-label="Cookie consent"
