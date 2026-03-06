@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { getListingBySlug, isOpenNow } from "@/lib/data"
 
 // Guide data with correct listing slugs
@@ -179,6 +181,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                                 <div>
                                     <h3 className="font-semibold mb-2">What time does happy hour typically start in Castle Rock?</h3>
                                     <p className="text-muted-foreground">Most happy hours run from 3-6 PM on weekdays, though some spots offer late-night specials from 9 PM to close.</p>
+                                    <Link
+                                        href="/bars"
+                                        className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-[oklch(0.65_0.18_35)]/10 hover:bg-[oklch(0.65_0.18_35)]/20 text-[oklch(0.65_0.18_35)] font-semibold text-xs sm:text-sm rounded-lg border border-[oklch(0.65_0.18_35)]/20 hover:border-[oklch(0.65_0.18_35)]/40 transition-all"
+                                    >
+                                        Browse Bars & Pubs
+                                        <ArrowRight className="h-3.5 w-3.5" />
+                                    </Link>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold mb-2">Are there weekend happy hour deals?</h3>
@@ -191,6 +200,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                                 <div>
                                     <h3 className="font-semibold mb-2">Do I need reservations for date night restaurants?</h3>
                                     <p className="text-muted-foreground">We recommend reservations, especially on Friday and Saturday nights. Most restaurants accept reservations through their website or by phone.</p>
+                                    <Link
+                                        href="/restaurants"
+                                        className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-[oklch(0.65_0.18_35)]/10 hover:bg-[oklch(0.65_0.18_35)]/20 text-[oklch(0.65_0.18_35)] font-semibold text-xs sm:text-sm rounded-lg border border-[oklch(0.65_0.18_35)]/20 hover:border-[oklch(0.65_0.18_35)]/40 transition-all"
+                                    >
+                                        Browse All Restaurants
+                                        <ArrowRight className="h-3.5 w-3.5" />
+                                    </Link>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold mb-2">What is the dress code at upscale Castle Rock restaurants?</h3>
@@ -203,6 +219,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                                 <div>
                                     <h3 className="font-semibold mb-2">Do these restaurants have children&apos;s menus?</h3>
                                     <p className="text-muted-foreground">Yes, all restaurants in this guide offer dedicated kids menus with familiar favorites like mac and cheese, chicken tenders, and pizza.</p>
+                                    <Link
+                                        href="/restaurants"
+                                        className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-[oklch(0.65_0.18_35)]/10 hover:bg-[oklch(0.65_0.18_35)]/20 text-[oklch(0.65_0.18_35)] font-semibold text-xs sm:text-sm rounded-lg border border-[oklch(0.65_0.18_35)]/20 hover:border-[oklch(0.65_0.18_35)]/40 transition-all"
+                                    >
+                                        View All Family Restaurants
+                                        <ArrowRight className="h-3.5 w-3.5" />
+                                    </Link>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold mb-2">Are high chairs available?</h3>
