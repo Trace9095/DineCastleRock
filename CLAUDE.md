@@ -183,4 +183,11 @@ Deployed on Vercel. Domain: dinecastlerock.co.
 - **Session 59:** Version bump 1.1.0.
 
 ---
-*Last updated: Session 59 (February 2026)*
+## Media Library
+
+Master media library: `~/Documents/APPS/MEDIA/` — see `MEDIA/MEDIA_DIRECTORY.md` for full inventory.
+
+- **Logos:** `MEDIA/logos/directories/castle-rock/dine-castle-rock/` (5 files)
+- **Live images symlink:** `MEDIA/project-media/directories/castle-rock/dine-castle-rock` → `public/images`
+
+*Last updated: Session 80 (March 2026)*
