@@ -43,7 +43,7 @@ export default function WebsiteLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#C04E20] focus:text-white focus:underline">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[#C04E20] focus:text-white focus:underline focus:outline-none focus:ring-2 focus:ring-white">
         Skip to main content
       </a>
       <NetworkHeader />
