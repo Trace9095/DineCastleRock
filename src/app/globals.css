@@ -329,6 +329,18 @@
   transform: scale(1.08);
 }
 
+@keyframes textShimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(192, 78, 32, 0.2), 0 0 16px rgba(192, 78, 32, 0.1); }
+  50% { box-shadow: 0 0 16px rgba(192, 78, 32, 0.4), 0 0 32px rgba(192, 78, 32, 0.2); }
+}
+
+.animate-glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
@@ -336,7 +348,8 @@
   .animate-scale-in,
   .animate-shimmer,
   .animate-pulse-glow,
-  .animate-blur-in {
+  .animate-blur-in,
+  .animate-glow-pulse {
     animation: none;
   }
 
