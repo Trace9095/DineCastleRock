@@ -79,6 +79,13 @@ export const metadata: Metadata = {
       'text/markdown': '/llms.txt',
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   category: "Food & Drink",
 };
 
