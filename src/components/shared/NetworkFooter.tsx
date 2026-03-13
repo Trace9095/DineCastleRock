@@ -4,23 +4,23 @@ import { Utensils, Compass, ShoppingBag, Mail } from "lucide-react"
 export function NetworkFooter() {
     return (
         <footer className="w-full bg-[#08080e] border-t border-white/5">
-            <div className="container px-4 py-12 md:py-16 max-w-7xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     {/* Brand */}
-                    <div className="col-span-2 md:col-span-1 space-y-4">
-                        <Link href="/" className="flex items-center gap-2.5">
-                            <div className="w-9 h-9 rounded-xl bg-[#E85D2B]/10 flex items-center justify-center">
-                                <Utensils className="h-4 w-4 text-[#E85D2B]" />
+                    <div className="space-y-4">
+                        <Link href="/" className="inline-flex items-center gap-2.5">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E85D2B]/10">
+                                <Utensils className="h-5 w-5 text-[#E85D2B]" />
                             </div>
-                            <span className="font-bold text-lg tracking-tight text-white">
+                            <span className="text-xl font-bold tracking-tight text-white">
                                 Dine <span className="text-[#E85D2B]">Castle Rock</span>
                             </span>
                         </Link>
-                        <p className="text-sm text-white/60 leading-relaxed">
+                        <p className="text-sm text-white/60 leading-relaxed max-w-xs">
                             Your guide to the best restaurants, bars, and cafes in Castle Rock, Colorado.
                         </p>
-                        <a href="mailto:hello@dinecastlerock.co" className="flex items-center gap-2 text-sm text-white/70 hover:text-[#E85D2B] transition-colors">
-                            <Mail className="h-3.5 w-3.5" />
+                        <a href="mailto:hello@dinecastlerock.co" className="flex items-center gap-2 text-sm text-white/60 hover:text-[#E85D2B] transition-colors">
+                            <Mail className="h-4 w-4" />
                             hello@dinecastlerock.co
                         </a>
                     </div>
@@ -33,6 +33,7 @@ export function NetworkFooter() {
                             <li><Link href="/bars-nightlife" className="text-white/70 hover:text-[#E85D2B] transition-colors">Bars & Nightlife</Link></li>
                             <li><Link href="/coffee" className="text-white/70 hover:text-[#E85D2B] transition-colors">Coffee</Link></li>
                             <li><Link href="/breweries" className="text-white/70 hover:text-[#E85D2B] transition-colors">Breweries</Link></li>
+                            <li><Link href="/guides" className="text-white/70 hover:text-[#E85D2B] transition-colors">Dining Guides</Link></li>
                         </ul>
                     </div>
 
@@ -46,15 +47,16 @@ export function NetworkFooter() {
                         </ul>
                     </div>
 
-                    {/* Network */}
+                    {/* Castle Rock Network */}
                     <div>
                         <h3 className="text-sm font-semibold text-[#E85D2B] uppercase tracking-wider mb-4">Castle Rock Network</h3>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <a href="https://visitcastlerock.co" className="flex items-center gap-2 text-white/70 hover:text-[#0EA5E9] transition-colors">
-                                    <Compass className="h-3.5 w-3.5" />
-                                    Visit Castle Rock
-                                </a>
+                                <span className="flex items-center gap-2 text-[#E85D2B]">
+                                    <Utensils className="h-3.5 w-3.5" />
+                                    Dine Castle Rock
+                                    <span className="text-xs text-white/50">(You are here)</span>
+                                </span>
                             </li>
                             <li>
                                 <a href="https://shopcastlerock.co" className="flex items-center gap-2 text-white/70 hover:text-[#D4A853] transition-colors">
@@ -63,26 +65,29 @@ export function NetworkFooter() {
                                 </a>
                             </li>
                             <li>
-                                <span className="flex items-center gap-2 text-[#E85D2B]">
-                                    <Utensils className="h-3.5 w-3.5" />
-                                    Dine Castle Rock
-                                    <span className="text-xs text-white/50">(You are here)</span>
-                                </span>
+                                <a href="https://visitcastlerock.co" className="flex items-center gap-2 text-white/70 hover:text-[#0EA5E9] transition-colors">
+                                    <Compass className="h-3.5 w-3.5" />
+                                    Visit Castle Rock
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                {/* Bottom Bar */}
-                <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-white/70">
-                        &copy; {new Date().getFullYear()} Castle Rock Network. All rights reserved.
-                    </p>
-                    <div className="flex gap-6 text-xs text-white/70">
-                        <Link href="/privacy" className="hover:text-[#E85D2B] transition-colors">Privacy</Link>
-                        <Link href="/terms" className="hover:text-[#E85D2B] transition-colors">Terms</Link>
-                        <Link href="/accessibility" className="hover:text-[#E85D2B] transition-colors">Accessibility</Link>
-                        <Link href="/editorial-policy" className="hover:text-[#E85D2B] transition-colors">Editorial Policy</Link>
+            {/* Bottom Bar */}
+            <div className="border-t border-white/10">
+                <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                    <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/70">
+                        <p>
+                            &copy; {new Date().getFullYear()} Castle Rock Network. All rights reserved.
+                        </p>
+                        <div className="flex items-center gap-6">
+                            <Link href="/privacy" className="hover:text-[#E85D2B] transition-colors">Privacy</Link>
+                            <Link href="/terms" className="hover:text-[#E85D2B] transition-colors">Terms</Link>
+                            <Link href="/accessibility" className="hover:text-[#E85D2B] transition-colors">Accessibility</Link>
+                            <Link href="/editorial-policy" className="hover:text-[#E85D2B] transition-colors">Editorial Policy</Link>
+                        </div>
                     </div>
                 </div>
             </div>
