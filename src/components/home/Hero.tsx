@@ -53,7 +53,7 @@ export function Hero() {
             {/* Content */}
             <div className="relative z-10 container px-4 max-w-5xl text-center">
                 {/* Location Badge */}
-                <div className="animate-fade-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-5 py-2.5 mb-8">
                         <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#E85D2B]/20">
                             <MapPin className="h-3.5 w-3.5 text-[#E85D2B]" />
@@ -64,7 +64,7 @@ export function Hero() {
                 </div>
 
                 {/* Main Heading */}
-                <div className="animate-fade-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
                         Discover Local
                         <span className="block mt-2 bg-gradient-to-r from-[#E85D2B] via-orange-400 to-amber-400 bg-clip-text text-transparent">
@@ -73,14 +73,14 @@ export function Hero() {
                     </h1>
                 </div>
 
-                <div className="animate-fade-up opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
                         Your curated guide to the best restaurants, bars, cafes, and breweries in Castle Rock
                     </p>
                 </div>
 
                 {/* Search Bar - Dark glass */}
-                <div className="animate-fade-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <form
                         onSubmit={handleSearch}
                         className={`
@@ -119,7 +119,7 @@ export function Hero() {
                 </div>
 
                 {/* Quick Links */}
-                <div className="animate-fade-up opacity-0 [animation-delay:500ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <div className="flex flex-wrap justify-center gap-3">
                         {QUICK_LINKS.map((link, index) => {
                             const Icon = link.icon
@@ -128,7 +128,6 @@ export function Hero() {
                                     key={link.label}
                                     href={link.href}
                                     className="group relative flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white font-medium transition-all duration-300 hover:bg-white/10 hover:border-[#E85D2B]/30 hover:scale-105"
-                                    style={{ animationDelay: `${500 + index * 50}ms` }}
                                 >
                                     <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 group-hover:bg-[#E85D2B]/20 transition-colors duration-300">
                                         <Icon className="h-4 w-4 text-white/60 group-hover:text-[#E85D2B] transition-colors duration-300" />
@@ -142,7 +141,7 @@ export function Hero() {
                 </div>
 
                 {/* Stats */}
-                <div className="animate-fade-up opacity-0 [animation-delay:700ms] [animation-fill-mode:forwards]">
+                <div className="">
                     <div className="mt-16 flex items-center justify-center gap-8 text-white/70 text-sm">
                         <div className="flex items-center gap-2">
                             <span className="text-2xl font-bold text-[#E85D2B]">50+</span>
@@ -165,15 +164,6 @@ export function Hero() {
             {/* Bottom Fade to dark bg */}
             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a0a14] via-[#0a0a14]/80 to-transparent z-10" />
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-fade-up opacity-0 [animation-delay:900ms] [animation-fill-mode:forwards]">
-                <div className="flex flex-col items-center gap-2 text-white/50">
-                    <span className="text-xs tracking-widest uppercase">Explore</span>
-                    <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-1.5">
-                        <div className="w-1.5 h-3 bg-[#E85D2B]/50 rounded-full animate-bounce" />
-                    </div>
-                </div>
-            </div>
         </section>
     )
 }
