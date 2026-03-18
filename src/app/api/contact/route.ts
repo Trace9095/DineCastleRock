@@ -36,7 +36,7 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-const FROM = 'Dine Castle Rock <canoncity@epicai.ai>';
+const FROM = 'Dine Castle Rock <noreply@dinecastlerock.co>';
 const TO = process.env.CONTACT_TO_EMAIL || 'Trace.hildebrand@gmail.com';
 const SITE_URL = 'https://dinecastlerock.co';
 

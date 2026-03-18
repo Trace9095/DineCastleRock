@@ -181,6 +181,7 @@ Deployed on Vercel. Domain: dinecastlerock.co.
 - **Session 31:** Legal date updates (privacy + terms: January 2025 → February 2026). Package version bump (0.1.0 → 1.0.0).
 - **Session 34:** Gold standard audit (security headers, HSTS, robots, metadata). Fixed critical header overlap (pt-16 lg:pt-20 on main for fixed header). Added accessibility link to footer. Pushed commits e882b4f, 0f89015.
 - **Session 59:** Version bump 1.1.0.
+- **Session 101:** Favicon/icons fix + hero animation cleanup. Root cause: the `icons` metadata property in layout.tsx overrides Next.js file-based auto-detection, preventing `app/icon.svg` from generating `<link>` tags. Fix: removed `icons` from metadata. Brand-colored `src/app/icon.svg` and `src/app/favicon.ico` already existed. Also removed staggered `animate-fade-up` entrance animations and bouncing scroll indicator from hero section — content now loads instantly. SEO/LLM audit confirmed excellent foundations (dynamic sitemap, 19 AI crawlers in robots.ts, llms.txt, JSON-LD, RSS, OG images). Commits: `d11af57` (metadata), `b27a8b6` (app/icon.svg), `9d46118` (remove icons override), `118d160` (hero animation removal).
 
 ---
 ## Media Library
