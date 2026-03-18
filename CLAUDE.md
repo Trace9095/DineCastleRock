@@ -192,3 +192,17 @@ Master media library: `~/Documents/APPS/MEDIA/` — see `MEDIA/MEDIA_DIRECTORY.m
 - **Live images symlink:** `MEDIA/project-media/directories/castle-rock/dine-castle-rock` → `public/images`
 
 *Last updated: Session 80 (March 2026)*
+
+---
+
+## Claude Context Files
+
+Additional LLM context is available in the `.claude/` directory:
+
+| File | Purpose |
+|------|---------|
+| `.claude/PROMPT.md` | LLM system prompt with key facts and rules |
+| `.claude/CONTEXT.md` | Business context, data architecture, integrations |
+| `.claude/ARCHITECTURE.md` | Full directory structure and request flow |
+| `.claude/CONVENTIONS.md` | Code style, naming, design system, git conventions |
+| `SETUP.md` | Service runbook (local dev, env vars, deploy, troubleshooting) |
