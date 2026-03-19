@@ -2,6 +2,12 @@
 
 > **Read this FIRST before touching any file in this repo.**
 
+## Auto-Compact
+Always enable autoCompact for long sessions:
+```
+claude config set autoCompact true
+```
+
 ## Project Overview
 
 **DineCastleRock** is a premium local dining and business directory for Castle Rock, Colorado. Part of the **Castle Rock Network** (Shop, Dine, Visit) — three interconnected tourism/business directory sites built by Epic AI.
