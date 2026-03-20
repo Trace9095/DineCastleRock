@@ -144,7 +144,7 @@ export function CategoryGrid() {
             <div className="bg-[#12121a] rounded-3xl p-8 md:p-10 border border-white/5">
                 <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-white">More Categories</h3>
-                    <Link href="/categories" className="text-sm font-medium text-[#E85D2B] hover:text-[#E85D2B]/80 transition-colors flex items-center gap-1">
+                    <Link href="/restaurants" className="text-sm font-medium text-[#E85D2B] hover:text-[#E85D2B]/80 transition-colors flex items-center gap-1">
                         View all
                         <ArrowRight className="w-4 h-4" />
                     </Link>

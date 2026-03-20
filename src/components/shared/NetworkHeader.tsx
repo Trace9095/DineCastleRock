@@ -22,9 +22,39 @@ export function NetworkHeader() {
 
     const isHome = pathname === "/"
 
+    // Body scroll lock for mobile menu — iOS-safe approach
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20)
-        window.addEventListener("scroll", handleScroll)
+        if (mobileMenuOpen) {
+            const scrollY = window.scrollY
+            document.body.style.position = 'fixed'
+            document.body.style.top = `-${scrollY}px`
+            document.body.style.width = '100%'
+        } else {
+            const scrollY = document.body.style.top
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+            if (scrollY) window.scrollTo(0, -parseInt(scrollY, 10))
+        }
+        return () => {
+            document.body.style.position = ''
+            document.body.style.top = ''
+            document.body.style.width = ''
+        }
+    }, [mobileMenuOpen])
+
+    useEffect(() => {
+        let ticking = false
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    setScrolled(window.scrollY > 20)
+                    ticking = false
+                })
+                ticking = true
+            }
+        }
+        window.addEventListener("scroll", handleScroll, { passive: true })
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
@@ -32,10 +62,10 @@ export function NetworkHeader() {
         <>
             <header
                 className={cn(
-                    "fixed top-0 z-50 w-full transition-all duration-500",
+                    "fixed top-0 z-50 w-full will-change-transform transition-[background-color,border-color,box-shadow] duration-300",
                     scrolled || !isHome
                         ? "bg-[#0a0a14] border-b border-white/5 shadow-lg"
-                        : "bg-transparent"
+                        : "bg-transparent border-b border-transparent"
                 )}
             >
                 <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
