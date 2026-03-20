@@ -19,9 +19,9 @@ export function NetworkFooter() {
                         <p className="text-sm text-white/60 leading-relaxed max-w-xs">
                             Your guide to the best restaurants, bars, and cafes in Castle Rock, Colorado.
                         </p>
-                        <a href="mailto:hello@dinecastlerock.co" className="flex items-center gap-2 text-sm text-white/60 hover:text-[#E85D2B] transition-colors">
+                        <a href="mailto:info@dinecastlerock.co" className="flex items-center gap-2 text-sm text-white/60 hover:text-[#E85D2B] transition-colors">
                             <Mail className="h-4 w-4" />
-                            hello@dinecastlerock.co
+                            info@dinecastlerock.co
                         </a>
                     </div>
 
@@ -80,7 +80,7 @@ export function NetworkFooter() {
                 <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/70">
                         <p>
-                            &copy; {new Date().getFullYear()} Castle Rock Network. All rights reserved.
+                            &copy; {new Date().getFullYear()} Dine Castle Rock. All rights reserved.
                         </p>
                         <div className="flex items-center gap-6">
                             <Link href="/privacy" className="hover:text-[#E85D2B] transition-colors">Privacy</Link>
