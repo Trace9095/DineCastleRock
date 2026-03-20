@@ -194,7 +194,7 @@ export function NetworkHeader() {
                             </Button>
                         </div>
 
-                        <nav className="p-5 space-y-2 overflow-y-auto h-[calc(100vh-80px)]">
+                        <nav className="p-5 space-y-2 overflow-y-auto h-[calc(100dvh-80px)]">
                             <p className="text-xs font-semibold text-[#E85D2B] uppercase tracking-wider mb-4 px-2">
                                 Explore
                             </p>
