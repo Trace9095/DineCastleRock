@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar, ChevronRight } from "lucide-react"
@@ -179,23 +180,39 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
             <div className="relative z-0 h-[40vh] md:h-[50vh] bg-muted overflow-hidden">
                 <div className="h-full grid grid-cols-1 md:grid-cols-4 gap-1">
                     <div className="md:col-span-3 relative h-full overflow-hidden">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={displayImages[0]} alt={listing.name} className="absolute inset-0 w-full h-full object-cover" />
+                        <Image
+                            src={displayImages[0]}
+                            alt={listing.name}
+                            fill
+                            priority
+                            sizes="(max-width: 768px) 100vw, 75vw"
+                            className="object-cover"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     </div>
                     <div className="hidden md:grid grid-rows-2 gap-1 h-full">
                         <div className="relative overflow-hidden bg-muted">
                             {displayImages[1] ? (
-                                /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[1]} alt="Gallery 1" className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                <Image
+                                    src={displayImages[1]}
+                                    alt="Gallery 1"
+                                    fill
+                                    sizes="25vw"
+                                    className="object-cover hover:scale-105 transition-transform duration-300"
+                                />
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍽️</div>
                             )}
                         </div>
                         <div className="relative overflow-hidden bg-muted">
                             {displayImages[2] ? (
-                                /* eslint-disable-next-line @next/next/no-img-element */
-                                <img src={displayImages[2]} alt="Gallery 2" className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                                <Image
+                                    src={displayImages[2]}
+                                    alt="Gallery 2"
+                                    fill
+                                    sizes="25vw"
+                                    className="object-cover hover:scale-105 transition-transform duration-300"
+                                />
                             ) : (
                                 <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍷</div>
                             )}
@@ -347,9 +364,14 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                 {images.length > 0 ? (
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                         {images.map((img, i) => (
-                                            <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src={img} alt={`${listing.name} photo ${i + 1}`} className="w-full h-full object-cover" />
+                                            <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted relative">
+                                                <Image
+                                                    src={img}
+                                                    alt={`${listing.name} photo ${i + 1}`}
+                                                    fill
+                                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                                    className="object-cover"
+                                                />
                                             </div>
                                         ))}
                                     </div>

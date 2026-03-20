@@ -183,6 +183,18 @@ export function FilterSidebar() {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
+
+            {/* Reset All Filters — bottom CTA (shown when any filter active) */}
+            {hasActiveFilters && (
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full rounded-full border-border/60 hover:border-primary/50 hover:text-primary transition-all duration-200"
+                    onClick={resetFilters}
+                >
+                    Reset All Filters
+                </Button>
+            )}
         </div>
     )
 }

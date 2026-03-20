@@ -1,12 +1,13 @@
 import type { Metadata } from "next"
 import { FilterSidebar } from "@/components/listings/FilterSidebar"
 import { ListingCard } from "@/components/listings/ListingCard"
+import { AnimatedListingGrid } from "@/components/listings/AnimatedListingGrid"
 import { MobileFilterDrawer } from "@/components/listings/MobileFilterDrawer"
 import { Pagination } from "@/components/listings/Pagination"
 import { SortSelect } from "@/components/listings/SortSelect"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Search, ChevronRight } from "lucide-react"
+import { Search, ChevronRight, SearchX, Tag, MapPin } from "lucide-react"
 import { notFound } from "next/navigation"
 import { getListingsByCategory, searchListings, isOpenNow, type Listing } from "@/lib/data"
 import { Suspense } from "react"
@@ -56,6 +57,28 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
     'beauty': 'Salons, spas, and personal care services.',
     'pets': 'Pet stores, veterinary, and pet services.',
     'activities': 'Adventures, attractions, and entertainment experiences.'
+}
+
+// Category emoji icons for the navigation strip
+const CATEGORY_ICONS: Record<string, string> = {
+    'restaurants': '🍽️',
+    'bars-nightlife': '🍸',
+    'bars': '🍺',
+    'coffee': '☕',
+    'takeout-delivery': '🛵',
+    'dessert': '🍰',
+    'food-trucks': '🚚',
+    'breweries': '🍻',
+    'retail': '🛍️',
+    'auto': '🚗',
+    'wellness': '🧘',
+    'kids': '👨‍👩‍👧‍👦',
+    'gifts': '🎁',
+    'home-services': '🔧',
+    'professional-services': '💼',
+    'beauty': '💅',
+    'pets': '🐾',
+    'activities': '🎯',
 }
 
 interface PageProps {
@@ -180,14 +203,18 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
             break
     }
 
+    // Compute stats from ALL matched listings (pre-pagination)
+    const totalCount = listings.length
+    const dealsCount = listings.filter(l => l.deals && l.deals.length > 0).length
+    const openNowCount = listings.filter(l => isOpenNow(l.hours)).length
+
     // Format title
-    const categoryTitle = category
+    const categoryTitle = CATEGORY_LABELS[category] || category
         .split("-")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ")
 
     // Pagination calculations
-    const totalCount = listings.length
     const totalPages = Math.ceil(totalCount / PAGE_SIZE)
     const validPage = Math.min(currentPage, Math.max(1, totalPages))
     const startIndex = (validPage - 1) * PAGE_SIZE
@@ -211,6 +238,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
         }
     }
 
+    // Other categories (excluding current) for the navigation strip
+    const otherCategories = VALID_CATEGORIES.filter(c => c !== category)
+
     return (
         <div className="min-h-screen bg-background">
             {/* ItemList Schema for SEO */}
@@ -221,18 +251,61 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
             <div className="container max-w-7xl mx-auto px-4 py-8">
                 {/* Breadcrumb */}
-                <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
+                <nav className="flex items-center gap-1.5 text-sm text-muted-foreground mb-6">
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                     <ChevronRight className="h-3 w-3" />
                     <span className="text-foreground font-medium">{categoryTitle}</span>
                 </nav>
 
+                {/* Category Navigation Strip */}
+                <div className="flex gap-2 overflow-x-auto pb-3 mb-8 scrollbar-hide -mx-1 px-1">
+                    {/* Current category — highlighted */}
+                    <Link
+                        href={`/${category}`}
+                        className="flex items-center gap-1.5 shrink-0 rounded-full px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground shadow-sm border border-primary"
+                    >
+                        <span>{CATEGORY_ICONS[category]}</span>
+                        <span>{CATEGORY_LABELS[category]}</span>
+                    </Link>
+                    {/* Other categories */}
+                    {otherCategories.map(cat => (
+                        <Link
+                            key={cat}
+                            href={`/${cat}`}
+                            className="flex items-center gap-1.5 shrink-0 rounded-full px-4 py-2 text-sm font-medium border border-border bg-background hover:border-primary/50 hover:text-primary transition-all duration-200"
+                        >
+                            <span>{CATEGORY_ICONS[cat]}</span>
+                            <span>{CATEGORY_LABELS[cat]}</span>
+                        </Link>
+                    ))}
+                </div>
+
                 {/* Header */}
-                <div className="mb-10">
+                <div className="mb-8">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3">{categoryTitle}</h1>
-                    <p className="text-muted-foreground text-lg max-w-2xl">
+                    <p className="text-muted-foreground text-lg max-w-2xl mb-5">
                         {categoryDescription}
                     </p>
+
+                    {/* Quick Stats Bar */}
+                    <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 bg-background border border-border rounded-full px-3 py-1 text-xs font-medium text-muted-foreground">
+                            <MapPin className="h-3 w-3 text-primary" />
+                            {totalCount} {totalCount === 1 ? 'place' : 'places'}
+                        </span>
+                        {openNowCount > 0 && (
+                            <span className="inline-flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
+                                {openNowCount} open now
+                            </span>
+                        )}
+                        {dealsCount > 0 && (
+                            <span className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1 text-xs font-medium text-amber-600 dark:text-amber-400">
+                                <Tag className="h-3 w-3" />
+                                {dealsCount} {dealsCount === 1 ? 'deal' : 'deals'} available
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 {/* Search & Sort Bar */}
@@ -277,19 +350,27 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                         </div>
 
                         {paginatedListings.length === 0 ? (
-                            <div className="text-center py-16 border border-white/5 rounded-lg bg-white/5">
-                                <p className="text-lg font-medium mb-2">No listings found</p>
-                                <p className="text-muted-foreground mb-4">
-                                    {searchQuery ? `No results for "${searchQuery}"` : 'Try adjusting your filters'}
+                            <div className="flex flex-col items-center justify-center py-20 rounded-2xl border border-border bg-card">
+                                <div className="h-16 w-16 mb-4 rounded-full bg-muted flex items-center justify-center">
+                                    <SearchX className="h-8 w-8 text-muted-foreground" />
+                                </div>
+                                <h3 className="text-xl font-semibold mb-2">No places found</h3>
+                                <p className="text-muted-foreground text-center max-w-xs mb-6">
+                                    {searchQuery ? `No results for "${searchQuery}"` : "Try adjusting your filters"}
                                 </p>
-                                {searchQuery && (
+                                <div className="flex gap-3 flex-wrap justify-center">
+                                    {searchQuery && (
+                                        <Button variant="outline" asChild>
+                                            <a href={`/${category}`}>Clear Search</a>
+                                        </Button>
+                                    )}
                                     <Button variant="outline" asChild>
-                                        <a href={`/${category}`}>Clear search</a>
+                                        <a href="/">Browse All</a>
                                     </Button>
-                                )}
+                                </div>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                            <AnimatedListingGrid className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                                 {paginatedListings.map((listing) => (
                                     <ListingCard
                                         key={listing.id}
@@ -307,7 +388,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                                         deal={listing.deals.length > 0 ? listing.deals[0].title : undefined}
                                     />
                                 ))}
-                            </div>
+                            </AnimatedListingGrid>
                         )}
 
                         {/* Pagination */}

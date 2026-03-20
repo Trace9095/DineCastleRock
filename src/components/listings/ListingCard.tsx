@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Star, MapPin, Sparkles } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
@@ -21,7 +22,7 @@ export function ListingCard({
     name, slug, image, cuisine, price, rating, reviewCount, address, isOpen, deal, isPremium
 }: ListingCardProps) {
     return (
-        <Link href={`/listing/${slug}`} className="block h-full group">
+        <Link href={`/listing/${slug}`} className="block h-full group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-2xl">
             <article className="relative overflow-hidden rounded-2xl bg-card shadow-modern hover:shadow-modern-xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col">
                 {/* Image Section */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -72,11 +73,12 @@ export function ListingCard({
 
                     {/* Image */}
                     {image ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                             src={image}
                             alt={name}
-                            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                            className="object-cover transition-all duration-700 group-hover:scale-110"
                         />
                     ) : (
                         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-orange-500/10 to-amber-500/20 flex items-center justify-center">
@@ -93,10 +95,12 @@ export function ListingCard({
                 {/* Content */}
                 <div className="p-5 flex-1 flex flex-col">
                     {/* Meta info */}
-                    <div className="flex items-center gap-2 mb-3 text-sm">
-                        <span className="font-semibold text-primary">{cuisine}</span>
+                    <div className="flex items-center gap-2 mb-3 text-sm flex-wrap">
+                        <span className="inline-flex items-center rounded-md bg-primary/10 border border-primary/20 px-2 py-0.5 text-xs font-semibold text-primary">
+                            {cuisine}
+                        </span>
                         <span className="text-muted-foreground/50">•</span>
-                        <span className="text-muted-foreground">{price}</span>
+                        <span className="text-muted-foreground font-medium">{price}</span>
                         <span className="text-muted-foreground/50">•</span>
                         <span className="text-muted-foreground">{reviewCount} reviews</span>
                     </div>
@@ -116,7 +120,7 @@ export function ListingCard({
                 </div>
 
                 {/* Hover border glow */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-amber-500/30 group-focus-within:border-amber-500/30 transition-all duration-300 pointer-events-none" />
             </article>
         </Link>
     )
