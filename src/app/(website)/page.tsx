@@ -7,7 +7,6 @@ import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNo
 import { Button } from "@/components/ui/button"
 import { ScrollReveal, GlowBadge } from "@/components/ui/AnimatedUI"
 import { Star, TrendingUp, ArrowRight, Sparkles, Heart } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 export const metadata: Metadata = {
