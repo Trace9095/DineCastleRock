@@ -3,34 +3,9 @@ import { NetworkHeader } from "@/components/shared/NetworkHeader";
 import { NetworkFooter } from "@/components/shared/NetworkFooter";
 import { ConsentAwareAnalytics } from "@/components/shared/consent-aware-analytics";
 import { CookieConsentBanner } from "@/components/shared/cookie-consent-banner";
+import { StructuredData } from "@/components/shared/StructuredData";
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co';
 const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://dinecastlerock.co/#website",
-      "url": "https://dinecastlerock.co/",
-      "name": "Dine Castle Rock",
-      "description": "Dining directory for Castle Rock, Colorado: restaurants, bars, coffee, breweries, deals.",
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://dinecastlerock.co/#org",
-      "name": "Dine Castle Rock",
-      "url": "https://dinecastlerock.co/",
-      "email": "hello@dinecastlerock.co",
-      "sameAs": [
-        "https://visitcastlerock.co/",
-        "https://shopcastlerock.co/"
-      ]
-    }
-  ]
-};
 
 export default function WebsiteLayout({
   children,
@@ -39,10 +14,7 @@ export default function WebsiteLayout({
 }>) {
   const content = (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
+      <StructuredData />
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[#C04E20] focus:text-white focus:underline focus:outline-none focus:ring-2 focus:ring-white">
         Skip to main content
       </a>
