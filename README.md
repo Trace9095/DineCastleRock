@@ -207,7 +207,7 @@ Deployed on [Vercel](https://vercel.com) with automatic production deploys on pu
 | Business Listings | 66 |
 | Cuisine Categories | 17 |
 | Prisma Models | 9 |
-| Version | 1.3.0 |
+| Version | 1.4.1 |
 
 *Stats as of March 2026.*
 
