@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar, ChevronRight } from "lucide-react"
+import { MapPin, Clock, Phone, Globe, Star, Share2, Heart, CheckCircle, AlertCircle, Calendar, ChevronRight, Utensils, Wine } from "lucide-react"
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { getListingBySlug, isOpenNow } from "@/lib/data"
@@ -201,7 +201,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                     className="object-cover hover:scale-105 transition-transform duration-300"
                                 />
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍽️</div>
+                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5"><Utensils className="h-8 w-8 text-primary/40" /></div>
                             )}
                         </div>
                         <div className="relative overflow-hidden bg-muted">
@@ -214,7 +214,7 @@ export default async function ListingPage({ params }: { params: Promise<{ slug: 
                                     className="object-cover hover:scale-105 transition-transform duration-300"
                                 />
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center text-4xl bg-gradient-to-br from-primary/10 to-primary/5">🍷</div>
+                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5"><Wine className="h-8 w-8 text-primary/40" /></div>
                             )}
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Star, MapPin, Sparkles } from "lucide-react"
+import { Star, MapPin, Sparkles, Utensils } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export interface ListingCardProps {
@@ -82,7 +82,7 @@ export function ListingCard({
                         />
                     ) : (
                         <div className="w-full h-full bg-gradient-to-br from-primary/20 via-orange-500/10 to-amber-500/20 flex items-center justify-center">
-                            <span className="text-5xl">🍽️</span>
+                            <Utensils className="h-12 w-12 text-primary/40" />
                         </div>
                     )}
 
