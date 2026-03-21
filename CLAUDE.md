@@ -212,3 +212,54 @@ Additional LLM context is available in the `.claude/` directory:
 | `.claude/ARCHITECTURE.md` | Full directory structure and request flow |
 | `.claude/CONVENTIONS.md` | Code style, naming, design system, git conventions |
 | `SETUP.md` | Service runbook (local dev, env vars, deploy, troubleshooting) |
+
+---
+
+## Session 124 Update (2026-03-20)
+
+### Current Status
+- **Build:** PASSING
+- **Deployment:** LIVE at dinecastlerock.co
+- **Vercel Slug:** `dine-castle-rock`
+- **Version:** 1.4.1
+- **Security:** OWASP audit complete (S121+S122)
+- **Last commit:** `f7bba17` — S122 OWASP audit: Next.js 16.2.0
+
+### Critical Architecture Warning — Route Shadow Bug
+- Root `page.tsx` was shadowing `(website)/page.tsx` route group — FIXED in S117
+- If any scaffold or generator recreates a root `page.tsx`, DELETE it immediately
+- The fix: `fb05f89` (remove duplicate route group) + `00694c9` (audit route shadow cleanup)
+
+### Recent Sessions
+- **S117:** Route shadow deleted. Email FROM de-branding.
+- **S118:** 11 duplicate route conflicts fixed
+- **S121:** OWASP audit — Next.js 16.2.0, security headers added
+- **S122:** Full portfolio security sweep passed
+- **S124:** This CLAUDE.md refresh
+
+### Known Issues / Tech Debt
+1. Database not connected — Prisma schema ready (9 models), no `DATABASE_URL` in Vercel
+2. Admin dashboard is a stub — needs implementation
+3. 83 images (~24MB), some placeholder images need real business photos
+4. Per-page `opengraph-image.tsx` missing from many pages (Gold Standard #37)
+
+### Completed Work (DO NOT REDO)
+- Route shadow fix (root page.tsx deleted) — S117
+- OWASP Top 10 security audit — S121+S122
+- Email FROM de-branding — S117
+- NetworkHeader/NetworkFooter unified across Castle Rock Network — S99
+- Backdrop-blur removed from fixed header
+- Favicon/icons fix (removed `icons` metadata override)
+- AnimatedUI components added
+- Real-time "Open Now" status (America/Denver timezone-aware, handles overnight hours)
+
+## CEO Rules for This Project
+
+1. NEVER show "Epic AI" branding visitor-facing — this is an independent Castle Rock dining directory
+2. De-branding: no "Epic AI" in email FROM names
+3. Castle Rock Network: NetworkHeader/Footer shared with ShopCR + VisCR. Fixed `top-0 z-50` opaque bg (NO backdrop-blur). 44px touch targets. Pages need `pt-16 lg:pt-20`.
+4. Route shadow warning: if a root `page.tsx` appears alongside `(website)/page.tsx`, DELETE the root one.
+5. Prisma schema exists but is NOT wired to DB — do not assume database is connected.
+6. npm is the package manager for this project (not pnpm).
+7. All business data lives in `src/lib/data.ts` (1,771 lines) — never fabricate restaurant info.
+8. RT has NO happy hour — only named daily specials (Margarita Monday, etc.).
