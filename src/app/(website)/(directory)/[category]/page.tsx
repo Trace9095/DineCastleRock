@@ -59,27 +59,6 @@ const CATEGORY_DESCRIPTIONS: Record<string, string> = {
     'activities': 'Adventures, attractions, and entertainment experiences.'
 }
 
-// Category emoji icons for the navigation strip
-const CATEGORY_ICONS: Record<string, string> = {
-    'restaurants': '🍽️',
-    'bars-nightlife': '🍸',
-    'bars': '🍺',
-    'coffee': '☕',
-    'takeout-delivery': '🛵',
-    'dessert': '🍰',
-    'food-trucks': '🚚',
-    'breweries': '🍻',
-    'retail': '🛍️',
-    'auto': '🚗',
-    'wellness': '🧘',
-    'kids': '👨‍👩‍👧‍👦',
-    'gifts': '🎁',
-    'home-services': '🔧',
-    'professional-services': '💼',
-    'beauty': '💅',
-    'pets': '🐾',
-    'activities': '🎯',
-}
 
 interface PageProps {
     params: Promise<{ category: string }>
@@ -264,7 +243,6 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                         href={`/${category}`}
                         className="flex items-center gap-1.5 shrink-0 rounded-full px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground shadow-sm border border-primary"
                     >
-                        <span>{CATEGORY_ICONS[category]}</span>
                         <span>{CATEGORY_LABELS[category]}</span>
                     </Link>
                     {/* Other categories */}
@@ -274,7 +252,6 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                             href={`/${cat}`}
                             className="flex items-center gap-1.5 shrink-0 rounded-full px-4 py-2 text-sm font-medium border border-border bg-background hover:border-primary/50 hover:text-primary transition-all duration-200"
                         >
-                            <span>{CATEGORY_ICONS[cat]}</span>
                             <span>{CATEGORY_LABELS[cat]}</span>
                         </Link>
                     ))}

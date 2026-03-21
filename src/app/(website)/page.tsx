@@ -6,7 +6,7 @@ import { FeaturedSection } from "@/components/home/FeaturedSection"
 import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNow } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal, GlowBadge } from "@/components/ui/AnimatedUI"
-import { Star, TrendingUp, ArrowRight, Sparkles, Heart } from "lucide-react"
+import { Star, TrendingUp, ArrowRight, Sparkles, Heart, Utensils } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -134,7 +134,7 @@ export default function Home() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-[#E85D2B]/20 via-orange-500/10 to-amber-500/20 flex items-center justify-center text-7xl">🍽️</div>
+                      <div className="w-full h-full bg-gradient-to-br from-[#E85D2B]/20 via-orange-500/10 to-amber-500/20 flex items-center justify-center"><Utensils className="h-16 w-16 text-[#E85D2B]/60" /></div>
                     )}
                   </div>
 
