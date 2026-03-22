@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, use } from "react"
+import { trackEvent } from "@/lib/analytics"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -57,10 +58,12 @@ export default function ClaimPage({ params }: { params: Promise<{ slug: string }
                 throw new Error('Failed to submit claim')
             }
 
+            trackEvent('claim_listing', { city: 'Castle Rock', listing_slug: slug })
             setIsSuccess(true)
         } catch (error) {
             console.error('Error submitting claim:', error)
             // Still show success for now (demo mode)
+            trackEvent('claim_listing', { city: 'Castle Rock', listing_slug: slug })
             setIsSuccess(true)
         } finally {
             setIsLoading(false)

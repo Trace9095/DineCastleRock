@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://dinecastlerock.co';
@@ -92,6 +95,9 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="font-sans antialiased min-h-screen flex flex-col bg-background text-foreground">
         {children}
+        <GoogleAnalytics />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
