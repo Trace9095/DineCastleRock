@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { MapPin, Heart, Star, Users, Mail, TrendingUp, Shield } from "lucide-react"
+import { MapPin, Heart, Star, Users, Mail, TrendingUp, Shield, Car, Plane, Clock } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -180,6 +180,68 @@ export default function AboutPage() {
                     </a>
                 </div>
             </div>
+
+            {/* Getting to Castle Rock */}
+            <div className="container max-w-4xl mx-auto px-4 py-16">
+                <div className="flex items-center gap-3 mb-8">
+                    <Car className="h-6 w-6 text-[#E85D2B]" />
+                    <h2 className="text-3xl font-bold">Getting to Castle Rock</h2>
+                </div>
+                <p className="text-muted-foreground text-lg mb-8">
+                    Castle Rock is conveniently located between Denver and Colorado Springs, making it easy to reach
+                    from both major airports — and a perfect launching point for a day trip south to the Royal Gorge.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center shrink-0">
+                                <Plane className="h-5 w-5 text-blue-400" />
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-white mb-1">Denver International (DEN)</h3>
+                                <div className="flex items-center gap-1.5 text-sm text-white/50 mb-3">
+                                    <Clock className="h-3.5 w-3.5" />
+                                    <span>30 minutes north of Castle Rock</span>
+                                </div>
+                                <p className="text-sm text-white/60">
+                                    Colorado&apos;s busiest airport. Take I-25 South directly to Castle Rock —
+                                    then continue another 1.5 hours to reach the Royal Gorge dining scene.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                        <div className="flex items-start gap-4">
+                            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0">
+                                <Plane className="h-5 w-5 text-emerald-400" />
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-white mb-1">Colorado Springs (COS)</h3>
+                                <div className="flex items-center gap-1.5 text-sm text-white/50 mb-3">
+                                    <Clock className="h-3.5 w-3.5" />
+                                    <span>1 hour south of Castle Rock</span>
+                                </div>
+                                <p className="text-sm text-white/60">
+                                    A smaller, less congested option. Only 45 minutes from Royal Gorge via US-50 West —
+                                    ideal if Canon City dining is your primary destination.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-sm text-white/50">
+                    <MapPin className="inline h-3.5 w-3.5 mr-1.5 text-[#E85D2B]" />
+                    Castle Rock is off I-25 between Denver and Pueblo. From here, Royal Gorge restaurants (WhiteWater Bar &amp; Grill, Rooftop Social) are a scenic 1.5-hour drive south.{" "}
+                    <Link href="/itineraries" className="text-[#E85D2B] hover:text-[#C04E20] transition-colors">
+                        See our day trip itinerary.
+                    </Link>
+                </div>
+            </div>
+
+            <Separator />
 
             {/* Contact Section */}
             <div className="bg-gradient-to-br from-[#E85D2B]/15 via-[#0a0a14] to-[#E85D2B]/10 border-y border-white/5 text-white py-16">

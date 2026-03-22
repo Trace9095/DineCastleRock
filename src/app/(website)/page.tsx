@@ -6,7 +6,7 @@ import { FeaturedSection } from "@/components/home/FeaturedSection"
 import { getTrendingListings, getDateNightListings, getFeaturedListing, isOpenNow } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { ScrollReveal, GlowBadge } from "@/components/ui/AnimatedUI"
-import { Star, TrendingUp, ArrowRight, Sparkles, Heart, Utensils } from "lucide-react"
+import { Star, TrendingUp, ArrowRight, Sparkles, Heart, Utensils, MapPin, Clock, ExternalLink, Phone, Mountain } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
@@ -202,6 +202,176 @@ export default function Home() {
             link="/guides/date-night"
             linkText="View Date Night Guide"
           />
+        </ScrollReveal>
+
+        {/* Royal Gorge Day Trip Cross-Promotion */}
+        <ScrollReveal delay={300}>
+          <section className="py-24 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a14] via-[#12121a] to-[#0a0a14]" />
+            <div className="absolute top-20 right-10 w-80 h-80 bg-amber-600/8 rounded-full blur-3xl" />
+            <div className="absolute bottom-10 left-10 w-64 h-64 bg-[#E85D2B]/8 rounded-full blur-3xl" />
+
+            <div className="container max-w-7xl mx-auto px-4 relative z-10">
+              {/* Header */}
+              <div className="text-center mb-14">
+                <div className="flex justify-center mb-5">
+                  <GlowBadge className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-5 py-2 gap-2">
+                    <Clock className="w-4 h-4 text-amber-400" />
+                    <span className="text-sm font-semibold text-white">1.5 hrs from Castle Rock</span>
+                  </GlowBadge>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  Plan a Day Trip — Castle Rock to Royal Gorge
+                </h2>
+                <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                  1.5 hours via I-25 South + CO-115. World-class adventure and dining await in Canon City.
+                </p>
+              </div>
+
+              {/* Dining Cards */}
+              <div className="mb-6">
+                <div className="flex items-center gap-2 mb-5">
+                  <Utensils className="h-5 w-5 text-[#E85D2B]" />
+                  <h3 className="text-lg font-semibold text-white">Royal Gorge Dining</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-5">
+                  {/* WhiteWater Bar & Grill */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#E85D2B]/30 transition-colors group">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 rounded-xl bg-[#E85D2B]/15 flex items-center justify-center">
+                          <Utensils className="h-5 w-5 text-[#E85D2B]" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white">WhiteWater Bar &amp; Grill</h4>
+                          <span className="text-xs text-white/50">Riverside Dining</span>
+                        </div>
+                      </div>
+                      <a
+                        href="https://whitewaterbar.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/40 hover:text-[#E85D2B] transition-colors"
+                        aria-label="Visit WhiteWater Bar and Grill website"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                    <p className="text-white/60 text-sm mb-4">
+                      Riverside dining with bar, burgers, and outdoor seating. The go-to spot for lunch after a morning adventure.
+                    </p>
+                    <div className="space-y-1.5 text-sm">
+                      <div className="flex items-center gap-2 text-white/50">
+                        <MapPin className="h-3.5 w-3.5 shrink-0" />
+                        <span>45045 Hwy 50 West, Canon City</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/50">
+                        <Phone className="h-3.5 w-3.5 shrink-0" />
+                        <a href="tel:+17192691009" className="hover:text-white/80 transition-colors">(719) 269-1009</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Rooftop Social */}
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#E85D2B]/30 transition-colors group">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center">
+                          <Utensils className="h-5 w-5 text-amber-400" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white">Rooftop Social</h4>
+                          <span className="text-xs text-white/50">Rooftop Bar &amp; Restaurant</span>
+                        </div>
+                      </div>
+                      <a
+                        href="https://wwrooftopsocial.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/40 hover:text-amber-400 transition-colors"
+                        aria-label="Visit Rooftop Social website"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                    <p className="text-white/60 text-sm mb-4">
+                      Rooftop bar and restaurant with views. Perfect for dinner after your Royal Gorge adventure — craft cocktails and elevated bites.
+                    </p>
+                    <div className="space-y-1.5 text-sm">
+                      <div className="flex items-center gap-2 text-white/50">
+                        <MapPin className="h-3.5 w-3.5 shrink-0" />
+                        <span>302 Royal Gorge Blvd, Canon City</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/50">
+                        <Phone className="h-3.5 w-3.5 shrink-0" />
+                        <a href="tel:+17194517241" className="hover:text-white/80 transition-colors">(719) 451-7241</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Adventure Cards */}
+              <div className="mb-10">
+                <div className="flex items-center gap-2 mb-5">
+                  <Mountain className="h-5 w-5 text-white/60" />
+                  <h3 className="text-lg font-semibold text-white/80">While You&apos;re There</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-white/3 border border-white/8 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-white/80 text-sm">Royal Gorge Rafting</h4>
+                      <div className="flex items-center gap-2 text-white/40 text-xs mt-1">
+                        <Phone className="h-3 w-3" />
+                        <span>(719) 275-7238</span>
+                      </div>
+                    </div>
+                    <a
+                      href="https://royalgorgerafting.net"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/30 hover:text-white/70 transition-colors"
+                      aria-label="Royal Gorge Rafting website"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                  <div className="bg-white/3 border border-white/8 rounded-xl p-5 flex items-center justify-between">
+                    <div>
+                      <h4 className="font-medium text-white/80 text-sm">Royal Gorge Zipline Tours</h4>
+                      <div className="flex items-center gap-2 text-white/40 text-xs mt-1">
+                        <Phone className="h-3 w-3" />
+                        <span>(719) 275-7238</span>
+                      </div>
+                    </div>
+                    <a
+                      href="https://royalgorgeziplinetours.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/30 hover:text-white/70 transition-colors"
+                      aria-label="Royal Gorge Zipline Tours website"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="text-center">
+                <Button
+                  size="lg"
+                  asChild
+                  className="rounded-full px-8 py-5 font-semibold bg-[#C04E20] hover:bg-[#A84118] text-white shadow-lg shadow-[#C04E20]/20 transition-all hover:scale-105"
+                >
+                  <Link href="/itineraries">
+                    View Full Day Trip Itinerary
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </section>
         </ScrollReveal>
       </div>
     </>

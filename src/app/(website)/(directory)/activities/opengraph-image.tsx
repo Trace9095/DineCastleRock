@@ -76,9 +76,11 @@ export default async function Image() {
                                 justifyContent: 'center',
                                 fontSize: '48px',
                                 boxShadow: '0 20px 60px rgba(6,182,212,0.4)',
+                                color: '#22d3ee',
+                                fontWeight: 700,
                             }}
                         >
-                            🎉
+                            CR
                         </div>
                     </div>
 
