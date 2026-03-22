@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     title: "Dine Castle Rock | Castle Rock's Premier Dining Guide",
     description: "Find the best restaurants in Castle Rock, Colorado — local dining, cafes, bars, and eateries curated for residents and visitors.",
     url: "https://dinecastlerock.co",
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: "Dine Castle Rock - Castle Rock's Premier Dining Guide" }],
   },
 }
 
