@@ -85,7 +85,7 @@ export const metadata: Metadata = {
   },
   category: "Food & Drink",
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    google: '7jc12-lVG5f_urymoqzGqftRCjj_5iFngU0PSXzXdPI',
   },
 };
 
